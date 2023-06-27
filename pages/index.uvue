@@ -1,0 +1,185 @@
+<template>
+  <view class="uni-container">
+    <view class="uni-panel" v-for="(item, index) in list" :key="item.id">
+      <view class="uni-panel-h" @click="triggerCollapse(item, index)">
+        <text class="uni-panel-text">{{item.name}}</text>
+        <!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
+      </view>
+      <view class="uni-panel-c" v-if="item.open">
+        <view class="uni-navigate-item" v-for="(page,key) in item.pages" :key="key" @click="goDetailPage(page)">
+          <text class="uni-navigate-text">{{page}}</text>
+          <!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script lang="ts">
+  const STORAGE_KEY_PREFIX = 'INDEX-STATUS'
+  let storageData : Array<string> = []
+
+  type ListItem = {
+    id : string,
+    name : string,
+    open : boolean,
+    pages : string[]
+  }
+
+  export default {
+    data() {
+      return {
+        list: [
+          {
+            id: 'lifecycle',
+            name: '生命周期',
+            open: false,
+            pages: [
+              'beforeCreate',
+              'created',
+              'beforeMount',
+              'mounted',
+              // 'beforeUpdate',
+              // 'updated',
+              'beforeUnmount',
+              'unmounted',
+              'activated',
+              'deactivated',
+            ]
+          },
+          {
+            id: 'directives',
+            name: '指令',
+            open: false,
+            pages: [
+              'v-for',
+              'v-if',
+              'v-show',
+              'v-on',
+              'v-bind',
+              'v-model',
+              'v-slot',
+              // 'v-pre',
+              'v-once',
+              // 'v-memo',
+              // 'v-cloak'
+            ]
+          },
+          {
+            id: 'state',
+            name: '状态',
+            open: false,
+            pages: [
+              'data',
+              'props',
+              'computed',
+              'methods',
+              'watch'
+            ]
+          },
+          {
+            id: 'rendering',
+            name: '渲染选项',
+            open: false,
+            pages: ['template', 'render', 'slots']
+          },
+          {
+            id: 'component-instance',
+            name: '组件实例',
+            open: false,
+            pages: [
+              '$data',
+              '$props',
+              '$el',
+              '$options',
+              '$parent',
+              '$root',
+              '$slots',
+              '$refs',
+              '$attrs',
+              '$watch()',
+              '$emit()',
+              '$forceUpdate()',
+              '$nextTick()'
+            ]
+          },
+          {
+            id: 'composition',
+            name: '组合选项',
+            open: false,
+            pages: [
+              'provide',
+              'inject',
+              'mixins',
+              'extends'
+            ]
+          }
+        ] as ListItem[]
+      }
+    },
+    onLoad() {
+      // uni.getStorage({
+      //   key: STORAGE_KEY_PREFIX,
+      //   success: function (res) {
+      //     console.log("121212")
+      //     storageData = JSON.parse(res.data as string) as Array<string>
+      //     console.log(storageData)
+      //     for (let i = 0; i < this.list.length; ++i) {
+      //       const item = this.list[i]
+      //       if (storageData.includes(item.id)) {
+      //         item.open = true
+      //       }
+      //     }
+      //   }
+      // })
+    },
+    methods: {
+      triggerCollapse(item : ListItem, index : number) {
+        this.list[index].open = !this.list[index].open
+
+        // const id = item.id
+        // const value = this.list[index].open
+
+        // if (value) {
+        //   storageData.push(id)
+        // } else {
+        //   const index2: number = storageData.indexOf(id)
+        //   if (index2 > -1) {
+        //     storageData.splice(index2, 1)
+        //   }
+        // }
+
+        // uni.setStorage({
+        //   key: STORAGE_KEY_PREFIX,
+        //   data: storageData
+        // })
+      },
+      goDetailPage(e : string) {
+        uni.navigateTo({
+          url: `/pages/${e}/${e}`
+        })
+      }
+    }
+  }
+</script>
+
+<style>
+  .arrow {
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #ccc;
+    border-left: 2px solid #ccc;
+  }
+
+  .arrow-right {
+    transform: rotate(135deg);
+  }
+
+  .arrow-up {
+    transform: rotate(45deg);
+  }
+
+  .arrow-down {
+    transform: rotate(-135deg);
+  }
+</style>
