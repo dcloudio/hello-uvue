@@ -1,6 +1,6 @@
-const PAGE_PATH = '/pages/v-for/v-for'
+const PAGE_PATH = '/pages/v-slot/v-slot'
 
-describe('v-for', () => {
+describe('v-slot', () => {
   let page
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

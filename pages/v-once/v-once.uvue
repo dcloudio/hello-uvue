@@ -1,0 +1,21 @@
+<template>
+  <view class="page">
+    <view class="split-title">v-once</view>
+    <view class="v-once" v-once>This will never change: {{msg}}</view>
+  </view>
+</template>
+
+<script lang="ts">
+  export default {
+    data() {
+      return {
+        msg: ''
+      }
+    },
+    methods: {
+    }
+  }
+</script>
+
+<style>
+</style>

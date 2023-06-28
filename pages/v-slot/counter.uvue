@@ -1,0 +1,27 @@
+<template>
+  <view>
+    <slot :loading="loading" :error="errorMessage" />
+  </view>
+</template>
+
+<script lang="ts">
+  export default {
+    props: {
+      number: {
+        type: Number,
+        default: 0
+      }
+    },
+    data() {
+      return {
+        loading: false,
+        hasMore: false,
+        errorMessage: ''
+      }
+    },
+    created() {
+    },
+    methods: {
+    }
+  }
+</script>

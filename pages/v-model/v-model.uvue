@@ -1,0 +1,42 @@
+<template>
+  <view class="page">
+    <view class="split-title">input</view>
+    <input class="input" v-model="inputValue" />
+    <text class="input-value">{{inputValue}}</text>
+
+    <view class="split-title">button</view>
+    <view>
+      <button type="default" @click="countPlus">+1</button>
+      <!-- TODO -->
+      <!-- <counter v-model:number="count"></counter> -->
+    </view>
+  </view>
+</template>
+
+<script lang="ts">
+  // import counter from "./counter.uvue"
+  export default {
+    // components: {
+    //   counter
+    // },
+    data() {
+      return {
+        inputValue: '',
+        count: 0
+      }
+    },
+    methods: {
+      countPlus() {
+        this.count++;
+      }
+    }
+  }
+</script>
+
+<style>
+  .input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+</style>

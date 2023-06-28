@@ -121,7 +121,6 @@
       // uni.getStorage({
       //   key: STORAGE_KEY_PREFIX,
       //   success: function (res) {
-      //     console.log("121212")
       //     storageData = JSON.parse(res.data as string) as Array<string>
       //     console.log(storageData)
       //     for (let i = 0; i < this.list.length; ++i) {
@@ -134,7 +133,7 @@
       // })
     },
     methods: {
-      triggerCollapse(item : ListItem, index : number) {
+      triggerCollapse(_ : ListItem, index : number) {
         this.list[index].open = !this.list[index].open
 
         // const id = item.id

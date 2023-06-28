@@ -6,6 +6,12 @@
       }
     },
     {
+      "path": "pages/v-bind/v-bind",
+      "style": {
+        "navigationBarTitleText": "v-bind"
+      }
+    },
+    {
       "path": "pages/v-for/v-for",
       "style": {
         "navigationBarTitleText": "v-for"
@@ -15,6 +21,36 @@
       "path": "pages/v-if/v-if",
       "style": {
         "navigationBarTitleText": "v-if"
+      }
+    },
+    {
+      "path": "pages/v-model/v-model",
+      "style": {
+        "navigationBarTitleText": "v-model"
+      }
+    },
+    {
+      "path": "pages/v-on/v-on",
+      "style": {
+        "navigationBarTitleText": "v-on"
+      }
+    },
+    {
+      "path": "pages/v-once/v-once",
+      "style": {
+        "navigationBarTitleText": "v-once"
+      }
+    },
+    {
+      "path": "pages/v-show/v-show",
+      "style": {
+        "navigationBarTitleText": "v-show"
+      }
+    },
+    {
+      "path": "pages/v-slot/v-slot",
+      "style": {
+        "navigationBarTitleText": "v-slot"
       }
     }
   ],

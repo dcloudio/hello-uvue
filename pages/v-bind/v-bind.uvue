@@ -1,0 +1,22 @@
+<template>
+  <view class="page">
+    <view class="split-title">v-bind</view>
+    <button :disabled="isButtonDisabled">Button</button>
+    <button v-bind:disabled="isButtonDisabled">Button</button>
+  </view>
+</template>
+
+<script lang="ts">
+  export default {
+    data() {
+      return {
+        isButtonDisabled: true
+      }
+    },
+    methods: {
+    }
+  }
+</script>
+
+<style>
+</style>
