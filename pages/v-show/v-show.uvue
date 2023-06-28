@@ -1,8 +1,8 @@
 <template>
   <view class="page">
-    <view class="split-title">v-show</view>
-    <button @click="onShowOrHide">show/hide</button>
-    <view v-show="show">hello</view>
+    <view class="split-title">button:click</view>
+    <button class="toggle" @click="onShowOrHide">show/hide</button>
+    <view class="hello" v-show="show">hello</view>
   </view>
 </template>
 
