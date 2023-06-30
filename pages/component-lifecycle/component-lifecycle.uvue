@@ -1,0 +1,19 @@
+<template>
+	<view class="page">
+		<text>component lifecycle</text>
+		<component-lifecycle class="component-lifecycle" />
+	</view>
+</template>
+
+<script lang="ts">
+import ComponentLifecycle from '../../components/Lifecycle.uvue'
+import { state } from '../../store/index.uts'
+export default {
+	components: { ComponentLifecycle },
+	methods: {
+		getLifeCycleNum(): number {
+			return state.lifeCycleNum
+		}
+	},
+}
+</script>

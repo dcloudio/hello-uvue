@@ -1,0 +1,54 @@
+<template>
+	<view>
+		<text>{{title}}</text>
+	</view>
+</template>
+
+<script lang="ts">
+import { state, setLifeCycleNum } from '../store/index.uts'
+export default {
+	name: 'ComponentLifecycle',
+	data(){
+		return {
+			title: 'component for lifecycle test'
+		}
+	},
+	beforeCreate() {
+		setLifeCycleNum(state.lifeCycleNum + 1)
+		console.log('component for lifecycle test beforeCreate')
+	},
+	created() {
+		setLifeCycleNum(state.lifeCycleNum + 1)
+		console.log('component for lifecycle test created')
+	},
+	beforeMount() {
+		setLifeCycleNum(state.lifeCycleNum + 1)
+		console.log('component for lifecycle test beforeMount')
+	},
+	mounted() {
+		setLifeCycleNum(state.lifeCycleNum + 1)
+		console.log('component for lifecycle test mounted')
+	},
+	beforeUpdate() {
+		setLifeCycleNum(state.lifeCycleNum + 1)
+		console.log('component for lifecycle test beforeUpdate')
+	},
+	updated() {
+		setLifeCycleNum(state.lifeCycleNum + 1)
+		console.log('component for lifecycle test updated')
+	},
+	beforeUnmount() {
+		setLifeCycleNum(state.lifeCycleNum - 1)
+		console.log('component for lifecycle test beforeUnmount')
+	},
+	unmounted() {
+		setLifeCycleNum(state.lifeCycleNum - 1)
+		console.log('component for lifecycle test unmounted')
+	},
+	methods: {
+		getLifeCycleNum(): number {
+			return state.lifeCycleNum
+		}
+	},
+}
+</script>

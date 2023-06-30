@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-  import { state } from '../store/index.uts'
+  import { setLifeCycleNum, state } from '../store/index.uts'
   const STORAGE_KEY_PREFIX = 'INDEX-STATUS'
   let storageData : Array<string> = []
 
@@ -51,7 +51,8 @@
             name: '生命周期',
             open: false,
             pages: [
-              'page-lifecycle'
+              'page-lifecycle',
+              'component-lifecycle'
             ].map(createPageItem())
           },
           {
@@ -165,6 +166,10 @@
           url: e.path
         })
       },
+			setLifeCycleNum(num: number){
+				console.warn('index setLifeCycleNum', num)
+				setLifeCycleNum(num)
+			},
       getLifeCycleNum(): number {
         return state.lifeCycleNum
       },

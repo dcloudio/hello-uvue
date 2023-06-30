@@ -52,10 +52,17 @@
       "style": {
         "navigationBarTitleText": "v-slot"
       }
-    },{
+    },
+    {
       "path": "pages/page-lifecycle/page-lifecycle",
       "style": {
         "navigationBarTitleText": "page-lifecycle"
+      }
+    },
+    {
+      "path": "pages/component-lifecycle/component-lifecycle",
+      "style": {
+        "navigationBarTitleText": "component-lifecycle"
       }
     },
     {
