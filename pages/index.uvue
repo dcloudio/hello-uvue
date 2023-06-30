@@ -6,7 +6,7 @@
         <!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
       </view>
       <view class="uni-panel-c" v-if="item.open">
-        <view class="uni-navigate-item" v-for="(page,key) in item.pages" :key="key" @click="goDetailPage(page)">
+        <view class="uni-navigate-item" v-for="(page,key) in item.pages" :key="key" @click="goDetailPage(page,item.id)">
           <text class="uni-navigate-text">{{page}}</text>
           <!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
         </view>
@@ -153,10 +153,17 @@
         //   data: storageData
         // })
       },
-      goDetailPage(e : string) {
-        uni.navigateTo({
-          url: `/pages/${e}/${e}`
-        })
+      goDetailPage(e : string, id : string) {
+        console.log('goDetailPage', e, id);
+        if (id == 'state') {
+          uni.navigateTo({
+            url: `/pages/${id}/${e}/${e}`
+          })
+        } else {
+          uni.navigateTo({
+            url: `/pages/${e}/${e}`
+          })
+        }
       }
     }
   }

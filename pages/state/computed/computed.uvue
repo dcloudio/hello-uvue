@@ -1,0 +1,42 @@
+<template>
+  <view class="content">
+    <text>变量a的值:{{a}}</text>
+    <text>变量b的值:{{b}}</text>
+    <view class="row">
+      <text>computed中返回a+b的值：</text>
+      <text id="computedNum">{{computedNum}}</text>
+    </view>
+    <button @click="addB" size="mini" type="primary">给变量b的值+1</button>
+  </view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        a: 1,
+        b: 2
+      }
+    },
+    computed: {
+      computedNum(): number {
+        return this.a + this.b
+      }
+    },
+    methods: {
+      addB() {
+        this.b++
+      }
+    }
+  }
+</script>
+
+<style>
+  .content {
+    padding: 5px;
+  }
+
+  .row {
+    flex-direction: row;
+  }
+</style>
