@@ -1,0 +1,52 @@
+<template>
+  <view class="page">
+    <view class="row">初始值: <text>1</text></view>
+    <view class="row">data.val: <text class="val">{{val}}</text></view>
+    <view class="row">data._val: <text class="_val">{{_val}}</text></view>
+    <view class="row">data.$val: <text class="$val">{{$val}}</text></view>
+    <view class="buttons">
+      <button class="btn plus" @click="click(1)">增加</button>
+      <button class="btn minus" @click="click(-1)">减少</button>
+    </view>
+  </view>
+</template>
+
+<script lang="ts">
+export default {
+  data () {
+    return {
+      val: 1,
+      _val: 1,
+      $val: 1
+    }
+  },
+  methods: {
+    click (num: number) {
+      this.val += num
+      this._val += num
+      this.$val += num
+    }
+  }
+}
+</script>
+
+<style>
+  .page {
+    font-size: 16px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  .btn {
+    flex: 1;
+    margin: 0 5px;
+  }
+</style>

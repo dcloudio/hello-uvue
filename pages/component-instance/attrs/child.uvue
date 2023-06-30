@@ -1,0 +1,43 @@
+<template>
+  <view>
+    <view class="row">
+      <text>hasPropsAttrs</text>
+      <text>{{ hasPropsAttrs }}</text>
+    </view>
+    <view class="row">
+      <text>hasEmitsAttr</text>
+      <text>{{ hasEmitsAttr }}</text>
+    </view>
+    <view class="row">
+      <text>hasAttrs</text>
+      <text>{{ hasAttrs }}</text>
+    </view>
+  </view>
+</template>
+
+<script lang="ts">
+export default {
+  emits: ['result'],
+  props: {
+    val: {
+      type: String,
+      default: "default value"
+    }
+  },
+  computed: {
+    hasPropsAttrs (): boolean {
+      return this.$attrs.has('val')
+    },
+    hasEmitsAttr (): boolean {
+      return this.$attrs.has('result')
+    },
+    hasAttrs (): boolean {
+      return this.$attrs.has('class')
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

@@ -1,0 +1,17 @@
+<script>
+export default {
+  data () {
+    return {
+      value: "child value"
+    }
+  }
+}
+</script>
+
+<template>
+
+</template>
+
+<style scoped>
+
+</style>

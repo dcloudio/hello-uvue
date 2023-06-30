@@ -1,0 +1,30 @@
+<template>
+  <view class="page">
+    <view class="row">rootIsApp: <text>{{isApp}}</text></view>
+  </view>
+</template>
+
+<script lang="ts">
+export default {
+  data () {
+    return {
+      isApp: false
+    }
+  },
+  mounted () {
+    // this.isApp = this.$root.app
+  }
+}
+</script>
+
+<style>
+  .page {
+    font-size: 16px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+</style>

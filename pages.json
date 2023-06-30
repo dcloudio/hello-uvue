@@ -57,6 +57,84 @@
       "style": {
         "navigationBarTitleText": "page-lifecycle"
       }
+    },
+    {
+      "path": "pages/component-instance/data/data",
+      "style": {
+        "navigationBarTitleText": "$data"
+      }
+    },
+    {
+      "path": "pages/component-instance/props/props",
+      "style": {
+        "navigationBarTitleText": "$props"
+      }
+    },
+    {
+      "path": "pages/component-instance/el/el",
+      "style": {
+        "navigationBarTitleText": "$el"
+      }
+    },
+    {
+      "path": "pages/component-instance/options/options",
+      "style": {
+        "navigationBarTitleText": "$options"
+      }
+    },
+    {
+      "path": "pages/component-instance/parent/parent",
+      "style": {
+        "navigationBarTitleText": "$parent"
+      }
+    },
+    {
+      "path": "pages/component-instance/root/root",
+      "style": {
+        "navigationBarTitleText": "$root"
+      }
+    },
+    {
+      "path": "pages/component-instance/slots/slots",
+      "style": {
+        "navigationBarTitleText": "$slots"
+      }
+    },
+    {
+      "path": "pages/component-instance/refs/refs",
+      "style": {
+        "navigationBarTitleText": "$refs"
+      }
+    },
+    {
+      "path": "pages/component-instance/attrs/attrs",
+      "style": {
+        "navigationBarTitleText": "$attrs"
+      }
+    },
+    {
+      "path": "pages/component-instance/watch-function/watch-function",
+      "style": {
+        "navigationBarTitleText": "$watch()"
+      }
+    },
+    {
+      "path": "pages/component-instance/emit-function/emit-function",
+      "style": {
+        "navigationBarTitleText": "$emit()"
+      }
+    },
+    {
+      "path": "pages/component-instance/forceUpdate-function/forceUpdate-function",
+      "style": {
+        "navigationBarTitleText": "$forceUpdate()"
+      }
+    },
+    {
+      "path": "pages/component-instance/nextTick-function/nextTick-function",
+      "style": {
+        "navigationBarTitleText": "$nextTick()"
+      }
     }
   ],
   "globalStyle": {

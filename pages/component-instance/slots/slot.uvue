@@ -1,0 +1,26 @@
+<template>
+  <view>
+    <slot name="header"></slot>
+    <slot name="footer"></slot>
+  </view>
+</template>
+
+<script lang="ts">
+export default {
+  mounted () {
+    console.log(this.hasSlots())
+  },
+  methods: {
+    hasSlots (): boolean {
+      const header = this.$slots.get('header')
+      const footer = this.$slots.get('footer')
+
+      return header !== null && footer !== null
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

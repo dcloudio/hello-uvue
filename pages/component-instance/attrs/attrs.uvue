@@ -1,0 +1,35 @@
+<template>
+  <view class="page">
+    <child
+        class="child-class"
+        style="color: red;"
+        id="child-id"
+        data-id="data-id"
+        val="val"
+        @result="() => {}"
+        name="child"
+    ></child>
+  </view>
+</template>
+
+<script lang="ts">
+import child from './child.uvue'
+
+export default {
+  components: {
+    child
+  }
+}
+</script>
+
+<style>
+  .page {
+    font-size: 16px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+</style>
