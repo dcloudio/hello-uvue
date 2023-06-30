@@ -1,0 +1,27 @@
+<template>
+	<view class="container">
+		<view>
+			<slot name="header"></slot>
+		</view>
+		<view>
+			<slot></slot>
+		</view>
+		<view>
+			<slot name="footer"></slot>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		name:"child",
+		data() {
+			return {}
+		},
+		methods: {}
+	}
+</script>
+
+<style>
+
+</style>

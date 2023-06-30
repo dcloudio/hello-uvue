@@ -89,7 +89,10 @@
             id: 'rendering',
             name: '渲染选项',
             open: false,
-            pages: ['template', 'render', 'slots'].map(createPageItem('rendering'))
+            pages: [
+					'template', 
+					// 'render', 
+					'slots'].map(createPageItem('rendering'))
           },
           {
             id: 'component-instance',

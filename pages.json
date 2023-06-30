@@ -174,7 +174,21 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
-    }
+    },
+	 {
+	   "path": "pages/rendering/slots/slots",
+	   "style": {
+	     "navigationBarTitleText": "slots",
+	     "enablePullDownRefresh": false
+	   }
+	 },
+	 {
+	   "path": "pages/rendering/template/template",
+	   "style": {
+	     "navigationBarTitleText": "template",
+	     "enablePullDownRefresh": false
+	   }
+	 }
   ],
   "globalStyle": {
     "pageOrientation": "portrait",
