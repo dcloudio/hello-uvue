@@ -52,6 +52,11 @@
       "style": {
         "navigationBarTitleText": "v-slot"
       }
+    },{
+      "path": "pages/page-lifecycle/page-lifecycle",
+      "style": {
+        "navigationBarTitleText": "page-lifecycle"
+      }
     }
   ],
   "globalStyle": {

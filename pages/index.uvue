@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts">
+  import { state } from '../store/index.uts'
   const STORAGE_KEY_PREFIX = 'INDEX-STATUS'
   let storageData : Array<string> = []
 
@@ -35,16 +36,7 @@
             name: '生命周期',
             open: false,
             pages: [
-              'beforeCreate',
-              'created',
-              'beforeMount',
-              'mounted',
-              // 'beforeUpdate',
-              // 'updated',
-              'beforeUnmount',
-              'unmounted',
-              'activated',
-              'deactivated',
+              'page-lifecycle',
             ]
           },
           {
@@ -157,7 +149,10 @@
         uni.navigateTo({
           url: `/pages/${e}/${e}`
         })
-      }
+      },
+      getLifeCycleNum(): number {
+        return state.lifeCycleNum
+      },
     }
   }
 </script>
