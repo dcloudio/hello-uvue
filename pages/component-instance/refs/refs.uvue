@@ -1,0 +1,31 @@
+<template>
+  <view class="page">
+    <view ref="node">NodeRef</view>
+<!--    <child ref="component">ComponentRef</child>-->
+  </view>
+</template>
+
+<script lang="ts">
+// import child from './child.uvue'
+
+export default {
+  // components: {
+  //   child
+  // },
+  mounted () {
+   console.log(this.$refs)
+  }
+}
+</script>
+
+<style>
+  .page {
+    font-size: 16px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+</style>

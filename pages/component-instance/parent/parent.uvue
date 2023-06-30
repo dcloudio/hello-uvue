@@ -1,0 +1,34 @@
+<template>
+  <view class="page">
+    <child></child>
+  </view>
+</template>
+
+<script lang="ts">
+import child from './child.uvue'
+
+export default {
+  components: {
+    child
+  },
+  data () {
+    return {
+      value: "parent"
+    }
+  },
+  methods: {
+    testFunction (): string {
+      return "parentFunctionResult"
+    }
+  }
+}
+</script>
+
+<style>
+  .page {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+</style>

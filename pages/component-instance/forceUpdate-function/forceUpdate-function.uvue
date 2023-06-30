@@ -1,0 +1,37 @@
+<template>
+  <view class="page">
+    <view class="row">
+      <text>不支持 $forceUpdate()</text>
+    </view>
+  </view>
+</template>
+
+<script lang="ts">
+type Obj = {
+  key: string
+}
+export default {
+  data () {
+    return {
+      // obj: {} as Obj
+    }
+  },
+  mounted () {
+    // this.obj.key = 'value'
+    // console.log(this.$forceUpdate)
+  }
+}
+</script>
+
+<style>
+.page {
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+</style>

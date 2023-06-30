@@ -1,0 +1,48 @@
+<template>
+  <view class="page">
+    <check-type
+        str="abcd"
+        :num="12345"
+        :bool="true"
+    ></check-type>
+<!--    <view>简易类型</view>-->
+<!--    <simple-->
+<!--        str="abcd"-->
+<!--        :num="12345"-->
+<!--        :bool="true"-->
+<!--    ></simple>-->
+  </view>
+</template>
+
+<script lang="ts">
+import checkType from "./check-type.uvue";
+// import simple from "./simple.uvue";
+
+export default {
+  components: {
+    checkType,
+    // simple
+  }
+}
+</script>
+
+<style>
+  .page {
+    font-size: 16px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  .btn {
+    flex: 1;
+    margin: 0 5px;
+  }
+</style>

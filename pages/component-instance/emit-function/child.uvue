@@ -1,0 +1,20 @@
+<template>
+  <view>
+    <button @click="click">调用父组件事件</button>
+  </view>
+</template>
+
+<script lang="ts">
+export default {
+  emits: ['callback'],
+  methods: {
+    click () {
+      this.$emit('callback', 'string', `${Date.now()}`)
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

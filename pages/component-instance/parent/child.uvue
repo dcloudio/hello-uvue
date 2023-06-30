@@ -1,0 +1,27 @@
+<template>
+  <view class="child">
+    <view>{{value}}</view>
+  </view>
+</template>
+
+<script lang="ts">
+export default {
+  data () {
+    return {
+      value: "child"
+    }
+  },
+  mounted () {
+    this.value = this.$parent!.$data['value'] as string
+  },
+  methods: {
+    testFunction (): string {
+      return this.$parent!.$callMethod('testFunction') as string
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

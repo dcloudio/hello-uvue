@@ -6,8 +6,8 @@
         <!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
       </view>
       <view class="uni-panel-c" v-if="item.open">
-        <view class="uni-navigate-item" v-for="(page,key) in item.pages" :key="key" @click="goDetailPage(page,item.id)">
-          <text class="uni-navigate-text">{{page}}</text>
+        <view class="uni-navigate-item" v-for="(page,key) in item.pages" :key="page.name" @click="goDetailPage(page,item.id)">
+          <text class="uni-navigate-text">{{page.name}}</text>
           <!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
         </view>
       </view>
@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts">
+  import { state } from '../store/index.uts'
   const STORAGE_KEY_PREFIX = 'INDEX-STATUS'
   let storageData : Array<string> = []
 
@@ -23,7 +24,22 @@
     id : string,
     name : string,
     open : boolean,
-    pages : string[]
+    pages : IListPageItem[]
+  }
+
+  type IListPageItem = {
+    name: string
+    path: string
+  }
+
+  function createPageItem (parent: string | null = null): (page: string) => IListPageItem {
+    return function (page: string): IListPageItem {
+      const routeName = page.replace(/\$/g, '').replace('()', '-function')
+      return {
+        name: page,
+        path: parent !== null ? `/pages/${parent}/${routeName}/${routeName}`: `/pages/${routeName}/${routeName}`
+      } as IListPageItem
+    }
   }
 
   export default {
@@ -35,17 +51,8 @@
             name: '生命周期',
             open: false,
             pages: [
-              'beforeCreate',
-              'created',
-              'beforeMount',
-              'mounted',
-              // 'beforeUpdate',
-              // 'updated',
-              'beforeUnmount',
-              'unmounted',
-              'activated',
-              'deactivated',
-            ]
+              'page-lifecycle'
+            ].map(createPageItem())
           },
           {
             id: 'directives',
@@ -63,7 +70,7 @@
               'v-once',
               // 'v-memo',
               // 'v-cloak'
-            ]
+            ].map(createPageItem())
           },
           {
             id: 'state',
@@ -75,13 +82,13 @@
               'computed',
               'methods',
               'watch'
-            ]
+            ].map(createPageItem('state'))
           },
           {
             id: 'rendering',
             name: '渲染选项',
             open: false,
-            pages: ['template', 'render', 'slots']
+            pages: ['template', 'render', 'slots'].map(createPageItem('rendering'))
           },
           {
             id: 'component-instance',
@@ -101,7 +108,7 @@
               '$emit()',
               '$forceUpdate()',
               '$nextTick()'
-            ]
+            ].map(createPageItem('component-instance'))
           },
           {
             id: 'composition',
@@ -112,7 +119,7 @@
               'inject',
               'mixins',
               'extends'
-            ]
+            ].map(createPageItem('composition'))
           }
         ] as ListItem[]
       }
