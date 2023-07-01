@@ -99,6 +99,10 @@
     color: #a0a0a0;
   }
 
+  .list-item-text {
+    line-height: 36px;
+  }
+
   .split-title {
     margin: 20px 0 5px;
     padding: 5px 0;

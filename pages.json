@@ -18,6 +18,24 @@
       }
     },
     {
+      "path": "pages/directive/v-for/v-for-item-click",
+      "style": {
+        "navigationBarTitleText": "v-for-item-click"
+      }
+    },
+    {
+      "path": "pages/directive/v-for/v-for-item-v-if",
+      "style": {
+        "navigationBarTitleText": "v-for-item-v-if"
+      }
+    },
+    {
+      "path": "pages/directive/v-for/v-for-item-v-show",
+      "style": {
+        "navigationBarTitleText": "v-for-item-v-show"
+      }
+    },
+    {
       "path": "pages/directive/v-if/v-if",
       "style": {
         "navigationBarTitleText": "v-if"

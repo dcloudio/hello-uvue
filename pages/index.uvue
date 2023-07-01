@@ -66,6 +66,21 @@
                 enable: true
               },
               {
+                name: 'v-for-item-click',
+                url: 'v-for/v-for-item-click',
+                enable: true
+              },
+              {
+                name: 'v-for-item-v-if',
+                url: 'v-for/v-for-item-v-if',
+                enable: true
+              },
+              {
+                name: 'v-for-item-v-show',
+                url: 'v-for/v-for-item-v-show',
+                enable: true
+              },
+              {
                 name: 'v-if',
                 url: 'v-if',
                 enable: true
@@ -288,8 +303,9 @@
           return
         }
 
+        const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
         uni.navigateTo({
-          url: `/pages/${id}/${e.url}/${e.url}`
+          url: `/pages/${id}/${url}`
         })
       },
       setLifeCycleNum(num : number) {
