@@ -1,6 +1,6 @@
 <template>
   <view>
-    <slot :loading="loading" :error="errorMessage" />
+    <slot :loading="loading" :error="message" />
   </view>
 </template>
 
@@ -15,8 +15,7 @@
     data() {
       return {
         loading: false,
-        hasMore: false,
-        errorMessage: ''
+        message: ''
       }
     },
     created() {

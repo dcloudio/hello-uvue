@@ -1,8 +1,10 @@
 <template>
   <view class="page">
     <view class="split-title">button:click</view>
-    <button class="toggle" @click="onShowOrHide">show/hide</button>
-    <view class="hello" v-show="show">hello</view>
+    <button class="btn-show" @click="onClickShow">show</button>
+    <button class="btn-hide" @click="onClickHide">hide</button>
+    <button class="btn-toggle" @click="onClickShowOrHide">show/hide</button>
+    <view class="v-show-content" v-show="show">hello-v-show</view>
   </view>
 </template>
 
@@ -14,7 +16,13 @@
       }
     },
     methods: {
-      onShowOrHide() {
+      onClickShow() {
+        this.show = true
+      },
+      onClickHide() {
+        this.show = false
+      },
+      onClickShowOrHide() {
         this.show = !this.show
       }
     }
