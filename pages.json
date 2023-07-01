@@ -6,61 +6,61 @@
       }
     },
     {
-      "path": "pages/v-bind/v-bind",
+      "path": "pages/directive/v-bind/v-bind",
       "style": {
         "navigationBarTitleText": "v-bind"
       }
     },
     {
-      "path": "pages/v-for/v-for",
+      "path": "pages/directive/v-for/v-for",
       "style": {
         "navigationBarTitleText": "v-for"
       }
     },
     {
-      "path": "pages/v-if/v-if",
+      "path": "pages/directive/v-if/v-if",
       "style": {
         "navigationBarTitleText": "v-if"
       }
     },
     {
-      "path": "pages/v-model/v-model",
+      "path": "pages/directive/v-model/v-model",
       "style": {
         "navigationBarTitleText": "v-model"
       }
     },
     {
-      "path": "pages/v-on/v-on",
+      "path": "pages/directive/v-on/v-on",
       "style": {
         "navigationBarTitleText": "v-on"
       }
     },
     {
-      "path": "pages/v-once/v-once",
+      "path": "pages/directive/v-once/v-once",
       "style": {
         "navigationBarTitleText": "v-once"
       }
     },
     {
-      "path": "pages/v-show/v-show",
+      "path": "pages/directive/v-show/v-show",
       "style": {
         "navigationBarTitleText": "v-show"
       }
     },
     {
-      "path": "pages/v-slot/v-slot",
+      "path": "pages/directive/v-slot/v-slot",
       "style": {
         "navigationBarTitleText": "v-slot"
       }
     },
     {
-      "path": "pages/page-lifecycle/page-lifecycle",
+      "path": "pages/lifecycle/page/page",
       "style": {
         "navigationBarTitleText": "page-lifecycle"
       }
     },
     {
-      "path": "pages/component-lifecycle/component-lifecycle",
+      "path": "pages/lifecycle/component/component",
       "style": {
         "navigationBarTitleText": "component-lifecycle"
       }
@@ -175,20 +175,20 @@
         "enablePullDownRefresh": false
       }
     },
-	 {
-	   "path": "pages/rendering/slots/slots",
-	   "style": {
-	     "navigationBarTitleText": "slots",
-	     "enablePullDownRefresh": false
-	   }
-	 },
-	 {
-	   "path": "pages/rendering/template/template",
-	   "style": {
-	     "navigationBarTitleText": "template",
-	     "enablePullDownRefresh": false
-	   }
-	 }
+    {
+      "path": "pages/rendering/slots/slots",
+      "style": {
+        "navigationBarTitleText": "slots",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/rendering/template/template",
+      "style": {
+        "navigationBarTitleText": "template",
+        "enablePullDownRefresh": false
+      }
+    }
   ],
   "globalStyle": {
     "pageOrientation": "portrait",

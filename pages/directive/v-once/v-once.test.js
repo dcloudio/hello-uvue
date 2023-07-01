@@ -1,11 +1,11 @@
-const PAGE_PATH = '/pages/v-bind/v-bind'
+const PAGE_PATH = '/pages/directive/v-once/v-once'
 
-describe('v-bind', () => {
+describe('v-once', () => {
   let page
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor(500)
   })
-  it('button-v-bind:disabled', async () => {
+  it('list-items-3', async () => {
   })
 })

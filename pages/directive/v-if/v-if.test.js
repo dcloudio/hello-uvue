@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/v-if/v-if'
+const PAGE_PATH = '/pages/directive/v-if/v-if'
 
 describe('v-if', () => {
   let page

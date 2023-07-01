@@ -6,8 +6,9 @@
         <!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
       </view>
       <view class="uni-panel-c" v-if="item.open">
-        <view class="uni-navigate-item" v-for="page in item.pages" :key="page.name" @click="goDetailPage(page)">
-          <text class="uni-navigate-text">{{page.name}}</text>
+        <view class="uni-navigate-item" v-for="page in item.pages" :key="page.name"
+          @click="goDetailPage(item.id, page)">
+          <text class="uni-navigate-text" :class="page.enable != true ? 'text-disabled' : ''">{{page.name}}</text>
           <!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
         </view>
       </view>
@@ -16,30 +17,21 @@
 </template>
 
 <script lang="ts">
-  import { setLifeCycleNum, state } from '../store/index.uts'
-  const STORAGE_KEY_PREFIX = 'INDEX-STATUS'
-  let storageData : Array<string> = []
+  import { setLifeCycleNum, state } from '@/store/index.uts'
 
-  type ListItem = {
+  type PageItem = {
+    name : string,
+    enable ?: boolean,
+    url ?: string
+  }
+
+  type PageList = {
     id : string,
     name : string,
     open : boolean,
-    pages : IListPageItem[]
-  }
-
-  type IListPageItem = {
-    name: string
-    path: string
-  }
-
-  function createPageItem (parent: string | null = null): (page: string) => IListPageItem {
-    return function (page: string): IListPageItem {
-      const routeName = page.replace(/\$/g, '').replace('()', '-function')
-      return {
-        name: page,
-        path: parent !== null ? `/pages/${parent}/${routeName}/${routeName}`: `/pages/${routeName}/${routeName}`
-      } as IListPageItem
-    }
+    pages : PageItem[],
+    url ?: string,
+    enable ?: boolean
   }
 
   export default {
@@ -51,129 +43,260 @@
             name: '生命周期',
             open: false,
             pages: [
-              'page-lifecycle',
-              'component-lifecycle'
-            ].map(createPageItem())
+              {
+                name: 'page',
+                url: 'page',
+                enable: true
+              },
+              {
+                name: 'component',
+                url: 'component',
+                enable: true
+              }
+            ] as PageItem[]
           },
           {
-            id: 'directives',
+            id: 'directive',
             name: '指令',
             open: false,
             pages: [
-              'v-for',
-              'v-if',
-              'v-show',
-              'v-on',
-              'v-bind',
-              'v-model',
-              'v-slot',
-              // 'v-pre',
-              'v-once',
-              // 'v-memo',
-              // 'v-cloak'
-            ].map(createPageItem())
+              {
+                name: 'v-for',
+                url: 'v-for',
+                enable: true
+              },
+              {
+                name: 'v-if',
+                url: 'v-if',
+                enable: true
+              },
+              {
+                name: 'v-show',
+                url: 'v-show',
+                enable: true
+              },
+              {
+                name: 'v-on',
+                url: 'v-on',
+                enable: true
+              },
+              {
+                name: 'v-bind',
+                url: 'v-bind',
+                enable: true
+              },
+              {
+                name: 'v-model',
+                url: 'v-model',
+                enable: true
+              },
+              {
+                name: 'v-slot',
+                url: 'v-slot',
+                enable: true
+              },
+              {
+                name: 'v-pre',
+                url: 'v-pre',
+                enable: false
+              },
+              {
+                name: 'v-once',
+                url: 'v-once',
+                enable: true
+              },
+              {
+                name: 'v-memo',
+                url: 'v-memo',
+                enable: false
+              },
+              {
+                name: 'v-cloak',
+                url: 'v-cloak',
+                enable: false
+              },
+            ] as PageItem[]
           },
           {
             id: 'state',
             name: '状态',
             open: false,
             pages: [
-              'data',
-              'props',
-              'computed',
-              'methods',
-              'watch'
-            ].map(createPageItem('state'))
+              {
+                name: 'data',
+                url: 'data',
+                enable: true
+              },
+              {
+                name: 'props',
+                url: 'props',
+                enable: true
+              },
+              {
+                name: 'computed',
+                url: 'computed',
+                enable: true
+              },
+              {
+                name: 'methods',
+                url: 'methods',
+                enable: true
+              },
+              {
+                name: 'watch',
+                url: 'watch',
+                enable: true
+              },
+            ] as PageItem[]
           },
           {
             id: 'rendering',
             name: '渲染选项',
             open: false,
             pages: [
-					'template', 
-					// 'render', 
-					'slots'].map(createPageItem('rendering'))
+              {
+                name: 'template',
+                url: 'template',
+                enable: true
+              },
+              {
+                name: 'render',
+                url: 'render',
+                enable: false
+              },
+              {
+                name: 'slots',
+                url: 'slots',
+                enable: true
+              },
+            ] as PageItem[]
           },
           {
             id: 'component-instance',
             name: '组件实例',
             open: false,
             pages: [
-              '$data',
-              '$props',
-              '$el',
-              '$options',
-              '$parent',
-              '$root',
-              '$slots',
-              '$refs',
-              '$attrs',
-              '$watch()',
-              '$emit()',
-              '$forceUpdate()',
-              '$nextTick()'
-            ].map(createPageItem('component-instance'))
+              {
+                name: '$data',
+                url: 'data',
+                enable: true
+              },
+              {
+                name: '$props',
+                url: 'props',
+                enable: true
+              },
+              {
+                name: '$el',
+                url: 'el',
+                enable: true
+              },
+              {
+                name: '$options',
+                url: 'options',
+                enable: true
+              },
+              {
+                name: '$parent',
+                url: 'parent',
+                enable: true
+              },
+              {
+                name: '$root',
+                url: 'root',
+                enable: true
+              },
+              {
+                name: '$slots',
+                url: 'slots',
+                enable: true
+              },
+              {
+                name: '$refs',
+                url: 'refs',
+                enable: true
+              },
+              {
+                name: '$attrs',
+                url: 'attrs',
+                enable: true
+              },
+              {
+                name: '$watch',
+                url: 'watch',
+                enable: true
+              },
+              {
+                name: '$emit',
+                url: 'emit',
+                enable: true
+              },
+              {
+                name: '$forceUpdate',
+                url: 'forceUpdate',
+                enable: true
+              },
+              {
+                name: '$nextTick',
+                url: 'nextTick',
+                enable: true
+              },
+            ] as PageItem[]
           },
           {
             id: 'composition',
             name: '组合选项',
             open: false,
             pages: [
-              'provide',
-              'inject',
-              'mixins',
-              'extends'
-            ].map(createPageItem('composition'))
-          }
-        ] as ListItem[]
+              {
+                name: 'provide',
+                url: 'provide',
+                enable: false
+              },
+              {
+                name: 'inject',
+                url: 'inject',
+                enable: false
+              },
+              {
+                name: 'mixins',
+                url: 'mixins',
+                enable: false
+              },
+              {
+                name: 'extends',
+                url: 'extends',
+                enable: false
+              },
+            ] as PageItem[]
+          },
+        ] as PageList[]
       }
     },
     onLoad() {
-      // uni.getStorage({
-      //   key: STORAGE_KEY_PREFIX,
-      //   success: function (res) {
-      //     storageData = JSON.parse(res.data as string) as Array<string>
-      //     console.log(storageData)
-      //     for (let i = 0; i < this.list.length; ++i) {
-      //       const item = this.list[i]
-      //       if (storageData.includes(item.id)) {
-      //         item.open = true
-      //       }
-      //     }
-      //   }
-      // })
     },
     methods: {
-      triggerCollapse(_ : ListItem, index : number) {
+      triggerCollapse(_ : PageList, index : number) {
         this.list[index].open = !this.list[index].open
-
-        // const id = item.id
-        // const value = this.list[index].open
-
-        // if (value) {
-        //   storageData.push(id)
-        // } else {
-        //   const index2: number = storageData.indexOf(id)
-        //   if (index2 > -1) {
-        //     storageData.splice(index2, 1)
-        //   }
-        // }
-
-        // uni.setStorage({
-        //   key: STORAGE_KEY_PREFIX,
-        //   data: storageData
-        // })
       },
-      goDetailPage(e : IListPageItem) {
+      goDetailPage(id : string, e : PageItem) {
+        if (e.enable == false) {
+          uni.showToast({
+            icon: 'none',
+            title: '暂不支持'
+          })
+          return
+        }
+
         uni.navigateTo({
-          url: e.path
+          url: `/pages/${id}/${e.url}/${e.url}`
         })
       },
-			setLifeCycleNum(num: number){
-				console.warn('index setLifeCycleNum', num)
-				setLifeCycleNum(num)
-			},
-      getLifeCycleNum(): number {
+      setLifeCycleNum(num : number) {
+        console.warn('index setLifeCycleNum', num)
+        setLifeCycleNum(num)
+      },
+      getLifeCycleNum() : number {
         return state.lifeCycleNum
       },
     }

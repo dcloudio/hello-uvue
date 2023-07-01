@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/component-lifecycle/component-lifecycle'
+const PAGE_PATH = '/pages/lifecycle/component/component'
 const HOME_PATH = '/pages/index'
 
 describe('component-lifecycle', () => {
