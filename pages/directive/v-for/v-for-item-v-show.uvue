@@ -4,7 +4,7 @@
     <view v-for="item in items">
       <view class="list-item" @click="onItemClick(item)">
         <text class="list-item-text">{{ item.text }}:</text>
-        <text class="list-item-text" v-show="item.show">{{ item.show }}</text>
+        <text class="list-item-text-show" v-show="item.show">{{ item.show }}</text>
       </view>
     </view>
   </view>

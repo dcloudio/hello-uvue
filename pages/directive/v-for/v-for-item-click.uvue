@@ -3,7 +3,8 @@
     <view class="split-title">list item click</view>
     <view v-for="item in items">
       <view class="list-item" @click="onItemClick(item)">
-        <text class="list-item-text">{{ item.text }}:{{ item.count }}</text>
+        <text class="list-item-text">{{item.text}}</text>
+        <text class="list-item-text-count">{{item.count}}</text>
       </view>
     </view>
   </view>
