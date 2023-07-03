@@ -6,6 +6,8 @@ describe('v-slot', () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor(500)
   })
-  it('list-items-3', async () => {
+  it('default', async () => {
+    const defaultText = await page.$('.default')
+    expect(await defaultText.text()).toBe('loading')
   })
 })

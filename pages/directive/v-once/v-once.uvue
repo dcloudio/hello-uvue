@@ -1,7 +1,11 @@
 <template>
   <view class="page">
     <view class="split-title">v-once</view>
-    <view class="v-once" v-once>This will never change: {{msg}}</view>
+    <view>
+      <text class="v-once">This will never change:</text>
+      <text class="v-once-message" v-once>{{message}}</text>
+    </view>
+    <view class="view-click" @click="changeMessage">Change message</view>
   </view>
 </template>
 
@@ -9,10 +13,13 @@
   export default {
     data() {
       return {
-        msg: ''
+        message: 'message'
       }
     },
     methods: {
+      changeMessage() {
+        this.message = Date.now().toString()
+      }
     }
   }
 </script>

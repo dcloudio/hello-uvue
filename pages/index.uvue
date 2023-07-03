@@ -118,7 +118,7 @@
               {
                 name: 'v-once',
                 url: 'v-once',
-                enable: true
+                enable: false
               },
               {
                 name: 'v-memo',

@@ -1,6 +1,7 @@
 <template>
   <view>
-    <slot :loading="loading" :error="message" />
+    <slot />
+    <!-- <slot :loading="loading" :error="message" /> -->
   </view>
 </template>
 

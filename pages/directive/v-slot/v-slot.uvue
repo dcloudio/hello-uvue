@@ -1,18 +1,16 @@
 <template>
   <view class="page">
     <view class="split-title">v-slot</view>
-    <!-- <counter v-slot:default="options">
-      {{options['loading']}}
-    </counter> -->
+    <counter class="default" v-slot:default>loading</counter>
   </view>
 </template>
 
 <script lang="ts">
-  // import counter from "./counter.uvue"
+  import counter from "./counter.uvue"
   export default {
-    // components: {
-    //   counter
-    // },
+    components: {
+      counter
+    },
     data() {
       return {
       }

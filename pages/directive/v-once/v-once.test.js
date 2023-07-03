@@ -6,6 +6,11 @@ describe('v-once', () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor(500)
   })
-  it('list-items-3', async () => {
+  it('change-message', async () => {
+    const btn_change = await page.$('.view-click')
+    const messageText = await page.$('.v-once-message')
+
+    await btn_change.tap()
+    expect(await messageText.text()).toBe('message')
   })
 })
