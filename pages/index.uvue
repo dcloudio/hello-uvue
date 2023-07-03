@@ -81,6 +81,11 @@
                 enable: true
               },
               {
+                name: 'v-for-v-for',
+                url: 'v-for/v-for-v-for',
+                enable: true
+              },
+              {
                 name: 'v-if',
                 url: 'v-if',
                 enable: true

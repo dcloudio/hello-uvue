@@ -36,6 +36,12 @@
       }
     },
     {
+      "path": "pages/directive/v-for/v-for-v-for",
+      "style": {
+        "navigationBarTitleText": "v-for-v-for"
+      }
+    },
+    {
       "path": "pages/directive/v-if/v-if",
       "style": {
         "navigationBarTitleText": "v-if"
