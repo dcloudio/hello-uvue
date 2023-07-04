@@ -243,22 +243,22 @@
               },
               {
                 name: '$watch',
-                url: 'watch',
+                url: 'watch-function',
                 enable: true
               },
               {
                 name: '$emit',
-                url: 'emit',
+                url: 'emit-function',
                 enable: true
               },
               {
                 name: '$forceUpdate',
-                url: 'forceUpdate',
+                url: 'forceUpdate-function',
                 enable: true
               },
               {
                 name: '$nextTick',
-                url: 'nextTick',
+                url: 'nextTick-function',
                 enable: true
               },
             ] as PageItem[]
