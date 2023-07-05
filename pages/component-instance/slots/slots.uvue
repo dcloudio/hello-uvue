@@ -1,6 +1,6 @@
 <template>
   <view class="page">
-    <slot-comp>
+    <slot-comp class="slot-comp">
       <template v-slot:header>header</template>
       <template v-slot:footer>footer</template>
     </slot-comp>

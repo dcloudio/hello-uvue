@@ -2,15 +2,15 @@
   <view>
     <view class="row">
       <text>hasPropsAttrs</text>
-      <text>{{ hasPropsAttrs }}</text>
+      <text class="has-props-attrs">{{ hasPropsAttrs }}</text>
     </view>
     <view class="row">
       <text>hasEmitsAttr</text>
-      <text>{{ hasEmitsAttr }}</text>
+      <text class="has-emits-attrs">{{ hasEmitsAttr }}</text>
     </view>
     <view class="row">
       <text>hasAttrs</text>
-      <text>{{ hasAttrs }}</text>
+      <text class="has-attrs">{{ hasAttrs }}</text>
     </view>
   </view>
 </template>

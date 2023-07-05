@@ -1,6 +1,6 @@
 <template>
   <view>
-    <button @click="click">调用父组件事件</button>
+    <button @click="click" class="call-parent-btn">调用父组件事件</button>
   </view>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   emits: ['callback'],
   methods: {
     click () {
-      this.$emit('callback', 'string', `${Date.now()}`)
+      this.$emit('callback', `${Date.now()}`)
     }
   }
 }

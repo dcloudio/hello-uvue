@@ -7,7 +7,6 @@ describe('$data', () => {
     await page.waitFor(500)
   })
 
-
   it('should data.val === 2', async () => {
     const plusButton = await page.$('.plus')
     await plusButton.tap()

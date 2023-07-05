@@ -19,12 +19,12 @@ export default {
   },
   data () {
     return {
-      value: [] as string[]
+      value: ""
     }
   },
   methods: {
-    callback (str: string, str1: string) {
-      this.value = [str, str1]
+    callback (str: string) {
+      this.value = str
     }
   }
 }

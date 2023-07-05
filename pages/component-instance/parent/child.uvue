@@ -1,6 +1,8 @@
 <template>
   <view class="child">
-    <view>{{value}}</view>
+    <view class="parent-text">{{value}}</view>
+    <view class="parent-func-text">{{callbackValue}}</view>
+    <button @click="testFunction" class="call-parent-func">调用父组件方法</button>
   </view>
 </template>
 
@@ -8,15 +10,16 @@
 export default {
   data () {
     return {
-      value: "child"
+      value: "child",
+      callbackValue: ""
     }
   },
   mounted () {
     this.value = this.$parent!.$data['value'] as string
   },
   methods: {
-    testFunction (): string {
-      return this.$parent!.$callMethod('testFunction') as string
+    testFunction () {
+      this.callbackValue = this.$parent!.$callMethod('testFunction') as string
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <view class="page">
-    <view class="row">rootIsApp: <text>{{isApp}}</text></view>
+    <view class="row">root: <text>{{root}}</text></view>
   </view>
 </template>
 
@@ -8,11 +8,13 @@
 export default {
   data () {
     return {
-      isApp: false
+      root: true
     }
   },
-  mounted () {
-    // this.isApp = this.$root.app
+  methods: {
+    getRoot (): boolean {
+      return this.$root!.$data.get('root') as boolean
+    }
   }
 }
 </script>

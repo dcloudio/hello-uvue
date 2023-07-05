@@ -1,13 +1,13 @@
 <template>
   <view class="component">
     <view class="row">
-      <text>string: </text><text>{{str}}</text>
+      <text>string: </text><text class="string">{{str}}</text>
     </view>
     <view class="row">
-      <text>num: </text><text>{{num}}</text>
+      <text>num: </text><text class="number">{{num}}</text>
     </view>
     <view class="row">
-      <text>bool: </text><text>{{bool}}</text>
+      <text>bool: </text><text class="boolean">{{bool}}</text>
     </view>
 <!--    <view class="row">-->
 <!--      <text>arr: </text>-->

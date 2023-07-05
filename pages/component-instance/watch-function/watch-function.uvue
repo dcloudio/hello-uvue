@@ -2,7 +2,7 @@
   <view class="page">
     <view class="row">
       <text>初始值</text>
-      <text>init</text>
+      <text class="init-value">init</text>
     </view>
     <view class="row">
       <text>val</text>
@@ -27,8 +27,8 @@ export default {
     return {
       val: "init",
       changed: false,
-      a: 'a',
-      b: 'b',
+      // a: 'a',
+      // b: 'b',
       // abChanged: false
     }
   },

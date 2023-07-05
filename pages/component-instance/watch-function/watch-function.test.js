@@ -1,5 +1,18 @@
-const PAGE_PATH = '/pages/component-instance/props/props'
+const PAGE_PATH = '/pages/component-instance/watch-function/watch-function'
 
-describe('$props', () => {
+describe('$watch()', () => {
+  let page
+  beforeAll(async () => {
+    page = await program.reLaunch(PAGE_PATH)
+    await page.waitFor(500)
+  })
 
+  it('$watch() 生效', async () => {
+    const initValue = (await page.$('.init')).text()
+    const value = await (await page.data()).val
+    const isChange = await (await page.data()).changed
+
+    expect(value).not.toBe(initValue)
+    expect(isChange).toBe(true)
+  })
 })

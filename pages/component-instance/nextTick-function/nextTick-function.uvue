@@ -7,9 +7,6 @@
 </template>
 
 <script lang="ts">
-type Obj = {
-  key: string
-}
 export default {
   data () {
     return {
