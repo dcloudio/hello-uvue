@@ -111,4 +111,11 @@
     padding: 5px 0;
     border-bottom: 1px solid #dfdfdf;
   }
+
+  .btn-view {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+  }
 </style>

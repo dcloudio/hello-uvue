@@ -6,20 +6,41 @@ describe('v-if', () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor(500)
   })
-  it('show-hide-switch', async () => {
+  it('switch-v-if', async () => {
     const btn_view = await page.$('.view-click')
 
-    const elements1 = await page.$$('.hello')
-    expect(elements1.length).toBe(1)
+    const element1 = await page.$$('.v-if-show-value')
+    expect(element1.length).toBe(1)
 
     await btn_view.tap()
     await page.waitFor(50)
-    const elements2 = await page.$$('.hello')
-    expect(elements2.length).toBe(0)
+    const element2 = await page.$$('.v-if-show-value')
+    expect(element2.length).toBe(0)
 
     await btn_view.tap()
     await page.waitFor(50)
-    const elements3 = await page.$$('.hello')
-    expect(elements3.length).toBe(1)
+    const element3 = await page.$$('.v-if-show-value')
+    expect(element3.length).toBe(1)
+  })
+  it('switch-v-if-v-else-if-v-else', async () => {
+    const btn_view = await page.$('.view-click-abc')
+
+    const element_a = await page.$('.text-a')
+    expect(await element_a.text()).toBe('A')
+
+    await btn_view.tap()
+    await page.waitFor(50)
+    const element_b = await page.$('.text-b')
+    expect(await element_b.text()).toBe('B')
+
+    await btn_view.tap()
+    await page.waitFor(50)
+    const element_c = await page.$('.text-c')
+    expect(await element_c.text()).toBe('C')
+
+    await btn_view.tap()
+    await page.waitFor(50)
+    const element_not_abc = await page.$('.text-not-a-b-c')
+    expect(await element_not_abc.text()).toBe('Not A/B/C')
   })
 })

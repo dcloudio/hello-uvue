@@ -1,25 +1,48 @@
 <template>
   <view class="page">
     <view class="split-title">v-if</view>
-    <view class="view-click" @click="onShowOrHide">show/hide</view>
-    <view class="hello" v-if="show">hello</view>
+    <view class="btn-view view-click" @click="onShowOrHide">Switch v-if</view>
+    <view class="v-if-show-value" v-if="show">show value</view>
+
+    <view class="split-title">v-if-else</view>
+    <view v-if="type === 'A'">
+      <text class="text-a">A</text>
+    </view>
+    <view v-else-if="type === 'B'">
+      <text class="text-b">B</text>
+    </view>
+    <view v-else-if="type === 'C'">
+      <text class="text-c">C</text>
+    </view>
+    <view v-else>
+      <text class="text-not-a-b-c">Not A/B/C</text>
+    </view>
+    <view class="btn-view view-click-abc" @click="switchABC">Switch A/B/C</view>
   </view>
 </template>
 
 <script lang="ts">
+  let typeIndex = 0
+  const TypeList : Array<string> = ['A', 'B', 'C', 'D']
   export default {
     data() {
       return {
-        show: true
+        show: true,
+        type: 'A'
       }
     },
     methods: {
       onShowOrHide() {
         this.show = !this.show
+      },
+      switchABC() {
+        typeIndex++
+        if (typeIndex >= TypeList.length) {
+          typeIndex = 0
+        }
+
+        this.type = TypeList[typeIndex]
       }
     }
   }
 </script>
-
-<style>
-</style>
