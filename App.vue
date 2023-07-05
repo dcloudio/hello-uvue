@@ -22,7 +22,10 @@
     },
     onLastPageBackPress: function (): boolean | null {
       setLifeCycleNum(state.lifeCycleNum - 1000)
-      console.log('App LastPageBackPress')
+      uni.showToast({
+        title: '再按一次退出应用',
+        position: 'bottom'
+      })
       return null
     },
   }
