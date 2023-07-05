@@ -20,9 +20,9 @@
       setLifeCycleNum(state.lifeCycleNum - 100)
       console.log('App Hide')
     },
-    onLastPageBackPress() : boolean | null {
+    onLastPageBackPress: function (): boolean | null {
       setLifeCycleNum(state.lifeCycleNum - 1000)
-      console.log('App onLastPageBackPress')
+      console.log('App LastPageBackPress')
       return null
     },
   }
