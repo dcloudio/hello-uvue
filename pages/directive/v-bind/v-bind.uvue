@@ -1,8 +1,8 @@
 <template>
   <view class="page">
     <view class="split-title">v-bind</view>
-    <button :disabled="isButtonDisabled">Button</button>
-    <button v-bind:disabled="isButtonDisabled">Button</button>
+    <button class="button-disabled" :disabled="isButtonDisabled">Button</button>
+    <button class="button-v-bind-disabled" v-bind:disabled="isButtonDisabled">Button</button>
   </view>
 </template>
 
@@ -12,8 +12,6 @@
       return {
         isButtonDisabled: true
       }
-    },
-    methods: {
     }
   }
 </script>
