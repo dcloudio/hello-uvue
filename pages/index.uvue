@@ -254,7 +254,7 @@
               {
                 name: '$forceUpdate',
                 url: 'forceUpdate-function',
-                enable: true
+                enable: false
               },
               {
                 name: '$nextTick',
