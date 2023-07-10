@@ -314,7 +314,6 @@
         })
       },
       setLifeCycleNum(num : number) {
-        console.warn('index setLifeCycleNum', num)
         setLifeCycleNum(num)
       },
       getLifeCycleNum() : number {
