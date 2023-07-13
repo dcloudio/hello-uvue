@@ -1,54 +1,63 @@
 <template>
-	<view>
-		<text>{{title}}</text>
-	</view>
+  <view>
+    <text>{{ title }}</text>
+  </view>
 </template>
 
 <script lang="ts">
 import { state, setLifeCycleNum } from '../store/index.uts'
 export default {
-	name: 'ComponentLifecycle',
-	data(){
-		return {
-			title: 'component for lifecycle test'
-		}
-	},
-	beforeCreate() {
-		setLifeCycleNum(state.lifeCycleNum + 1)
-		console.log('component for lifecycle test beforeCreate')
-	},
-	created() {
-		setLifeCycleNum(state.lifeCycleNum + 1)
-		console.log('component for lifecycle test created')
-	},
-	beforeMount() {
-		setLifeCycleNum(state.lifeCycleNum + 1)
-		console.log('component for lifecycle test beforeMount')
-	},
-	mounted() {
-		setLifeCycleNum(state.lifeCycleNum + 1)
-		console.log('component for lifecycle test mounted')
-	},
-	beforeUpdate() {
-		setLifeCycleNum(state.lifeCycleNum + 1)
-		console.log('component for lifecycle test beforeUpdate')
-	},
-	updated() {
-		setLifeCycleNum(state.lifeCycleNum + 1)
-		console.log('component for lifecycle test updated')
-	},
-	beforeUnmount() {
-		setLifeCycleNum(state.lifeCycleNum - 1)
-		console.log('component for lifecycle test beforeUnmount')
-	},
-	unmounted() {
-		setLifeCycleNum(state.lifeCycleNum - 1)
-		console.log('component for lifecycle test unmounted')
-	},
-	methods: {
-		getLifeCycleNum(): number {
-			return state.lifeCycleNum
-		}
-	},
+  name: 'ComponentLifecycle',
+  data() {
+    return {
+      title: 'component for lifecycle test',
+    }
+  },
+  beforeCreate() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test beforeCreate')
+  },
+  created() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test created')
+  },
+  beforeMount() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test beforeMount')
+  },
+  mounted() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test mounted')
+  },
+  beforeUpdate() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test beforeUpdate')
+  },
+  updated() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test updated')
+  },
+  beforeUnmount() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 1)
+    console.log('component for lifecycle test beforeUnmount')
+  },
+  unmounted() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 1)
+    console.log('component for lifecycle test unmounted')
+  },
+  methods: {
+    // 自动化测试
+    getLifeCycleNum(): number {
+      return state.lifeCycleNum
+    },
+  },
 }
 </script>
