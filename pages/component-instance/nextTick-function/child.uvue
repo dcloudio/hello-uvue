@@ -1,6 +1,6 @@
 <template>
   <view class="page">
-    <view class="rect" :style="{width: width, height: height}"></view>
+    <view class="rect" :style="{width: width, height: height}">child component</view>
     <view class="row"></view>
     <view class="row">
       <text ref="text">$nextTick Before Width:</text>
@@ -18,17 +18,12 @@
       <text ref="text">$nextTick After Height:</text>
       <text>{{nextTickAfterHeight}}</text>
     </view>
-    <next-tick-child class="next-tick-child"></next-tick-child>
   </view>
 </template>
 
 <script lang="ts">
-import child from './child.uvue'
-
 export default {
-  components: {
-    nextTickChild: child
-  },
+  name: "nextTickChild",
   data () {
     return {
       value: 0,
@@ -95,6 +90,9 @@ export default {
 }
 
 .rect {
-  background-color: red;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
