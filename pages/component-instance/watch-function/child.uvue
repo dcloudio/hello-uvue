@@ -1,40 +1,31 @@
 <template>
   <view class="page">
     <view class="row">
-      <text>初始值</text>
-      <text class="child-init-value">init</text>
+      <text>子组件 初始值</text>
+      <text class="init-value">init</text>
     </view>
     <view class="row">
-      <text>val</text>
+      <text>子组件 val</text>
       <text>{{ val }}</text>
     </view>
     <view class="row">
-      <text>值是否变化</text>
+      <text>子组件 值是否变化</text>
       <text>{{ changed }}</text>
     </view>
-    <watch-child class="watch-child"></watch-child>
   </view>
 </template>
 
 <script lang="ts">
-import child from './child.uvue'
-
 export default {
-  components: {
-    watchChild: child
-  },
+  name: "watch-child",
   data() {
     return {
       val: "init",
       changed: false,
-      // a: 'a',
-      // b: 'b',
-      // abChanged: false
     }
   },
   mounted() {
     this.createWatch()
-    // this.createGetterWatch()
   },
   methods: {
     createWatch() {
@@ -43,14 +34,7 @@ export default {
       })
 
       this.val = 'changed'
-    },
-    // createGetterWatch () {
-    //   this.$watch(() => this.a + this.b, () => {
-    //     this.abChanged = !this.abChanged
-    //   })
-    //
-    //   this.a = 'changed'
-    // }
+    }
   }
 }
 </script>

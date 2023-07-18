@@ -15,4 +15,14 @@ describe('$watch()', () => {
     expect(value).not.toBe(initValue)
     expect(isChange).toBe(true)
   })
+
+  it('子组件 $watch() 生效', async () => {
+    const initValue = (await page.$('.child-init-value')).text()
+    const comp = await page.$('.watch-child')
+    const value = await (await comp.data()).val
+    const isChange = await (await comp.data()).changed
+
+    expect(value).not.toBe(initValue)
+    expect(isChange).toBe(true)
+  })
 })
