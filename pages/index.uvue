@@ -24,7 +24,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 import { setLifeCycleNum, state } from '@/store/index.uts'
 
 type PageItem = {

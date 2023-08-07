@@ -7,7 +7,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 import slot from './slot.uvue'
 
 export default {

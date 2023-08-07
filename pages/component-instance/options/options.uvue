@@ -7,7 +7,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 // import mixins from "./mixins";
 export default {
   // mixins: [mixins],

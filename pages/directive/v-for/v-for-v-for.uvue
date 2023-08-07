@@ -10,7 +10,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
   type ListItem = {
     text : string,
     items : ListItem[]

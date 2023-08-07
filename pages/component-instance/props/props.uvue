@@ -14,7 +14,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 import checkType from "./check-type.uvue";
 // import simple from "./simple.uvue";
 

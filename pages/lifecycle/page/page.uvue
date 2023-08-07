@@ -4,7 +4,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 import { state, setLifeCycleNum } from '@/store/index.uts'
 export default {
   onLoad() {

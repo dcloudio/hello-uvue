@@ -5,7 +5,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
   import counter from "./counter.uvue"
   export default {
     components: {

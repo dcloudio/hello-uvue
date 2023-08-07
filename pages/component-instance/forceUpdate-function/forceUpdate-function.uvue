@@ -6,7 +6,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 type Obj = {
   key: string
 }

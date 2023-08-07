@@ -35,7 +35,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
   type myObj = { name : string, age : number };
 
   // 理论上支持但不支持的写法

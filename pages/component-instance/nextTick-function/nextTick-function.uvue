@@ -22,7 +22,7 @@
   </view>
 </template>
 
-<script lang="ts">
+<script>
 import child from './child.uvue'
 
 export default {
