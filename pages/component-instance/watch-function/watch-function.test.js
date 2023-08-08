@@ -8,7 +8,7 @@ describe('$watch()', () => {
   })
 
   it('$watch() 生效', async () => {
-    const initValue = (await page.$('.init')).text()
+    const initValue = (await page.$('.init-value')).text()
     const value = await (await page.data()).val
     const isChange = await (await page.data()).changed
 
