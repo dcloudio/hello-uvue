@@ -1,0 +1,23 @@
+<template>
+  <view class="page">
+    <view class="split-title">v-bind-style</view>
+    <view>
+      <text class="text-font-size" :style="{fontSize: size + 'px'}">14px</text>
+    </view>
+    <view class="view-style" :style="[styleObjectA, styleObjectB]">
+      背景绿色(#008000), 边框2px蓝色(#0000FF)
+    </view>
+  </view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        size: 14,
+        styleObjectA: 'background-color: #008000;',
+        styleObjectB: 'border: 2px solid #0000FF;'
+      }
+    }
+  }
+</script>

@@ -1,0 +1,21 @@
+<template>
+  <view>
+    <text class="count-id">{{id}}</text>
+    <text class="count-title">{{title}}</text>
+  </view>
+</template>
+
+<script>
+  export default {
+    props: {
+      id: {
+        type: Number,
+        default: 0
+      },
+      title: {
+        type: String,
+        default: ''
+      }
+    }
+  }
+</script>

@@ -12,6 +12,30 @@
       }
     },
     {
+      "path": "pages/directive/v-bind/v-bind-class",
+      "style": {
+        "navigationBarTitleText": "v-bind-class"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-style",
+      "style": {
+        "navigationBarTitleText": "v-bind-style"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-props",
+      "style": {
+        "navigationBarTitleText": "v-bind-props"
+      }
+    },
+    // {
+    //   "path": "pages/directive/v-bind/v-bind-attribute",
+    //   "style": {
+    //     "navigationBarTitleText": "v-bind-attribute"
+    //   }
+    // },
+    {
       "path": "pages/directive/v-for/v-for",
       "style": {
         "navigationBarTitleText": "v-for"

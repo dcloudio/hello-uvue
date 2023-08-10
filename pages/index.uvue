@@ -114,6 +114,26 @@ export default {
               enable: true,
             },
             {
+              name: 'v-bind-class',
+              url: 'v-bind/v-bind-class',
+              enable: true,
+            },
+            {
+              name: 'v-bind-style',
+              url: 'v-bind/v-bind-style',
+              enable: true,
+            },
+            {
+              name: 'v-bind-props',
+              url: 'v-bind/v-bind-props',
+              enable: true,
+            },
+            {
+              name: 'v-bind-attribute',
+              url: 'v-bind/v-bind-attribute',
+              enable: false,
+            },
+            {
               name: 'v-model',
               url: 'v-model',
               enable: true,

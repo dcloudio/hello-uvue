@@ -1,0 +1,31 @@
+<template>
+  <view class="page">
+    <view class="split-title">v-bind-props</view>
+    <counter class="counter1" :id="post.id" :title="post.title"></counter>
+    <!-- TODO 暂不支持 -->
+    <!-- <counter class="counter2" v-bind="post"></counter> -->
+  </view>
+</template>
+
+<script>
+  import counter from "./counter.uvue"
+
+  type CounterData = {
+    id : number,
+    title : string
+  }
+
+  export default {
+    components: {
+      counter
+    },
+    data() {
+      return {
+        post: {
+          id: 1,
+          title: 'title'
+        } as CounterData
+      }
+    }
+  }
+</script>
