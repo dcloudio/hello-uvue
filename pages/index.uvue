@@ -1,373 +1,371 @@
 <template>
-  <view class="uni-container">
-    <view class="uni-panel" v-for="(item, index) in list" :key="item.id">
-      <view class="uni-panel-h" @click="triggerCollapse(item, index)">
-        <text class="uni-panel-text">{{ item.name }}</text>
-        <!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
-      </view>
-      <view class="uni-panel-c" v-if="item.open">
-        <view
-          class="uni-navigate-item"
-          v-for="page in item.pages"
-          :key="page.name"
-          @click="goDetailPage(item.id, page)"
-        >
-          <text
-            class="uni-navigate-text"
-            :class="page.enable != true ? 'text-disabled' : ''"
-            >{{ page.name }}</text
-          >
-          <!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
-        </view>
-      </view>
-    </view>
-  </view>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+		<!-- #endif -->
+		<view class="uni-container">
+			<view class="uni-panel" v-for="(item, index) in list" :key="item.id">
+				<view class="uni-panel-h" @click="triggerCollapse(item, index)">
+					<text class="uni-panel-text">{{ item.name }}</text>
+					<!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
+				</view>
+				<view class="uni-panel-c" v-if="item.open">
+					<view class="uni-navigate-item" v-for="page in item.pages" :key="page.name"
+						@click="goDetailPage(item.id, page)">
+						<text class="uni-navigate-text" :class="page.enable != true ? 'text-disabled' : ''">{{ page.name }}</text>
+						<!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
 </template>
 
 <script>
-import { setLifeCycleNum, state } from '@/store/index.uts'
+	import { setLifeCycleNum, state } from '@/store/index.uts'
 
-type PageItem = {
-  name: string
-  enable?: boolean
-  url?: string
-}
+	type PageItem = {
+		name : string
+		enable ?: boolean
+		url ?: string
+	}
 
-type PageList = {
-  id: string
-  name: string
-  open: boolean
-  pages: PageItem[]
-  url?: string
-  enable?: boolean
-}
+	type PageList = {
+		id : string
+		name : string
+		open : boolean
+		pages : PageItem[]
+		url ?: string
+		enable ?: boolean
+	}
 
-export default {
-  data() {
-    return {
-      list: [
-        {
-          id: 'lifecycle',
-          name: '生命周期',
-          open: false,
-          pages: [
-            {
-              name: 'page',
-              url: 'page',
-              enable: true,
-            },
-            {
-              name: 'component',
-              url: 'component',
-              enable: true,
-            },
-          ] as PageItem[],
-        },
-        {
-          id: 'directive',
-          name: '指令',
-          open: false,
-          pages: [
-            {
-              name: 'v-for',
-              url: 'v-for',
-              enable: true,
-            },
-            {
-              name: 'v-for-item-click',
-              url: 'v-for/v-for-item-click',
-              enable: true,
-            },
-            {
-              name: 'v-for-item-v-if',
-              url: 'v-for/v-for-item-v-if',
-              enable: true,
-            },
-            {
-              name: 'v-for-item-v-show',
-              url: 'v-for/v-for-item-v-show',
-              enable: true,
-            },
-            {
-              name: 'v-for-v-for',
-              url: 'v-for/v-for-v-for',
-              enable: true,
-            },
-            {
-              name: 'v-if',
-              url: 'v-if',
-              enable: true,
-            },
-            {
-              name: 'v-show',
-              url: 'v-show',
-              enable: true,
-            },
-            {
-              name: 'v-on',
-              url: 'v-on',
-              enable: true,
-            },
-            {
-              name: 'v-bind',
-              url: 'v-bind',
-              enable: true,
-            },
-            {
-              name: 'v-bind-class',
-              url: 'v-bind/v-bind-class',
-              enable: true,
-            },
-            {
-              name: 'v-bind-style',
-              url: 'v-bind/v-bind-style',
-              enable: true,
-            },
-            {
-              name: 'v-bind-props',
-              url: 'v-bind/v-bind-props',
-              enable: true,
-            },
-            {
-              name: 'v-bind-attribute',
-              url: 'v-bind/v-bind-attribute',
-              enable: false,
-            },
-            {
-              name: 'v-model',
-              url: 'v-model',
-              enable: true,
-            },
-            {
-              name: 'v-slot',
-              url: 'v-slot',
-              enable: true,
-            },
-            {
-              name: 'v-pre',
-              url: 'v-pre',
-              enable: false,
-            },
-            {
-              name: 'v-once',
-              url: 'v-once',
-              enable: false,
-            },
-            {
-              name: 'v-memo',
-              url: 'v-memo',
-              enable: false,
-            },
-            {
-              name: 'v-cloak',
-              url: 'v-cloak',
-              enable: false,
-            },
-          ] as PageItem[],
-        },
-        {
-          id: 'state',
-          name: '状态',
-          open: false,
-          pages: [
-            {
-              name: 'data',
-              url: 'data',
-              enable: true,
-            },
-            {
-              name: 'props',
-              url: 'props',
-              enable: true,
-            },
-            {
-              name: 'computed',
-              url: 'computed',
-              enable: true,
-            },
-            {
-              name: 'methods',
-              url: 'methods',
-              enable: true,
-            },
-            {
-              name: 'watch',
-              url: 'watch',
-              enable: true,
-            },
-          ] as PageItem[],
-        },
-        {
-          id: 'rendering',
-          name: '渲染选项',
-          open: false,
-          pages: [
-            {
-              name: 'template',
-              url: 'template',
-              enable: true,
-            },
-            {
-              name: 'render',
-              url: 'render',
-              enable: false,
-            },
-            {
-              name: 'slots',
-              url: 'slots',
-              enable: true,
-            },
-          ] as PageItem[],
-        },
-        {
-          id: 'component-instance',
-          name: '组件实例',
-          open: false,
-          pages: [
-            {
-              name: '$data',
-              url: 'data',
-              enable: true,
-            },
-            {
-              name: '$props',
-              url: 'props',
-              enable: true,
-            },
-            {
-              name: '$el',
-              url: 'el',
-              enable: true,
-            },
-            {
-              name: '$options',
-              url: 'options',
-              enable: true,
-            },
-            {
-              name: '$parent',
-              url: 'parent',
-              enable: true,
-            },
-            {
-              name: '$root',
-              url: 'root',
-              enable: true,
-            },
-            {
-              name: '$slots',
-              url: 'slots',
-              enable: true,
-            },
-            {
-              name: '$refs',
-              url: 'refs',
-              enable: true,
-            },
-            {
-              name: '$attrs',
-              url: 'attrs',
-              enable: true,
-            },
-            {
-              name: '$watch',
-              url: 'watch-function',
-              enable: true,
-            },
-            {
-              name: '$emit',
-              url: 'emit-function',
-              enable: true,
-            },
-            {
-              name: '$forceUpdate',
-              url: 'forceUpdate-function',
-              enable: false,
-            },
-            {
-              name: '$nextTick',
-              url: 'nextTick-function',
-              enable: true,
-            },
-          ] as PageItem[],
-        },
-        {
-          id: 'composition',
-          name: '组合选项',
-          open: false,
-          pages: [
-            {
-              name: 'provide',
-              url: 'provide',
-              enable: false,
-            },
-            {
-              name: 'inject',
-              url: 'inject',
-              enable: false,
-            },
-            {
-              name: 'mixins',
-              url: 'mixins',
-              enable: false,
-            },
-            {
-              name: 'extends',
-              url: 'extends',
-              enable: false,
-            },
-          ] as PageItem[],
-        },
-      ] as PageList[],
-    }
-  },
-  methods: {
-    triggerCollapse(_: PageList, index: number) {
-      this.list[index].open = !this.list[index].open
-    },
-    goDetailPage(id: string, e: PageItem) {
-      if (e.enable == false) {
-        uni.showToast({
-          icon: 'none',
-          title: '暂不支持',
-        })
-        return
-      }
+	export default {
+		data() {
+			return {
+				list: [
+					{
+						id: 'lifecycle',
+						name: '生命周期',
+						open: false,
+						pages: [
+							{
+								name: 'page',
+								url: 'page',
+								enable: true,
+							},
+							{
+								name: 'component',
+								url: 'component',
+								enable: true,
+							},
+						] as PageItem[],
+					},
+					{
+						id: 'directive',
+						name: '指令',
+						open: false,
+						pages: [
+							{
+								name: 'v-for',
+								url: 'v-for',
+								enable: true,
+							},
+							{
+								name: 'v-for-item-click',
+								url: 'v-for/v-for-item-click',
+								enable: true,
+							},
+							{
+								name: 'v-for-item-v-if',
+								url: 'v-for/v-for-item-v-if',
+								enable: true,
+							},
+							{
+								name: 'v-for-item-v-show',
+								url: 'v-for/v-for-item-v-show',
+								enable: true,
+							},
+							{
+								name: 'v-for-v-for',
+								url: 'v-for/v-for-v-for',
+								enable: true,
+							},
+							{
+								name: 'v-if',
+								url: 'v-if',
+								enable: true,
+							},
+							{
+								name: 'v-show',
+								url: 'v-show',
+								enable: true,
+							},
+							{
+								name: 'v-on',
+								url: 'v-on',
+								enable: true,
+							},
+							{
+								name: 'v-bind',
+								url: 'v-bind',
+								enable: true,
+							},
+							{
+								name: 'v-bind-class',
+								url: 'v-bind/v-bind-class',
+								enable: true,
+							},
+							{
+								name: 'v-bind-style',
+								url: 'v-bind/v-bind-style',
+								enable: true,
+							},
+							{
+								name: 'v-bind-props',
+								url: 'v-bind/v-bind-props',
+								enable: true,
+							},
+							{
+								name: 'v-bind-attribute',
+								url: 'v-bind/v-bind-attribute',
+								enable: false,
+							},
+							{
+								name: 'v-model',
+								url: 'v-model',
+								enable: true,
+							},
+							{
+								name: 'v-slot',
+								url: 'v-slot',
+								enable: true,
+							},
+							{
+								name: 'v-pre',
+								url: 'v-pre',
+								enable: false,
+							},
+							{
+								name: 'v-once',
+								url: 'v-once',
+								enable: false,
+							},
+							{
+								name: 'v-memo',
+								url: 'v-memo',
+								enable: false,
+							},
+							{
+								name: 'v-cloak',
+								url: 'v-cloak',
+								enable: false,
+							},
+						] as PageItem[],
+					},
+					{
+						id: 'state',
+						name: '状态',
+						open: false,
+						pages: [
+							{
+								name: 'data',
+								url: 'data',
+								enable: true,
+							},
+							{
+								name: 'props',
+								url: 'props',
+								enable: true,
+							},
+							{
+								name: 'computed',
+								url: 'computed',
+								enable: true,
+							},
+							{
+								name: 'methods',
+								url: 'methods',
+								enable: true,
+							},
+							{
+								name: 'watch',
+								url: 'watch',
+								enable: true,
+							},
+						] as PageItem[],
+					},
+					{
+						id: 'rendering',
+						name: '渲染选项',
+						open: false,
+						pages: [
+							{
+								name: 'template',
+								url: 'template',
+								enable: true,
+							},
+							{
+								name: 'render',
+								url: 'render',
+								enable: false,
+							},
+							{
+								name: 'slots',
+								url: 'slots',
+								enable: true,
+							},
+						] as PageItem[],
+					},
+					{
+						id: 'component-instance',
+						name: '组件实例',
+						open: false,
+						pages: [
+							{
+								name: '$data',
+								url: 'data',
+								enable: true,
+							},
+							{
+								name: '$props',
+								url: 'props',
+								enable: true,
+							},
+							{
+								name: '$el',
+								url: 'el',
+								enable: true,
+							},
+							{
+								name: '$options',
+								url: 'options',
+								enable: true,
+							},
+							{
+								name: '$parent',
+								url: 'parent',
+								enable: true,
+							},
+							{
+								name: '$root',
+								url: 'root',
+								enable: true,
+							},
+							{
+								name: '$slots',
+								url: 'slots',
+								enable: true,
+							},
+							{
+								name: '$refs',
+								url: 'refs',
+								enable: true,
+							},
+							{
+								name: '$attrs',
+								url: 'attrs',
+								enable: true,
+							},
+							{
+								name: '$watch',
+								url: 'watch-function',
+								enable: true,
+							},
+							{
+								name: '$emit',
+								url: 'emit-function',
+								enable: true,
+							},
+							{
+								name: '$forceUpdate',
+								url: 'forceUpdate-function',
+								enable: false,
+							},
+							{
+								name: '$nextTick',
+								url: 'nextTick-function',
+								enable: true,
+							},
+						] as PageItem[],
+					},
+					{
+						id: 'composition',
+						name: '组合选项',
+						open: false,
+						pages: [
+							{
+								name: 'provide',
+								url: 'provide',
+								enable: false,
+							},
+							{
+								name: 'inject',
+								url: 'inject',
+								enable: false,
+							},
+							{
+								name: 'mixins',
+								url: 'mixins',
+								enable: false,
+							},
+							{
+								name: 'extends',
+								url: 'extends',
+								enable: false,
+							},
+						] as PageItem[],
+					},
+				] as PageList[],
+			}
+		},
+		methods: {
+			triggerCollapse(_ : PageList, index : number) {
+				this.list[index].open = !this.list[index].open
+			},
+			goDetailPage(id : string, e : PageItem) {
+				if (e.enable == false) {
+					uni.showToast({
+						icon: 'none',
+						title: '暂不支持',
+					})
+					return
+				}
 
-      const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
-      uni.navigateTo({
-        url: `/pages/${id}/${url}`,
-      })
-    },
-    // 自动化测试
-    setLifeCycleNum(num: number) {
-      setLifeCycleNum(num)
-    },
-    // 自动化测试
-    getLifeCycleNum(): number {
-      return state.lifeCycleNum
-    },
-  },
-}
+				const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
+				uni.navigateTo({
+					url: `/pages/${id}/${url}`,
+				})
+			},
+			// 自动化测试
+			setLifeCycleNum(num : number) {
+				setLifeCycleNum(num)
+			},
+			// 自动化测试
+			getLifeCycleNum() : number {
+				return state.lifeCycleNum
+			},
+		},
+	}
 </script>
 
 <style>
-.arrow {
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #ccc;
-  border-left: 2px solid #ccc;
-}
+	.arrow {
+		width: 8px;
+		height: 8px;
+		border-top: 2px solid #ccc;
+		border-left: 2px solid #ccc;
+	}
 
-.arrow-right {
-  transform: rotate(135deg);
-}
+	.arrow-right {
+		transform: rotate(135deg);
+	}
 
-.arrow-up {
-  transform: rotate(45deg);
-}
+	.arrow-up {
+		transform: rotate(45deg);
+	}
 
-.arrow-down {
-  transform: rotate(-135deg);
-}
+	.arrow-down {
+		transform: rotate(-135deg);
+	}
 </style>

@@ -69,8 +69,6 @@ export default {
   font-weight: normal;
 }
 
-.uni-panel-icon {}
-
 .uni-panel-icon-on {
   transform: rotate(180deg);
 }

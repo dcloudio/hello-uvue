@@ -1,25 +1,31 @@
 <template>
-  <view class="page">
-    <view class="rect" :style="{width: width, height: height}"></view>
-    <view class="row"></view>
-    <view class="row">
-      <text ref="text">$nextTick Before Width:</text>
-      <text>{{nextTickBeforeWidth}}</text>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+    <!-- #endif -->
+    <view class="page">
+      <view class="rect" :style="{ width: width, height: height }"></view>
+      <view class="row"></view>
+      <view class="row">
+        <text ref="text">$nextTick Before Width:</text>
+        <text>{{ nextTickBeforeWidth }}</text>
+      </view>
+      <view class="row">
+        <text ref="text">$nextTick Before Height:</text>
+        <text>{{ nextTickBeforeHeight }}</text>
+      </view>
+      <view class="row">
+        <text ref="text">$nextTick After Width:</text>
+        <text>{{ nextTickAfterWidth }}</text>
+      </view>
+      <view class="row">
+        <text ref="text">$nextTick After Height:</text>
+        <text>{{ nextTickAfterHeight }}</text>
+      </view>
+      <next-tick-child class="next-tick-child"></next-tick-child>
     </view>
-    <view class="row">
-      <text ref="text">$nextTick Before Height:</text>
-      <text>{{nextTickBeforeHeight}}</text>
-    </view>
-    <view class="row">
-      <text ref="text">$nextTick After Width:</text>
-      <text>{{nextTickAfterWidth}}</text>
-    </view>
-    <view class="row">
-      <text ref="text">$nextTick After Height:</text>
-      <text>{{nextTickAfterHeight}}</text>
-    </view>
-    <next-tick-child class="next-tick-child"></next-tick-child>
-  </view>
+    <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
 </template>
 
 <script>
