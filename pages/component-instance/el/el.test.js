@@ -9,6 +9,6 @@ describe('$el', () => {
 
   it('$el元素可用', async () => {
     const el = await page.$('.tag-name')
-    expect(await el.text()).toBe('view')
+    expect(await el.text()).toBe('VIEW')
   })
 })
