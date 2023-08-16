@@ -1,0 +1,27 @@
+<template>
+  <view class="page">
+    父组件: {{ msg }}
+    <button @click="change">父组件改变数据</button>
+    <child></child>
+  </view>
+</template>
+
+<script>
+  import child from './components/child'
+  import { setComponentMsg, state } from '@/store/index.uts'
+  export default {
+    components: {
+      child
+    },
+    computed: {
+      msg() : number {
+        return state.componentMsg
+      }
+    },
+    methods: {
+      change() {
+        setComponentMsg(state.componentMsg + 1)
+      }
+    }
+  }
+</script>

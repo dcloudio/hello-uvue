@@ -237,6 +237,13 @@
         "navigationBarTitleText": "template",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/examples/nested-component-communication/nested-component-communication",
+      "style": {
+        "navigationBarTitleText": "嵌套组件通信",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {

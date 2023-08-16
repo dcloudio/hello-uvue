@@ -1,10 +1,16 @@
 export type State = {
     lifeCycleNum: number
+    componentMsg: number
 }
 export const state = reactive({
-    lifeCycleNum: 0
+    lifeCycleNum: 0,
+    componentMsg: 0
 } as State)
 
 export const setLifeCycleNum = (num: number) => {
   state.lifeCycleNum = num
+}
+
+export const setComponentMsg = (msg: number) => {
+  state.componentMsg = msg
 }
