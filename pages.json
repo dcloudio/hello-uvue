@@ -104,7 +104,8 @@
     {
       "path": "pages/lifecycle/page/page",
       "style": {
-        "navigationBarTitleText": "page-lifecycle"
+        "navigationBarTitleText": "page-lifecycle",
+        "enablePullDownRefresh": true
       }
     },
     {

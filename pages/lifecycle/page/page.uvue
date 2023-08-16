@@ -1,56 +1,91 @@
 <template>
-  <view class="page">
-    <text>page lifecycle</text>
-  </view>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+    <!-- #endif -->
+    <view class="uni-padding-wrap container">
+      <text>page lifecycle</text>
+      <button @click="scrollToBottom">scrollToBottom</button>
+    </view>
+    <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
 </template>
 
-<script>
+<script lang="uts">
 import { State, state, setLifeCycleNum } from '@/store/index.uts'
+
 export default {
-  data(){
+  data() {
     return {
-      _state: state as State
+      isScrolled: false,
     }
   },
-  onLoad() {
+  onLoad(_ : OnLoadOptions) {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 100)
-    console.log('Page onLoad')
   },
   onShow() {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
-    console.log('Page onShow')
   },
   onReady() {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
-    console.log('Page onReady')
+  },
+  onPullDownRefresh() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  },
+  onPageScroll(_) {
+    // 自动化测试
+    this.isScrolled = true
+  },
+  onReachBottom() {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  },
+  onBackPress(_ : OnBackPressOptions) : boolean | null {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 10)
+    return null
   },
   onHide() {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 10)
-    console.log('Page onHide')
   },
   onUnload() {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 100)
-    console.log('Page onUnload')
-  },
-  onBackPress(options: OnBackPressOptions): boolean | null {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum - 10)
-    console.log('Page onBackPress from: ', options.from)
-    return null
   },
   methods: {
-    getLifeCycleNum(): number {
+    // 自动化测试
+    getLifeCycleNum() : number {
       return state.lifeCycleNum
     },
-    setLifeCycleNum(value: number) {
-      // 自动化测试
-      setLifeCycleNum(value)
+    // 自动化测试
+    setLifeCycleNum(num : number) {
+      setLifeCycleNum(num)
+    },
+    pullDownRefresh() {
+      uni.startPullDownRefresh({
+        success() {
+          setTimeout(() => {
+            uni.stopPullDownRefresh()
+          }, 1000)
+        },
+      })
+    },
+    scrollToBottom() {
+      uni.pageScrollTo({
+        scrollTop: 2000,
+      })
     },
   },
 }
 </script>
+
+<style>
+.container {
+  height: 1200px;
+}
+</style>

@@ -5,18 +5,22 @@ describe('component-lifecycle', () => {
   let page
 	let lifeCycleNum
   beforeAll(async () => {
-		page = await program.reLaunch(HOME_PATH)
-		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(1100)
-    
-		const initLifecycleNum = 0
-		await page.callMethod('setLifeCycleNum', initLifecycleNum)
+    page = await program.reLaunch(HOME_PATH)
+    const initLifecycleNum = 0
+    await page.callMethod('setLifeCycleNum', initLifecycleNum)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(initLifecycleNum)
 
     page = await program.navigateTo(PAGE_PATH)
     await page.waitFor(1000)
   })
+  afterAll(async () => {
+    const resetLifecycleNum = 1100
+    await page.callMethod('setLifeCycleNum', resetLifecycleNum)
+    lifeCycleNum = await page.callMethod('getLifeCycleNum')
+    expect(lifeCycleNum).toBe(resetLifecycleNum)
+  })
+	
   it('beforeCreate created beforeMount mounted', async () => {
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(4)
@@ -33,10 +37,5 @@ describe('component-lifecycle', () => {
     page = await program.navigateBack()
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(4)
-    
-		const resetLifecycleNum = 1100
-		await page.callMethod('setLifeCycleNum', resetLifecycleNum)
-		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		expect(lifeCycleNum).toBe(resetLifecycleNum)
   })
 })
