@@ -1,5 +1,7 @@
 <script lang="ts">
 import { state, setLifeCycleNum } from './store/index.uts'
+
+let firstBackTime = 0
 export default {
   onLaunch: function () {
     // 自动化测试
@@ -7,12 +9,10 @@ export default {
     console.log('App Launch')
 
     const performance = uni.getPerformance()
-    const observer: PerformanceObserver = performance.createObserver(
-      (entryList: PerformanceObserverEntryList) => {
-        console.log('observer:entryList.getEntries()')
-        console.log(entryList.getEntries())
-      }
-    )
+    const observer: PerformanceObserver = performance.createObserver((entryList: PerformanceObserverEntryList) => {
+      console.log('observer:entryList.getEntries()')
+      console.log(entryList.getEntries())
+    })
     observer.observe({
       entryTypes: ['render', 'navigation'],
     } as PerformanceObserverOptions)
@@ -27,11 +27,23 @@ export default {
     setLifeCycleNum(state.lifeCycleNum - 100)
     console.log('App Hide')
   },
-  onLastPageBackPress: function (): boolean | null {
+  onLastPageBackPress: function () {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 1000)
     console.log('App LastPageBackPress')
-    return null
+    if (firstBackTime == 0) {
+      uni.showToast({
+        title: '再按一次退出应用',
+        position: 'bottom',
+      })
+      firstBackTime = Date.now()
+      setTimeout(() => {
+        firstBackTime = 0
+      }, 2000)
+    } else if (Date.now() - firstBackTime < 2000) {
+      firstBackTime = Date.now()
+      uni.exit(null)
+    }
   },
 }
 </script>
