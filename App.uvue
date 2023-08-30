@@ -45,6 +45,9 @@ export default {
       uni.exit(null)
     }
   },
+  onExit() {
+    console.log('App Exit')
+  },
 }
 </script>
 
