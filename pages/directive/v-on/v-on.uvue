@@ -1,8 +1,15 @@
 <template>
   <view class="page">
     <view class="split-title">v-on</view>
-    <view class="button view-click" @click="onClick">click</view>
-    <view class="button view-v-on-click" v-on:click="onClick">v-on:click</view>
+    <view class="view-click" @click="onClick">@click="onClick" 缩写</view>
+    <view class="view-click" v-on:click="onClick">v-on:click="onClick" 方法处理函数</view>
+    <view class="view-click" v-on:click="count++">v-on:click="count++" 内联事件</view>
+    <view class="view-click" v-on:click="onClick($event as MouseEvent)">v-on:click="onClick($event as
+      MouseEvent)" 内联声明，注意要显示声明$event的类型</view>
+    <view class="view-click" v-on:[event]="onClick">v-on:[event]="onClick" 动态事件</view>
+    <!-- TODO 不支持修饰符 -->
+    <!-- <view class="view-click" v-on:click.once="onClick">v-on:click.once="onClick" 点击事件将最多触发一次</view> -->
+    <view class="view-click" v-on="{ click: onClick }">v-on="{ click: onClick }" 对象语法</view>
     <view>
       <text class="count">{{count}}</text>
     </view>
@@ -13,20 +20,21 @@
   export default {
     data() {
       return {
-        count: 0
+        count: 0,
+        event: 'click'
       }
     },
     methods: {
-      onClick() {
+      onClick(e : MouseEvent) {
         this.count++
-        console.log('onClick')
+        console.log('onClick', e)
       }
     }
   }
 </script>
 
 <style>
-  .button {
+  .view-click {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;

@@ -7,18 +7,13 @@ describe('v-on', () => {
     await page.waitFor(500)
   })
   it('view:click', async () => {
-    let count = 0
-
+    const expectedCount = 6
     const countText = await page.$('.count')
-
-    const view = await page.$('.view-click')
-    await view.tap()
-    count += 1
-    expect(await countText.text()).toBe(count + '')
-
-    const view_v_on = await page.$('.view-v-on-click')
-    await view_v_on.tap()
-    count += 1
-    expect(await countText.text()).toBe(count + '')
+    const clickEls = await page.$$('.view-click')
+    for (let i = 0; i < clickEls.length; i++) {
+      await clickEls[i].tap()
+    }
+    expect(await countText.text()).toBe(expectedCount + '')
+    expect((await page.data()).count).toBe(expectedCount)
   })
 })
