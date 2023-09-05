@@ -6,15 +6,14 @@
     </view>
 
     <view class="split-title">number</view>
-    <view style="color: red" v-for="(_, index) in 8" :key="index">
+    <view v-for="(_, index) in 8" :key="index">
       <view class="map-number-1">{{ index }}</view>
     </view>
 
-    <!-- TODO object -->
-    <!-- <view>object</view>
+    <view class="split-title">object</view>
     <view v-for="(value, key) in object">
-      key: {{ key }} , value: {{ value }}
-    </view> -->
+      key: {{ key }} value: {{ value }}
+    </view>
   </view>
 </template>
 
@@ -22,11 +21,16 @@
   type ListItem = {
     text : string
   }
+  type MyObject = {
+    key1 : string
+    key2 : string
+    key3 : string
+  }
   export default {
     data() {
       return {
         items: [{ text: 'Foo1' }, { text: 'Foo2' }, { text: 'Foo3' }] as ListItem[],
-        object: { key1: 'Foo1', key2: 'Foo2', key3: 'Foo3' }
+        object: { key1: 'Foo1', key2: 'Foo2', key3: 'Foo3' } as MyObject
       }
     }
   }

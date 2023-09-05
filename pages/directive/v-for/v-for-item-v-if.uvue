@@ -1,12 +1,12 @@
 <template>
   <view class="page">
     <view class="split-title">list item v-if</view>
-    <view v-for="item in items">
+    <template v-for="item in items">
       <view class="list-item" @click="onItemClick(item)">
         <text class="list-item-text">{{ item.text }}:</text>
         <text class="list-item-text-show" v-if="item.show">{{ item.show }}</text>
       </view>
-    </view>
+    </template>
   </view>
 </template>
 
