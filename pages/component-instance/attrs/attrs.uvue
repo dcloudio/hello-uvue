@@ -2,7 +2,6 @@
   <view class="page">
     <child
         class="child-class"
-        style="color: red;"
         id="child-id"
         data-id="data-id"
         val="val"
@@ -23,9 +22,6 @@ export default {
 </script>
 
 <style>
-  .page {
-    font-size: 16px;
-  }
   .row {
     display: flex;
     flex-direction: row;

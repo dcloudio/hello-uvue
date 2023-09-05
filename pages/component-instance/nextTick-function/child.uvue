@@ -84,10 +84,6 @@
 </script>
 
 <style>
-    .page {
-        font-size: 16px;
-    }
-
     .row {
         display: flex;
         flex-direction: row;
