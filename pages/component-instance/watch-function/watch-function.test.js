@@ -14,6 +14,9 @@ describe('$watch()', () => {
 
     expect(value).not.toBe(initValue)
     expect(isChange).toBe(true)
+
+    const isChange2 = await (await page.data()).immediateChanged
+    expect(isChange2).toBe(true)
   })
 
   it('子组件 $watch() 生效', async () => {
@@ -24,5 +27,8 @@ describe('$watch()', () => {
 
     expect(value).not.toBe(initValue)
     expect(isChange).toBe(true)
+
+    const isChange2 = await (await comp.data()).immediateChanged
+    expect(isChange2).toBe(true)
   })
 })

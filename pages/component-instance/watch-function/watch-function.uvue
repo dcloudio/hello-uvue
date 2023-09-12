@@ -12,54 +12,68 @@
       <text>值是否变化</text>
       <text>{{ changed }}</text>
     </view>
+    <view class="row">
+      <text>immediate=true 值应为 true</text>
+      <text>{{ immediateChanged }}</text>
+    </view>
     <watch-child class="watch-child"></watch-child>
   </view>
 </template>
 
 <script>
-import child from './child.uvue'
+  import child from './child.uvue'
 
-export default {
-  components: {
-    watchChild: child
-  },
-  data() {
-    return {
-      val: "init",
-      changed: false,
-      // a: 'a',
-      // b: 'b',
-      // abChanged: false
-    }
-  },
-  mounted() {
-    this.createWatch()
-    // this.createGetterWatch()
-  },
-  methods: {
-    createWatch() {
-      this.$watch('val', () => {
-        this.changed = !this.changed
-      })
-
-      this.val = 'changed'
+  export default {
+    components: {
+      watchChild: child
     },
-    // createGetterWatch () {
-    //   this.$watch(() => this.a + this.b, () => {
-    //     this.abChanged = !this.abChanged
-    //   })
-    //
-    //   this.a = 'changed'
-    // }
+    data() {
+      return {
+        val: "init",
+        changed: false,
+        immediateValue: 'value',
+        immediateChanged: false,
+        // a: 'a',
+        // b: 'b',
+        // abChanged: false
+      }
+    },
+    mounted() {
+      this.createWatch()
+      this.createImmediateWatch()
+      // this.createGetterWatch()
+    },
+    methods: {
+      createWatch() {
+        this.$watch('val', () => {
+          this.changed = !this.changed
+        })
+
+        this.val = 'changed'
+      },
+      createImmediateWatch() {
+        this.$watch('immediateWatchValue', () => {
+          this.immediateChanged = !this.immediateChanged
+        }, {
+          immediate: true
+        })
+      },
+      // createGetterWatch () {
+      //   this.$watch(() => this.a + this.b, () => {
+      //     this.abChanged = !this.abChanged
+      //   })
+      //
+      //   this.a = 'changed'
+      // }
+    }
   }
-}
 </script>
 
 <style>
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
 </style>
