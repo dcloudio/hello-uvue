@@ -11,9 +11,13 @@ describe('$props', () => {
     const string = await page.$('.string')
     const number = await page.$('.number')
     const boolean = await page.$('.boolean')
+    const arrayString = await page.$('.array-string')
+    const object = await page.$('.object')
 
     expect(await string.text()).toBe('abcd')
     expect(await number.text()).toBe('12345')
     expect(await boolean.text()).toBe('true')
+    expect(await arrayString.text()).toBe('str1')
+    expect(await object.text()).toBe('1')
   })
 })
