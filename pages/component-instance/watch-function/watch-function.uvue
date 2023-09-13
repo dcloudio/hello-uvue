@@ -1,20 +1,27 @@
 <template>
   <view class="page">
-    <view class="row">
-      <text>初始值</text>
-      <text class="child-init-value">init</text>
-    </view>
-    <view class="row">
-      <text>val</text>
-      <text>{{ val }}</text>
-    </view>
-    <view class="row">
-      <text>值是否变化</text>
-      <text>{{ changed }}</text>
-    </view>
-    <view class="row">
-      <text>immediate=true 值应为 true</text>
-      <text>{{ immediateChanged }}</text>
+    <button class="btn-click" type="default" @click="click">Click</button>
+    <view>
+      <view class="value-item">
+        <text class="value-item-k">a</text>
+        <text class="value-item-v value-1-n">{{v1New}}</text>
+        <text class="value-item-v value-1-o">{{v1Old}}</text>
+      </view>
+      <view class="value-item">
+        <text class="value-item-k">c.d</text>
+        <text class="value-item-v value-2-n">{{v2New}}</text>
+        <text class="value-item-v value-2-o">{{v2Old}}</text>
+      </view>
+      <view class="value-item">
+        <text class="value-item-k">a+b</text>
+        <text class="value-item-v value-3-n">{{v3New}}</text>
+        <text class="value-item-v value-3-o">{{v3Old}}</text>
+      </view>
+      <view class="value-item">
+        <text class="value-item-k">f</text>
+        <text class="value-item-v value-4-n">{{v4New}}</text>
+        <text class="value-item-v value-4-o">{{v4Old}}</text>
+      </view>
     </view>
     <watch-child class="watch-child"></watch-child>
   </view>
@@ -22,58 +29,80 @@
 
 <script>
   import child from './child.uvue'
-
+  type C = {
+    d : number
+  }
   export default {
     components: {
       watchChild: child
     },
     data() {
       return {
-        val: "init",
-        changed: false,
-        immediateValue: 'value',
-        immediateChanged: false,
-        // a: 'a',
-        // b: 'b',
-        // abChanged: false
+        a: 1,
+        b: 2,
+        c: {
+          d: 4
+        } as C,
+        e: 5,
+        f: 6,
+        v1New: 0,
+        v1Old: 0,
+        v2New: 0,
+        v2Old: 0,
+        v3New: 0,
+        v3Old: 0,
+        v4New: 0,
+        v4Old: 0,
       }
     },
     mounted() {
-      this.createWatch()
-      this.createImmediateWatch()
-      // this.createGetterWatch()
+      this.$watch('a', (newVal, oldVal) => {
+        this.v1New = newVal
+        this.v1Old = oldVal
+      })
+      this.$watch('c.d', (newVal : number, oldVal : number) => {
+        this.v2New = newVal
+        this.v2Old = oldVal
+      })
+      this.$watch(() : number => this.a + this.b, (newVal : number, oldVal : number) => {
+        this.v3New = newVal
+        this.v3Old = oldVal
+      })
+      this.$watch('f', (newVal, oldVal) => {
+        this.v4New = newVal
+        this.v4Old = oldVal
+      }, { immediate: true })
     },
     methods: {
-      createWatch() {
-        this.$watch('val', () => {
-          this.changed = !this.changed
-        })
-
-        this.val = 'changed'
-      },
-      createImmediateWatch() {
-        this.$watch('immediateWatchValue', () => {
-          this.immediateChanged = !this.immediateChanged
-        }, {
-          immediate: true
-        })
-      },
-      // createGetterWatch () {
-      //   this.$watch(() => this.a + this.b, () => {
-      //     this.abChanged = !this.abChanged
-      //   })
-      //
-      //   this.a = 'changed'
-      // }
+      click() {
+        this.a++
+        this.b++
+        this.c.d++
+        this.e++
+        this.f++
+      }
     }
   }
 </script>
 
 <style>
-  .row {
-    display: flex;
+  .value {
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .value-item {
     flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  }
+
+  .value-item-k {
+    width: 50px;
+    line-height: 2;
+  }
+
+  .value-item-v {
+    font-weight: bold;
+    line-height: 2;
+    margin-left: 10px;
   }
 </style>

@@ -27,7 +27,7 @@
         val: "init",
         changed: false,
         immediateValue: 'value',
-        immediateChanged: false,
+        immediateChanged: false
       }
     },
     mounted() {
@@ -43,7 +43,7 @@
         this.val = 'changed'
       },
       createImmediateWatch() {
-        this.$watch('immediateWatchValue', () => {
+        this.$watch('immediateValue', () => {
           this.immediateChanged = !this.immediateChanged
         }, {
           immediate: true
