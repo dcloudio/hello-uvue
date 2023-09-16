@@ -22,7 +22,7 @@ export default {
 
     this.existRef = nodeRef !== null
 
-   console.log(this.$refs)
+//    console.log(this.$refs)
   }
 }
 </script>
