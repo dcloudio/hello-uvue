@@ -43,4 +43,15 @@ describe('v-if', () => {
     const element_not_abc = await page.$('.text-not-a-b-c')
     expect(await element_not_abc.text()).toBe('Not A/B/C')
   })
+  it('remove-children', async () => {
+    const child_a = await page.$('.child-a')
+    expect(await child_a.text()).toBe('child-a')
+
+    const btn_view = await page.$('.btn-remove-chilren')
+    await btn_view.tap()
+    await page.waitFor(50)
+
+    const child_a2 = await page.$('.child-a')
+    expect(child_a2).toBe(null)
+  })
 })

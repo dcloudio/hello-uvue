@@ -18,6 +18,13 @@
       <text class="text-not-a-b-c">Not A/B/C</text>
     </view>
     <view class="btn-view view-click-abc" @click="switchABC">Switch A/B/C</view>
+
+    <view class="children">
+      <view v-if="showChildren">
+        <view class="child-a">child-a</view>
+      </view>
+    </view>
+    <view class="btn-view btn-remove-chilren" @click="removeChilren">removeChilren</view>
   </view>
 </template>
 
@@ -28,7 +35,8 @@
     data() {
       return {
         show: true,
-        type: 'A'
+        type: 'A',
+        showChildren: true
       }
     },
     methods: {
@@ -42,7 +50,17 @@
         }
 
         this.type = TypeList[typeIndex]
+      },
+      removeChilren() {
+        this.showChildren = false
       }
     }
   }
 </script>
+
+<style>
+  .child-a {
+    width: 100px;
+    height: 100px;
+  }
+</style>
