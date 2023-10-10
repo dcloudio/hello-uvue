@@ -11,7 +11,7 @@ describe('app-lifecycle', () => {
     expect(lifeCycleNum).toBe(1100)
   })
   it('onLastPageBackPress', async () => {
-    await program.navigateBack()
+    page = await program.navigateBack()
     await page.waitFor(1000)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(100)
