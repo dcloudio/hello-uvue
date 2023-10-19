@@ -1,0 +1,17 @@
+{
+  "id": "hello-uvue",
+  "name": "hello-uvue",
+  "version": "1.0.0",
+  "description": "uvue的vue语法示例工程",
+  "main": "env.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "uvue",
+    "uni-app2.0"
+],
+  "author": "",
+"license": "ISC",
+"displayName": "helllo uvue"
+}
