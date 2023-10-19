@@ -22,7 +22,7 @@
   <!-- #endif -->
 </template>
 
-<script>
+<script lang="uts">
   import { setLifeCycleNum, state } from '@/store/index.uts'
 
   type PageItem = {
@@ -357,6 +357,11 @@
       getLifeCycleNum() : number {
         return state.lifeCycleNum
       },
+			// 自动化测试
+			checkLaunchPath() : boolean {
+				const app = getApp()
+			  return app.checkLaunchPath()
+			},
     },
   }
 </script>

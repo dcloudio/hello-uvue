@@ -1,10 +1,14 @@
 export type State = {
-    lifeCycleNum: number
-    componentMsg: number
+  lifeCycleNum: number
+  componentMsg: number,
+  appLaunchPath: string
+  appShowPath: string
 }
 export const state = reactive({
-    lifeCycleNum: 0,
-    componentMsg: 0
+  lifeCycleNum: 0,
+  componentMsg: 0,
+  appLaunchPath: '',
+  appShowPath: '',
 } as State)
 
 export const setLifeCycleNum = (num: number) => {
@@ -13,4 +17,12 @@ export const setLifeCycleNum = (num: number) => {
 
 export const setComponentMsg = (msg: number) => {
   state.componentMsg = msg
+}
+
+export const setAppLaunchPath = (path: string) => {
+  state.appLaunchPath = path
+}
+
+export const setAppShowPath = (path: string) => {
+  state.appShowPath = path
 }

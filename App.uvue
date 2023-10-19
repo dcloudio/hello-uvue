@@ -1,11 +1,12 @@
-<script lang="ts">
-import { state, setLifeCycleNum } from './store/index.uts'
+<script lang="uts">
+import { state, setLifeCycleNum, setAppLaunchPath, setAppShowPath } from './store/index.uts'
 
 let firstBackTime = 0
 export default {
-  onLaunch: function () {
+  onLaunch: function (options) {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 1000)
+    setAppLaunchPath(options.path)
     console.log('App Launch')
 
     const performance = uni.getPerformance()
@@ -17,9 +18,10 @@ export default {
       entryTypes: ['render', 'navigation'],
     } as PerformanceObserverOptions)
   },
-  onShow: function () {
+  onShow: function (options) {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 100)
+    setAppShowPath(options.path)
     console.log('App Show')
   },
   onHide: function () {
@@ -48,6 +50,18 @@ export default {
   onExit() {
     console.log('App Exit')
   },
+  methods: {
+    checkLaunchPath(): boolean{
+      const HOME_PATH = '/pages/index'
+      if(state.appLaunchPath != HOME_PATH){
+        return false
+      }
+      if(state.appShowPath != HOME_PATH){
+        return false
+      }
+      return true
+    }
+  }
 }
 </script>
 
