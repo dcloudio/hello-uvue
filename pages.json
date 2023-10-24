@@ -193,6 +193,24 @@
       }
     },
     {
+      "path": "pages/component-instance/methods/call-uni-element-method",
+      "style": {
+        "navigationBarTitleText": "call-uni-element-method"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-easycom-method",
+      "style": {
+        "navigationBarTitleText": "call-easycom-method"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-other-method",
+      "style": {
+        "navigationBarTitleText": "call-other-method"
+      }
+    },
+    {
       "path": "pages/state/data/data",
       "style": {
         "navigationBarTitleText": "data",

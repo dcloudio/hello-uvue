@@ -287,6 +287,21 @@
                 url: 'nextTick-function',
                 enable: true,
               },
+              {
+                name: 'call-uni-element-method',
+                url: 'methods/call-uni-element-method',
+                enable: true,
+              },
+              {
+                name: 'call-easycom-method',
+                url: 'methods/call-easycom-method',
+                enable: true,
+              },
+              {
+                name: 'call-other-method',
+                url: 'methods/call-other-method',
+                enable: true,
+              },
             ] as PageItem[],
           },
           {
