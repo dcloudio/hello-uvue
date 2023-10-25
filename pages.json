@@ -193,21 +193,27 @@
       }
     },
     {
-      "path": "pages/component-instance/methods/call-uni-element-method",
+      "path": "pages/component-instance/methods/call-method-uni-element",
       "style": {
-        "navigationBarTitleText": "call-uni-element-method"
+        "navigationBarTitleText": "call-method-uni-element"
       }
     },
     {
-      "path": "pages/component-instance/methods/call-easycom-method",
+      "path": "pages/component-instance/methods/call-method-easycom",
       "style": {
-        "navigationBarTitleText": "call-easycom-method"
+        "navigationBarTitleText": "call-method-easycom"
       }
     },
     {
-      "path": "pages/component-instance/methods/call-other-method",
+      "path": "pages/component-instance/methods/call-method-easycom-uni-modules",
       "style": {
-        "navigationBarTitleText": "call-other-method"
+        "navigationBarTitleText": "call-method-easycom-uni-modules"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-other",
+      "style": {
+        "navigationBarTitleText": "call-method-other"
       }
     },
     {
