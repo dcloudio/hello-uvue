@@ -2,19 +2,20 @@
   <view class="page">
     <slot-comp class="slot-comp">
       <template v-slot:header>header</template>
+      <template v-slot:default>default</template>
       <template v-slot:footer>footer</template>
     </slot-comp>
   </view>
 </template>
 
-<script>
-import slot from './slot.uvue'
+<script lang="uts">
+  import slot from './slot.uvue'
 
-export default {
-  components: {
-    slotComp: slot
+  export default {
+    components: {
+      slotComp: slot
+    }
   }
-}
 </script>
 
 <style>
