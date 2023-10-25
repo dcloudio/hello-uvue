@@ -1,25 +1,31 @@
 <template>
-	<view class="container">
-		<view>
-			<slot name="header"></slot>
-		</view>
-		<view>
-			<slot></slot>
-		</view>
-		<view>
-			<slot name="footer"></slot>
-		</view>
-	</view>
+  <view class="container">
+    <view>
+      <slot name="header" msg="Here might be a page title"></slot>
+    </view>
+    <view>
+      <slot msg="A paragraph for the main content."></slot>
+    </view>
+    <view>
+      <slot name="footer" msg="Here's some contact info"></slot>
+    </view>
+  </view>
 </template>
 
-<script>
-	export default {
-		name:"child",
-		data() {
-			return {}
-		},
-		methods: {}
-	}
+<script lang="uts">
+  import { SlotsType } from 'vue'
+  export default {
+    name: "child",
+    slots: Object as SlotsType<{
+      header : { msg : string },
+      default : { msg : string },
+      footer : { msg : string }
+    }>,
+    data() {
+      return {}
+    },
+    methods: {}
+  }
 </script>
 
 <style>

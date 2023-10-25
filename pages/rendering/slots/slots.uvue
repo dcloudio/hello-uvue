@@ -1,33 +1,33 @@
 <template>
-	<view class="content">
-		<child>
-			<template v-slot:header>
-				<view  class="header">Here might be a page title</view>
-			</template>
-			<template v-slot:default>
-				<view  class="main">A paragraph for the main content.</view>
-			</template>
-			<template v-slot:footer>
-				<view  class="footer">Here's some contact info</view>
-			</template>
-		</child>
-	</view>
+  <view class="content">
+    <child>
+      <template v-slot:header="slotProps">
+        <view class="header">{{ slotProps.msg }}</view>
+      </template>
+      <template v-slot:default="{ msg }">
+        <view class="main">{{ msg }}</view>
+      </template>
+      <template #footer="{ msg: text }">
+        <view class="footer">{{ text }}</view>
+      </template>
+    </child>
+  </view>
 </template>
 
-<script>
-	import child from './child.uvue';
-	export default {
-		components:{child},
-		data() {
-			return {}
-		},
-		onLoad() {
-		
-		},
-		methods: {
+<script lang="uts">
+  import child from './child.uvue';
+  export default {
+    components: { child },
+    data() {
+      return {}
+    },
+    onLoad() {
 
-		}
-	}
+    },
+    methods: {
+
+    }
+  }
 </script>
 
 <style>
