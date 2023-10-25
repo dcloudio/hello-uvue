@@ -1,6 +1,6 @@
 <template>
   <view>
-    <call-easy-method ref="callEasyMethod1"></call-easy-method>
+    <call-easy-method-uni-modules ref="callEasyMethod1"></call-easy-method-uni-modules>
   </view>
 </template>
 
@@ -8,12 +8,12 @@
   export default {
     data() {
       return {
-        $callEasyMethod1: null as CallEasyMethodComponentPublicInstance | null
+        $callEasyMethod1: null as CallEasyMethodUniModulesComponentPublicInstance | null
       }
     },
     onReady() {
       // 通过组件 ref 属性获取组件实例, 组件标签名首字母大写，驼峰+ComponentPublicInstance
-      this.$callEasyMethod1 = this.$refs['callEasyMethod1'] as CallEasyMethodComponentPublicInstance;
+      this.$callEasyMethod1 = this.$refs['callEasyMethod1'] as CallEasyMethodUniModulesComponentPublicInstance;
     },
     methods: {
       callMethod1() {
@@ -38,6 +38,10 @@
         // 注意： 返回值可能为 null，当前例子一定不为空，所以加了 !
         const result = this.$callEasyMethod1!.foo5('string1')! as string;
         console.log(result); // string1
+      },
+      callMethodTest(text: string): string | null {
+        const result = this.$callEasyMethod1!.foo5(text)! as string;
+        return result;
       },
     }
   }

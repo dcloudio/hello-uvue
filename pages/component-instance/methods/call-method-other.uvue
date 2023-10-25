@@ -49,6 +49,10 @@
         const result = this.$component1!.$callMethod('foo5', 'string1')! as string;
         console.log(result); // string1
       },
+      callMethodTest(text: string): string | null {
+        const result = this.$component1!.$callMethod('foo5', text)! as string;
+        return result;
+      },
     }
   }
 </script>
