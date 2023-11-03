@@ -1,5 +1,6 @@
 {
-  "pages": [{
+  "pages": [
+    {
       "path": "pages/index",
       "style": {
         "navigationBarTitleText": "hello uvue"
@@ -205,19 +206,22 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
-    }, {
+    },
+    {
       "path": "pages/state/props/props",
       "style": {
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
-    }, {
+    },
+    {
       "path": "pages/state/computed/computed",
       "style": {
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
-    }, {
+    },
+    {
       "path": "pages/state/watch/watch",
       "style": {
         "navigationBarTitleText": "",
@@ -244,6 +248,13 @@
         "navigationBarTitleText": "嵌套组件通信",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class",
+      "style": {
+        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {
@@ -261,12 +272,15 @@
     }
   },
   "uniIdRouter": {},
-  "condition": { //模式配置，仅开发期间生效
+  "condition": {
+    //模式配置，仅开发期间生效
     "current": 0, //当前激活的模式(list 的索引项)
-    "list": [{
-      "name": "", //模式名称
-      "path": "", //启动页面，必选
-      "query": "" //启动参数，在页面的onLoad函数里面得到
-    }]
+    "list": [
+      {
+        "name": "", //模式名称
+        "path": "", //启动页面，必选
+        "query": "" //启动参数，在页面的onLoad函数里面得到
+      }
+    ]
   }
 }
