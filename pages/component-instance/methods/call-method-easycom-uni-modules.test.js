@@ -11,4 +11,9 @@ describe('call-method-easycom-uni-modules', () => {
     const result = await page.callMethod('callMethodTest', title)
     expect(result).toBe(title)
   })
+  it('callMethodInOtherFile', async () => {
+    const title = Date.now() + ''
+    const result = await page.callMethod('callMethodInOtherFile', title)
+    expect(result).toBe(title)
+  })
 })
