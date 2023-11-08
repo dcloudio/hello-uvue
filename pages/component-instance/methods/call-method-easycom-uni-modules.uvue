@@ -5,6 +5,8 @@
 </template>
 
 <script>
+  import { testInOtherFile } from './call-method-easycom-uni-modules'
+
   export default {
     data() {
       return {
@@ -42,6 +44,9 @@
       callMethodTest(text: string): string | null {
         const result = this.$callEasyMethod1!.foo5(text)! as string;
         return result;
+      },
+      callMethodInOtherFile(text: string): string {
+        return testInOtherFile(this.$callEasyMethod1!, text);
       },
     }
   }
