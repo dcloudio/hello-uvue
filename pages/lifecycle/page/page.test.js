@@ -6,13 +6,13 @@ let lifeCycleNum
 describe('app-lifecycle', () => {
   it('onLaunch onShow', async () => {
     page = await program.reLaunch(HOME_PATH)
-    await page.waitFor(1000)
+    await page.waitFor(700)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(1100)
   })
   it('onLastPageBackPress', async () => {
     page = await program.navigateBack()
-    await page.waitFor(1000)
+    await page.waitFor(700)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(100)
 
@@ -32,7 +32,7 @@ describe('page-lifecycle', () => {
 
   it('onLoad onShow onReady', async () => {
     page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(1000)
+    await page.waitFor(700)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(120)
     await page.callMethod('setLifeCycleNum', 0)
@@ -54,28 +54,28 @@ describe('page-lifecycle', () => {
   })
   it('onHide', async () => {
     page = await program.navigateTo(HOME_PATH)
-    await page.waitFor(1000)
+    await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(-10)
     page = await program.navigateBack()
-    await page.waitFor(1000)
+    await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(0)
   })
   it('onUnload', async () => {
     page = await program.redirectTo(HOME_PATH)
-    await page.waitFor(1000)
+    await page.waitFor(700)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(-100)
     await page.callMethod('setLifeCycleNum', 0)
   })
   it('onBackPress', async () => {
     page = await program.navigateTo(PAGE_PATH)
-    await page.waitFor(1000)
+    await page.waitFor(700)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(120)
     page = await program.navigateBack()
-    await page.waitFor(1000)
+    await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(10)
     await page.callMethod('setLifeCycleNum', 0)
