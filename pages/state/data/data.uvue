@@ -42,7 +42,7 @@
   // let obj:{ name : string, age : number } = { name: 'John', age: 30 }
 
   export default {
-    data() : object {
+    data() {
       return {
         num: 2023 as number,
         str: '我是字符串' as string,
