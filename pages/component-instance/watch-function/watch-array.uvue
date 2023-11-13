@@ -1,0 +1,61 @@
+<template>
+  <view>
+    <view v-for="(item, index) in dataList">
+      <text class="data-item-text">{{JSON.stringify(item)}}</text>
+      <!-- TODO 暂不支持 for UTSJSONObject -->
+      <!-- <view v-for="(value, key) in item">
+        <text class="k">{{key}}</text>
+        <text class="v">{{value}}</text>
+      </view> -->
+    </view>
+    <view>
+      <text class="watch-count">{{watchCount}}</text>
+    </view>
+    <view>
+      <text>Watch array in component</text>
+    </view>
+    <watch-array-child class="watch-array-child" :list="dataList"></watch-array-child>
+    <button class="change-data1" @click="changeData1">changeData1(push)</button>
+    <button class="change-data2" @click="changeData2">changeData2(allocate)</button>
+  </view>
+</template>
+
+<script>
+  import WatchArrayChild from './watch-array-child.uvue'
+  export default {
+    components: {
+      WatchArrayChild
+    },
+    data() {
+      return {
+        dataList: [] as Array<UTSJSONObject>,
+        watchCount: 0
+      }
+    },
+    watch: {
+      dataList: {
+        handler(newValue : Array<UTSJSONObject>) {
+          this.watchCount++
+        },
+        deep: true,
+        immediate: true
+      }
+    },
+    methods: {
+      changeData1() {
+        let item = {
+          "a": 1,
+          "b": 2
+        }
+        this.dataList.push(item)
+      },
+      changeData2() {
+        let list = [{
+          "c": 3,
+          "d": 4
+        }] as Array<UTSJSONObject>
+        this.dataList = list
+      }
+    }
+  }
+</script>

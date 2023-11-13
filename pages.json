@@ -175,6 +175,12 @@
       }
     },
     {
+      "path": "pages/component-instance/watch-function/watch-array",
+      "style": {
+        "navigationBarTitleText": "watch-array"
+      }
+    },
+    {
       "path": "pages/component-instance/emit-function/emit-function",
       "style": {
         "navigationBarTitleText": "$emit()"

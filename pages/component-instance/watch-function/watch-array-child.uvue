@@ -1,0 +1,42 @@
+<template>
+  <view>
+    <view v-for="(item, index) in list">
+      <text class="data-item-text">{{JSON.stringify(item)}}</text>
+      <!-- TODO 暂不支持 for UTSJSONObject -->
+      <!-- <view v-for="(value, key) in item">
+        <text class="k">{{key}}</text>
+        <text class="v">{{value}}</text>
+      </view> -->
+    </view>
+    <view>
+      <text class="watch-count">{{watchCount}}</text>
+    </view>
+  </view>
+</template>
+
+<script>
+  import { PropType } from 'vue'
+  export default {
+    name: 'ArrayDeep',
+    props: {
+      list: {
+        type: Array as PropType<Array<UTSJSONObject>>,
+        default: [] as Array<UTSJSONObject>
+      },
+    },
+    data() {
+      return {
+        watchCount: 0
+      }
+    },
+    watch: {
+      list: {
+        handler(newValue : Array<UTSJSONObject>) {
+          this.watchCount++
+        },
+        deep: true,
+        immediate: true
+      }
+    }
+  }
+</script>
