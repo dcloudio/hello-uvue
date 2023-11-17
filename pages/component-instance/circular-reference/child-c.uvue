@@ -1,7 +1,7 @@
 <template>
   <view>
     <text>child-c::{{text}}</text>
-    <child-c v-if="!end" class="child-a-child-b" :text="text" :limit="limit-1"></child-c>
+    <child-c v-if="!end" class="child-c-child-c" :text="text" :limit="limit-1"></child-c>
   </view>
 </template>
 
