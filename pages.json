@@ -223,6 +223,12 @@
       }
     },
     {
+      "path": "pages/component-instance/circular-reference/circular-reference",
+      "style": {
+        "navigationBarTitleText": "circular reference"
+      }
+    },
+    {
       "path": "pages/state/data/data",
       "style": {
         "navigationBarTitleText": "data",

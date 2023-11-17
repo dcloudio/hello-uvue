@@ -1,0 +1,30 @@
+<template>
+  <view>
+    <text>child-b::{{text}}</text>
+    <child-a v-if="!end" class="child-b-child-a" :text="text" :limit="limit-1"></child-a>
+  </view>
+</template>
+
+<script>
+  import childA from './child-a.uvue'
+  export default {
+    components: {
+      childA
+    },
+    props: {
+      text: {
+        type: String,
+        default: ''
+      },
+      limit: {
+        type: Number,
+        default: 0
+      }
+    },
+    computed: {
+      end() : boolean {
+        return this.limit <= 0
+      }
+    }
+  }
+</script>

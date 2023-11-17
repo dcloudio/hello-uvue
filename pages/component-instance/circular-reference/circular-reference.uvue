@@ -1,0 +1,25 @@
+<template>
+  <view>
+    <child-a class="page-child-a" :text="text" :limit="10"></child-a>
+    <child-c class="page-child-c" :text="text" :limit="10"></child-c>
+  </view>
+</template>
+
+<script>
+  import childA from './child-a.uvue'
+  import childC from './child-c.uvue'
+  export default {
+    components: {
+      childA,
+      childC
+    },
+    data() {
+      return {
+        text: ''
+      }
+    },
+    onLoad() {
+      this.text = Date.now().toString()
+    }
+  }
+</script>

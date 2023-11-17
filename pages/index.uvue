@@ -312,6 +312,11 @@
                 url: 'methods/call-method-other',
                 enable: true,
               },
+              {
+                name: 'circular-reference',
+                url: 'circular-reference',
+                enable: true,
+              },
             ] as PageItem[],
           },
           {
