@@ -28,6 +28,7 @@ describe('component-lifecycle', () => {
   })
   it('beforeUpdate updated', async () => {
 		const component = await page.$('.component-lifecycle')
+		console.log('component', component)
 		await component.setData({
 			title: 'component for lifecycle test new title'
 		})

@@ -35,7 +35,7 @@
   </view>
 </template>
 
-<script>
+<script lang='uts'>
   type myObj = { name : string, age : number };
 
   // 理论上支持但不支持的写法
@@ -53,7 +53,7 @@
     onLoad() {
       console.log('获取所有 data 中的变量',this.$data);
       console.log('获取data中的变量num',this.num);
-      console.log('获取data中的变量num',this.$data.get('num'));
+      console.log('获取data中的变量num',this.$data['num']);
     }
   }
 </script>

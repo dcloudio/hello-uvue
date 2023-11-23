@@ -5,7 +5,7 @@
   </view>
 </template>
 
-<script>
+<script lang='uts'>
 // import child from './child.uvue'
 
 export default {
@@ -18,7 +18,7 @@ export default {
     }
   },
   mounted () {
-    const nodeRef = this.$refs.get('node')
+    const nodeRef = this.$refs['node']
 
     this.existRef = nodeRef !== null
 
