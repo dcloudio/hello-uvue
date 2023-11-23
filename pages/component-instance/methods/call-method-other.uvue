@@ -5,9 +5,6 @@
 </template>
 
 <script>
-  // 导入 vue 组件实例类型
-  import { ComponentPublicInstance } from 'vue'
-
   // 非easycom组件需import引用组件 component1.uvue
   import component1 from './component1.uvue'
 
