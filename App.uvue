@@ -11,7 +11,6 @@ export default {
 
     const performance = uni.getPerformance()
     const observer: PerformanceObserver = performance.createObserver((entryList: PerformanceObserverEntryList) => {
-      console.log('observer:entryList.getEntries()')
       console.log(entryList.getEntries())
     })
     observer.observe({
