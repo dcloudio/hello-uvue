@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view v-for="(item, index) in list">
+    <view v-for="(item, _) in list">
       <text class="data-item-text">{{JSON.stringify(item)}}</text>
       <!-- TODO 暂不支持 for UTSJSONObject -->
       <!-- <view v-for="(value, key) in item">
@@ -31,7 +31,7 @@
     },
     watch: {
       list: {
-        handler(newValue : Array<UTSJSONObject>) {
+        handler(_ : Array<UTSJSONObject>) {
           this.watchCount++
         },
         deep: true,
