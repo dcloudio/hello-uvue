@@ -248,6 +248,12 @@
         "enablePullDownRefresh": false
       }
     },
+		{
+		  "path": "pages/rendering/component/component",
+		  "style": {
+		    "navigationBarTitleText": "component"
+		  }
+		},
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication",
       "style": {

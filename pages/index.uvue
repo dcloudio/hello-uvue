@@ -220,6 +220,11 @@
                 url: 'slots',
                 enable: true,
               },
+							{
+							  name: 'component',
+							  url: 'component',
+							  enable: true,
+							},
             ] as PageItem[],
           },
           {
