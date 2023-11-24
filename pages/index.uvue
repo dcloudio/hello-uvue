@@ -220,11 +220,16 @@
                 url: 'slots',
                 enable: true,
               },
-							{
-							  name: 'component',
-							  url: 'component',
-							  enable: true,
-							},
+              {
+                name: 'component',
+                url: 'component',
+                enable: true,
+              },
+              {
+                name: 'unrecognized component',
+                url: 'unrecognized-component',
+                enable: true,
+              },
             ] as PageItem[],
           },
           {
@@ -371,11 +376,11 @@
       getLifeCycleNum() : number {
         return state.lifeCycleNum
       },
-			// 自动化测试
-			checkLaunchPath() : boolean {
-				const app = getApp()
-			  return app.checkLaunchPath()
-			},
+      // 自动化测试
+      checkLaunchPath() : boolean {
+        const app = getApp()
+        return app.checkLaunchPath()
+      },
     },
   }
 </script>

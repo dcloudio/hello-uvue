@@ -249,6 +249,13 @@
       }
     },
 		{
+		  "path": "pages/rendering/unrecognized-component/unrecognized-component",
+		  "style": {
+		    "navigationBarTitleText": "unrecognized-component",
+		    "enablePullDownRefresh": false
+		  }
+		},
+		{
 		  "path": "pages/rendering/component/component",
 		  "style": {
 		    "navigationBarTitleText": "component"
