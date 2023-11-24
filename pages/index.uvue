@@ -142,6 +142,11 @@
                 enable: true,
               },
               {
+                name: 'v-html',
+                url: 'v-html',
+                enable: true,
+              },
+              {
                 name: 'v-pre',
                 url: 'v-pre',
                 enable: false,

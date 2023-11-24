@@ -30,7 +30,7 @@
 
 <script>
   let typeIndex = 0
-  const TypeList : Array<string> = ['A', 'B', 'C', 'D']
+  const TypeList = ['A', 'B', 'C', 'D']
   export default {
     data() {
       return {

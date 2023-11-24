@@ -103,6 +103,12 @@
       }
     },
     {
+      "path": "pages/directive/v-html/v-html",
+      "style": {
+        "navigationBarTitleText": "v-html"
+      }
+    },
+    {
       "path": "pages/lifecycle/page/page",
       "style": {
         "navigationBarTitleText": "page-lifecycle",
