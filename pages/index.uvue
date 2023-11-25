@@ -142,6 +142,11 @@
                 enable: true,
               },
               {
+                name: 'v-html',
+                url: 'v-html',
+                enable: true,
+              },
+              {
                 name: 'v-pre',
                 url: 'v-pre',
                 enable: false,
@@ -213,6 +218,16 @@
               {
                 name: 'slots',
                 url: 'slots',
+                enable: true,
+              },
+              {
+                name: 'component',
+                url: 'component',
+                enable: true,
+              },
+              {
+                name: 'unrecognized component',
+                url: 'unrecognized-component',
                 enable: true,
               },
             ] as PageItem[],
@@ -355,6 +370,10 @@
                 name: '嵌套组件通信',
                 url: 'nested-component-communication',
                 enable: true,
+              },{
+                name: '自定义组件中使用 class 定制另一个自定义组件根节点样式',
+                url: 'set-custom-child-component-root-node-class',
+                enable: true,
               }
             ] as PageItem[],
           },
@@ -387,11 +406,11 @@
       getLifeCycleNum() : number {
         return state.lifeCycleNum
       },
-			// 自动化测试
-			checkLaunchPath() : boolean {
-				const app = getApp()
-			  return app.checkLaunchPath()
-			},
+      // 自动化测试
+      checkLaunchPath() : boolean {
+        const app = getApp()
+        return app.checkLaunchPath()
+      },
     },
   }
 </script>

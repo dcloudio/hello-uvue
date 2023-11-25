@@ -2,11 +2,11 @@
   <view>
     <view class="item">
       <text class="type">数值型数据：</text>
-      <text class="value" id="num">{{num}}</text>
+      <text class="value" id="num">{{ num }}</text>
     </view>
     <view class="item">
       <text class="type">字符串型数据：</text>
-      <text class="value" id="str">{{str}}</text>
+      <text class="value" id="str">{{ str }}</text>
     </view>
     <view class="item">
       <text class="type">对象型数据：</text>
@@ -15,64 +15,68 @@
       <view class="column">
         <view class="row">
           <text>对象中name的值：</text>
-          <text id="obj_name">{{obj.name}}</text>
+          <text id="obj_name">{{ obj.name }}</text>
         </view>
         <view class="row">
           <text>对象中age的值：</text>
-          <text id="obj_age">{{obj.age}}</text>
+          <text id="obj_age">{{ obj.age }}</text>
         </view>
       </view>
     </view>
     <view class="item">
       <text class="type">数组型数据:</text>
-      <text class="value" id="arr">{{arr}}</text>
+      <text class="value" id="arr">{{ arr }}</text>
       <text>通过for循环显示:</text>
-      <view class="row" v-for="(item,index) in arr" :key="index" style="padding-left: 10px;">
-        <text>第{{index}}项目的值：</text>
-        <text :id="'arr_'+index">{{item}}</text>
+      <view
+        class="row"
+        v-for="(item, index) in arr"
+        :key="index"
+        style="padding-left: 10px">
+        <text>第{{ index }}项目的值：</text>
+        <text :id="'arr_' + index">{{ item }}</text>
       </view>
     </view>
   </view>
 </template>
 
-<script>
-  type myObj = { name : string, age : number };
+<script lang="uts">
+type myObj = { name : string, age : number };
 
-  // 理论上支持但不支持的写法
-  // let obj:{ name : string, age : number } = { name: 'John', age: 30 }
+// 理论上支持但不支持的写法
+// let obj:{ name : string, age : number } = { name: 'John', age: 30 }
 
-  export default {
-    data() {
-      return {
-        num: 2023 as number,
-        str: '我是字符串' as string,
-        obj: { name: 'John', age: 30 } as myObj,
-        arr: [1, 2, 3, 4, 5, 6, 7] as number[]
-      }
-    },
-    onLoad() {
-      console.log('获取所有 data 中的变量', this.$data);
-      console.log('获取data中的变量num', this.num);
-      console.log('获取data中的变量num', this.$data.get('num'));
+export default {
+  data() {
+    return {
+      num: 2023 as number,
+      str: '我是字符串' as string,
+      obj: { name: 'John', age: 30 } as myObj,
+      arr: [1, 2, 3, 4, 5, 6, 7] as number[]
     }
+  },
+  onLoad() {
+    console.log('获取所有 data 中的变量',this.$data);
+    console.log('获取data中的变量num',this.num);
+    console.log('获取data中的变量num',this.$data['num']);
   }
+}
 </script>
 
 <style>
-  .item {
-    padding: 5px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: relative;
-    border-bottom: 0.1px solid #888;
-  }
+.item {
+  padding: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  border-bottom: 0.1px solid #888;
+}
 
-  .row {
-    width: 500rpx;
-    flex-direction: row;
-  }
+.row {
+  width: 500rpx;
+  flex-direction: row;
+}
 
-  .column {
-    flex-direction: column;
-  }
+.column {
+  flex-direction: column;
+}
 </style>
