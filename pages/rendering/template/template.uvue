@@ -1,9 +1,10 @@
 <template>
 	<view class="container">
 		<template v-if="isShow">
-			<view class="title">{{title}}</view>
+			<view>{{title}}</view>
 		</template>
 		<view class="show-botton" @click="handleShow">{{isShow?'点击隐藏':'点击显示'}}</view>
+
 		<template v-for="(item,index) in list" :key="index">
 			<view class="item">{{index+1}}.{{item.name}}</view>
 		</template>
@@ -18,7 +19,7 @@
 		data() {
 			return {
 				title: "hello",
-				isShow: false,
+				isShow: true,
 				list: [{
 						name: 'foo1'
 					},

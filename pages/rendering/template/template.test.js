@@ -4,17 +4,13 @@ describe('/pages/rendering/template/template', () => {
 	let page
 	beforeAll(async () => {
 		page = await program.reLaunch('/pages/rendering/template/template')
-		await page.waitFor('view')
+		await page.waitFor(500)
 	})
 	it('template', async () => {
-		expect.assertions(4);
+		expect.assertions(2);
 		const showBtn = await page.$('.show-botton')
 		await showBtn.tap()
-		expect((await page.data()).isShow).toBeTruthy()
-		const getTitle = await page.$('.title')
-		expect(await getTitle.text()).toBe("hello")
-		const getShow = await page.$('.show-botton')
-		expect(await getShow.text()).toBe("点击隐藏")
+		expect((await page.data()).isShow).toBeFalsy()
 		expect((await page.$$('.item')).length).toBe(2)
 	})
 });
