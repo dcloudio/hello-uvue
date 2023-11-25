@@ -142,11 +142,6 @@
                 enable: true,
               },
               {
-                name: 'v-html',
-                url: 'v-html',
-                enable: true,
-              },
-              {
                 name: 'v-pre',
                 url: 'v-pre',
                 enable: false,
@@ -218,16 +213,6 @@
               {
                 name: 'slots',
                 url: 'slots',
-                enable: true,
-              },
-              {
-                name: 'component',
-                url: 'component',
-                enable: true,
-              },
-              {
-                name: 'unrecognized component',
-                url: 'unrecognized-component',
                 enable: true,
               },
             ] as PageItem[],

@@ -103,12 +103,6 @@
       }
     },
     {
-      "path": "pages/directive/v-html/v-html",
-      "style": {
-        "navigationBarTitleText": "v-html"
-      }
-    },
-    {
       "path": "pages/lifecycle/page/page",
       "style": {
         "navigationBarTitleText": "page-lifecycle",
@@ -248,19 +242,6 @@
         "enablePullDownRefresh": false
       }
     },
-		{
-		  "path": "pages/rendering/unrecognized-component/unrecognized-component",
-		  "style": {
-		    "navigationBarTitleText": "unrecognized-component",
-		    "enablePullDownRefresh": false
-		  }
-		},
-		{
-		  "path": "pages/rendering/component/component",
-		  "style": {
-		    "navigationBarTitleText": "component"
-		  }
-		},
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication",
       "style": {
