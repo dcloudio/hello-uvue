@@ -7,6 +7,12 @@
       }
     },
     {
+      "path": "pages/app-instance/index/index",
+      "style": {
+        "navigationBarTitleText": "app instance"
+      }
+    },
+    {
       "path": "pages/directive/v-bind/v-bind",
       "style": {
         "navigationBarTitleText": "v-bind"

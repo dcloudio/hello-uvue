@@ -1,5 +1,6 @@
 import App from './App.uvue'
 import { createSSRApp } from 'vue'
+import CompForAppComponent from '@/components/CompForAppComponent.uvue'
 import GlobalMixinComp1 from '@/pages/composition/mixins/components/GlobalMixinComp1.uvue'
 import GlobalChildMixinComp1 from '@/pages/composition/mixins/components/GlobalChildMixinComp1.uvue'
 import GlobalMixinComp2 from '@/pages/composition/mixins/components/GlobalMixinComp2.uvue'
@@ -9,6 +10,9 @@ import MixinCompForGlobalChildMixin from '@/pages/composition/mixins/components/
 
 export function createApp() {
   const app = createSSRApp(App)
+
+  app.component('CompForAppComponent', CompForAppComponent)
+
   // #ifdef APP-ANDROID
   const globalChildMixin = defineMixin({
     components: { GlobalChildMixinComp1, MixinComp: MixinCompForGlobalChildMixin },
