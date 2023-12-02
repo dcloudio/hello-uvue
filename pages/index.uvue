@@ -352,7 +352,12 @@
               {
                 name: 'mixins',
                 url: 'mixins',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'extends',

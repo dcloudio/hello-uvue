@@ -2,9 +2,9 @@
   <!-- #ifdef APP -->
   <scroll-view style="flex: 1">
     <!-- #endif -->
-    <view class="uni-padding-wrap container">
+    <view class="page">
       <text>page lifecycle</text>
-      <button @click="scrollToBottom">scrollToBottom</button>
+      <button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
     </view>
     <!-- #ifdef APP -->
   </scroll-view>

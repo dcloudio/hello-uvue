@@ -284,19 +284,31 @@
         "enablePullDownRefresh": false
       }
     },
-		{
-		  "path": "pages/rendering/unrecognized-component/unrecognized-component",
-		  "style": {
-		    "navigationBarTitleText": "unrecognized-component",
-		    "enablePullDownRefresh": false
-		  }
-		},
-		{
-		  "path": "pages/rendering/component/component",
-		  "style": {
-		    "navigationBarTitleText": "component"
-		  }
-		},
+    {
+      "path": "pages/rendering/unrecognized-component/unrecognized-component",
+      "style": {
+        "navigationBarTitleText": "unrecognized-component",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/rendering/component/component",
+      "style": {
+        "navigationBarTitleText": "component"
+      }
+    },
+    {
+      "path": "pages/composition/mixins/mixins",
+      "style": {
+        "navigationBarTitleText": "mixins"
+      }
+    },
+    {
+      "path": "pages/composition/mixins/mixins-page2",
+      "style": {
+        "navigationBarTitleText": "mixins-page-2"
+      }
+    },
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication",
       "style": {
