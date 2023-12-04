@@ -1,0 +1,107 @@
+<template>
+  <view>
+    <text class="uni-common-mt bold">component for inject 1</text>
+    <text class="uni-common-mt provide-page-title"
+      >providePageTitle: {{ providePageTitle }}</text
+    >
+    <text class="uni-common-mt alias-provide-page-title"
+      >aliasProvidePageTitle: {{ aliasProvidePageTitle }}</text
+    >
+    <text class="uni-common-mt computed-title">computedTitle: {{ computedTitle }}</text>
+    <text class="uni-common-mt provide-page-str">providePageStr: {{ providePageStr }}</text>
+    <text class="uni-common-mt provide-page-num">providePageNum: {{ providePageNum }}</text>
+    <text class="uni-common-mt provide-page-bool">providePageBool: {{ providePageBool }}</text>
+    <text class="uni-common-mt provide-page-object-title"
+      >providePageObject.title: {{ providePageObject['title'] }}</text
+    >
+    <text class="uni-common-mt provide-page-object-content"
+      >providePageObject.content: {{ providePageObject['content'] }}</text
+    >
+    <text class="uni-common-mt provide-page-arr">providePageArr: {{ providePageArr }}</text>
+    <text class="uni-common-mt provide-page-map">providePageMap: {{ providePageMap }}</text>
+    <text class="uni-common-mt provide-page-set">providePageSet: {{ providePageSet }}</text>
+    <text class="uni-common-mt test-inject-string-default-value"
+      >testInjectStringDefaultValue: {{ testInjectStringDefaultValue }}</text
+    >
+    <text class="uni-common-mt test-inject-object-default-value-title"
+      >testInjectObjectDefaultValue.title:
+      {{ testInjectObjectDefaultValue['title'] }}</text
+    >
+    <text class="uni-common-mt test-inject-object-default-value-content"
+      >testInjectObjectDefaultValue.content:
+      {{ testInjectObjectDefaultValue['content'] }}</text
+    >
+  </view>
+</template>
+
+<script lang="uts">
+export default {
+  inject: {
+    providePageTitle: {
+      type: String,
+      default: 'default provide page title'
+    },
+    aliasProvidePageTitle: {
+      type: String,
+      from: 'providePageTitle',
+      default: 'default alias provide page title'
+    },
+    computedTitle: {
+      type: String,
+      default: 'default computed title'
+    },
+    providePageStr: {
+      type: String,
+      default: 'default provide page str'
+    },
+    providePageNum: {
+      type: Number,
+      default: 0
+    },
+    providePageBool: {
+      type: Boolean,
+      default: false
+    },
+    providePageObject: {
+      type: Object as PropType<UTSJSONObject>,
+      default: (): UTSJSONObject => {
+        return {
+          title: 'default provide page object title',
+          content: 'default provide page object content'
+        }
+      }
+    },
+    providePageArr: {
+      type: Array as PropType<String[]>,
+      default: (): String[] => {
+        return ['default provide page arr']
+      }
+    },
+    providePageMap: {
+      type: Object as PropType<Map<string, string>>,
+      default: (): Map<string, string> => {
+        return new Map<string, string>([['key', 'default provide page map']])
+      }
+    },
+    providePageSet: {
+      type: Object as PropType<Set<string>>,
+      default: (): Set<string> => {
+        return new Set<string>(['default provide page set'])
+      }
+    },
+    testInjectStringDefaultValue: {
+      type: String,
+      default: 'test inject string default value'
+    },
+    testInjectObjectDefaultValue: {
+      type: Object as PropType<UTSJSONObject>,
+      default(): UTSJSONObject {
+        return {
+          title: 'test inject object default value title',
+          content: 'test inject object default value content'
+        }
+      }
+    }
+  }
+}
+</script>

@@ -1,8 +1,8 @@
 const PAGE_PATH = '/pages/composition/mixins/mixins-page2'
-let page
 
 describe('mixins-page2', () => {
   if (process.env.uniTestPlatformInfo.startsWith('android')) {
+		let page
     beforeAll(async () => {
       page = await program.reLaunch(PAGE_PATH)
       await page.waitFor('view')

@@ -361,12 +361,22 @@
               {
                 name: 'provide',
                 url: 'provide',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'inject',
                 url: 'inject',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'mixins',

@@ -316,6 +316,24 @@
       }
     },
     {
+      "path": "pages/composition/provide/provide",
+      "style": {
+        "navigationBarTitleText": "provide"
+      }
+    },
+    {
+      "path": "pages/composition/provide/provide-page2",
+      "style": {
+        "navigationBarTitleText": "provide-page-2"
+      }
+    },
+    {
+      "path": "pages/composition/inject/inject",
+      "style": {
+        "navigationBarTitleText": "inject"
+      }
+    },
+    {
       "path": "pages/examples/nested-component-communication/nested-component-communication",
       "style": {
         "navigationBarTitleText": "嵌套组件通信",

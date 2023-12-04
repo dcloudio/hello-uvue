@@ -13,6 +13,8 @@ export function createApp() {
 
   app.component('CompForAppComponent', CompForAppComponent)
 
+  app.provide('globalProvideMsg', 'global provide message')
+
   // #ifdef APP-ANDROID
   const globalChildMixin = defineMixin({
     components: { GlobalChildMixinComp1, MixinComp: MixinCompForGlobalChildMixin },
