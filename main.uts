@@ -1,12 +1,21 @@
 import App from './App.uvue'
 import { createSSRApp } from 'vue'
 import CompForAppComponent from '@/components/CompForAppComponent.uvue'
+
 import GlobalMixinComp1 from '@/pages/composition/mixins/components/GlobalMixinComp1.uvue'
 import GlobalChildMixinComp1 from '@/pages/composition/mixins/components/GlobalChildMixinComp1.uvue'
 import GlobalMixinComp2 from '@/pages/composition/mixins/components/GlobalMixinComp2.uvue'
 import GlobalChildMixinComp2 from '@/pages/composition/mixins/components/GlobalChildMixinComp2.uvue'
 import MixinCompForGlobalMixin from '@/pages/composition/mixins/components/MixinCompForGlobalMixin.uvue'
 import MixinCompForGlobalChildMixin from '@/pages/composition/mixins/components/MixinCompForGlobalChildMixin.uvue'
+
+// #ifdef APP-ANDROID
+import plugin1 from '@/plugins/plugin1.uts'
+import plugin2 from '@/plugins/plugin2.uts'
+import plugin3 from '@/plugins/plugin3.uts'
+import plugin4 from '@/plugins/plugin4.uts'
+import CompForPlugin from '@/components/CompForPlugin.uvue'
+// #endif
 
 export function createApp() {
   const app = createSSRApp(App)
@@ -255,6 +264,16 @@ export function createApp() {
     }
   })
   app.mixin(globalMixin)
+  // #endif
+
+  // #ifdef APP-ANDROID
+  app.use(plugin1)
+  app.use(plugin2)
+  app.use(plugin3)
+  app.use(plugin4)
+  app.use(function (app: VueApp, componentName: string, componentInstance: CreateVueComponent) {
+    app.component(componentName, componentInstance)
+  }, 'CompForPlugin', CompForPlugin)
   // #endif
 
   return {
