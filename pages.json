@@ -303,6 +303,12 @@
         "navigationBarTitleText": "component"
       }
     },
+		{
+		  "path": "pages/rendering/render/render",
+		  "style": {
+		    "navigationBarTitleText": "render function"
+		  }
+		},
     {
       "path": "pages/composition/mixins/mixins",
       "style": {

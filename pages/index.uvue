@@ -232,7 +232,7 @@
               {
                 name: 'render',
                 url: 'render',
-                enable: false,
+                enable: true,
               },
               {
                 name: 'slots',
@@ -248,7 +248,7 @@
                 name: 'unrecognized component',
                 url: 'unrecognized-component',
                 enable: true,
-              },
+              }
             ] as PageItem[],
           },
           {
