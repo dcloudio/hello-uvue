@@ -7,19 +7,39 @@
     <text class="uni-common-mt alias-provide-page-title"
       >aliasProvidePageTitle: {{ aliasProvidePageTitle }}</text
     >
-    <text class="uni-common-mt computed-title">computedTitle: {{ computedTitle }}</text>
-    <text class="uni-common-mt provide-page-str">providePageStr: {{ providePageStr }}</text>
-    <text class="uni-common-mt provide-page-num">providePageNum: {{ providePageNum }}</text>
-    <text class="uni-common-mt provide-page-bool">providePageBool: {{ providePageBool }}</text>
+    <text class="uni-common-mt computed-title"
+      >computedTitle: {{ computedTitle }}</text
+    >
+    <text class="uni-common-mt provide-data-obj-title"
+      >provideDataObj.title: {{ provideDataObj['title'] }}</text
+    >
+    <text class="uni-common-mt provide-data-obj-content"
+      >provideDataObj.content: {{ provideDataObj['content'] }}</text
+    >
+    <text class="uni-common-mt provide-page-str"
+      >providePageStr: {{ providePageStr }}</text
+    >
+    <text class="uni-common-mt provide-page-num"
+      >providePageNum: {{ providePageNum }}</text
+    >
+    <text class="uni-common-mt provide-page-bool"
+      >providePageBool: {{ providePageBool }}</text
+    >
     <text class="uni-common-mt provide-page-object-title"
       >providePageObject.title: {{ providePageObject['title'] }}</text
     >
     <text class="uni-common-mt provide-page-object-content"
       >providePageObject.content: {{ providePageObject['content'] }}</text
     >
-    <text class="uni-common-mt provide-page-arr">providePageArr: {{ providePageArr }}</text>
-    <text class="uni-common-mt provide-page-map">providePageMap: {{ providePageMap }}</text>
-    <text class="uni-common-mt provide-page-set">providePageSet: {{ providePageSet }}</text>
+    <text class="uni-common-mt provide-page-arr"
+      >providePageArr: {{ providePageArr }}</text
+    >
+    <text class="uni-common-mt provide-page-map"
+      >providePageMap: {{ providePageMap }}</text
+    >
+    <text class="uni-common-mt provide-page-set"
+      >providePageSet: {{ providePageSet }}</text
+    >
     <text class="uni-common-mt test-inject-string-default-value"
       >testInjectStringDefaultValue: {{ testInjectStringDefaultValue }}</text
     >
@@ -49,6 +69,9 @@ export default {
     computedTitle: {
       type: String,
       default: 'default computed title'
+    },
+    provideDataObj: {
+      type: Object as PropType<UTSJSONObject>,
     },
     providePageStr: {
       type: String,

@@ -16,24 +16,39 @@ describe('字面量方式创建 provide', () => {
     it('alias', async () => {
       const aliasProvidePageTitleEl = await page.$('.alias-provide-page-title')
       const aliasProvidePageTitleText = await aliasProvidePageTitleEl.text()
-      // expect(aliasProvidePageTitleText).toBe(
-      //   'aliasProvidePageTitle: 字面量方式定义 provide page title'
-      // )
       expect(aliasProvidePageTitleText).toBe(
-        'aliasProvidePageTitle: default alias provide page title'
+        'aliasProvidePageTitle: 字面量方式定义 provide page title'
       )
     })
-    it('computed', async () => {
+    it('reactive data', async () => {
       const computedTitleEl = await page.$('.computed-title')
       let computedTitleText = await computedTitleEl.text()
       expect(computedTitleText).toBe(
         'computedTitle: 字面量方式定义 provide page title'
       )
-      const changeTitleBtn = await page.$('.change-title-btn')
-      await changeTitleBtn.tap()
+      const provideDataObjTitleEl = await page.$('.provide-data-obj-title')
+      let provideDataObjTitleText = await provideDataObjTitleEl.text()
+      expect(provideDataObjTitleText).toBe(
+        'provideDataObj.title: data obj.title'
+      )
+      const provideDataObjContentEl = await page.$('.provide-data-obj-content')
+      let provideDataObjContentText = await provideDataObjContentEl.text()
+      expect(provideDataObjContentText).toBe(
+        'provideDataObj.content: data obj.content'
+      )
+
+      const changeDataBtn = await page.$('.change-data-btn')
+      await changeDataBtn.tap()
+
       computedTitleText = await computedTitleEl.text()
       expect(computedTitleText).toBe(
         'computedTitle: 字面量方式定义 provide page title changed'
+      )
+      provideDataObjTitleText = await provideDataObjTitleEl.text()
+      expect(provideDataObjTitleText).toBe('provideDataObj.title: new title')
+      provideDataObjContentText = await provideDataObjContentEl.text()
+      expect(provideDataObjContentText).toBe(
+        'provideDataObj.content: new content'
       )
     })
     it('string', async () => {
