@@ -168,7 +168,7 @@
               {
                 name: 'v-pre',
                 url: 'v-pre',
-                enable: false,
+                enable: true,
               },
               {
                 name: 'v-once',

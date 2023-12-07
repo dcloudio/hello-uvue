@@ -102,6 +102,12 @@
 		    "navigationBarTitleText": "v-memo"
 		  }
 		},
+		{
+		  "path": "pages/directive/v-pre/v-pre",
+		  "style": {
+		    "navigationBarTitleText": "v-pre"
+		  }
+		},
     {
       "path": "pages/directive/v-show/v-show",
       "style": {
