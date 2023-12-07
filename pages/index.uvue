@@ -173,12 +173,22 @@
               {
                 name: 'v-once',
                 url: 'v-once',
+                // #ifdef APP-ANDROID
                 enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
+                enable: false,
+                // #endif
               },
               {
                 name: 'v-memo',
                 url: 'v-memo',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'v-cloak',

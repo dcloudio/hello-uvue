@@ -96,6 +96,12 @@
         "navigationBarTitleText": "v-once"
       }
     },
+		{
+		  "path": "pages/directive/v-memo/v-memo",
+		  "style": {
+		    "navigationBarTitleText": "v-memo"
+		  }
+		},
     {
       "path": "pages/directive/v-show/v-show",
       "style": {
