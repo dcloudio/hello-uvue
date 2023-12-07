@@ -321,6 +321,12 @@
 		    "navigationBarTitleText": "render function"
 		  }
 		},
+		{
+		  "path": "pages/rendering/force-update/force-update",
+		  "style": {
+		    "navigationBarTitleText": "$forceUpdate"
+		  }
+		},
     {
       "path": "pages/composition/mixins/mixins",
       "style": {

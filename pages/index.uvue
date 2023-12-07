@@ -258,7 +258,17 @@
                 name: 'unrecognized component',
                 url: 'unrecognized-component',
                 enable: true,
-              }
+              },
+							{
+							  name: '$forceUpdate',
+							  url: 'force-update',
+							  // #ifdef APP-ANDROID
+							  enable: true,
+							  // #endif
+							  // #ifndef APP-ANDROID
+							  enable: false,
+							  // #endif
+							},
             ] as PageItem[],
           },
           {
