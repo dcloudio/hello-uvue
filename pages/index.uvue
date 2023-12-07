@@ -173,7 +173,7 @@
               {
                 name: 'v-once',
                 url: 'v-once',
-                enable: false,
+                enable: true,
               },
               {
                 name: 'v-memo',

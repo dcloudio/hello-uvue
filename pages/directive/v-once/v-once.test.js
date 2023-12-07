@@ -1,17 +1,30 @@
 const PAGE_PATH = '/pages/directive/v-once/v-once'
 
 describe('v-once', () => {
-  let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
-  })
-  // TODO 暂不支持
-  it('change-message', async () => {
-    const btn_change = await page.$('.view-click')
-    const messageText = await page.$('.v-once-message')
+	if (process.env.uniTestPlatformInfo.startsWith('android')) {
+		let page
+		beforeAll(async () => {
+			page = await program.reLaunch(PAGE_PATH)
+			await page.waitFor('view')
+		})
+		it('basic', async () => {
+			const vOnceTextEl = await page.$('.v-once-text')
+			let vOnceTextText = await vOnceTextEl.text()
+			expect(vOnceTextText).toBe('This will never change: hello world')
 
-    // await btn_change.tap()
-    // expect(await messageText.text()).toBe('message')
-  })
+			const btn = await page.$('.btn')
+			await btn.tap()
+
+			const msg = await page.data('msg')
+			expect(msg).toBe('msg changed')
+
+			vOnceTextText = await vOnceTextEl.text()
+			expect(vOnceTextText).toBe('This will never change: hello world')
+		})
+	} else {
+		// TODO: web 端暂不支持
+		it('web', async () => {
+			expect(1).toBe(1)
+		})
+	}
 })
