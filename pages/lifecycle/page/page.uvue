@@ -2,7 +2,7 @@
   <!-- #ifdef APP -->
   <scroll-view style="flex: 1">
     <!-- #endif -->
-    <view class="page">
+    <view class="page container">
       <text>page lifecycle</text>
       <button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
     </view>
