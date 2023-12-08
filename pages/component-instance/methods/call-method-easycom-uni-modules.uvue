@@ -38,11 +38,11 @@
       },
       callMethod5() {
         // 注意： 返回值可能为 null，当前例子一定不为空，所以加了 !
-        const result = this.$callEasyMethod1!.foo5('string1')! as string;
+        const result = this.$callEasyMethod1!.foo5('string1') as string;
         console.log(result); // string1
       },
       callMethodTest(text: string): string | null {
-        const result = this.$callEasyMethod1!.foo5(text)! as string;
+        const result = this.$callEasyMethod1!.foo5(text) as string;
         return result;
       },
       callMethodInOtherFile(text: string): string {

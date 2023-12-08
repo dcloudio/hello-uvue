@@ -1,0 +1,27 @@
+<template>
+  <view>
+    <text>child-c::{{text}}</text>
+    <child-c v-if="!end" class="child-c-child-c" :text="text" :limit="limit-1"></child-c>
+  </view>
+</template>
+
+<script>
+  export default {
+    name: "child-c",
+    props: {
+      text: {
+        type: String,
+        default: ''
+      },
+      limit: {
+        type: Number,
+        default: 0
+      }
+    },
+    computed: {
+      end() : boolean {
+        return this.limit <= 0
+      }
+    }
+  }
+</script>

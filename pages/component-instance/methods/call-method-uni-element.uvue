@@ -23,7 +23,7 @@
       },
       callMethodTest(text: string): string | null {
         this.$slider1!.setAttribute('value', text);
-        const result = this.$slider1!.getAttribute('value')! as string;
+        const result = this.$slider1!.getAttribute('value') as string;
         return result;
       },
     }

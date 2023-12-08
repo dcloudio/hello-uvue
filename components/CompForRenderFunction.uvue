@@ -1,0 +1,6 @@
+<template>
+  <view>
+    <text class="uni-common-mt bold component-for-render-function">component for render function</text>
+    <slot />
+  </view>
+</template>

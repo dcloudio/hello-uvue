@@ -7,22 +7,20 @@
 </template>
 
 <script lang="uts">
-  export default {
-    mounted() {
-      console.log(this.hasSlots())
-    },
-    methods: {
-      hasSlots() : boolean {
-        const header = this.$slots['header']
-        const footer = this.$slots['footer']
-        const def = this.$slots['default']
+export default {
+  mounted() {
+    console.log(this.hasSlots())
+  },
+  methods: {
+    hasSlots() : boolean {
+      const header = this.$slots['header']
+      const footer = this.$slots['footer']
+      const def = this.$slots['default']
 
-        return header !== null && footer !== null && def !== null
-      }
+      return header !== null && footer !== null && def !== null
     }
   }
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

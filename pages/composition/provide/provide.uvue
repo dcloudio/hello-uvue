@@ -1,0 +1,63 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+    <!-- #endif -->
+    <view class="page">
+      <text>provide page</text>
+      <button class="uni-common-mt" @click="goProvidePage2">
+        跳转函数方式定义 provide 示例
+      </button>
+      <button class="uni-common-mt change-data-btn" @click="changeData">change data</button>
+      <ComponentForInject />
+    </view>
+    <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script lang="uts">
+import { computed } from 'vue'
+import ComponentForInject from './component-for-inject-1.uvue'
+
+export default {
+  components: {
+    ComponentForInject
+  },
+  data(){
+    return {
+      title: '字面量方式定义 provide page title',
+      obj: {
+        title: 'data obj.title',
+        content: 'data obj.content'
+      },
+    }
+  },
+  provide: {
+    providePageTitle: this.title,
+    computedTitle: computed<string>((): string => this.title),
+    provideDataObj: this.obj,
+    providePageStr: '字面量方式定义 provide page str',
+    providePageNum: 1,
+    providePageBool: true,
+    providePageObject: {
+      title: '字面量方式定义 provide page object title',
+      content: '字面量方式定义 provide page object content'
+    },
+    providePageArr: ['字面量方式定义 provide page arr'],
+    providePageMap: new Map<string, string>([['key', '字面量方式定义 provide page map']]),
+    providePageSet: new Set<string>(['字面量方式定义 provide page set']),
+  },
+  methods: {
+    goProvidePage2(){
+      uni.navigateTo({
+        url: '/pages/composition/provide/provide-page2'
+      })
+    },
+    changeData() {
+      this.title = '字面量方式定义 provide page title changed'
+      this.obj['title'] = 'new title'
+      this.obj['content'] = 'new content'
+    }
+  },
+}
+</script>
