@@ -259,16 +259,6 @@
                 url: 'unrecognized-component',
                 enable: true,
               },
-							{
-							  name: '$forceUpdate',
-							  url: 'force-update',
-							  // #ifdef APP-ANDROID
-							  enable: true,
-							  // #endif
-							  // #ifndef APP-ANDROID
-							  enable: false,
-							  // #endif
-							},
             ] as PageItem[],
           },
           {
@@ -338,8 +328,13 @@
               },
               {
                 name: '$forceUpdate',
-                url: 'forceUpdate-function',
+                url: 'force-update',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: '$nextTick',
