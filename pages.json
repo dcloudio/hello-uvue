@@ -12,6 +12,12 @@
         "navigationBarTitleText": "app instance"
       }
     },
+		{
+			"path": "pages/built-in-component/keep-alive/keep-alive",
+			"style": {
+				"navigationBarTitleText": "keep-alive"
+			}
+		},
     {
       "path": "pages/directive/v-bind/v-bind",
       "style": {

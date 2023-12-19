@@ -63,6 +63,18 @@
               },
             ] as PageItem[],
           },
+					{
+					  id: 'built-in-component',
+					  name: '内置组件',
+					  open: false,
+					  pages: [
+					    {
+					      name: 'keepAlive',
+					      url: 'keep-alive',
+					      enable: true,
+					    },
+					  ] as PageItem[],
+					},
           {
             id: 'lifecycle',
             name: '生命周期',
