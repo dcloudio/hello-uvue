@@ -34,11 +34,11 @@
     <text class="uni-common-mt provide-page-arr"
       >providePageArr: {{ providePageArr }}</text
     >
-    <text class="uni-common-mt provide-page-map"
-      >providePageMap: {{ providePageMap }}</text
+   <text class="uni-common-mt provide-page-map"
+      >providePageMap: {{ providePageMapObj }}</text
     >
     <text class="uni-common-mt provide-page-set"
-      >providePageSet: {{ providePageSet }}</text
+      >providePageSet: {{ providePageSetArr }}</text
     >
     <text class="uni-common-mt test-inject-string-default-value"
       >testInjectStringDefaultValue: {{ testInjectStringDefaultValue }}</text
@@ -125,6 +125,22 @@ export default {
         }
       }
     }
-  }
+  },
+	computed: {
+		providePageMapObj(): UTSJSONObject {
+			const obj: UTSJSONObject = {}
+			this.providePageMap.forEach((value, key) => {
+				obj[key] = value
+			})
+			return obj
+		},
+		providePageSetArr(): string[] {
+			const arr: string[] = []
+			this.providePageSet.forEach((value) => {
+				arr.push(value)
+			})
+			return arr
+		}
+	}
 }
 </script>
