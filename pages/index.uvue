@@ -61,6 +61,16 @@
                 url: 'index',
                 enable: true,
               },
+							{
+							  name: 'globalData',
+							  url: 'globalData',
+							  enable: true,
+							},
+							{
+							  name: 'globalProperties',
+							  url: 'globalProperties',
+							  enable: true,
+							},
             ] as PageItem[],
           },
 					{
@@ -419,7 +429,7 @@
                 name: 'extends',
                 url: 'extends',
                 enable: false,
-              },
+              }
             ] as PageItem[],
           },
           {

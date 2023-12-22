@@ -13,6 +13,18 @@
       }
     },
 		{
+		  "path": "pages/app-instance/globalData/globalData",
+		  "style": {
+		    "navigationBarTitleText": "globalData"
+		  }
+		},
+		{
+		  "path": "pages/app-instance/globalProperties/globalProperties",
+		  "style": {
+		    "navigationBarTitleText": "globalProperties"
+		  }
+		},
+		{
 			"path": "pages/built-in-component/keep-alive/keep-alive",
 			"style": {
 				"navigationBarTitleText": "keep-alive"
