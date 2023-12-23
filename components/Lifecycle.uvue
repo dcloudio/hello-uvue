@@ -1,7 +1,6 @@
 <template>
-  <view>
-    <text>{{ title }}</text>
-  </view>
+  title: {{ title }}
+	<button class="component-lifecycle-btn" @click="updateTitle">updateTitle</button>
 </template>
 
 <script lang="ts">
@@ -54,10 +53,9 @@ export default {
     console.log('component for lifecycle test unmounted')
   },
   methods: {
-    // 自动化测试
-    getLifeCycleNum(): number {
-      return state.lifeCycleNum
-    },
+		updateTitle(){
+			this.title = 'component for lifecycle test updated'
+		}
   },
 }
 </script>
