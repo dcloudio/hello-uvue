@@ -176,6 +176,12 @@
       }
     },
     {
+      "path": "pages/component-instance/watch-function/watch-array",
+      "style": {
+        "navigationBarTitleText": "watch-array"
+      }
+    },
+    {
       "path": "pages/component-instance/emit-function/emit-function",
       "style": {
         "navigationBarTitleText": "$emit()"
@@ -191,6 +197,30 @@
       "path": "pages/component-instance/nextTick-function/nextTick-function",
       "style": {
         "navigationBarTitleText": "$nextTick()"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-uni-element",
+      "style": {
+        "navigationBarTitleText": "call-method-uni-element"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-easycom",
+      "style": {
+        "navigationBarTitleText": "call-method-easycom"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-easycom-uni-modules",
+      "style": {
+        "navigationBarTitleText": "call-method-easycom-uni-modules"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-other",
+      "style": {
+        "navigationBarTitleText": "call-method-other"
       }
     },
     {

@@ -273,6 +273,11 @@
                 enable: true,
               },
               {
+                name: 'watch-array',
+                url: 'watch-function/watch-array',
+                enable: true,
+              },
+              {
                 name: '$emit',
                 url: 'emit-function',
                 enable: true,
@@ -285,6 +290,26 @@
               {
                 name: '$nextTick',
                 url: 'nextTick-function',
+                enable: true,
+              },
+              {
+                name: 'call-method-uni-element',
+                url: 'methods/call-method-uni-element',
+                enable: true,
+              },
+              {
+                name: 'call-method-easycom',
+                url: 'methods/call-method-easycom',
+                enable: true,
+              },
+              {
+                name: 'call-method-easycom-uni-modules',
+                url: 'methods/call-method-easycom-uni-modules',
+                enable: true,
+              },
+              {
+                name: 'call-method-other',
+                url: 'methods/call-method-other',
                 enable: true,
               },
             ] as PageItem[],

@@ -1,0 +1,31 @@
+<template>
+  <view>
+    <slider ref="slider1"></slider>
+  </view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        $slider1: null as UniSliderElement | null
+      }
+    },
+    onReady() {
+      // 通过组件 ref 属性获取组件实例, Uni组件名(驼峰)Element
+      this.$slider1 = this.$refs['slider1'] as UniSliderElement;
+    },
+    methods: {
+      setValue() : boolean {
+        // 设置组件的 value 属性
+        this.$slider1!.value = 80;
+        return true;
+      },
+      callMethodTest(text: string): string | null {
+        this.$slider1!.setAttribute('value', text);
+        const result = this.$slider1!.getAttribute('value')! as string;
+        return result;
+      },
+    }
+  }
+</script>
