@@ -369,6 +369,12 @@
         "navigationBarTitleText": "inject"
       }
     },
+		{
+		  "path": "pages/composition/setup/setup",
+		  "style": {
+		    "navigationBarTitleText": "setup"
+		  }
+		},
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication",
       "style": {

@@ -429,7 +429,12 @@
                 name: 'extends',
                 url: 'extends',
                 enable: false,
-              }
+              },
+							{
+							  name: 'setup',
+							  url: 'setup',
+							  enable: true,
+							}
             ] as PageItem[],
           },
           {

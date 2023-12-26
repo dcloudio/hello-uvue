@@ -1,0 +1,18 @@
+<template>
+	<view>
+		<text class="uni-common-mt">this is component Foo for options setup</text>
+		<slot></slot>
+		<text class="uni-common-mt" id="has-default-slot">hasDefaultSlot: {{hasDefaultSlot}}</text>
+	</view>
+</template>
+
+<script>
+	export default {
+		setup(_, context) {
+			const hasDefaultSlot = context.slots['default'] !== null
+			return {
+				hasDefaultSlot
+			}
+		}
+	}
+</script>
