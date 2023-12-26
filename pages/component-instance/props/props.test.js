@@ -19,5 +19,10 @@ describe('$props', () => {
     expect(await boolean.text()).toBe('true')
     expect(await arrayString.text()).toBe('str1')
     expect(await object.text()).toBe('1')
+		
+		const checkTypeArr = await page.$('#check-type-arr')
+		expect((await checkTypeArr.text()).replaceAll('\n', '')).toBe('arr: ["a","b","c"]')
+		const fooArr = await page.$('#foo-arr')
+		expect((await fooArr.text()).replaceAll('\n', '')).toBe('arr: [1,2,3]')
   })
 })

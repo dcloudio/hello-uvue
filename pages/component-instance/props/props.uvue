@@ -1,23 +1,18 @@
 <template>
   <view class="page">
     <check-type str="abcd" :num="12345" :bool="true" :obj="obj" :arrayString="arrayString"></check-type>
-    <!--    <view>简易类型</view>-->
-    <!--    <simple-->
-    <!--        str="abcd"-->
-    <!--        :num="12345"-->
-    <!--        :bool="true"-->
-    <!--    ></simple>-->
+		<Foo />
   </view>
 </template>
 
 <script>
   import checkType, { CusomObject } from "./check-type.uvue";
-  // import simple from "./simple.uvue";
+  import Foo from "./Foo.uvue";
 
   export default {
     components: {
       checkType,
-      // simple
+      Foo
     },
     data() {
       return {
