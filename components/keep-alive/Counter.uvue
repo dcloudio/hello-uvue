@@ -2,6 +2,8 @@
 	<view>
 		<text class="counter-text">count: {{ count }}</text>
 		<text class="uni-common-mt counter-btn" @click="increment"></text>
+		<text class="uni-common-mt" id="activated-num">activated num: {{ activatedNum }}</text>
+		<text class="uni-common-mt" id="deactivated-num">deactivated num: {{ deactivatedNum }}</text>
 	</view>
 </template>
 
@@ -10,9 +12,13 @@
 		name: 'Counter',
 		data() {
 			return {
-				count: 0
+				count: 0,
+				activatedNum: 0,
+				deactivatedNum: 0,
 			}
 		},
+		activated() { this.activatedNum++ },
+		deactivated() { this.deactivatedNum++ },
 		methods: {
 			increment() {
 				this.count++

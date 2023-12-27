@@ -18,6 +18,11 @@ describe('keep-alive', () => {
 
     const showCounterBtn = await page.$('.show-counter')
     await showCounterBtn.tap()
+		
+		const activatedNum = await page.$('#activated-num')
+    expect(await activatedNum.text()).toBe('activated num: 1')
+    const deactivatedNum = await page.$('#deactivated-num')
+    expect(await deactivatedNum.text()).toBe('deactivated num: 0')
 
     const counterBtns = await page.$$('.counter-btn')
     for (let i = 0; i < counterBtns.length; i++) {
@@ -38,6 +43,9 @@ describe('keep-alive', () => {
 
     await showCounterBtn.tap()
 
+    expect(await activatedNum.text()).toBe('activated num: 2')
+    expect(await deactivatedNum.text()).toBe('deactivated num: 1')
+
     let counterTexts = await page.$$('.counter-text')
     for (let i = 0; i < counterTexts.length; i++) {
       expect(await counterTexts[i].text()).toBe('count: 1')
@@ -57,6 +65,9 @@ describe('keep-alive', () => {
     }
 
     await showCounterBtn.tap()
+
+    expect(await activatedNum.text()).toBe('activated num: 3')
+    expect(await deactivatedNum.text()).toBe('deactivated num: 2')
 
     counterTexts = await page.$$('.counter-text')
     for (let i = 0; i < counterTexts.length; i++) {
