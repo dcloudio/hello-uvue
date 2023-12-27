@@ -13,12 +13,6 @@
       }
     },
 		{
-		  "path": "pages/app-instance/globalData/globalData",
-		  "style": {
-		    "navigationBarTitleText": "globalData"
-		  }
-		},
-		{
 		  "path": "pages/app-instance/globalProperties/globalProperties",
 		  "style": {
 		    "navigationBarTitleText": "globalProperties"
