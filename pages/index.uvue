@@ -62,11 +62,6 @@
                 enable: true,
               },
 							{
-							  name: 'globalData',
-							  url: 'globalData',
-							  enable: true,
-							},
-							{
 							  name: 'globalProperties',
 							  url: 'globalProperties',
 							  enable: true,
