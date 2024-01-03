@@ -1,0 +1,5 @@
+<template>
+  <view class="page"> defineSlots </view>
+</template>
+
+<script setup></script>

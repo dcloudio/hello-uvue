@@ -1,0 +1,5 @@
+<template>
+  <view class="page"> useAttrs </view>
+</template>
+
+<script setup></script>

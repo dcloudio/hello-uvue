@@ -10,7 +10,6 @@
               v-for="(page, key) in item.pages" :key="key" @click="goDetailPage(item.id, page)">
               <text class="uni-navigate-text"
                 :class="page.enable == false ? 'text-disabled' : ''">{{ page.name }}</text>
-              <view class="down_arrow"></view>
             </view>
           </uni-collapse-item>
         </template>
@@ -21,7 +20,7 @@
   <!-- #endif -->
 </template>
 
-<script lang="uts">
+<script setup lang="uts">
   type PageItem = {
     name : string
     enable ?: boolean
@@ -36,49 +35,206 @@
     url ?: string
     enable ?: boolean
   }
-
-  export default {
-    data() {
-      return {
-        list: [
-        ] as PageList[],
+  
+  const list = [
+      {
+        id: 'basic',
+        name: '基本使用',
+        open: false,
+        pages: [
+          {
+            name: 'defineProps',
+            url: 'define-props',
+            enable: false,
+          },
+          {
+            name: 'defineEmits',
+            url: 'define-emits',
+            enable: false,
+          },
+          {
+            name: 'defineExpose',
+            url: 'define-expose',
+            enable: false,
+          },
+          {
+            name: 'defineOptions',
+            url: 'define-options',
+            enable: false,
+          },
+          {
+            name: 'defineSlots',
+            url: 'define-slots',
+            enable: false,
+          },
+          {
+            name: 'useSlots',
+            url: 'use-slots',
+            enable: false,
+          },
+          {
+            name: 'useAttrs',
+            url: 'use-attrs',
+            enable: false,
+          },
+        ] as PageItem[],
+      }, {
+        id: 'reactive',
+        name: '响应式',
+        open: false,
+        pages: [
+          {
+            name: 'ref',
+            url: 'ref',
+            enable: false,
+          },
+          {
+            name: 'computed',
+            url: 'computed',
+            enable: false,
+          },
+          {
+            name: 'reactive',
+            url: 'reactive',
+            enable: false,
+          },
+          {
+            name: 'readonly',
+            url: 'readonly',
+            enable: false,
+          },
+          {
+            name: 'watch',
+            url: 'watch',
+            enable: false,
+          },
+          {
+            name: 'watchEffect',
+            url: 'watch-effect',
+            enable: false,
+          },
+          {
+            name: 'watchPostEffect',
+            url: 'watch-post-effect',
+            enable: false,
+          },
+          {
+            name: 'watchSyncEffect',
+            url: 'watch-sync-effect',
+            enable: false,
+          },
+          {
+            name: 'isRef',
+            url: 'is-ref',
+            enable: false,
+          },
+          {
+            name: 'unRef',
+            url: 'un-ref',
+            enable: false,
+          },
+          {
+            name: 'toRef',
+            url: 'to-ref',
+            enable: false,
+          },
+          {
+            name: 'toValue',
+            url: 'to-value',
+            enable: false,
+          },
+          {
+            name: 'toRefs',
+            url: 'to-refs',
+            enable: false,
+          },
+          {
+            name: 'isProxy',
+            url: 'is-proxy',
+            enable: false,
+          },
+          {
+            name: 'isReactive',
+            url: 'is-reactive',
+            enable: false,
+          },
+          {
+            name: 'isReadonly',
+            url: 'is-readonly',
+            enable: false,
+          },
+          {
+            name: 'shallowRef',
+            url: 'shallow-ref',
+            enable: false,
+          },
+          {
+            name: 'triggerRef',
+            url: 'trigger-ref',
+            enable: false,
+          },
+          {
+            name: 'customRef',
+            url: 'custom-ref',
+            enable: false,
+          },
+          {
+            name: 'shallowReactive',
+            url: 'shallow-reactive',
+            enable: false,
+          },
+          {
+            name: 'shallowReadonly',
+            url: 'shallow-readonly',
+            enable: false,
+          },
+          {
+            name: 'toRaw',
+            url: 'to-raw',
+            enable: false,
+          },
+          {
+            name: 'markRaw',
+            url: 'mark-raw',
+            enable: false, // 暂不支持
+          },
+          {
+            name: 'effectScope',
+            url: 'effect-scope',
+            enable: false,
+          },
+          {
+            name: 'getCurrentScope',
+            url: 'get-current-scope',
+            enable: false,
+          },
+          {
+            name: 'onScopeDispose',
+            url: 'on-scope-dispose',
+            enable: false,
+          },
+        ] as PageItem[],
       }
-    },
-    methods: {
-      triggerCollapse(_ : PageList, index : number) {
-        this.list[index].open = !this.list[index].open
-      },
-      goDetailPage(id : string, e : PageItem) {
-        if (e.enable == false) {
-          uni.showToast({
-            icon: 'none',
-            title: '暂不支持',
-          })
-          return
-        }
+    ] as PageList[]
 
-        const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
-        uni.navigateTo({
-          url: `/pages/${id}/${url}`,
-        })
-      },
-    },
+  const goDetailPage = (id : string, e : PageItem) => {
+    if (e.enable == false) {
+      uni.showToast({
+        icon: 'none',
+        title: '暂不支持',
+      })
+      return
+    }
+
+    const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
+    uni.navigateTo({
+      url: `/pages/composition-api/${id}/${url}`,
+    })
   }
 </script>
 
 <style>
   .item {
     margin-bottom: 12px;
-  }
-
-  .down_arrow {
-    width: 8px;
-    height: 8px;
-    transform: rotate(45deg);
-    border-right: 1px #999 solid;
-    border-bottom: 1px #999 solid;
-    margin-top: -3px;
-    transition-property: transform;
-    transition-duration: 0.2s;
   }
 </style>

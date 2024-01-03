@@ -10,7 +10,6 @@
               v-for="(page, key) in item.pages" :key="key" @click="goDetailPage(item.id, page)">
               <text class="uni-navigate-text"
                 :class="page.enable == false ? 'text-disabled' : ''">{{ page.name }}</text>
-              <view class="down_arrow"></view>
             </view>
           </uni-collapse-item>
         </template>
@@ -444,9 +443,6 @@
       }
     },
     methods: {
-      triggerCollapse(_ : PageList, index : number) {
-        this.list[index].open = !this.list[index].open
-      },
       goDetailPage(id : string, e : PageItem) {
         if (e.enable == false) {
           uni.showToast({
@@ -481,16 +477,5 @@
 <style>
   .item {
     margin-bottom: 12px;
-  }
-
-  .down_arrow {
-    width: 8px;
-    height: 8px;
-    transform: rotate(45deg);
-    border-right: 1px #999 solid;
-    border-bottom: 1px #999 solid;
-    margin-top: -3px;
-    transition-property: transform;
-    transition-duration: 0.2s;
   }
 </style>
