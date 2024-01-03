@@ -1,5 +1,6 @@
 const PAGE_PATH = '/pages/lifecycle/page/page'
-const HOME_PATH = '/pages/index'
+const HOME_PATH = '/pages/tab-bar/options-api'
+const INTER_PAGE_PATH = '/pages/app-instance/index/index'
 let page
 let lifeCycleNum
 
@@ -54,7 +55,7 @@ describe('page-lifecycle', () => {
 		await page.callMethod('setLifeCycleNum', 0)
 	})
 	it('onHide', async () => {
-		page = await program.navigateTo(HOME_PATH)
+		page = await program.navigateTo(INTER_PAGE_PATH)
 		await page.waitFor('view')
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
 		expect(lifeCycleNum).toBe(-10)
@@ -64,7 +65,7 @@ describe('page-lifecycle', () => {
 		expect(lifeCycleNum).toBe(0)
 	})
 	it('onUnload', async () => {
-		page = await program.redirectTo(HOME_PATH)
+		page = await program.reLaunch(HOME_PATH)
 		await page.waitFor(700)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
 		expect(lifeCycleNum).toBe(-100)

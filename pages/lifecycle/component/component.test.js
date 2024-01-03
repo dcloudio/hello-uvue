@@ -1,5 +1,5 @@
 const PAGE_PATH = '/pages/lifecycle/component/component'
-const HOME_PATH = '/pages/index'
+const HOME_PATH = '/pages/tab-bar/options-api'
 
 describe('component-lifecycle', () => {
 	let page

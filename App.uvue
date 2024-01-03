@@ -55,7 +55,7 @@
     },
     methods: {
       checkLaunchPath() : boolean {
-        const HOME_PATH = '/pages/index'
+        const HOME_PATH = '/pages/tab-bar/options-api'
         if (state.appLaunchPath != HOME_PATH) {
           return false
         }

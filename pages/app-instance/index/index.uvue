@@ -8,17 +8,24 @@
 </template>
 
 <script lang="uts">
-import CompForAppComponent from '@/components/CompForAppComponent.uvue'
-// #ifdef APP-ANDROID
-import CompForAppUse from '@/components/CompForAppUse.uvue'
-// #endif
+  import { state} from '@/store/index.uts'
+  import CompForAppComponent from '@/components/CompForAppComponent.uvue'
+  // #ifdef APP-ANDROID
+  import CompForAppUse from '@/components/CompForAppUse.uvue'
+  // #endif
 
-export default {
-  components: {
-    CompForAppComponent,
-    // #ifdef APP-ANDROID
-    CompForAppUse
-    // #endif
+  export default {
+    components: {
+      CompForAppComponent,
+      // #ifdef APP-ANDROID
+      CompForAppUse
+      // #endif
+    },
+    methods: {
+      // 自动化测试
+      getLifeCycleNum() : number {
+        return state.lifeCycleNum
+      },
+    }
   }
-}
 </script>

@@ -1,0 +1,84 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+  <!-- #endif -->
+    <view class="uni-container">
+      <uni-collapse>
+        <template v-for="item in list" :key="item.id">
+          <uni-collapse-item :title="item.name" class="item">
+            <view class="uni-navigate-item" :hover-class="page.enable == false ? '' : 'is--active'"
+              v-for="(page, key) in item.pages" :key="key" @click="goDetailPage(item.id, page)">
+              <text class="uni-navigate-text"
+                :class="page.enable == false ? 'text-disabled' : ''">{{ page.name }}</text>
+              <view class="down_arrow"></view>
+            </view>
+          </uni-collapse-item>
+        </template>
+      </uni-collapse>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script lang="uts">
+  type PageItem = {
+    name : string
+    enable ?: boolean
+    url ?: string
+  }
+
+  type PageList = {
+    id : string
+    name : string
+    open : boolean
+    pages : PageItem[]
+    url ?: string
+    enable ?: boolean
+  }
+
+  export default {
+    data() {
+      return {
+        list: [
+        ] as PageList[],
+      }
+    },
+    methods: {
+      triggerCollapse(_ : PageList, index : number) {
+        this.list[index].open = !this.list[index].open
+      },
+      goDetailPage(id : string, e : PageItem) {
+        if (e.enable == false) {
+          uni.showToast({
+            icon: 'none',
+            title: '暂不支持',
+          })
+          return
+        }
+
+        const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
+        uni.navigateTo({
+          url: `/pages/${id}/${url}`,
+        })
+      },
+    },
+  }
+</script>
+
+<style>
+  .item {
+    margin-bottom: 12px;
+  }
+
+  .down_arrow {
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    border-right: 1px #999 solid;
+    border-bottom: 1px #999 solid;
+    margin-top: -3px;
+    transition-property: transform;
+    transition-duration: 0.2s;
+  }
+</style>
