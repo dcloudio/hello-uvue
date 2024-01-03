@@ -1,0 +1,26 @@
+<template>
+  <view class="page">object literal</view>
+</template>
+
+<script setup>
+const props = defineProps({
+  str: String,
+  num: Number,
+  bool: {
+    type: Boolean,
+    default: true
+  },
+  arr: {
+    type: Array as PropType<string[]>,
+    default: (): string[] => [] as string[]
+  },
+  obj: {
+    type: Object as PropType<UTSJSONObject>,
+    default: ():UTSJSONObject => ({ a: 1 })
+  },
+  func: {
+    type: Function as PropType<() => void>,
+    default: ():(() => void) => () => {}
+  }
+})
+</script>

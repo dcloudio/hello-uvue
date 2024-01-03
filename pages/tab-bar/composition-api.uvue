@@ -60,7 +60,7 @@
           {
             name: 'defineOptions',
             url: 'define-options',
-            enable: false,
+            enable: true,
           },
           {
             name: 'defineSlots',
@@ -79,14 +79,14 @@
           },
         ] as PageItem[],
       }, {
-        id: 'reactive',
+        id: 'reactivity',
         name: '响应式',
         open: false,
         pages: [
           {
             name: 'ref',
             url: 'ref',
-            enable: false,
+            enable: true,
           },
           {
             name: 'computed',

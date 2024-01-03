@@ -1,5 +1,35 @@
 <template>
-  <view class="page"> defineOptions </view>
+  <view class="page">
+    <text id="count" class='uni-common-mb'>count: {{ count }}</text>
+    <text id='double-count' class='uni-common-mb'>double count: {{ doubleCount}}</text>
+    <text id="total" class='uni-common-mb'>total: {{ total}}</text>
+    <button id="increment-btn" @click="increment">increment</button>
+  </view>
 </template>
 
-<script setup></script>
+<script setup>
+  defineOptions({
+    data() {
+      return {
+        count: 0,
+        price: 10,
+        total: 0
+      }
+    },
+    computed: {
+      doubleCount() : number {
+        return this.count * 2
+      },
+    },
+    watch: {
+      count() {
+        this.total = this.price * this.count
+      },
+    },
+    methods: {
+      increment() {
+        this.count++
+      }
+    }
+  })
+</script>
