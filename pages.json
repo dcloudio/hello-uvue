@@ -584,6 +584,7 @@
       }
     }
   ],
+  // #ifdef APP-ANDROID
   "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#007AFF",
@@ -600,6 +601,7 @@
       }
     ]
   },
+  // #endif
   "globalStyle": {
     "pageOrientation": "portrait",
     "navigationBarTitleText": "Hello UVUE",
