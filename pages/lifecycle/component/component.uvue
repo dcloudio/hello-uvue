@@ -7,14 +7,9 @@
 
 <script>
 import ComponentLifecycle from '@/components/Lifecycle.uvue'
-import { State, state } from '@/store/index.uts'
+import { state } from '@/store/index.uts'
 export default {
   components: { ComponentLifecycle },
-  data(){
-    return {
-      _state: state as State
-    }
-  },
   methods: {
     // 自动化测试
     getLifeCycleNum(): number {
