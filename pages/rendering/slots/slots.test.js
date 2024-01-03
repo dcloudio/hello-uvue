@@ -10,7 +10,7 @@ describe('/pages/rendering/slots/slots', () => {
 
 	it('slots', async () => {
 		expect.assertions(3);
-		const childEl = await page.$('child');
+		const childEl = await page.$('.container');
 		const headerEl = await childEl.$('.header');
 		expect(await headerEl.text()).toEqual("Here might be a page title");
 		const mainEl = await childEl.$('.main');

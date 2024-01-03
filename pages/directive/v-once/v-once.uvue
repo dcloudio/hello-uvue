@@ -1,28 +1,23 @@
 <template>
   <view class="page">
     <view class="split-title">v-once</view>
-    <view>
-      <text class="v-once">This will never change:</text>
-      <text class="v-once-message" v-once>{{message}}</text>
-    </view>
-    <view class="view-click" @click="changeMessage">Change message</view>
+    <text class="uni-common-mt v-once-text" v-once>This will never change: {{ msg }}</text>
+    <text class="uni-common-mt">msg: {{msg}}</text>
+    <button class="uni-common-mt btn" type="primary" @click="changeMessage">change message</button>
   </view>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        message: 'message'
-      }
-    },
-    methods: {
-      changeMessage() {
-        this.message = Date.now().toString()
-      }
+<script lang="uts">
+export default {
+  data() {
+    return {
+      msg: 'hello world'
+    }
+  },
+  methods: {
+    changeMessage() {
+      this.msg = 'msg changed'
     }
   }
+}
 </script>
-
-<style>
-</style>

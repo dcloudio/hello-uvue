@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view class="my-component">
     <view class="item">
       <text class="title">字符串型数据:</text>
       <text class="value" id="str">{{str}}</text>

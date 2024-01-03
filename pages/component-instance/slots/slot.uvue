@@ -6,7 +6,7 @@
   </view>
 </template>
 
-<script>
+<script lang="uts">
 export default {
   mounted() {
     console.log(this.hasSlots())

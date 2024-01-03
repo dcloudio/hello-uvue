@@ -1,0 +1,6 @@
+<template>
+  <view class="page">
+    <view class="split-title">v-pre</view>
+    <text class="uni-common-mt v-pre-text" v-pre>{{ this will not be compiled }}</text>
+  </view>
+</template>

@@ -1,6 +1,6 @@
 <template>
   <!-- #ifdef APP -->
-  <scroll-view style="flex:1">
+  <scroll-view style="flex: 1">
     <!-- #endif -->
     <view class="uni-container">
       <view class="uni-panel" v-for="(item, index) in list" :key="item.id">
@@ -9,9 +9,16 @@
           <!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
         </view>
         <view class="uni-panel-c" v-if="item.open">
-          <view class="uni-navigate-item" v-for="page in item.pages" :key="page.name"
+          <view
+            class="uni-navigate-item"
+            v-for="page in item.pages"
+            :key="page.name"
             @click="goDetailPage(item.id, page)">
-            <text class="uni-navigate-text" :class="page.enable != true ? 'text-disabled' : ''">{{ page.name }}</text>
+            <text
+              class="uni-navigate-text"
+              :class="page.enable != true ? 'text-disabled' : ''"
+              >{{ page.name }}</text
+            >
             <!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
           </view>
         </view>
@@ -44,6 +51,18 @@
     data() {
       return {
         list: [
+          {
+            id: 'app-instance',
+            name: 'App 实例',
+            open: false,
+            pages: [
+              {
+                name: 'index',
+                url: 'index',
+                enable: true,
+              },
+            ] as PageItem[],
+          },
           {
             id: 'lifecycle',
             name: '生命周期',
@@ -142,19 +161,34 @@
                 enable: true,
               },
               {
+                name: 'v-html',
+                url: 'v-html',
+                enable: true,
+              },
+              {
                 name: 'v-pre',
                 url: 'v-pre',
-                enable: false,
+                enable: true,
               },
               {
                 name: 'v-once',
                 url: 'v-once',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'v-memo',
                 url: 'v-memo',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'v-cloak',
@@ -208,11 +242,21 @@
               {
                 name: 'render',
                 url: 'render',
-                enable: false,
+                enable: true,
               },
               {
                 name: 'slots',
                 url: 'slots',
+                enable: true,
+              },
+              {
+                name: 'component',
+                url: 'component',
+                enable: true,
+              },
+              {
+                name: 'unrecognized component',
+                url: 'unrecognized-component',
                 enable: true,
               },
             ] as PageItem[],
@@ -284,8 +328,13 @@
               },
               {
                 name: '$forceUpdate',
-                url: 'forceUpdate-function',
+                url: 'force-update',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: '$nextTick',
@@ -312,6 +361,11 @@
                 url: 'methods/call-method-other',
                 enable: true,
               },
+              {
+                name: 'circular-reference',
+                url: 'circular-reference',
+                enable: true,
+              },
             ] as PageItem[],
           },
           {
@@ -322,17 +376,32 @@
               {
                 name: 'provide',
                 url: 'provide',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'inject',
                 url: 'inject',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'mixins',
                 url: 'mixins',
+                // #ifdef APP-ANDROID
+                enable: true,
+                // #endif
+                // #ifndef APP-ANDROID
                 enable: false,
+                // #endif
               },
               {
                 name: 'extends',
@@ -396,22 +465,22 @@
 </script>
 
 <style>
-  .arrow {
-    width: 8px;
-    height: 8px;
-    border-top: 2px solid #ccc;
-    border-left: 2px solid #ccc;
-  }
+.arrow {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+}
 
-  .arrow-right {
-    transform: rotate(135deg);
-  }
+.arrow-right {
+  transform: rotate(135deg);
+}
 
-  .arrow-up {
-    transform: rotate(45deg);
-  }
+.arrow-up {
+  transform: rotate(45deg);
+}
 
-  .arrow-down {
-    transform: rotate(-135deg);
-  }
+.arrow-down {
+  transform: rotate(-135deg);
+}
 </style>

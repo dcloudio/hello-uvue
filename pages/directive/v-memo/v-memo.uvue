@@ -1,0 +1,38 @@
+<template>
+  <view class="page">
+    <view class="split-title">v-memo</view>
+    <text class="uni-common-mt equivalent-v-once-text" v-memo="[]"
+      >This will never change: {{ msg }}</text
+    >
+    <text class="uni-common-mt v-memo-text" v-memo="[num]"
+      >This will change when num change, msg: {{ msg }}, num: {{ num }}</text
+    >
+    <text class="uni-common-mt">msg: {{ msg }}</text>
+    <text class="uni-common-mt">num: {{ num }}</text>
+    <button class="uni-common-mt change-message-btn" type="primary" @click="changeMessage">
+      change message
+    </button>
+    <button class="uni-common-mt plus-num-btn" type="primary" @click="plusNum">
+      plus num
+    </button>
+  </view>
+</template>
+
+<script lang="uts">
+export default {
+  data() {
+    return {
+      msg: 'hello world',
+      num: 0
+    }
+  },
+  methods: {
+    changeMessage() {
+      this.msg = 'msg changed'
+    },
+    plusNum(){
+      this.num++
+    }
+  }
+}
+</script>
