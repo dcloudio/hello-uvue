@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import grandChild from './grandChild'
+  import grandChild from './grandChild.uvue'
   import {
     state
   } from '@/store/index.uts'

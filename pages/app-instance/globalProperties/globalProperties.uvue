@@ -75,7 +75,7 @@
 					this.myGlobalProperties.set.push(item)
 				})
 				this.myGlobalProperties.map = {}
-				this.globalPropertiesMap.forEach((value, key) => {
+				this.globalPropertiesMap.forEach((value: number, key: string) => {
 					this.myGlobalProperties.map[key] = value
 				})
 				this.myGlobalProperties.reactiveObj = this.globalPropertiesReactiveObj

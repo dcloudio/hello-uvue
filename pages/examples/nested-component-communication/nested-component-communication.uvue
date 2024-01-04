@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import child from './components/child'
+  import child from './components/child.uvue'
   import { setComponentMsg, state } from '@/store/index.uts'
   export default {
     components: {
