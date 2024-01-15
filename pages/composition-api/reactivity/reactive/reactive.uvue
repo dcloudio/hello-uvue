@@ -1,1 +1,26 @@
- <template><view class="page">reactive</view></template>
+<template>
+  <view class="page">
+    <text id="count" class="uni-common-mb">count: {{ count }}</text>
+    <text id="obj-str" class="uni-common-mb">obj.str: {{obj['str']}}</text>
+    <text id="obj-num" class="uni-common-mb">obj.num: {{obj['num']}}</text>
+    <text id="obj-arr" class="uni-common-mb">obj.arr: {{obj['arr']}}</text>
+    <button id="update-btn" @click="update">update</button>
+  </view>
+</template>
+
+<script setup>
+  const count = ref(0)
+
+  const obj = reactive({
+    str: 'default str',
+    num: count,
+    arr: ['a', 'b', 'c']
+  })
+
+  const update = () => {
+    obj['str'] = 'new str';
+    obj['num'] = (obj['num'] as number) + 1
+    count.value++
+    (obj['arr'] as string[]).push('d')
+  }
+</script>
