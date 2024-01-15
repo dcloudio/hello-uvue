@@ -1,13 +1,26 @@
 <template>
   <view class="page">
-    <text id="count" class="uni-common-mb">count: {{ count }}</text>
+    <text id="count1" class="uni-common-mb">count1: {{ count1 }}</text>
+    <text id="count2" class="uni-common-mb">count2: {{ count2 }}</text>
+    <text id="counter-count" class="uni-common-mb">counter.count: {{ counter.count }}</text>
     <button id="increment-btn" @click="increment">increment</button>
   </view>
 </template>
 
 <script setup>
-  const count = ref(0)
+  const count1 = ref(0)
+  const count2 = ref(count1)
+
+  type Counter = {
+    count : number
+  }
+  const counter = ref({
+    count: 0
+  } as Counter)
+
   const increment = () => {
-    count.value++
+    count1.value++
+    count2.value++
+    counter.value.count++
   }
 </script>
