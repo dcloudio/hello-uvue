@@ -1,1 +1,42 @@
- <template><view class="page">readonly</view></template>
+<template>
+  <view class="page">
+    <text id="data-str" class="uni-common-mb">data.str: {{ data.str }}</text>
+    <text id="data-num" class="uni-common-mb">data.num: {{ data.num }}</text>
+    <text id="data-arr" class="uni-common-mb">data.arr: {{ data.arr}}</text>
+
+    <text id="readonly-data-str" class="uni-common-mb">readonly data.str: {{ readonlyData.str }}</text>
+    <text id="readonly-data-num" class="uni-common-mb">readonly data.num: {{ readonlyData.num }}</text>
+    <text id="readonly-data-arr" class="uni-common-mb">readonly data.arr: {{ readonlyData.arr}}</text>
+
+    <button id="update-data-btn" class="uni-common-mb" @click="updateData">update data</button>
+    <button id="update-readonly-data-btn" @click="updateReadonlyData">update readonly data</button>
+  </view>
+</template>
+
+<script setup>
+  type Data = {
+    str : string,
+    num : number,
+    arr : string[]
+  }
+
+  const data = reactive({
+    str: 'default str',
+    num: 0,
+    arr: ['a', 'b', 'c']
+  } as Data)
+
+  const readonlyData = readonly(data)
+
+  const updateData = () => {
+    data.str = 'new str'
+    data.num++
+    data.arr.push('d')
+  }
+
+  const updateReadonlyData = () => {
+    readonlyData.str = 'new readonly str'
+    readonlyData.num++
+    readonlyData.arr.push('e')
+  }
+</script>

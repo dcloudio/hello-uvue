@@ -96,12 +96,12 @@
           {
             name: 'reactive',
             url: 'reactive',
-            enable: false,
+            enable: true,
           },
           {
             name: 'readonly',
             url: 'readonly',
-            enable: false,
+            enable: true,
           },
           {
             name: 'watch',
