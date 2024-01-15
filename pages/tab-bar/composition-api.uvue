@@ -91,7 +91,7 @@
           {
             name: 'computed',
             url: 'computed',
-            enable: false,
+            enable: true,
           },
           {
             name: 'reactive',
