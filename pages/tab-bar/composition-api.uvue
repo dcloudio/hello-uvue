@@ -126,12 +126,12 @@
           {
             name: 'isRef',
             url: 'is-ref',
-            enable: false,
+            enable: true,
           },
           {
             name: 'unRef',
             url: 'un-ref',
-            enable: false,
+            enable: true,
           },
           {
             name: 'toRef',
