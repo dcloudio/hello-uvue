@@ -161,7 +161,7 @@
           {
             name: 'isReadonly',
             url: 'is-readonly',
-            enable: false,
+            enable: true,
           },
           {
             name: 'shallowRef',
