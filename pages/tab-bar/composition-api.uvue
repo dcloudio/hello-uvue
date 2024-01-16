@@ -201,7 +201,7 @@
           {
             name: 'effectScope',
             url: 'effect-scope',
-            enable: false,
+            enable: true,
           },
           {
             name: 'getCurrentScope',

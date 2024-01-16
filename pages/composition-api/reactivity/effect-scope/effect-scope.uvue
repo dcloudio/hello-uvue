@@ -1,1 +1,32 @@
- <template><view class="page">getCurrentScope</view></template>
+<template>
+  <view class="page">
+    <text id="counter">counter: {{ counter }}</text>
+    <text id="watch-counter-res" class="uni-common-mt">watch counter result: {{ watchCounterRes }}</text>
+    <text id="watch-effect-counter-res" class="uni-common-mt">watchEffect counter result:
+      {{ watchEffectCounterRes }}</text>
+    <button id="increment-counter-btn" class="uni-common-mt" @click="() => {counter++}">increment counter</button>
+    <button id="stop-effect-scope-btn" class="uni-common-mt" @click="stopEffectScope">stop effect scope</button>
+  </view>
+</template>
+
+<script setup>
+  const scope = effectScope()
+
+  const counter = ref(0)
+
+  const watchCounterRes = ref('')
+
+  const watchEffectCounterRes = ref('')
+
+  scope.run(() => {
+    watch(counter, (newVal : number, oldVal : number) => {
+      watchCounterRes.value = `newVal: ${newVal}, oldVal: ${oldVal}`
+    })
+
+    watchEffect(() => {
+      watchEffectCounterRes.value = `counter: ${counter.value}`
+    })
+  })
+
+  const stopEffectScope = () => scope.stop()
+</script>
