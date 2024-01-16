@@ -151,7 +151,7 @@
           {
             name: 'isProxy',
             url: 'is-proxy',
-            enable: false,
+            enable: true,
           },
           {
             name: 'isReactive',
