@@ -186,7 +186,7 @@
           {
             name: 'shallowReadonly',
             url: 'shallow-readonly',
-            enable: false,
+            enable: true,
           },
           {
             name: 'toRaw',
