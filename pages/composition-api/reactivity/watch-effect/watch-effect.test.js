@@ -1,6 +1,6 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch-effect/watch-effect'
 
-describe('watch', () => {
+describe('watchEffect', () => {
   if (process.env.uniTestPlatformInfo.startsWith('android')) {
     let page = null
     beforeAll(async () => {
