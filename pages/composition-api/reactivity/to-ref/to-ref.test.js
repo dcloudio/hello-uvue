@@ -23,10 +23,10 @@ describe('toRef', () => {
       expect(await toRefObjNum.text()).toBe('toRef(obj, "num"): 0')
       const toRefFnObjNum = await page.$('#to-ref-fn-obj-num')
       expect(await toRefFnObjNum.text()).toBe('toRef(() => obj.num): 0')
-      
+
       const incrementBtn = await page.$('#increment-btn')
       await incrementBtn.tap()
-      
+
       expect(await objNum.text()).toBe('obj.num: 2')
       expect(await toRefObjNum.text()).toBe('toRef(obj, "num"): 2')
       expect(await toRefFnObjNum.text()).toBe('toRef(() => obj.num): 2')
