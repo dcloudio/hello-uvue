@@ -106,7 +106,7 @@
           {
             name: 'watch',
             url: 'watch',
-            enable: false,
+            enable: true,
           },
           {
             name: 'watchEffect',
