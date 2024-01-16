@@ -176,7 +176,7 @@
           {
             name: 'customRef',
             url: 'custom-ref',
-            enable: false,
+            enable: true,
           },
           {
             name: 'shallowReactive',

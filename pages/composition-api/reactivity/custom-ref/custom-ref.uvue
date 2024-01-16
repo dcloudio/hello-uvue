@@ -1,1 +1,33 @@
- <template><view class="page">customRef</view></template>
+ <template>
+   <view class="page">
+     <text id="state-count">state.count: {{state['count']}}</text>
+     <button class="uni-common-mt" id="increment-btn" @click="increment">increment state.count</button>
+     <button class="uni-common-mt" id="trigger-ref-btn" @click="triggerRefState">triggerRef state</button>
+   </view>
+ </template>
+
+ <script setup>
+  const useCustomRef = (value : UTSJSONObject) : Ref<UTSJSONObject> => {
+    return customRef((track, trigger) : UTSJSONObject => {
+      return {
+        get() : UTSJSONObject {
+          track()
+          return value
+        },
+        set(newValue : UTSJSONObject) {
+          value = newValue
+          trigger()
+        }
+      }
+    })
+  }
+
+  const state = useCustomRef({ count: 0 })
+
+  const increment = () => {
+    (state.value as UTSJSONObject)['count'] = ((state.value as UTSJSONObject)['count'] as number) + 1
+  }
+  const triggerRefState = () => {
+    triggerRef(state)
+  }
+ </script>
