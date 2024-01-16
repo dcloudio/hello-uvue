@@ -181,7 +181,7 @@
           {
             name: 'shallowReactive',
             url: 'shallow-reactive',
-            enable: false,
+            enable: true,
           },
           {
             name: 'shallowReadonly',
