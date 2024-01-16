@@ -191,7 +191,7 @@
           {
             name: 'toRaw',
             url: 'to-raw',
-            enable: false,
+            enable: true,
           },
           {
             name: 'markRaw',
