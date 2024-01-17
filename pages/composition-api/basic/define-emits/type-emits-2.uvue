@@ -1,0 +1,17 @@
+<template>
+  <view>
+    <text class="uni-common-mt bold">type emits named tuple syntax</text>
+    <button id="type-emits2-emit-btn" class="uni-common-mt" @click="emitChange">emit change</button>
+  </view>
+</template>
+
+<script setup>
+  const emit = defineEmits<{
+    // 具名元组语法
+    change : [id: number]
+  }>()
+  
+  const emitChange = () => {
+    emit('change', 3)
+  }
+</script>

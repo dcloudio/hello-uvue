@@ -1,0 +1,16 @@
+<template>
+  <view>
+    <text class="uni-common-mt bold">type emits</text>
+    <button id="type-emits1-emit-btn" class="uni-common-mt" @click="emitChange">emit change</button>
+  </view>
+</template>
+
+<script setup>
+  const emit = defineEmits<{
+    (e : 'change', id : number) : void
+  }>()
+  
+  const emitChange = () => {
+    emit('change', 2)
+  }
+</script>

@@ -50,7 +50,7 @@
           {
             name: 'defineEmits',
             url: 'define-emits',
-            enable: false,
+            enable: true,
           },
           {
             name: 'defineExpose',
