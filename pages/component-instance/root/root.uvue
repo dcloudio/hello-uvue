@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     getRoot (): boolean {
-      return this.$root!.$data.get('root') as boolean
+      return this.$root!.$data['root'] as boolean
     }
   }
 }
