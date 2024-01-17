@@ -206,7 +206,7 @@
           {
             name: 'getCurrentScope',
             url: 'get-current-scope',
-            enable: false,
+            enable: true,
           },
           {
             name: 'onScopeDispose',
