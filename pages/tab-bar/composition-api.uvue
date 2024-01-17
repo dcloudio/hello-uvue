@@ -65,7 +65,7 @@
           {
             name: 'defineSlots',
             url: 'define-slots',
-            enable: false,
+            enable: true,
           },
           {
             name: 'useSlots',
