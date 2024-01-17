@@ -1,5 +1,24 @@
 <template>
-  <view class="page"> defineExpose </view>
+  <view class="page">
+    <define-expose-foo ref='fooRef' />
+    <text id="foo-str" class="uni-common-mt">str from component Foo: {{fooStr}}</text>
+    <text id="foo-num" class="uni-common-mt">num from component Foo: {{fooNum}}</text>
+    <button id="increment-btn" class="uni-common-mt" @click="increment">trigger Foo increment</button>
+  </view>
 </template>
 
-<script setup></script>
+<script setup>
+  const fooRef = ref<DefineExposeFooComponentPublicInstance | null>(null)
+  const fooStr = ref('')
+  const fooNum = ref<number>(0)
+  
+  onMounted(() => {
+    fooStr.value = fooRef.value!.str
+    fooNum.value = fooRef.value!.num
+  })
+  
+  const increment = () => {
+    fooRef.value!.increment()
+    fooNum.value = fooRef.value!.num
+  }
+</script>

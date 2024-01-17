@@ -55,7 +55,7 @@
           {
             name: 'defineExpose',
             url: 'define-expose',
-            enable: false,
+            enable: true,
           },
           {
             name: 'defineOptions',
