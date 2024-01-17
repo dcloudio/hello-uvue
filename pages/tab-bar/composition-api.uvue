@@ -211,7 +211,7 @@
           {
             name: 'onScopeDispose',
             url: 'on-scope-dispose',
-            enable: false,
+            enable: true,
           },
         ] as PageItem[],
       }
