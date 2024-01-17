@@ -1,20 +1,8 @@
 <template>
   <view>
     <text class="uni-common-mt bold">component for inject 1</text>
-    <text class="uni-common-mt provide-page-title"
-      >providePageTitle: {{ providePageTitle }}</text
-    >
     <text class="uni-common-mt alias-provide-page-title"
       >aliasProvidePageTitle: {{ aliasProvidePageTitle }}</text
-    >
-    <text class="uni-common-mt computed-title"
-      >computedTitle: {{ computedTitle }}</text
-    >
-    <text class="uni-common-mt provide-data-obj-title"
-      >provideDataObj.title: {{ provideDataObj['title'] }}</text
-    >
-    <text class="uni-common-mt provide-data-obj-content"
-      >provideDataObj.content: {{ provideDataObj['content'] }}</text
     >
     <text class="uni-common-mt provide-page-str"
       >providePageStr: {{ providePageStr }}</text
@@ -57,21 +45,10 @@
 <script lang="uts">
 export default {
   inject: {
-    providePageTitle: {
-      type: String,
-      default: 'default provide page title'
-    },
     aliasProvidePageTitle: {
       type: String,
       from: 'providePageTitle',
       default: 'default alias provide page title'
-    },
-    computedTitle: {
-      type: String,
-      default: 'default computed title'
-    },
-    provideDataObj: {
-      type: Object as PropType<UTSJSONObject>,
     },
     providePageStr: {
       type: String,

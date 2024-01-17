@@ -7,7 +7,6 @@
       <button class="uni-common-mt" @click="goProvidePage2">
         跳转函数方式定义 provide 示例
       </button>
-      <button class="uni-common-mt change-data-btn" @click="changeData">change data</button>
       <ComponentForInject />
     </view>
     <!-- #ifdef APP -->
@@ -33,9 +32,6 @@ export default {
     }
   },
   provide: {
-    providePageTitle: this.title,
-    computedTitle: computed<string>((): string => this.title),
-    provideDataObj: this.obj,
     providePageStr: '字面量方式定义 provide page str',
     providePageNum: 1,
     providePageBool: true,
@@ -52,11 +48,6 @@ export default {
       uni.navigateTo({
         url: '/pages/composition/provide/provide-page2'
       })
-    },
-    changeData() {
-      this.title = '字面量方式定义 provide page title changed'
-      this.obj['title'] = 'new title'
-      this.obj['content'] = 'new content'
     }
   },
 }
