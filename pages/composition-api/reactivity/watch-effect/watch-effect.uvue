@@ -50,9 +50,9 @@
   const watchCountTrackNum = ref(0)
   const watchCountTriggerNum = ref(0)
 
-  const stopWatchCount = watchEffect((onCleanup: OnCleanup) => {
+  const stopWatchCount = watchEffect((onCleanup : OnCleanup) => {
     if (countRef.value !== null) {
-      watchCountRes.value = `count: ${count.value}, count ref text (flush sync): ${(countRef.value as UniElement).getAttribute('value')}`
+      watchCountRes.value = `count: ${count.value}, count ref text (flush sync): ${countRef.value!.getAttribute('value')}`
     } else {
       watchCountRes.value = `count: ${count.value}, count ref text (flush sync): `
     }
@@ -99,7 +99,7 @@
   const watchObjStrRes = ref('')
   watchEffect(() => {
     if (objStrRef.value !== null) {
-      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text (flush pre): ${(objStrRef.value as UniElement).getAttribute('value')}`
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text (flush pre): ${objStrRef.value!.getAttribute('value')}`
     } else {
       watchObjStrRes.value = `str: ${obj.str}, obj.str ref text (flush pre): `
     }
@@ -112,7 +112,7 @@
   const watchObjBoolRes = ref('')
   watchEffect(() => {
     if (objBoolRef.value !== null) {
-      watchObjBoolRes.value = `bool: ${obj.bool}, obj.bool ref text (flush post): ${(objBoolRef.value as UniElement).getAttribute('value')}`
+      watchObjBoolRes.value = `bool: ${obj.bool}, obj.bool ref text (flush post): ${objBoolRef.value!.getAttribute('value')}`
     } else {
       watchObjBoolRes.value = `bool: ${obj.bool}, obj.bool ref text (flush post): `
     }
