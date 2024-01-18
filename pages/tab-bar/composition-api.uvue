@@ -80,7 +80,7 @@
           {
             name: 'useAttrs',
             url: 'use-attrs',
-            enable: false,
+            enable: true,
           },
         ] as PageItem[],
       }, {
