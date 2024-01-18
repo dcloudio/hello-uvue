@@ -121,7 +121,7 @@
           {
             name: 'watchSyncEffect',
             url: 'watch-sync-effect',
-            enable: false,
+            enable: true,
           },
           {
             name: 'isRef',
