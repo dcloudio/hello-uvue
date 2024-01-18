@@ -35,196 +35,292 @@
     url ?: string
     enable ?: boolean
   }
-  
+
   const list = [
-      {
-        id: 'basic',
-        name: '基本使用',
-        open: false,
-        pages: [
-          {
-            name: 'defineProps',
-            url: 'define-props',
-            enable: false,
-          },
-          {
-            name: 'defineEmits',
-            url: 'define-emits',
-            enable: true,
-          },
-          {
-            name: 'defineExpose',
-            url: 'define-expose',
-            enable: true,
-          },
-          {
-            name: 'defineOptions',
-            url: 'define-options',
-            enable: true,
-          },
-          {
-            name: 'defineSlots',
-            url: 'define-slots',
-            enable: true,
-          },
-{
-            name: 'defineModel',
-            url: 'define-model',
-            enable: true,
-          },
-          {
-            name: 'useSlots',
-            url: 'use-slots',
-            enable: true,
-          },
-          {
-            name: 'useAttrs',
-            url: 'use-attrs',
-            enable: true,
-          },
-        ] as PageItem[],
-      }, {
-        id: 'reactivity',
-        name: '响应式',
-        open: false,
-        pages: [
-          {
-            name: 'ref',
-            url: 'ref',
-            enable: true,
-          },
-          {
-            name: 'computed',
-            url: 'computed',
-            enable: true,
-          },
-          {
-            name: 'reactive',
-            url: 'reactive',
-            enable: true,
-          },
-          {
-            name: 'readonly',
-            url: 'readonly',
-            enable: true,
-          },
-          {
-            name: 'watch',
-            url: 'watch',
-            enable: true,
-          },
-          {
-            name: 'watchEffect',
-            url: 'watch-effect',
-            enable: true,
-          },
-          {
-            name: 'watchPostEffect',
-            url: 'watch-post-effect',
-            enable: true,
-          },
-          {
-            name: 'watchSyncEffect',
-            url: 'watch-sync-effect',
-            enable: true,
-          },
-          {
-            name: 'isRef',
-            url: 'is-ref',
-            enable: true,
-          },
-          {
-            name: 'unRef',
-            url: 'un-ref',
-            enable: true,
-          },
-          {
-            name: 'toRef',
-            url: 'to-ref',
-            enable: true,
-          },
-          {
-            name: 'toValue',
-            url: 'to-value',
-            // #ifdef APP
-            enable: true,
-            // #else
-            enable: false,
-            // #endif
-          },
-          {
-            name: 'toRefs',
-            url: 'to-refs',
-            enable: true,
-          },
-          {
-            name: 'isProxy',
-            url: 'is-proxy',
-            enable: true,
-          },
-          {
-            name: 'isReactive',
-            url: 'is-reactive',
-            enable: true,
-          },
-          {
-            name: 'isReadonly',
-            url: 'is-readonly',
-            enable: true,
-          },
-          {
-            name: 'shallowRef',
-            url: 'shallow-ref',
-            enable: true,
-          },
-          {
-            name: 'triggerRef',
-            url: 'trigger-ref',
-            enable: true,
-          },
-          {
-            name: 'customRef',
-            url: 'custom-ref',
-            enable: true,
-          },
-          {
-            name: 'shallowReactive',
-            url: 'shallow-reactive',
-            enable: true,
-          },
-          {
-            name: 'shallowReadonly',
-            url: 'shallow-readonly',
-            enable: true,
-          },
-          {
-            name: 'toRaw',
-            url: 'to-raw',
-            enable: true,
-          },
-          {
-            name: 'markRaw',
-            url: 'mark-raw',
-            enable: false, // 暂不支持
-          },
-          {
-            name: 'effectScope',
-            url: 'effect-scope',
-            enable: true,
-          },
-          {
-            name: 'getCurrentScope',
-            url: 'get-current-scope',
-            enable: true,
-          },
-          {
-            name: 'onScopeDispose',
-            url: 'on-scope-dispose',
-            enable: true,
-          },
-        ] as PageItem[],
-      }
-    ] as PageList[]
+    {
+      id: 'basic',
+      name: '基本使用',
+      open: false,
+      pages: [
+        {
+          name: 'defineProps',
+          url: 'define-props',
+          enable: true,
+        },
+        {
+          name: 'defineEmits',
+          url: 'define-emits',
+          enable: true,
+        },
+        {
+          name: 'defineExpose',
+          url: 'define-expose',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'defineOptions',
+          url: 'define-options',
+          enable: true,
+        },
+        {
+          name: 'defineSlots',
+          url: 'define-slots',
+          enable: true,
+        },
+        {
+          name: 'defineModel',
+          url: 'define-model',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'useSlots',
+          url: 'use-slots',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'useAttrs',
+          url: 'use-attrs',
+          enable: true,
+        },
+      ] as PageItem[],
+    }, {
+      id: 'reactivity',
+      name: '响应式',
+      open: false,
+      pages: [
+        {
+          name: 'ref',
+          url: 'ref',
+          enable: true,
+        },
+        {
+          name: 'computed',
+          url: 'computed',
+          enable: true,
+        },
+        {
+          name: 'reactive',
+          url: 'reactive',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'readonly',
+          url: 'readonly',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'watch',
+          url: 'watch',
+          enable: true,
+        },
+        {
+          name: 'watchEffect',
+          url: 'watch-effect',
+          enable: true,
+        },
+        {
+          name: 'watchPostEffect',
+          url: 'watch-post-effect',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'watchSyncEffect',
+          url: 'watch-sync-effect',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'isRef',
+          url: 'is-ref',
+          enable: true,
+        },
+        {
+          name: 'unRef',
+          url: 'un-ref',
+          enable: true,
+        },
+        {
+          name: 'toRef',
+          url: 'to-ref',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'toValue',
+          url: 'to-value',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'toRefs',
+          url: 'to-refs',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'isProxy',
+          url: 'is-proxy',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'isReactive',
+          url: 'is-reactive',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'isReadonly',
+          url: 'is-readonly',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'shallowRef',
+          url: 'shallow-ref',
+          enable: true,
+        },
+        {
+          name: 'triggerRef',
+          url: 'trigger-ref',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'customRef',
+          url: 'custom-ref',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'shallowReactive',
+          url: 'shallow-reactive',
+          enable: true,
+        },
+        {
+          name: 'shallowReadonly',
+          url: 'shallow-readonly',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'toRaw',
+          url: 'to-raw',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'markRaw',
+          url: 'mark-raw',
+          enable: false, // 暂不支持
+        },
+        {
+          name: 'effectScope',
+          url: 'effect-scope',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'getCurrentScope',
+          url: 'get-current-scope',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'onScopeDispose',
+          url: 'on-scope-dispose',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+      ] as PageItem[],
+    }
+  ] as PageList[]
 
   const goDetailPage = (id : string, e : PageItem) => {
     if (e.enable == false) {

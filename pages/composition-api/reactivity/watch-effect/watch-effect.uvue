@@ -10,10 +10,10 @@
         {{ watchCountTriggerNum }}</text>
       <text id="watch-count-cleanup-res" class="uni-common-mb">watch count cleanup result:
         {{ watchCountCleanupRes }}</text>
-      <button id="increment-btn" class="uni-common-mb" @click="increment">
+      <button class="increment-btn uni-common-mb" @click="increment">
         increment
       </button>
-      <button id="stop-watch-count-btn" class="uni-common-mb" @click="triggerStopWatchCount">
+      <button class="stop-watch-count-btn uni-common-mb" @click="triggerStopWatchCount">
         stop watch count
       </button>
       <text id="obj-str" ref="objStrRef" class="uni-common-mb">obj.str: {{ obj.str }}</text>
@@ -24,7 +24,7 @@
       <text id="watch-obj-str-res" class="uni-common-mb">watch obj.str result: {{ watchObjStrRes }}</text>
       <text id="watch-obj-bool-res" class="uni-common-mb">watch obj.bool result: {{ watchObjBoolRes }}</text>
       <text id="watch-obj-arr-res" class="uni-common-mb">watch obj.arr result: {{ watchObjArrRes }}</text>
-      <button id="update-obj-btn" class="uni-common-mb" @click="updateObj">
+      <button class="update-obj-btn uni-common-mb" @click="updateObj">
         update obj
       </button>
       <text id="watch-count-obj-num-res" class="uni-common-mb">watch count and obj.num result:

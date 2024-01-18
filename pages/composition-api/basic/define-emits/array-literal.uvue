@@ -1,7 +1,7 @@
 <template>
   <view>
     <text class="bold">array literal</text>
-    <button id="array-literal-emit-btn" class="uni-common-mt" @click="emitChange">emit change</button>
+    <button class="array-literal-emit-btn uni-common-mt" @click="emitChange">emit change</button>
   </view>
 </template>
 

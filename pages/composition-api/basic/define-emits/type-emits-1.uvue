@@ -1,7 +1,7 @@
 <template>
   <view>
     <text class="uni-common-mt bold">type emits</text>
-    <button id="type-emits1-emit-btn" class="uni-common-mt" @click="emitChange">emit change</button>
+    <button class="type-emits1-emit-btn uni-common-mt" @click="emitChange">emit change</button>
   </view>
 </template>
 

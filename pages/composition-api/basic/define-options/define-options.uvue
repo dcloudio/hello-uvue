@@ -3,7 +3,7 @@
     <text id="count" class='uni-common-mb'>count: {{ count }}</text>
     <text id='double-count' class='uni-common-mb'>double count: {{ doubleCount}}</text>
     <text id="total" class='uni-common-mb'>total: {{ total}}</text>
-    <button id="increment-btn" @click="increment">increment</button>
+    <button class="increment-btn" @click="increment">increment</button>
   </view>
 </template>
 
