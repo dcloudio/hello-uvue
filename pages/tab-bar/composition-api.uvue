@@ -67,6 +67,11 @@
             url: 'define-slots',
             enable: true,
           },
+{
+            name: 'defineModel',
+            url: 'define-model',
+            enable: true,
+          },
           {
             name: 'useSlots',
             url: 'use-slots',

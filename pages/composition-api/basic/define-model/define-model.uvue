@@ -1,5 +1,31 @@
 <template>
-  <view class="page"> defineModel </view>
+  <view class="page">
+    <Foo v-model='str' v-model:msg="msg" @update:modelValue="handleModelValueUpdate" @update:msg="handleMsgUpdate" />
+    <input class='uni-common-mt input' id="model-value-input" v-model="str" />
+    <input class='uni-common-mt input' id="msg-input" v-model="msg" />
+  </view>
 </template>
 
-<script setup></script>
+<script setup>
+  import Foo from './Foo.uvue'
+
+  const str = ref('str')
+  const msg = ref('msg')
+
+  const handleModelValueUpdateRes = ref('')
+  const handleModelValueUpdate = (val : string) => {
+    handleModelValueUpdateRes.value = `new str value: ${val}`
+  }
+  const handleMsgUpdateRes = ref('')
+  const handleMsgUpdate = (val : string) => {
+    handleMsgUpdateRes.value = `new msg value: ${val}`
+  }
+</script>
+
+<style>
+  .input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+</style>
