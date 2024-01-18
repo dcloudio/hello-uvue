@@ -1,5 +1,26 @@
 <template>
-  <view class="page"> defineProps </view>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+  <!-- #endif -->
+    <view class="page">
+      <ArrayLiteral :str="str" :num='num' :bool='bool' :arr='arr' :obj='obj' :fn='fn' />
+      <ObjectLiteral :str="str" :num='num' :bool='bool' :arr='arr' :fn='fn' />
+      <TypeProps :str="str" :num='num' :bool='bool' :arr='arr' :obj='obj' :fn='fn' />
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
 </template>
 
-<script setup></script>
+<script setup>
+  import ArrayLiteral from './array-literal.uvue';
+  import ObjectLiteral from './object-literal.uvue';
+  import TypeProps from './type-props.uvue';
+
+  const str = ref('default str')
+  const num = ref(0)
+  const bool = ref(false)
+  const arr = reactive(['a', 'b', 'c'])
+  const obj = reactive({ str: 'obj str', num: 0, arr: [1, 2, 3] })
+  const fn = () : string => 'fn res'
+</script>

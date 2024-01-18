@@ -1,0 +1,22 @@
+<template>
+  <view>
+    <text class="bold uni-common-mt uni-common-mb">type props</text>
+    <text class="uni-common-mb" id="type-str">str: {{ str }}</text>
+    <text class="uni-common-mb" id="type-num">num: {{ num }}</text>
+    <text class="uni-common-mb" id="type-bool">bool: {{ bool }}</text>
+    <text class="uni-common-mb" id="type-arr">arr: {{ arr }}</text>
+    <text class="uni-common-mb" id="type-obj">obj: {{ obj }}</text>
+    <text id="type-fn">fn: {{ fn() }}</text>
+  </view>
+</template>
+
+<script setup>
+  defineProps<{
+    str : String,
+    num : Number,
+    bool : Boolean,
+    arr : PropType<string[]>,
+    obj : PropType<UTSJSONObject>,
+    fn : PropType<() => string>
+  }>()
+</script>
