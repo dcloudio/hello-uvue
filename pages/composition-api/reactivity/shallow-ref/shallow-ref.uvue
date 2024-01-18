@@ -1,1 +1,26 @@
- <template><view class="page">shallowRef</view></template>
+<template>
+  <view class="page">
+    <text id="state-count" class="uni-common-mb">state.count: {{ state.count }}</text>
+    <button id="increment-state-count-btn" class="uni-common-mb" @click="incrementStateCount">increment
+      state.count</button>
+    <button id="update-state-btn" @click="updateState">update state</button>
+  </view>
+</template>
+
+<script setup>
+  type State = {
+    count: number
+  }
+  
+  const state = shallowRef({
+    count: 0
+  } as State)
+
+  const incrementStateCount = () => {
+    state.value.count++
+  }
+
+  const updateState = () => {
+    state.value = { count: state.value.count } as State
+  }
+</script>

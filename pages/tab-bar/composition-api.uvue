@@ -166,7 +166,7 @@
           {
             name: 'shallowRef',
             url: 'shallow-ref',
-            enable: false,
+            enable: true,
           },
           {
             name: 'triggerRef',
