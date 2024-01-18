@@ -48,7 +48,7 @@ export default {
     }
   },
   mounted(){
-    const rootElement = this.$refs['mixin-comp-root'] as Element
+    const rootElement = this.$refs['mixin-comp-root'] as UniElement
     this.rootElementTitle = rootElement.getAttribute('title')
   },
   watch: {

@@ -34,9 +34,11 @@
     data.arr.push('d')
   }
 
+  // #ifdef APP
   const updateReadonlyData = () => {
     readonlyData.str = 'new readonly str'
     readonlyData.num++
     readonlyData.arr.push('e')
   }
+  // #endif
 </script>

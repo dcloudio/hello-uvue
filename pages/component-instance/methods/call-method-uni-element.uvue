@@ -12,7 +12,7 @@
       }
     },
     onReady() {
-      // 通过组件 ref 属性获取组件实例, Uni组件名(驼峰)Element
+      // 通过组件 ref 属性获取组件实例, Uni组件名(驼峰)UniElement
       this.$slider1 = this.$refs['slider1'] as UniSliderElement;
     },
     methods: {

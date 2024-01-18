@@ -29,6 +29,7 @@
     } as StateNested
   } as State)
 
+  // #ifdef APP
   const incrementStateCount = () => {
     state.count++
   }
@@ -36,6 +37,7 @@
   const incrementStateNestedCount = () => {
     state.nested.count++
   }
+  // #endif
 
   const updatePageRender = () => {
     pageKey.value = Date.now()

@@ -331,6 +331,7 @@
         "navigationBarTitleText": "render function"
       }
     },
+    // #ifdef APP
     {
       "path": "pages/composition/mixins/mixins",
       "style": {
@@ -343,6 +344,7 @@
         "navigationBarTitleText": "mixins-page-2"
       }
     },
+    // #endif
     {
       "path": "pages/composition/provide/provide",
       "style": {
@@ -493,12 +495,14 @@
         "navigationBarTitleText": "toRef"
       }
     },
+    // #ifdef APP
     {
       "path": "pages/composition-api/reactivity/to-value/to-value",
       "style": {
         "navigationBarTitleText": "toValue"
       }
     },
+    // #endif
     {
       "path": "pages/composition-api/reactivity/to-refs/to-refs",
       "style": {
@@ -584,7 +588,6 @@
       }
     }
   ],
-  // #ifdef APP
   "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#007AFF",
@@ -601,7 +604,6 @@
       }
     ]
   },
-  // #endif
   "globalStyle": {
     "pageOrientation": "portrait",
     "navigationBarTitleText": "Hello UVUE",
