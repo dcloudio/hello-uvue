@@ -116,7 +116,7 @@
           {
             name: 'watchPostEffect',
             url: 'watch-post-effect',
-            enable: false,
+            enable: true,
           },
           {
             name: 'watchSyncEffect',
