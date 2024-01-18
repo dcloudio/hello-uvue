@@ -75,7 +75,7 @@
           {
             name: 'useSlots',
             url: 'use-slots',
-            enable: false,
+            enable: true,
           },
           {
             name: 'useAttrs',
