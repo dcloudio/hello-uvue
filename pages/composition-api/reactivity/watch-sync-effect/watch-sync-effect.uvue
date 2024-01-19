@@ -42,7 +42,7 @@
     arr : number[]
   }
 
-  const countRef = ref<UniElement | null>(null)
+  const countRef = ref<UniTextElement | null>(null)
   const count = ref(0)
   const watchCountRes = ref('')
   const watchCountCleanupRes = ref('')
@@ -51,12 +51,17 @@
 
   const stopWatchCount = watchSyncEffect((onCleanup : OnCleanup) => {
     if (countRef.value !== null) {
-      watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.getAttribute('value')}`
+      // #ifdef APP
+      watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
     } else {
-      watchCountRes.value = `count: ${count.value}, count ref text: `
+      watchCountRes.value = `count: ${ count.value }, count ref text: `
     }
     const cancel = () => {
-      watchCountCleanupRes.value = `watch count cleanup: ${count.value}`
+      watchCountCleanupRes.value = `watch count cleanup: ${ count.value }`
     }
     onCleanup(cancel)
   },
@@ -91,32 +96,37 @@
 
   const watchObjRes = ref('')
   watchSyncEffect(() => {
-    watchObjRes.value = `obj: ${JSON.stringify(obj)}`
+    watchObjRes.value = `obj: ${ JSON.stringify(obj) }`
   })
 
-  const objStrRef = ref<UniElement | null>(null)
+  const objStrRef = ref<UniTextElement | null>(null)
   const watchObjStrRes = ref('')
   watchSyncEffect(() => {
     if (objStrRef.value !== null) {
-      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${objStrRef.value!.getAttribute('value')}`
+      // #ifdef APP
+      watchObjStrRes.value = `str: ${ obj.str }, obj.str ref text: ${ objStrRef.value!.value }`
+      // #endif
+      // #ifdef WEB
+      watchObjStrRes.value = `str: ${ obj.str }, obj.str ref text: ${ (objStrRef.value!.childNodes[0] as HTMLElement).innerText }`
+      // #endif 
     } else {
-      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: `
+      watchObjStrRes.value = `str: ${ obj.str }, obj.str ref text: `
     }
   })
 
   const watchObjArrRes = ref('')
   watchSyncEffect(() => {
-    watchObjArrRes.value = `arr: ${JSON.stringify(obj.arr)}`
+    watchObjArrRes.value = `arr: ${ JSON.stringify(obj.arr) }`
   })
 
   const watchCountAndObjNumRes = ref('')
   watchSyncEffect(() => {
-    watchCountAndObjNumRes.value = `count: ${count.value}, obj.num: ${obj.num}`
+    watchCountAndObjNumRes.value = `count: ${ count.value }, obj.num: ${ obj.num }`
   })
 
   const updateObj = () => {
     obj.num++
-    obj.str = `num: ${obj.num}`
+    obj.str = `num: ${ obj.num }`
     obj.bool = !obj.bool
     obj.arr.push(obj.num)
   }

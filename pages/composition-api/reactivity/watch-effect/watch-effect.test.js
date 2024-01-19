@@ -12,14 +12,8 @@ describe('watchEffect', () => {
 
     // watch
     const watchCountRes = await page.$('#watch-count-res')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 0, count ref text (flush sync): count: 0')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 0, count ref text (flush sync): null')
-    }
+    expect(await watchCountRes.text()).toBe(
+      'watch count result: count: 0, count ref text (flush sync): count: 0')
     // track
     const watchCountTrackNum = await page.$('#watch-count-track-num')
     expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
@@ -38,14 +32,8 @@ describe('watchEffect', () => {
     await incrementBtn.tap()
 
     expect(await count.text()).toBe('count: 1')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 1, count ref text (flush sync): count: 0')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 1, count ref text (flush sync): null')
-    }
+    expect(await watchCountRes.text()).toBe(
+      'watch count result: count: 1, count ref text (flush sync): count: 0')
     expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
     expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 2')
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup result: watch count cleanup: 1')
@@ -55,14 +43,9 @@ describe('watchEffect', () => {
     await incrementBtn.tap()
 
     expect(await count.text()).toBe('count: 2')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 2, count ref text (flush sync): count: 1')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 2, count ref text (flush sync): null')
-    }
+    expect(await watchCountRes.text()).toBe(
+      'watch count result: count: 2, count ref text (flush sync): count: 1')
+
     expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
     expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 3')
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup result: watch count cleanup: 2')
@@ -76,14 +59,9 @@ describe('watchEffect', () => {
     await incrementBtn.tap()
 
     expect(await count.text()).toBe('count: 3')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 2, count ref text (flush sync): count: 1')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchCountRes.text()).toBe(
-        'watch count result: count: 2, count ref text (flush sync): null')
-    }
+    expect(await watchCountRes.text()).toBe(
+      'watch count result: count: 2, count ref text (flush sync): count: 1')
+
     expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
     expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 3')
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup result: watch count cleanup: 2')
@@ -110,23 +88,13 @@ describe('watchEffect', () => {
         'watch obj result: obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}')
     }
     const watchObjStrRes = await page.$('#watch-obj-str-res')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(await watchObjStrRes.text()).toBe(
-        'watch obj.str result: str: num: 0, obj.str ref text (flush pre): obj.str: num: 0')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchObjStrRes.text()).toBe(
-        'watch obj.str result: str: num: 0, obj.str ref text (flush pre): null')
-    }
+    expect(await watchObjStrRes.text()).toBe(
+      'watch obj.str result: str: num: 0, obj.str ref text (flush pre): obj.str: num: 0')
+
     const watchObjBoolRes = await page.$('#watch-obj-bool-res')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(await watchObjBoolRes.text()).toBe(
-        'watch obj.bool result: bool: false, obj.bool ref text (flush post): obj.bool: false')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchObjBoolRes.text()).toBe(
-        'watch obj.bool result: bool: false, obj.bool ref text (flush post): null')
-    }
+    expect(await watchObjBoolRes.text()).toBe(
+      'watch obj.bool result: bool: false, obj.bool ref text (flush post): obj.bool: false')
+
     const watchObjArrRes = await page.$('#watch-obj-arr-res')
     expect(await watchObjArrRes.text()).toBe('watch obj.arr result: arr: [0]')
 
@@ -146,22 +114,11 @@ describe('watchEffect', () => {
       expect(await watchObjRes.text()).toBe(
         'watch obj result: obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}')
     }
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchObjStrRes.text()).toBe(
         'watch obj.str result: str: num: 1, obj.str ref text (flush pre): obj.str: num: 0')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchObjStrRes.text()).toBe(
-        'watch obj.str result: str: num: 1, obj.str ref text (flush pre): null')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(await watchObjBoolRes.text()).toBe(
-        'watch obj.bool result: bool: true, obj.bool ref text (flush post): obj.bool: true')
-    }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await watchObjBoolRes.text()).toBe(
-        'watch obj.bool result: bool: true, obj.bool ref text (flush post): null')
-    }
+    expect(await watchObjBoolRes.text()).toBe(
+      'watch obj.bool result: bool: true, obj.bool ref text (flush post): obj.bool: true')
+
     expect(await watchObjArrRes.text()).toBe('watch obj.arr result: arr: [0,1]')
 
     const watchCountAndObjNumRes = await page.$('#watch-count-obj-num-res')

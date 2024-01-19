@@ -43,7 +43,7 @@
     arr : number[]
   }
 
-  const countRef = ref<UniElement | null>(null)
+  const countRef = ref<UniTextElement | null>(null)
   const count = ref(0)
   const watchCountRes = ref('')
   const watchCountCleanupRes = ref('')
@@ -52,7 +52,12 @@
 
   const stopWatchCount = watchEffect((onCleanup : OnCleanup) => {
     if (countRef.value !== null) {
-      watchCountRes.value = `count: ${count.value}, count ref text (flush sync): ${countRef.value!.getAttribute('value')}`
+      // #ifdef APP
+      watchCountRes.value = `count: ${count.value}, count ref text (flush sync): ${countRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchCountRes.value = `count: ${count.value}, count ref text (flush sync): ${(countRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
     } else {
       watchCountRes.value = `count: ${count.value}, count ref text (flush sync): `
     }
@@ -95,11 +100,16 @@
     watchObjRes.value = `obj: ${JSON.stringify(obj)}`
   })
 
-  const objStrRef = ref<UniElement | null>(null)
+  const objStrRef = ref<UniTextElement | null>(null)
   const watchObjStrRes = ref('')
   watchEffect(() => {
     if (objStrRef.value !== null) {
-      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text (flush pre): ${objStrRef.value!.getAttribute('value')}`
+      // #ifdef APP
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text (flush pre): ${objStrRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text (flush pre): ${(objStrRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
     } else {
       watchObjStrRes.value = `str: ${obj.str}, obj.str ref text (flush pre): `
     }
@@ -108,11 +118,16 @@
     flush: 'pre',
   })
 
-  const objBoolRef = ref<UniElement | null>(null)
+  const objBoolRef = ref<UniTextElement | null>(null)
   const watchObjBoolRes = ref('')
   watchEffect(() => {
     if (objBoolRef.value !== null) {
-      watchObjBoolRes.value = `bool: ${obj.bool}, obj.bool ref text (flush post): ${objBoolRef.value!.getAttribute('value')}`
+      // #ifdef APP
+      watchObjBoolRes.value = `bool: ${obj.bool}, obj.bool ref text (flush post): ${objBoolRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchObjBoolRes.value = `bool: ${obj.bool}, obj.bool ref text (flush post): ${(objBoolRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
     } else {
       watchObjBoolRes.value = `bool: ${obj.bool}, obj.bool ref text (flush post): `
     }

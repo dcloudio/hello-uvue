@@ -43,7 +43,7 @@
     arr : number[]
   }
 
-  const countRef = ref<UniElement | null>(null)
+  const countRef = ref<UniTextElement | null>(null)
   const count = ref(0)
   const watchCountRes = ref('')
   const watchCountCleanupRes = ref('')
@@ -51,7 +51,12 @@
   const watchCountTriggerNum = ref(0)
 
   const stopWatchCount = watch(count, (count : number, prevCount : number, onCleanup : OnCleanup) => {
-    watchCountRes.value = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${countRef.value!.getAttribute('value')}`
+    // #ifdef APP
+    watchCountRes.value = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${countRef.value!.value}`
+    // #endif
+    // #ifdef WEB
+    watchCountRes.value = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${(countRef.value!.childNodes[0] as HTMLElement).innerText}`
+    // #endif 
     const cancel = () => {
       watchCountCleanupRes.value = `watch count cleanup: ${count}`
     }
@@ -88,23 +93,33 @@
 
   // immediate: true 第一次触发, 旧值应该是 undefined, 现在 app 是初始值
   const watchObjRes = ref('')
-  watch(obj, (obj : Obj, prevObj?: Obj) => {
+  watch(obj, (obj : Obj, prevObj ?: Obj) => {
     watchObjRes.value = `obj: ${JSON.stringify(obj)}, prevObj: ${JSON.stringify(prevObj)}`
   }, { immediate: true })
 
-  const objStrRef = ref<UniElement | null>(null)
+  const objStrRef = ref<UniTextElement | null>(null)
   const watchObjStrRes = ref('')
   watch(() : string => obj.str, (str : string, prevStr : string) => {
-    watchObjStrRes.value = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${objStrRef.value!.getAttribute('value')}`
+    // #ifdef APP
+    watchObjStrRes.value = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${objStrRef.value!.value}`
+    // #endif
+    // #ifdef WEB
+    watchObjStrRes.value = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${(objStrRef.value!.childNodes[0] as HTMLElement).innerText}`
+    // #endif 
   }, {
     // 侦听器在组件渲染之前触发
     flush: 'pre',
   })
 
-  const objBoolRef = ref<UniElement | null>(null)
+  const objBoolRef = ref<UniTextElement | null>(null)
   const watchObjBoolRes = ref('')
   watch(() : boolean => obj.bool, (bool : boolean, prevBool : boolean) => {
-    watchObjBoolRes.value = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${objBoolRef.value!.getAttribute('value')}`
+    // #ifdef APP
+    watchObjBoolRes.value = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${objBoolRef.value!.value}`
+    // #endif
+    // #ifdef WEB
+    watchObjBoolRes.value = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${(objBoolRef.value!.childNodes[0] as HTMLElement).innerText}`
+    // #endif 
   }, {
     // 侦听器延迟到组件渲染之后触发
     flush: 'post'

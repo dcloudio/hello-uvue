@@ -42,7 +42,7 @@
     arr : number[]
   }
 
-  const countRef = ref<UniElement | null>(null)
+  const countRef = ref<UniTextElement | null>(null)
   const count = ref<number>(0)
   const watchCountRes = ref('')
   const watchCountCleanupRes = ref('')
@@ -51,7 +51,12 @@
 
   const stopWatchCount = watchPostEffect((onCleanup : OnCleanup) => {
     if (countRef.value !== null) {
-      watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.getAttribute('value')}`
+      // #ifdef APP
+      watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchCountRes.value = `count: ${count.value}, count ref text: ${(countRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
     } else {
       watchCountRes.value = `count: ${count.value}, count ref text: `
     }
@@ -94,11 +99,16 @@
     watchObjRes.value = `obj: ${JSON.stringify(obj)}`
   })
 
-  const objStrRef = ref<UniElement | null>(null)
+  const objStrRef = ref<UniTextElement | null>(null)
   const watchObjStrRes = ref('')
   watchPostEffect(() => {
     if (objStrRef.value !== null) {
-      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${objStrRef.value!.getAttribute('value')}`
+      // #ifdef APP
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${objStrRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${(objStrRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
     } else {
       watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: `
     }
