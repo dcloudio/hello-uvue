@@ -319,6 +319,17 @@
           // #endif
         },
       ] as PageItem[],
+    }, {
+      id: 'lifecycle',
+      name: '生命周期',
+      open: false,
+      pages: [
+        {
+          name: '页面生命周期',
+          url: 'page-lifecycle',
+          enable: true,
+        },
+      ]
     }
   ] as PageList[]
 

@@ -586,6 +586,14 @@
       "style": {
         "navigationBarTitleText": "onScopeDispose"
       }
+    },
+    {
+      "path" : "pages/composition-api/lifecycle/page-lifecycle/page-lifecycle",
+      "style" : 
+      {
+        "navigationBarTitleText" : "页面生命周期",
+        "enablePullDownRefresh": true
+      }
     }
   ],
   "tabBar": {

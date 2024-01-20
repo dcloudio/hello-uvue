@@ -1,0 +1,105 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex:1">
+  <!-- #endif -->
+    <view class="page container">
+      <text>page lifecycle</text>
+      <button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script setup>
+  import { state, setLifeCycleNum } from '@/store/index.uts'
+  
+  const isScrolled = ref(false)
+  
+  onLoad((_: OnLoadOptions) => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 100)
+  })
+  onPageShow(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onReady(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onPullDownRefresh(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onPageScroll((_) => {
+    // 自动化测试
+    isScrolled.value = true
+  })
+  onReachBottom(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onBackPress((_: OnBackPressOptions): boolean | null => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 10)
+    return null
+  })
+  onPageHide(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 10)
+  })
+  onUnload(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 100)
+  })
+  onResize((_) => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  
+  // 自动化测试
+  const getLifeCycleNum = () : number => {
+    return state.lifeCycleNum
+  }
+  // 自动化测试
+  const pageSetlifeCycleNum = (num: number) => {
+    setLifeCycleNum(num)
+  }
+ 
+  // 自动化测试
+  const pullDownRefresh = () => {
+    uni.startPullDownRefresh({
+      success() {
+        setTimeout(() => {
+          uni.stopPullDownRefresh()
+        }, 1000)
+      },
+    })
+  }
+  
+  const scrollToBottom = () => {
+    uni.pageScrollTo({
+      scrollTop: 2000,
+    })
+  }
+  
+  // 自动化测试
+  const getIsScrolled = (): boolean => {
+    return isScrolled.value
+  }
+  
+  defineExpose({
+    getLifeCycleNum,
+    pageSetlifeCycleNum,
+    pullDownRefresh,
+    scrollToBottom,
+    getIsScrolled
+  })
+</script>
+
+<style>
+  .container {
+    height: 1200px;
+  }
+</style>
