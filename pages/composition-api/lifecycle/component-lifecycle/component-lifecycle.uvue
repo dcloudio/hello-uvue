@@ -1,0 +1,20 @@
+<template>
+  <view class="page">
+    <text class="uni-common-mb">component lifecycle</text>
+    <component-lifecycle class="component-lifecycle" />
+  </view>
+</template>
+
+<script setup>
+  import ComponentLifecycle from '@/components/CompositionApiLifecycle.uvue'
+  import { state } from '@/store/index.uts'
+
+  // 自动化测试
+  const getLifeCycleNum = () : number => {
+    return state.lifeCycleNum
+  }
+
+  defineExpose({
+    getLifeCycleNum
+  })
+</script>

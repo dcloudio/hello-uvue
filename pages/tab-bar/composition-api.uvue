@@ -329,6 +329,11 @@
           url: 'page-lifecycle',
           enable: true,
         },
+        {
+          name: '组件生命周期',
+          url: 'component-lifecycle',
+          enable: true,
+        },
       ]
     }
   ] as PageList[]
