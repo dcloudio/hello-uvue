@@ -65,6 +65,7 @@
     // 侦听器在响应式依赖改变时立即触发
     flush: 'sync',
     // 响应属性或引用作为依赖项被跟踪时调用
+    // TODO: vue 3.4 开始, 数据更新,也会触发 onTrack, 待升级 vue 版本时,需要确认该变化是否合理及跟进
     onTrack(event : DebuggerEvent) {
       if (event.type === 'get') {
         watchCountTrackNum.value++
