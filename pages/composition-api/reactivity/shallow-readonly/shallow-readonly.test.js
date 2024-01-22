@@ -1,39 +1,33 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/shallow-readonly/shallow-readonly'
 
 describe('shallowReadonly', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('android')) {
-    let page = null
-    beforeAll(async () => {
-      page = await program.reLaunch(PAGE_PATH)
-      await page.waitFor('view')
-    })
-    it('basic', async () => {
-      let stateCount = await page.$('#state-count')
-      expect(await stateCount.text()).toBe('state.count: 0')
+  let page = null
+  beforeAll(async () => {
+    page = await program.reLaunch(PAGE_PATH)
+    await page.waitFor('view')
+  })
+  it('basic', async () => {
+    let stateCount = await page.$('#state-count')
+    expect(await stateCount.text()).toBe('state.count: 0')
 
-      let stateNestedCount = await page.$('#state-nested-count')
-      expect(await stateNestedCount.text()).toBe('state.nested.count: 0')
+    let stateNestedCount = await page.$('#state-nested-count')
+    expect(await stateNestedCount.text()).toBe('state.nested.count: 0')
 
-      const incrementStateCountBtn = await page.$('#increment-state-count-btn')
-      await incrementStateCountBtn.tap()
+    const incrementStateCountBtn = await page.$('#increment-state-count-btn')
+    await incrementStateCountBtn.tap()
 
-      const incrementStateNestedCountBtn = await page.$('#increment-state-nested-count-btn')
-      await incrementStateNestedCountBtn.tap()
+    const incrementStateNestedCountBtn = await page.$('#increment-state-nested-count-btn')
+    await incrementStateNestedCountBtn.tap()
 
-      expect(await stateCount.text()).toBe('state.count: 0')
-      expect(await stateNestedCount.text()).toBe('state.nested.count: 0')
+    expect(await stateCount.text()).toBe('state.count: 0')
+    expect(await stateNestedCount.text()).toBe('state.nested.count: 0')
 
-      const updatePageRenderBtn = await page.$('#update-page-render-btn')
-      await updatePageRenderBtn.tap()
-      
-      stateCount = await page.$('#state-count')
-      expect(await stateCount.text()).toBe('state.count: 0')
-      stateNestedCount = await page.$('#state-nested-count')
-      expect(await stateNestedCount.text()).toBe('state.nested.count: 1')
-    })
-  } else {
-    it('other platform', () => {
-      expect(1).toBe(1)
-    })
-  }
+    const updatePageRenderBtn = await page.$('#update-page-render-btn')
+    await updatePageRenderBtn.tap()
+
+    stateCount = await page.$('#state-count')
+    expect(await stateCount.text()).toBe('state.count: 0')
+    stateNestedCount = await page.$('#state-nested-count')
+    expect(await stateNestedCount.text()).toBe('state.nested.count: 1')
+  })
 })

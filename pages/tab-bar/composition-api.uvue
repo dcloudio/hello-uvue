@@ -55,12 +55,7 @@
         {
           name: 'defineExpose',
           url: 'define-expose',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'defineOptions',
@@ -75,22 +70,12 @@
         {
           name: 'defineModel',
           url: 'define-model',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'useSlots',
           url: 'use-slots',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'useAttrs',
@@ -116,22 +101,12 @@
         {
           name: 'reactive',
           url: 'reactive',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'readonly',
           url: 'readonly',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'watch',
@@ -146,22 +121,12 @@
         {
           name: 'watchPostEffect',
           url: 'watch-post-effect',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'watchSyncEffect',
           url: 'watch-sync-effect',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'isRef',
@@ -176,12 +141,7 @@
         {
           name: 'toRef',
           url: 'to-ref',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'toValue',
@@ -196,42 +156,22 @@
         {
           name: 'toRefs',
           url: 'to-refs',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'isProxy',
           url: 'is-proxy',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'isReactive',
           url: 'is-reactive',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'isReadonly',
           url: 'is-readonly',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'shallowRef',
@@ -241,22 +181,12 @@
         {
           name: 'triggerRef',
           url: 'trigger-ref',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'customRef',
           url: 'custom-ref',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'shallowReactive',
@@ -266,22 +196,12 @@
         {
           name: 'shallowReadonly',
           url: 'shallow-readonly',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'toRaw',
           url: 'to-raw',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'markRaw',
@@ -291,32 +211,17 @@
         {
           name: 'effectScope',
           url: 'effect-scope',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'getCurrentScope',
           url: 'get-current-scope',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'onScopeDispose',
           url: 'on-scope-dispose',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
       ] as PageItem[],
     }, {
@@ -327,22 +232,12 @@
         {
           name: '页面生命周期',
           url: 'page-lifecycle',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: '组件生命周期',
           url: 'component-lifecycle',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
       ]
     }, {
@@ -353,12 +248,7 @@
         {
           name: 'provide',
           url: 'provide',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         }
       ]
     }
