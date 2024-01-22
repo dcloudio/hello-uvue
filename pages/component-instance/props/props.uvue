@@ -1,16 +1,19 @@
 <template>
   <view class="page">
+    <array-literal str="abcd" :num="12345" :bool="true" :obj="obj" :arr="[1,2,3]" />
     <check-type str="abcd" :num="12345" :bool="true" :obj="obj" :arrayString="arrayString"></check-type>
 		<Foo />
   </view>
 </template>
 
 <script>
+  import ArrayLiteral from './array-literal.uvue'
   import checkType, { CusomObject } from "./check-type.uvue";
   import Foo from "./Foo.uvue";
 
   export default {
     components: {
+      ArrayLiteral,
       checkType,
       Foo
     },
