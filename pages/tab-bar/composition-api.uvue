@@ -335,6 +335,22 @@
           enable: true,
         },
       ]
+    }, {
+      id: 'dependency-injection',
+      name: '依赖注入',
+      open: false,
+      pages: [
+        {
+          name: 'provide',
+          url: 'provide',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        }
+      ]
     }
   ] as PageList[]
 

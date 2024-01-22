@@ -1,0 +1,28 @@
+<template>
+  <view>
+    <text>inject page</text>
+    <text class="uni-common-mt msg">msg: {{msg}}</text>
+    <text class="uni-common-mt num">num: {{num}}</text>
+    <text class="uni-common-mt obj">obj: {{obj}}</text>
+    <text class="uni-common-mt arr">arr: {{arr}}</text>
+    <text class="uni-common-mt fn">fn: {{(fn as () =>  string)()}}</text>
+    <text class="uni-common-mt has-injection-context">hasInjectionContext:
+      {{checkHasInjectionContextRes}}</text>
+    <button class="uni-common-mt check-has-injection-context-btn" @click="checkHasInjectionContext">check hasInjectionContext</button>
+  </view>
+</template>
+
+<script setup>
+  const msg = inject('msg')
+  const num = inject('num')
+  const obj = inject('obj')
+  const arr = inject('arr')
+  const fn = inject('fn')
+  
+  const checkHasInjectionContextRes = ref('')
+
+  const checkHasInjectionContext = () => {
+    checkHasInjectionContextRes.value = `${hasInjectionContext()}`
+  }
+  checkHasInjectionContext()
+</script>

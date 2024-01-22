@@ -601,6 +601,13 @@
       {
         "navigationBarTitleText" : "组件生命周期"
       }
+    },
+    {
+      "path" : "pages/composition-api/dependency-injection/provide/provide",
+      "style" : 
+      {
+        "navigationBarTitleText" : "依赖注入"
+      }
     }
   ],
   "tabBar": {
