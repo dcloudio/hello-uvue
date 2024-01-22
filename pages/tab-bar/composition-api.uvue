@@ -327,12 +327,22 @@
         {
           name: '页面生命周期',
           url: 'page-lifecycle',
+          // #ifdef APP
           enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
         },
         {
           name: '组件生命周期',
           url: 'component-lifecycle',
+          // #ifdef APP
           enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
         },
       ]
     }, {

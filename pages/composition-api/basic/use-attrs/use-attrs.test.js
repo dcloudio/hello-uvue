@@ -13,5 +13,4 @@ describe('useAttrs', () => {
     const attrsMsg = await page.$('#attrs-msg')
     expect(await attrsMsg.text()).toBe('attrs.msg: msg')
   })
-
 })
