@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-  import ComponentLifecycle from '@/components/CompositionApiLifecycle.uvue'
+  import ComponentLifecycle from '@/components/CompositionAPILifecycle.uvue'
   import { state } from '@/store/index.uts'
 
   // 自动化测试
