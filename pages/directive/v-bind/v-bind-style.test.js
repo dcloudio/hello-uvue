@@ -11,8 +11,16 @@ describe('v-bind-style', () => {
     const view = await page.$('.view-style')
 
     expect(await text.style('fontSize')).toBe('14px')
-    expect(await view.style('backgroundColor')).toBe('#008000')
+    if(process.env.uniTestPlatformInfo.startsWith('web')) {
+      expect(await view.style('backgroundColor')).toBe('rgb(0, 128, 0)')
+    } else {
+      expect(await view.style('backgroundColor')).toBe('#008000')
+    }
     expect(await view.style('borderWidth')).toBe('2px')
-    expect(await view.style('borderColor')).toBe('#0000FF')
+    if(process.env.uniTestPlatformInfo.startsWith('web')) {
+      expect(await view.style('borderColor')).toBe('rgb(0, 0, 255)')
+    } else {
+      expect(await view.style('borderColor')).toBe('#0000FF')
+    }
   })
 })

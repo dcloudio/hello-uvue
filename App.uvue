@@ -4,6 +4,7 @@
   let firstBackTime = 0
   export default {
     onLaunch: function (options) {
+      console.log(options)
       // 自动化测试
       setLifeCycleNum(state.lifeCycleNum + 1000)
       setAppLaunchPath(options.path)
@@ -55,7 +56,12 @@
     },
     methods: {
       checkLaunchPath() : boolean {
+        // #ifdef APP
         const HOME_PATH = '/pages/tab-bar/options-api'
+        // #endif
+        // #ifdef WEB
+        const HOME_PATH = 'pages/tab-bar/options-api'
+        // #endif
         if (state.appLaunchPath != HOME_PATH) {
           return false
         }
