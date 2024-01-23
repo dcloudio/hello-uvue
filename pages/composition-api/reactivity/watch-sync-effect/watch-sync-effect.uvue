@@ -55,7 +55,7 @@
       watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.value}`
       // #endif
       // #ifdef WEB
-      watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.childNodes[0] as HTMLElement).innerText}`
+      watchCountRes.value = `count: ${count.value}, count ref text: ${(countRef.value!.childNodes[0] as HTMLElement).innerText}`
       // #endif 
     } else {
       watchCountRes.value = `count: ${ count.value }, count ref text: `

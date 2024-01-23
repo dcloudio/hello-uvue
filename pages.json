@@ -399,6 +399,7 @@
         "navigationBarTitleText": "defineExpose"
       }
     },
+		// #ifdef APP
     {
       "path": "pages/composition-api/basic/define-model/define-model",
       "style": {
@@ -411,6 +412,7 @@
         "navigationBarTitleText": "defineOptions"
       }
     },
+		// #endif
     {
       "path": "pages/composition-api/basic/define-slots/define-slots",
       "style": {

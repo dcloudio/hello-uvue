@@ -60,7 +60,12 @@
         {
           name: 'defineOptions',
           url: 'define-options',
+					// #ifdef APP 
           enable: true,
+					// #endif
+					// #ifdef WEB
+					enable: false,
+					// #endif
         },
         {
           name: 'defineSlots',
@@ -70,7 +75,12 @@
         {
           name: 'defineModel',
           url: 'define-model',
+					// #ifdef APP 
           enable: true,
+					// #endif
+					// #ifdef WEB
+					enable: false,
+					// #endif
         },
         {
           name: 'useSlots',

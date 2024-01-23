@@ -1,6 +1,12 @@
 const PAGE_PATH = '/pages/composition-api/basic/define-model/define-model'
 
 describe('defineModel', () => {
+  if (process.env.uniTestPlatformInfo.startsWith('web')) {
+    // TODO: web 端暂不支持
+    it('web', async () => {
+      expect(1).toBe(1)
+    })
+  }
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
