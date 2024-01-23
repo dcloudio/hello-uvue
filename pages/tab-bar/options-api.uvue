@@ -181,12 +181,22 @@
               {
                 name: 'v-once',
                 url: 'v-once',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: 'v-memo',
                 url: 'v-memo',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: 'v-cloak',
@@ -240,7 +250,12 @@
               {
                 name: 'render',
                 url: 'render',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: 'slots',
@@ -287,7 +302,12 @@
               {
                 name: '$parent',
                 url: 'parent',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: '$root',
@@ -379,7 +399,12 @@
               {
                 name: 'mixins',
                 url: 'mixins',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: 'extends',

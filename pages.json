@@ -108,12 +108,14 @@
         "navigationBarTitleText": "v-on"
       }
     },
+    // #ifdef APP
     {
       "path": "pages/directive/v-once/v-once",
       "style": {
         "navigationBarTitleText": "v-once"
       }
     },
+    // #endif
     {
       "path": "pages/directive/v-memo/v-memo",
       "style": {

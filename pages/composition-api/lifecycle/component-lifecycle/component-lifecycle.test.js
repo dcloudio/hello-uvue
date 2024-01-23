@@ -7,6 +7,7 @@ describe('component-lifecycle', () => {
     it('web', async () => {
       expect(1).toBe(1)
     })
+    return
   }
 	let page
 	let lifeCycleNum

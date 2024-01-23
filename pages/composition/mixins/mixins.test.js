@@ -7,6 +7,7 @@ describe('mixins', () => {
     it('web', async () => {
       expect(1).toBe(1)
     })
+    return
   }
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

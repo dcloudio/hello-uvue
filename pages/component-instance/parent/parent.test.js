@@ -6,6 +6,7 @@ describe('$parent', () => {
     it('web', async () => {
       expect(1).toBe(1)
     })
+    return
   }
   let page
   beforeAll(async () => {

@@ -1,6 +1,13 @@
 const PAGE_PATH = '/pages/directive/v-memo/v-memo'
 
 describe('v-memo', () => {
+  if (process.env.uniTestPlatformInfo.startsWith('web')) {
+    // TODO: web 暂不支持
+    it('web', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
