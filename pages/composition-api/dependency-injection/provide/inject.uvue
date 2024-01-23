@@ -22,7 +22,10 @@
   const checkHasInjectionContextRes = ref('')
 
   const checkHasInjectionContext = () => {
+    // TODO: web vue 版本低导致 hasInjectionContext 不支持, 待支持后调整
+    // #ifdef APP
     checkHasInjectionContextRes.value = `${hasInjectionContext()}`
+    // #endif
   }
   checkHasInjectionContext()
 </script>

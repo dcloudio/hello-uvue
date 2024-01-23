@@ -12,7 +12,7 @@ describe('defineExpose', () => {
     const fooNum = await page.$('#foo-num')
     expect(await fooNum.text()).toBe('num from component Foo: 0')
 
-    const incrementBtn = await page.$('#increment-btn')
+    const incrementBtn = await page.$('.increment-btn')
     await incrementBtn.tap()
 
     expect(await fooNum.text()).toBe('num from component Foo: 1')

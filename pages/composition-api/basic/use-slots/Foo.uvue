@@ -4,7 +4,7 @@
     <slot :msg="msg"></slot>
     <slot name="footer" :arr="arr"></slot>
     <text id="check-use-slots-res" class="uni-common-mt">check useSlots result: {{ checkUseSlotsRes }}</text>
-    <button id="check-use-slots-btn" class="uni-common-mt" @click="checkUseSlots">
+    <button class="check-use-slots-btn uni-common-mt" @click="checkUseSlots">
       check useSlots
     </button>
   </view>

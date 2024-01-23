@@ -3,7 +3,7 @@
     <define-expose-foo ref='fooRef' />
     <text id="foo-str" class="uni-common-mt">str from component Foo: {{fooStr}}</text>
     <text id="foo-num" class="uni-common-mt">num from component Foo: {{fooNum}}</text>
-    <button id="increment-btn" class="uni-common-mt" @click="increment">trigger Foo increment</button>
+    <button class="increment-btn uni-panel-h-on" @click="increment">trigger Foo increment</button>
   </view>
 </template>
 

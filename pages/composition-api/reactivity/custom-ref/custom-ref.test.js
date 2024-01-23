@@ -10,14 +10,17 @@ describe('customRef', () => {
     const stateCount = await page.$('#state-count')
     expect(await stateCount.text()).toBe('state.count: 0')
 
-    const incrementBtn = await page.$('#increment-btn')
+    const incrementBtn = await page.$('.increment-btn')
     await incrementBtn.tap()
 
     expect(await stateCount.text()).toBe('state.count: 0')
 
-    const triggerRefBtn = await page.$('#trigger-ref-btn')
-    await triggerRefBtn.tap()
+    // TODO: web 暂不支持 triggerRef
+    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+      const triggerRefBtn = await page.$('.trigger-ref-btn')
+      await triggerRefBtn.tap()
 
-    expect(await stateCount.text()).toBe('state.count: 1')
+      expect(await stateCount.text()).toBe('state.count: 1')
+    }
   })
 })

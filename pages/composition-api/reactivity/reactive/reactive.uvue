@@ -4,7 +4,7 @@
     <text id="obj-str" class="uni-common-mb">obj.str: {{obj['str']}}</text>
     <text id="obj-num" class="uni-common-mb">obj.num: {{obj['num']}}</text>
     <text id="obj-arr" class="uni-common-mb">obj.arr: {{obj['arr']}}</text>
-    <button id="update-btn" @click="update">update</button>
+    <button class="update-btn" @click="update">update</button>
   </view>
 </template>
 

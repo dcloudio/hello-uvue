@@ -14,12 +14,12 @@ describe('useSlots', () => {
     expect(await slotContent.text()).toBe('default slot msg: default msg')
 
     const slotFooter = await page.$('#slot-footer')
-    expect(await slotFooter.text()).toBe('footer slot arr: ["a","b","c"]')
+    expect((await slotFooter.text()).replaceAll('\n', '')).toBe('footer slot arr: ["a","b","c"]')
 
     const checkUseSlotsRes = await page.$('#check-use-slots-res')
     expect(await checkUseSlotsRes.text()).toBe('check useSlots result: false')
 
-    const checkUseSlotsBtn = await page.$('#check-use-slots-btn')
+    const checkUseSlotsBtn = await page.$('.check-use-slots-btn')
     await checkUseSlotsBtn.tap()
 
     expect(await checkUseSlotsRes.text()).toBe('check useSlots result: true')

@@ -23,12 +23,14 @@ describe('provide-inject-hasInjectionContext', () => {
     const fn = await page.$('.fn')
     expect(await fn.text()).toBe('fn: hello')
 
-    const hasInjectionContext = await page.$('.has-injection-context')
-    expect(await hasInjectionContext.text()).toBe('hasInjectionContext: true')
+    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+      const hasInjectionContext = await page.$('.has-injection-context')
+      expect(await hasInjectionContext.text()).toBe('hasInjectionContext: true')
 
-    const checkHasInjectionContextBtn = await page.$('.check-has-injection-context-btn')
-    await checkHasInjectionContextBtn.tap()
-    
-    expect(await hasInjectionContext.text()).toBe('hasInjectionContext: false')
+      const checkHasInjectionContextBtn = await page.$('.check-has-injection-context-btn')
+      await checkHasInjectionContextBtn.tap()
+
+      expect(await hasInjectionContext.text()).toBe('hasInjectionContext: false')
+    }
   })
 })
