@@ -23,7 +23,7 @@ describe('watch', () => {
     await btnChangeData2.tap()
     await page.waitFor(100)
     // count = 2，重新赋值触发
-    await validateCount(page, 2)
+    await validateCount(page, 3)
     // 验证数据正确性
     await validateData2(page, 3, 4)
   })

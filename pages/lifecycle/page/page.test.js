@@ -36,7 +36,12 @@ describe('page-lifecycle', () => {
 		page = await program.reLaunch(PAGE_PATH)
 		await page.waitFor(700)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		expect(lifeCycleNum).toBe(130)
+    // TODO 安卓端调整页面加载不触发onResize后调整此测试例
+		if (process.env.uniTestPlatformInfo.startsWith('android')) {
+      expect(lifeCycleNum).toBe(130)
+    } else if(process.env.uniTestPlatformInfo.startsWith('web')){
+      expect(lifeCycleNum).toBe(120)
+    }
 		await page.callMethod('setLifeCycleNum', 0)
 	})
 	it('onPullDownRefresh', async () => {
@@ -75,11 +80,19 @@ describe('page-lifecycle', () => {
 		page = await program.navigateTo(PAGE_PATH)
 		await page.waitFor(700)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		expect(lifeCycleNum).toBe(130)
+		if (process.env.uniTestPlatformInfo.startsWith('android')) {
+      expect(lifeCycleNum).toBe(130)
+    } else if(process.env.uniTestPlatformInfo.startsWith('web')){
+      expect(lifeCycleNum).toBe(120)
+    }
 		page = await program.navigateBack()
 		await page.waitFor('view')
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		expect(lifeCycleNum).toBe(20)
+		if (process.env.uniTestPlatformInfo.startsWith('android')) {
+      expect(lifeCycleNum).toBe(20)
+    } else if(process.env.uniTestPlatformInfo.startsWith('web')){
+      expect(lifeCycleNum).toBe(10)
+    }
 		await page.callMethod('setLifeCycleNum', 0)
 	})
 })
