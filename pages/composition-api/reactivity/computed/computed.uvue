@@ -4,7 +4,7 @@
     <text id="double-count" class="uni-common-mb">computed double count: {{ doubleCount }}</text>
     <text id="obj-arr" class="uni-common-mb">obj.arr: {{ obj.arr }}</text>
     <text id="obj-arr-len" class="uni-common-mb">computed obj.arr.length: {{ objArrLen }}</text>
-    <button class="update-btn" @click="update">update</button>
+    <button id="update-btn" @click="update">update</button>
   </view>
 </template>
 

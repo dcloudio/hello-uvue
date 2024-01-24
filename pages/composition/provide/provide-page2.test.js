@@ -51,21 +51,21 @@ describe('函数方式创建 provide', () => {
     const providePageArrEl = await page.$('.provide-page-arr')
     const providePageArrText = await providePageArrEl.text()
     expect(providePageArrText).toBe(
-      isWeb ? 'providePageArr: [\n"函数方式定义 provide page arr"\n]' : 'providePageArr: ["函数方式定义 provide page arr"]'
+      'providePageArr: ["函数方式定义 provide page arr"]'
     )
   })
   it('map', async () => {
     const providePageMapEl = await page.$('.provide-page-map')
     const providePageMapText = await providePageMapEl.text()
     expect(providePageMapText).toBe(
-      isWeb ? 'providePageMap: {\n"key": "函数方式定义 provide page map"\n}' : 'providePageMap: {"key":"函数方式定义 provide page map"}'
+      isWeb ? 'providePageMap: {"key": "函数方式定义 provide page map"}' : 'providePageMap: {"key":"函数方式定义 provide page map"}'
     )
   })
   it('set', async () => {
     const providePageSetEl = await page.$('.provide-page-set')
     const providePageSetText = await providePageSetEl.text()
     expect(providePageSetText).toBe(
-      isWeb ? 'providePageSet: [\n"函数方式定义 provide page set"\n]' : 'providePageSet: ["函数方式定义 provide page set"]'
+      'providePageSet: ["函数方式定义 provide page set"]'
     )
   })
 })

@@ -76,7 +76,7 @@ describe('watchEffect', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('obj.bool: false')
     const objArr = await page.$('#obj-arr')
-    expect((await objArr.text()).replaceAll('\n', '')).toBe('obj.arr: [0]')
+    expect(await objArr.text()).toBe('obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
@@ -104,7 +104,7 @@ describe('watchEffect', () => {
     expect(await objStr.text()).toBe('obj.str: num: 1')
     expect(await objNum.text()).toBe('obj.num: 1')
     expect(await objBool.text()).toBe('obj.bool: true')
-    expect((await objArr.text()).replaceAll('\n', '')).toBe('obj.arr: [0,1]')
+    expect(await objArr.text()).toBe('obj.arr: [0,1]')
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchObjRes.text()).toBe(

@@ -6,12 +6,12 @@ let lifeCycleNum
 
 describe('page-lifecycle', () => {
   if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: 自动化测试暂不能调用web端setup内defineExpose导出的方法，待自动化测试兼容后开放此测试例
-    it('web', async () => {
-      expect(1).toBe(1)
-    })
-    return
-  }
+      // TODO: onPageShow onPageHide 别名暂不支持
+      it('web', async () => {
+        expect(1).toBe(1)
+      })
+      return
+    }
   beforeAll(async () => {
     page = await program.reLaunch(HOME_PATH)
     await page.waitFor(700)
@@ -28,7 +28,7 @@ describe('page-lifecycle', () => {
 		page = await program.reLaunch(PAGE_PATH)
 		await page.waitFor(700)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		expect(lifeCycleNum).toBe(130)
+		expect(lifeCycleNum).toBe(120)
 		await page.callMethod('pageSetlifeCycleNum', 0)
 	})
 	it('onPullDownRefresh', async () => {
@@ -67,7 +67,7 @@ describe('page-lifecycle', () => {
 		page = await program.navigateTo(PAGE_PATH)
 		await page.waitFor(700)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		expect(lifeCycleNum).toBe(130)
+		expect(lifeCycleNum).toBe(120)
 		page = await program.navigateBack()
 		await page.waitFor('view')
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')

@@ -13,16 +13,16 @@ describe('computed', () => {
     expect(await doubleCount.text()).toBe('computed double count: 0')
 
     const objArr = await page.$('#obj-arr')
-    expect((await objArr.text()).replaceAll('\n', '')).toBe('obj.arr: [1,2,3]')
+    expect(await objArr.text()).toBe('obj.arr: [1,2,3]')
     const objArrLen = await page.$('#obj-arr-len')
     expect(await objArrLen.text()).toBe('computed obj.arr.length: 3')
 
-    const updateBtn = await page.$('.update-btn')
+    const updateBtn = await page.$('#update-btn')
     await updateBtn.tap()
 
     expect(await count.text()).toBe('count: 1')
     expect(await doubleCount.text()).toBe('computed double count: 2')
-    expect((await objArr.text()).replaceAll('\n', '')).toBe('obj.arr: [1,2,3,4]')
+    expect(await objArr.text()).toBe('obj.arr: [1,2,3,4]')
     expect(await objArrLen.text()).toBe('computed obj.arr.length: 4')
   })
 

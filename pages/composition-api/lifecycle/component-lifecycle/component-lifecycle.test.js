@@ -2,13 +2,6 @@ const PAGE_PATH = '/pages/composition-api/lifecycle/component-lifecycle/componen
 const HOME_PATH = '/pages/tab-bar/options-api'
 
 describe('component-lifecycle', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: 自动化测试暂不能调用web端setup内defineExpose导出的方法，待自动化测试兼容后开放此测试例
-    it('web', async () => {
-      expect(1).toBe(1)
-    })
-    return
-  }
 	let page
 	let lifeCycleNum
 	beforeAll(async () => {

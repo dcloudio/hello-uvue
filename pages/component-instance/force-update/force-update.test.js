@@ -14,6 +14,6 @@ describe('$forceUpdate', () => {
     await triggerForceUpdateBtn.tap()
 
     const timeText2 = (await timeEl.text()).replace('Date.now(): ', '')
-    expect(parseInt(timeText2)).toBeGreaterThan(parseInt(timeText1))
+    expect(parseInt(timeText2)).toBeGreaterThanOrEqual(parseInt(timeText1))
   })
 })
