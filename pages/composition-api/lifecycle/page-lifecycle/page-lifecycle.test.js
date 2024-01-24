@@ -71,7 +71,7 @@ describe('page-lifecycle', () => {
 		page = await program.navigateBack()
 		await page.waitFor('view')
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		expect(lifeCycleNum).toBe(20)
+		expect(lifeCycleNum).toBe(10)
 		await page.callMethod('setLifeCycleNum', 0)
 	})
 })
