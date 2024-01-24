@@ -79,11 +79,7 @@ describe('page-lifecycle', () => {
     page = await program.navigateBack()
     await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      expect(lifeCycleNum).toBe(20)
-    } else if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(lifeCycleNum).toBe(10)
-    }
+    expect(lifeCycleNum).toBe(10)
     await page.callMethod('setLifeCycleNum', 0)
   })
 })
