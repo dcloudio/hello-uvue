@@ -401,16 +401,20 @@
                 url: 'inject',
                 enable: true,
               },
+              // #ifdef APP
               {
                 name: 'mixins',
                 url: 'mixins',
-                // #ifdef APP
                 enable: true,
-                // #endif
-                // #ifdef WEB
-                enable: false,
-                // #endif
               },
+              // #endif
+              // #ifdef WEB
+              {
+                name: 'mixins',
+                url: 'mixins/mixins-web',
+                enable: true,
+              },
+              // #endif
               {
                 name: 'extends',
                 url: 'extends',

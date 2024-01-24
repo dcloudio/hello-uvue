@@ -1,0 +1,50 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+  <!-- #endif -->
+    <view class="page">
+      <text id="mixin-prop" class="uni-common-mb">mixinProp: {{mixinProp}}</text>
+      <text id="mixin-data-msg" class="uni-common-mb">mixinDataMsg: {{mixinDataMsg}}</text>
+      <text id="mixin-onload-msg" class="uni-common-mb">mixinOnloadMsg: {{mixinOnloadMsg}}</text>
+      <text id="mixin-computed" class="uni-common-mb">mixinComputed: {{mixinComputed}}</text>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script lang="uts">
+  export default {
+    mixins: [defineMixin({
+      props: {
+        mixinProp: {
+          type: String,
+          default: '通过字面量定义非全局 mixin props'
+        }
+      },
+      data() {
+        return {
+          mixinDataMsg: '通过字面量定义非全局 mixin data',
+          mixinOnloadMsg: ''
+        }
+      },
+      computed: {
+        mixinComputed() : string {
+          const res = `通过字面量定义非全局 mixin computed, 更新后的 mixinOnloadMsg: ${this.mixinOnloadMsg}`
+          console.log(res)
+          return res
+        }
+      },
+      onLoad() {
+        this.mixinOnloadMsg = 'mixin onLoad msg in onLoad'
+      },
+      methods: {
+        mixinMethod() : string {
+          const res = '通过字面量定义非全局 mixin method'
+          console.log(res)
+          return res
+        }
+      },
+    })]
+  }
+</script>
