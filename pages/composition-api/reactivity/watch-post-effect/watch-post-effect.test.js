@@ -1,6 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch-post-effect/watch-post-effect'
 
 describe('watchPostEffect', () => {
+  const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -23,7 +24,9 @@ describe('watchPostEffect', () => {
     const watchCountTriggerNum = await page.$('#watch-count-trigger-num')
     expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 0')
     const watchCountCleanupRes = await page.$('#watch-count-cleanup-res')
-    expect(await watchCountCleanupRes.text()).toBe('watch count cleanup result: ')
+    // TODO web端自动化测试text方法应使用textContent获取内容来保留空格，目前text方法未保留首尾空格
+    expect(await watchCountCleanupRes.text()).toBe(isWeb ? 'watch count cleanup result:' :
+      'watch count cleanup result: ')
 
     // watch count and obj.num
     const watchCountAndObjNumRes = await page.$('#watch-count-obj-num-res')
@@ -75,11 +78,15 @@ describe('watchPostEffect', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('obj.bool: false')
     const objArr = await page.$('#obj-arr')
-    expect(await objArr.text()).toBe('obj.arr: [0]')
+    expect(await objArr.text()).toBe(isWeb ? 'obj.arr: [\n0\n]' : 'obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
+    // TODO web端和安卓端JSON.stringify对属性的排序不一致
     expect(await watchObjRes.text()).toBe(
-      'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}')
+      isWeb ?
+      'watch obj result: obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}' :
+      'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
+    )
     const watchObjStrRes = await page.$('#watch-obj-str-res')
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 0, obj.str ref text: obj.str: num: 0')
@@ -92,13 +99,14 @@ describe('watchPostEffect', () => {
     expect(await objStr.text()).toBe('obj.str: num: 1')
     expect(await objNum.text()).toBe('obj.num: 1')
     expect(await objBool.text()).toBe('obj.bool: true')
-    expect(await objArr.text()).toBe('obj.arr: [0,1]')
+    expect(await objArr.text()).toBe(isWeb ? 'obj.arr: [\n0,\n1\n]' : 'obj.arr: [0,1]')
 
     expect(await watchObjRes.text()).toBe(
       'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}')
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 1, obj.str ref text: obj.str: num: 1')
-    expect(await watchObjArrRes.text()).toBe('watch obj.arr result: arr: [0,1]')
+    expect(await watchObjArrRes.text()).toBe(isWeb ? 'watch obj.arr result: arr: [\n0,\n1\n]' :
+      'watch obj.arr result: arr: [0,1]')
 
     const watchCountAndObjNumRes = await page.$('#watch-count-obj-num-res')
     expect(await watchCountAndObjNumRes.text()).toBe('watch count and obj.num result: count: 3, obj.num: 1')

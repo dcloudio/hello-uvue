@@ -166,7 +166,12 @@
         {
           name: 'toRefs',
           url: 'to-refs',
+          // #ifdef APP
           enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
         },
         {
           name: 'isProxy',

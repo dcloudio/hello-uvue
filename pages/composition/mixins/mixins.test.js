@@ -2,7 +2,7 @@ const PAGE_PATH = '/pages/composition/mixins/mixins'
 let page
 
 describe('mixins', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('android')) {
+  if (process.env.uniTestPlatformInfo.startsWith('web')) {
     // TODO: web 端暂不支持
     it('web', async () => {
       expect(1).toBe(1)

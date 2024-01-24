@@ -183,6 +183,7 @@
         "navigationBarTitleText": "$options"
       }
     },
+    // #ifdef APP
     {
       "path": "pages/component-instance/parent/parent",
       "style": {
@@ -195,6 +196,7 @@
         "navigationBarTitleText": "$root"
       }
     },
+    // #endif
     {
       "path": "pages/component-instance/slots/slots",
       "style": {
@@ -506,13 +508,13 @@
         "navigationBarTitleText": "toValue"
       }
     },
-    // #endif
     {
       "path": "pages/composition-api/reactivity/to-refs/to-refs",
       "style": {
         "navigationBarTitleText": "toRefs"
       }
     },
+    // #endif
     {
       "path": "pages/composition-api/reactivity/is-proxy/is-proxy",
       "style": {

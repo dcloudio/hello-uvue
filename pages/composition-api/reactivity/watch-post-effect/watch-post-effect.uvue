@@ -8,8 +8,7 @@
       <text id="watch-count-track-num" class="uni-common-mb">watch count track number: {{ watchCountTrackNum }}</text>
       <text id="watch-count-trigger-num" class="uni-common-mb">watch count trigger number:
         {{ watchCountTriggerNum }}</text>
-      <text id="watch-count-cleanup-res" class="uni-common-mb">watch count cleanup result:
-        {{ watchCountCleanupRes }}</text>
+      <text id="watch-count-cleanup-res" class="uni-common-mb">watch count cleanup result: {{ watchCountCleanupRes }}</text>
       <button id="increment-btn" class="uni-common-mb" @click="increment">
         increment
       </button>

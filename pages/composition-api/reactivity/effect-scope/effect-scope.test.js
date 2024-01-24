@@ -1,6 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/effect-scope/effect-scope'
 
 describe('effectScope', () => {
+  const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -11,7 +12,7 @@ describe('effectScope', () => {
     expect(await counter.text()).toBe('counter: 0')
 
     const watchCounterRes = await page.$('#watch-counter-res')
-    expect(await watchCounterRes.text()).toBe('watch counter result: ')
+    expect(await watchCounterRes.text()).toBe(isWeb ? 'watch counter result:' : 'watch counter result: ')
 
     const watchEffectCounterRes = await page.$('#watch-effect-counter-res')
     expect(await watchEffectCounterRes.text()).toBe('watchEffect counter result: counter: 0')

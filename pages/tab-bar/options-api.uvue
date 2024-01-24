@@ -312,7 +312,12 @@
               {
                 name: '$root',
                 url: 'root',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: '$slots',

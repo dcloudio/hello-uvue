@@ -1,6 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch-sync-effect/watch-sync-effect'
 
 describe('watchSyncEffect', () => {
+  const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -75,11 +76,14 @@ describe('watchSyncEffect', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('obj.bool: false')
     const objArr = await page.$('#obj-arr')
-    expect(await objArr.text()).toBe('obj.arr: [0]')
+    expect(await objArr.text()).toBe(isWeb ? 'obj.arr: [\n0\n]' : 'obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
     expect(await watchObjRes.text()).toBe(
-      'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}')
+      isWeb ?
+      'watch obj result: obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}' :
+      'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
+    )
     const watchObjStrRes = await page.$('#watch-obj-str-res')
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 0, obj.str ref text: obj.str: num: 0')
