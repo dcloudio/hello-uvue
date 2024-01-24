@@ -349,6 +349,14 @@
       }
     },
     // #endif
+    // #ifdef WEB
+    {
+      "path": "pages/composition/mixins/mixins-web",
+      "style": {
+        "navigationBarTitleText": "mixins"
+      }
+    },
+    // #endif
     {
       "path": "pages/composition/provide/provide",
       "style": {
