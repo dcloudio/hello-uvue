@@ -37,7 +37,7 @@ describe('ref', () => {
 
     expect(await dataStr.text()).toBe('data.str: new str')
     expect(await dataNum.text()).toBe('data.num: 1')
-    expect(await dataArr.text()).toBe(isWeb ? 'data.arr: [\n"a",\n"b",\n"c",\n"d"]' : 'data.arr: ["a","b","c","d"]')
+    expect(await dataArr.text()).toBe(isWeb ? 'data.arr: [\n"a",\n"b",\n"c",\n"d"\n]' : 'data.arr: ["a","b","c","d"]')
     expect(await readonlyDataStr.text()).toBe('readonly data.str: new str')
     expect(await readonlyDataNum.text()).toBe('readonly data.num: 1')
     expect(await readonlyDataArr.text()).toBe(isWeb ? 'readonly data.arr: [\n"a",\n"b",\n"c",\n"d"\n]' : 'readonly data.arr: ["a","b","c","d"]')

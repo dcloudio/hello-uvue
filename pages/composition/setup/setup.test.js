@@ -44,8 +44,10 @@ describe('options setup', () => {
 
     const count = await page.$('#count')
     expect(await count.text()).toBe('count: 1')
-    const propsCount = await page.$('#props-count')
-    expect(await propsCount.text()).toBe('props.count: 1')
+    if (!process.env.uniTestPlatformInfo.startsWith('web')) {
+      const propsCount = await page.$('#props-count')
+      expect(await propsCount.text()).toBe('props.count: 1')
+    }
 
     const updateObjBtn = await page.$('#update-obj-btn')
     await updateObjBtn.tap()

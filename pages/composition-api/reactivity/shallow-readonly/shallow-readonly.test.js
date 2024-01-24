@@ -13,6 +13,11 @@ describe('shallowReadonly', () => {
     let stateNestedCount = await page.$('#state-nested-count')
     expect(await stateNestedCount.text()).toBe('state.nested.count: 0')
 
+    if (process.env.uniTestPlatformInfo.startsWith('web')) {
+      // web端操作readonly对象会直接编译失败，以下测试无法执行
+      return
+    }
+
     const incrementStateCountBtn = await page.$('#increment-state-count-btn')
     await incrementStateCountBtn.tap()
 

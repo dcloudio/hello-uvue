@@ -102,7 +102,10 @@ describe('watchPostEffect', () => {
     expect(await objArr.text()).toBe(isWeb ? 'obj.arr: [\n0,\n1\n]' : 'obj.arr: [0,1]')
 
     expect(await watchObjRes.text()).toBe(
-      'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}')
+      isWeb ?
+      'watch obj result: obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}' :
+      'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
+    )
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 1, obj.str ref text: obj.str: num: 1')
     expect(await watchObjArrRes.text()).toBe(isWeb ? 'watch obj.arr result: arr: [\n0,\n1\n]' :

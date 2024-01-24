@@ -14,9 +14,9 @@
   const createScope = () => {
     scope = effectScope();
     (scope as EffectScope).run(() => {
-      hasCurrentScope.value = getCurrentScope() !== null
+      hasCurrentScope.value = getCurrentScope() != null
       onScopeDispose(() => {
-        hasCurrentScope.value = getCurrentScope() !== null
+        hasCurrentScope.value = getCurrentScope() != null
       })
     })
   }
