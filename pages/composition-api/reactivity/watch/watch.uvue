@@ -1,0 +1,146 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1; padding-bottom: 20px">
+  <!-- #endif -->
+    <view class="page">
+      <text id="count" ref="countRef" class="uni-common-mb">count: {{ count }}</text>
+      <text id="watch-count-res" class="uni-common-mb">watch count result: {{ watchCountRes }}</text>
+      <text id="watch-count-track-num" class="uni-common-mb">watch count track number: {{ watchCountTrackNum }}</text>
+      <text id="watch-count-trigger-num" class="uni-common-mb">watch count trigger number:
+        {{ watchCountTriggerNum }}</text>
+      <text id="watch-count-cleanup-res" class="uni-common-mb">watch count cleanup result:
+        {{ watchCountCleanupRes }}</text>
+      <button class="increment-btn uni-common-mb" @click="increment">
+        increment
+      </button>
+      <button class="stop-watch-count-btn uni-common-mb" @click="triggerStopWatchCount">
+        stop watch count
+      </button>
+      <text id="obj-str" ref="objStrRef" class="uni-common-mb">obj.str: {{ obj.str }}</text>
+      <text id="obj-num" class="uni-common-mb">obj.num: {{ obj.num }}</text>
+      <text id="obj-bool" ref="objBoolRef" class="uni-common-mb">obj.bool: {{ obj.bool }}</text>
+      <text id="obj-arr" ref="objArrRef" class="uni-common-mb">obj.arr: {{ obj.arr }}</text>
+      <text id="watch-obj-res" class="uni-common-mb">watch obj result: {{ watchObjRes }}</text>
+      <text id="watch-obj-str-res" class="uni-common-mb">watch obj.str result: {{ watchObjStrRes }}</text>
+      <text id="watch-obj-bool-res" class="uni-common-mb">watch obj.bool result: {{ watchObjBoolRes }}</text>
+      <text id="watch-obj-arr-res" class="uni-common-mb">watch obj.arr result: {{ watchObjArrRes }}</text>
+      <button class="update-obj-btn uni-common-mb" @click="updateObj">
+        update obj
+      </button>
+      <text id="watch-count-obj-num-res" class="uni-common-mb">watch count and obj.num result:
+        {{ watchCountAndObjNumRes }}</text>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script setup>
+  type Obj = {
+    num : number,
+    str : string,
+    bool : boolean,
+    arr : number[]
+  }
+
+  const countRef = ref<UniTextElement | null>(null)
+  const count = ref(0)
+  const watchCountRes = ref('')
+  const watchCountCleanupRes = ref('')
+  const watchCountTrackNum = ref(0)
+  const watchCountTriggerNum = ref(0)
+
+  const stopWatchCount = watch(count, (count : number, prevCount : number, onCleanup : OnCleanup) => {
+    // #ifdef APP
+    watchCountRes.value = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${countRef.value!.value}`
+    // #endif
+    // #ifdef WEB
+    watchCountRes.value = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${(countRef.value!.childNodes[0] as HTMLElement).innerText}`
+    // #endif 
+    const cancel = () => {
+      watchCountCleanupRes.value = `watch count cleanup: ${count}`
+    }
+    onCleanup(cancel)
+  }, {
+    // 侦听器在响应式依赖改变时立即触发
+    flush: 'sync',
+    // 响应属性或引用作为依赖项被跟踪时调用
+    // TODO: vue 3.4 开始, 数据更新,也会触发 onTrack, 待升级 vue 版本时,需要确认该变化是否合理及跟进
+    onTrack(event : DebuggerEvent) {
+      if (event.type === 'get') {
+        watchCountTrackNum.value++
+      }
+    },
+    // 侦听器回调被依赖项的变更触发时调用
+    onTrigger(event : DebuggerEvent) {
+      if (event.type === 'set') {
+        watchCountTriggerNum.value++
+      }
+    }
+  })
+
+  const triggerStopWatchCount = () => stopWatchCount()
+
+  const increment = () => {
+    count.value++
+  }
+
+  const obj = reactive({
+    num: 0,
+    str: 'num: 0',
+    bool: false,
+    arr: [0]
+  } as Obj)
+
+  // immediate: true 第一次触发, 旧值应该是 undefined, 现在 app 是初始值
+  const watchObjRes = ref('')
+  watch(obj, (obj : Obj, prevObj ?: Obj) => {
+    watchObjRes.value = `obj: ${JSON.stringify(obj)}, prevObj: ${JSON.stringify(prevObj)}`
+  }, { immediate: true })
+
+  const objStrRef = ref<UniTextElement | null>(null)
+  const watchObjStrRes = ref('')
+  watch(() : string => obj.str, (str : string, prevStr : string) => {
+    // #ifdef APP
+    watchObjStrRes.value = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${objStrRef.value!.value}`
+    // #endif
+    // #ifdef WEB
+    watchObjStrRes.value = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${(objStrRef.value!.childNodes[0] as HTMLElement).innerText}`
+    // #endif 
+  }, {
+    // 侦听器在组件渲染之前触发
+    flush: 'pre',
+  })
+
+  const objBoolRef = ref<UniTextElement | null>(null)
+  const watchObjBoolRes = ref('')
+  watch(() : boolean => obj.bool, (bool : boolean, prevBool : boolean) => {
+    // #ifdef APP
+    watchObjBoolRes.value = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${objBoolRef.value!.value}`
+    // #endif
+    // #ifdef WEB
+    watchObjBoolRes.value = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${(objBoolRef.value!.childNodes[0] as HTMLElement).innerText}`
+    // #endif 
+  }, {
+    // 侦听器延迟到组件渲染之后触发
+    flush: 'post'
+  })
+
+
+  const watchObjArrRes = ref('')
+  watch(() : number[] => obj.arr, (arr : number[], prevArr : number[]) => {
+    watchObjArrRes.value = `arr: ${JSON.stringify(arr)}, prevArr: ${JSON.stringify(prevArr)}`
+  }, { deep: true })
+
+  const watchCountAndObjNumRes = ref('')
+  watch([count, () : number => obj.num], (state : number[], preState : number[]) => {
+    watchCountAndObjNumRes.value = `state: ${JSON.stringify(state)}, preState: ${JSON.stringify(preState)}`
+  })
+
+  const updateObj = () => {
+    obj.num++
+    obj.str = `num: ${obj.num}`
+    obj.bool = !obj.bool
+    obj.arr.push(obj.num)
+  }
+</script>

@@ -1,16 +1,16 @@
 <template>
   <view>
-    <child-a class="page-child-a" :text="text" :limit="10"></child-a>
+    <!-- <child-a class="page-child-a" :text="text" :limit="10"></child-a> -->
     <child-c class="page-child-c" :text="text" :limit="10"></child-c>
   </view>
 </template>
 
 <script>
-  import childA from './child-a.uvue'
+  // import childA from './child-a.uvue'
   import childC from './child-c.uvue'
   export default {
     components: {
-      childA,
+      // childA,
       childC
     },
     data() {
@@ -19,7 +19,7 @@
       }
     },
     onLoad() {
-      this.text = Date.now().toString()
+      this.text = "Date.now().toString()"
     }
   }
 </script>

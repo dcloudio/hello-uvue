@@ -1,0 +1,19 @@
+<template>
+  <view class="page">
+    <Foo>
+      <template #header="{msg}">
+        <text id="slot-header">header slot msg: {{msg}}</text>
+      </template>
+      <template #default="{num}">
+        <text id="slot-default" class="uni-common-mt">default slot num: {{num}}</text>
+      </template>
+      <template #footer="{arr}">
+        <text id="slot-footer" class="uni-common-mt">footer slot arr: {{arr}}</text>
+      </template>
+    </Foo>
+  </view>
+</template>
+
+<script setup>
+  import Foo from './Foo.uvue'
+</script>

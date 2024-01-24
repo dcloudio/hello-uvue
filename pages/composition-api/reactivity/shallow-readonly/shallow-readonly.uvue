@@ -1,0 +1,45 @@
+<template>
+  <view :key="pageKey" class="page">
+    <text id="state-count" class="uni-common-mb">state.count: {{ state.count }}</text>
+    <text id="state-nested-count" class="uni-common-mb">state.nested.count: {{ state.nested.count }}</text>
+    <button id="increment-state-count-btn" class="uni-common-mb" @click="incrementStateCount">
+      increment state.count
+    </button>
+    <button id="increment-state-nested-count-btn" class="uni-common-mb" @click="incrementStateNestedCount">
+      increment state.nested.count
+    </button>
+    <button id="update-page-render-btn" @click="updatePageRender">update page render</button>
+  </view>
+</template>
+
+<script setup>
+  let pageKey = ref<number>(0)
+
+  type StateNested = {
+    count : number
+  }
+  type State = {
+    count : number,
+    nested : StateNested
+  }
+  const state = shallowReadonly({
+    count: 0,
+    nested: {
+      count: 0
+    } as StateNested
+  } as State)
+
+  // #ifdef APP
+  const incrementStateCount = () => {
+    state.count++
+  }
+
+  const incrementStateNestedCount = () => {
+    state.nested.count++
+  }
+  // #endif
+
+  const updatePageRender = () => {
+    pageKey.value = Date.now()
+  }
+</script>

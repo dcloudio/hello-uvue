@@ -1,155 +1,163 @@
 <script lang="uts">
-import { state, setLifeCycleNum, setAppLaunchPath, setAppShowPath } from './store/index.uts'
+  import { state, setLifeCycleNum, setAppLaunchPath, setAppShowPath } from './store/index.uts'
 
-let firstBackTime = 0
-export default {
-	onLaunch: function (options) {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 1000)
-		setAppLaunchPath(options.path)
-		console.log('App Launch')
-		// #ifdef UNI-APP-X && APP-ANDROID
-		const performance = uni.getPerformance()
-		const observer : PerformanceObserver = performance.createObserver((entryList : PerformanceObserverEntryList) => {
-			console.log('observer:entryList.getEntries()')
-			console.log(entryList.getEntries())
-		})
-		observer.observe({
-			entryTypes: ['render', 'navigation'],
-		} as PerformanceObserverOptions)
-		// #endif
-	},
-	onShow: function (options) {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 100)
-		setAppShowPath(options.path)
-		console.log('App Show')
-	},
-	onHide: function () {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum - 100)
-		console.log('App Hide')
-	},
-	onLastPageBackPress: function () {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum - 1000)
-		console.log('App LastPageBackPress')
-		if (firstBackTime == 0) {
-			uni.showToast({
-				title: '再按一次退出应用',
-				position: 'bottom',
-			})
-			firstBackTime = Date.now()
-			setTimeout(() => {
-				firstBackTime = 0
-			}, 2000)
-		} else if (Date.now() - firstBackTime < 2000) {
-			firstBackTime = Date.now()
-			uni.exit()
-		}
-	},
-	onExit() {
-		console.log('App Exit')
-	},
-	methods: {
-		checkLaunchPath() : boolean {
-			const HOME_PATH = '/pages/index'
-			if (state.appLaunchPath != HOME_PATH) {
-				return false
-			}
-			if (state.appShowPath != HOME_PATH) {
-				return false
-			}
-			return true
-		}
-	}
-}
+  let firstBackTime = 0
+  export default {
+    onLaunch: function (options) {
+      console.log(options)
+      // 自动化测试
+      setLifeCycleNum(state.lifeCycleNum + 1000)
+      setAppLaunchPath(options.path)
+      console.log('App Launch')
+      // #ifdef UNI-APP-X && APP-ANDROID
+      const performance = uni.getPerformance()
+      const observer : PerformanceObserver = performance.createObserver((entryList : PerformanceObserverEntryList) => {
+        console.log('observer:entryList.getEntries()')
+        console.log(entryList.getEntries())
+      })
+      observer.observe({
+        entryTypes: ['render', 'navigation'],
+      } as PerformanceObserverOptions)
+      // #endif
+    },
+    onShow: function (options) {
+      // 自动化测试
+      setLifeCycleNum(state.lifeCycleNum + 100)
+      setAppShowPath(options.path)
+      console.log('App Show')
+    },
+    onHide: function () {
+      // 自动化测试
+      setLifeCycleNum(state.lifeCycleNum - 100)
+      console.log('App Hide')
+    },
+    // #ifdef APP-ANDROID
+    onLastPageBackPress: function () {
+      // 自动化测试
+      setLifeCycleNum(state.lifeCycleNum - 1000)
+      console.log('App LastPageBackPress')
+      if (firstBackTime == 0) {
+        uni.showToast({
+          title: '再按一次退出应用',
+          position: 'bottom',
+        })
+        firstBackTime = Date.now()
+        setTimeout(() => {
+          firstBackTime = 0
+        }, 2000)
+      } else if (Date.now() - firstBackTime < 2000) {
+        firstBackTime = Date.now()
+        uni.exit()
+      }
+    },
+    // #endif
+    onExit() {
+      console.log('App Exit')
+    },
+    methods: {
+      checkLaunchPath() : boolean {
+        // #ifdef APP
+        const HOME_PATH = '/pages/tab-bar/options-api'
+        // #endif
+        // #ifdef WEB
+        const HOME_PATH = 'pages/tab-bar/options-api'
+        // #endif
+        if (state.appLaunchPath != HOME_PATH) {
+          return false
+        }
+        if (state.appShowPath != HOME_PATH) {
+          return false
+        }
+        return true
+      }
+    }
+  }
 </script>
 
 <style>
-@import "./common/uni.css";
-/* @font-face {
+  @import "./common/uni.css";
+  /* @font-face {
     font-family: uniicons;
     font-weight: normal;
     font-style: normal;
     src: url('./static/fonts/uni.ttf') format('truetype');
   } */
 
-.page {
-  padding: 15px;
-}
+  .page {
+    padding: 15px;
+  }
 
-.uni-panel {
-  margin-bottom: 12px;
-}
+  .uni-panel {
+    margin-bottom: 12px;
+  }
 
-.uni-panel-h {
-  background-color: #ffffff;
-  flex-direction: row;
-  align-items: center;
-  padding: 12px;
-}
+  .uni-panel-h {
+    background-color: #ffffff;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+  }
 
-.uni-panel-h-on {
-  background-color: #f0f0f0;
-}
+  .uni-panel-h-on {
+    background-color: #f0f0f0;
+  }
 
-.uni-panel-text {
-  color: #000000;
-  font-size: 14px;
-  font-weight: normal;
-}
+  .uni-panel-text {
+    color: #000000;
+    font-size: 14px;
+    font-weight: normal;
+  }
 
-.uni-panel-icon-on {
-  transform: rotate(180deg);
-}
+  .uni-panel-icon-on {
+    transform: rotate(180deg);
+  }
 
-.uni-navigate-item {
-  flex-direction: row;
-  align-items: center;
-  background-color: #ffffff;
-  border-top-style: solid;
-  border-top-color: #f0f0f0;
-  border-top-width: 1px;
-  padding: 12px;
-  justify-content: space-between;
-}
+  .uni-navigate-item {
+    flex-direction: row;
+    align-items: center;
+    background-color: #ffffff;
+    border-top-style: solid;
+    border-top-color: #f0f0f0;
+    border-top-width: 1px;
+    padding: 12px;
+    justify-content: space-between;
+  }
 
-.uni-navigate-item:active {
-  background-color: #f8f8f8;
-}
+  .uni-navigate-item:active {
+    background-color: #f8f8f8;
+  }
 
-.uni-navigate-text {
-  color: #000000;
-  font-size: 12px;
-  opacity: 0.8;
-}
+  .uni-navigate-text {
+    color: #000000;
+    font-size: 12px;
+    opacity: 0.8;
+  }
 
-.uni-navigate-icon {
-  margin-left: 15px;
-  color: #999999;
-  font-size: 14px;
-  font-weight: normal;
-}
+  .uni-navigate-icon {
+    margin-left: 15px;
+    color: #999999;
+    font-size: 14px;
+    font-weight: normal;
+  }
 
-.text-disabled {
-  color: #a0a0a0;
-}
+  .text-disabled {
+    color: #a0a0a0;
+  }
 
-.list-item-text {
-  line-height: 36px;
-}
+  .list-item-text {
+    line-height: 36px;
+  }
 
-.split-title {
-  margin: 20px 0 5px;
-  padding: 5px 0;
-  border-bottom: 1px solid #dfdfdf;
-}
+  .split-title {
+    margin: 20px 0 5px;
+    padding: 5px 0;
+    border-bottom: 1px solid #dfdfdf;
+  }
 
-.btn-view {
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #dfdfdf;
-  border-radius: 3px;
-}
+  .btn-view {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+  }
 </style>

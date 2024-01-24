@@ -9,8 +9,10 @@ describe('v-bind-props', () => {
   it('counter1', async () => {
     const counter = await page.$('.counter1')
     const counterID = await counter.$('.count-id')
-    const counterTitle = await counter.$('.count-title')
     expect(await counterID.text()).toBe('1')
+    const counterTitle = await counter.$('.count-title')
     expect(await counterTitle.text()).toBe('title')
+    const counterObj = await counter.$('.count-obj')
+    expect(await counterObj.text()).toBe('obj prop name')
   })
 })

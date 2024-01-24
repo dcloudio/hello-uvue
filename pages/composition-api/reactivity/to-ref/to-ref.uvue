@@ -1,0 +1,37 @@
+<template>
+  <view class="page">
+    <text id="count">count: {{ count }}</text>
+    <text class="uni-common-mt" id="is-ref-count">isRef count: {{ isRefCount }}</text>
+    <text class="uni-common-mt" id="ref-count">ref count: {{ refCount }}</text>
+    <text class="uni-common-mt" id="is-ref-ref-count">isRef ref count: {{ isRefRefCount }}</text>
+
+    <text class="uni-common-mt" id="obj-num">obj.num: {{ obj.num }}</text>
+    <text class="uni-common-mt" id="to-ref-obj-num">toRef(obj, "num"): {{ objNum }}</text>
+    <text class="uni-common-mt" id="to-ref-fn-obj-num">toRef(() => obj.num): {{ readonlyObjNum }}</text>
+    <button class="uni-common-mt" id="increment-btn" @click="increment">increment obj.num</button>
+  </view>
+</template>
+
+<script setup>
+  const count = 0;
+  const isRefCount = isRef(count);
+  const refCount = toRef<number>(count);
+  const isRefRefCount = isRef(refCount);
+
+  type Obj = {
+    num : number
+  }
+  const obj = reactive({
+    num: 0
+  } as Obj)
+
+  const objNum = toRef<number>(obj, 'num')
+
+  const readonlyObjNum = toRef<number>(() : number => obj.num)
+
+  const increment = () => {
+    obj.num++;
+    objNum.value++;
+    readonlyObjNum.value++;
+  }
+</script>

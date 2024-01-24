@@ -1,0 +1,34 @@
+<template>
+  <view class="page">
+    <text id="is-readonly-count">isReadonly(count): {{ isProxyCount }}</text>
+    <text class="uni-common-mt" id="is-readonly-ref-count">isReadonly(refCount): {{ isProxyRefCount }}</text>
+    <text class="uni-common-mt" id="is-readonly-reactive-count">isReadonly(reactiveCount):
+      {{ isProxyReactiveCount }}</text>
+    <text class="uni-common-mt" id="is-readonly-readonly-count">isReadonly(readonlyCount):
+      {{ isProxyReadonlyCount }}</text>
+    <text class="uni-common-mt" id="is-readonly-shallow-reactive-count">isReadonly(shallowReactiveCount):
+      {{ isProxyShallowReactiveCount }}</text>
+    <text class="uni-common-mt" id="is-readonly-shallow-readonly-count">isReadonly(shallowReadonlyCount):
+      {{ isProxyShallowReadonlyCount }}</text>
+  </view>
+</template>
+
+<script setup>
+  const count = 0;
+  const isProxyCount = isReadonly(count);
+
+  const refCount = ref(0);
+  const isProxyRefCount = isReadonly(refCount);
+
+  const reactiveCount = reactive({ count: 0 });
+  const isProxyReactiveCount = isReadonly(reactiveCount);
+
+  const readonlyCount = readonly({ count: 0 });
+  const isProxyReadonlyCount = isReadonly(readonlyCount);
+
+  const shallowReactiveCount = shallowReactive({ count: 0 });
+  const isProxyShallowReactiveCount = isReadonly(shallowReactiveCount);
+
+  const shallowReadonlyCount = shallowReadonly({ count: 0 });
+  const isProxyShallowReadonlyCount = isReadonly(shallowReadonlyCount);
+</script>

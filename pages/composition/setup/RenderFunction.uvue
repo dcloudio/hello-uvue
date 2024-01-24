@@ -1,0 +1,44 @@
+<template>
+	<view class="uni-common-mt">
+		<text>this is Render Function component</text>
+	</view>
+</template>
+
+<script>
+	export default {
+		props: {
+			str: {
+				type: String,
+			},
+			count: {
+				type: Number,
+			},
+			obj: {
+				type: Object as PropType<UTSJSONObject>,
+			}
+		},
+		emits: ['compUpdateObj'],
+		setup(props, context) {
+			const compUpdateObj = () => {
+				context.emit('compUpdateObj')
+			}
+			// TODO: 待支持 expose 后补充示例
+			// const compCount = ref(0)
+			// const compIncrement = () => {
+			// 	compCount.value++
+			// }
+			// context.expose({compCount, compIncrement})
+			return () : VNode => h('view', { class: 'uni-common-mt' }, [
+				h('text', { class: 'uni-common-mt' }, 'this is Foo component text with h function'),
+				// h('text', { class: 'uni-common-mt' }, `compCount: ${compCount.value}`),
+				h('text', { id: 'props-str', class: 'uni-common-mt' }, `props.str: ${props.str}`),
+				h('text', { id: 'props-count', class: 'uni-common-mt' }, `props.count: ${props.count}`),
+				h('text', { id: 'props-obj-str', class: 'uni-common-mt' }, `props.obj['str']: ${props.obj!['str']}`),
+				h('text', { id: 'props-obj-num', class: 'uni-common-mt' }, `props.obj['num']: ${props.obj!['num']}`),
+				h('text', { id: 'props-obj-bool', class: 'uni-common-mt' }, `props.obj['bool']: ${props.obj!['bool']}`),
+				h('button', { id: 'comp-update-obj-btn', class: 'uni-common-mt', onClick: compUpdateObj }, 'comp update obj'),
+				h('text', { id: 'context-attrs-is-show', class: 'uni-common-mt' }, `context.attrs.isShow: ${context.attrs['isShow']}`),
+			])
+		}
+	}
+</script>

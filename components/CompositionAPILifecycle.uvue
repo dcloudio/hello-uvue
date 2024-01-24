@@ -1,0 +1,57 @@
+<template>
+  title: {{ title }}
+  <button class="component-lifecycle-btn uni-common-mt" @click="updateTitle">
+    updateTitle
+  </button>
+</template>
+
+<script setup>
+  import { state, setLifeCycleNum } from '../store/index.uts'
+
+  const title = ref('component for composition API lifecycle test')
+
+  onBeforeMount(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test mounted')
+  })
+
+  onMounted(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test mounted')
+  })
+
+  onBeforeUpdate(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test beforeUpdate')
+  })
+
+  onUpdated(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1)
+    console.log('component for lifecycle test updated')
+  })
+
+  onBeforeUnmount(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 1)
+    console.log('component for lifecycle test beforeUnmount')
+  })
+
+  onUnmounted(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 1)
+    console.log('component for lifecycle test unmounted')
+  })
+
+  // 测试无法触发
+  onActivated(() => { })
+  // 测试无法触发
+  onDeactivated(() => { })
+
+  const updateTitle = () => {
+    title.value = 'component for lifecycle test updated'
+  }
+</script>

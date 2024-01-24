@@ -1,20 +1,8 @@
 <template>
   <view>
     <text class="uni-common-mt bold">component for inject 1</text>
-    <text class="uni-common-mt provide-page-title"
-      >providePageTitle: {{ providePageTitle }}</text
-    >
     <text class="uni-common-mt alias-provide-page-title"
       >aliasProvidePageTitle: {{ aliasProvidePageTitle }}</text
-    >
-    <text class="uni-common-mt computed-title"
-      >computedTitle: {{ computedTitle }}</text
-    >
-    <text class="uni-common-mt provide-data-obj-title"
-      >provideDataObj.title: {{ provideDataObj['title'] }}</text
-    >
-    <text class="uni-common-mt provide-data-obj-content"
-      >provideDataObj.content: {{ provideDataObj['content'] }}</text
     >
     <text class="uni-common-mt provide-page-str"
       >providePageStr: {{ providePageStr }}</text
@@ -34,11 +22,11 @@
     <text class="uni-common-mt provide-page-arr"
       >providePageArr: {{ providePageArr }}</text
     >
-    <text class="uni-common-mt provide-page-map"
-      >providePageMap: {{ providePageMap }}</text
+   <text class="uni-common-mt provide-page-map"
+      >providePageMap: {{ providePageMapObj }}</text
     >
     <text class="uni-common-mt provide-page-set"
-      >providePageSet: {{ providePageSet }}</text
+      >providePageSet: {{ providePageSetArr }}</text
     >
     <text class="uni-common-mt test-inject-string-default-value"
       >testInjectStringDefaultValue: {{ testInjectStringDefaultValue }}</text
@@ -57,21 +45,10 @@
 <script lang="uts">
 export default {
   inject: {
-    providePageTitle: {
-      type: String,
-      default: 'default provide page title'
-    },
     aliasProvidePageTitle: {
       type: String,
       from: 'providePageTitle',
       default: 'default alias provide page title'
-    },
-    computedTitle: {
-      type: String,
-      default: 'default computed title'
-    },
-    provideDataObj: {
-      type: Object as PropType<UTSJSONObject>,
     },
     providePageStr: {
       type: String,
@@ -125,6 +102,22 @@ export default {
         }
       }
     }
-  }
+  },
+	computed: {
+		providePageMapObj(): UTSJSONObject {
+			const obj: UTSJSONObject = {}
+			this.providePageMap.forEach((value, key) => {
+				obj[key] = value
+			})
+			return obj
+		},
+		providePageSetArr(): string[] {
+			const arr: string[] = []
+			this.providePageSet.forEach((value) => {
+				arr.push(value)
+			})
+			return arr
+		}
+	}
 }
 </script>

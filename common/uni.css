@@ -1,6 +1,9 @@
 .uni-common-mt {
   margin-top: 30rpx;
 }
+.uni-common-mb {
+  margin-bottom: 30rpx;
+}
 .bold {
   font-weight: bold;
 }

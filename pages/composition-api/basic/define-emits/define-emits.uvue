@@ -1,0 +1,40 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+  <!-- #endif -->
+    <view class="page">
+      <ArrayLiteral @change='handleArrayLiteralCompChange' />
+      <text id="handle-array-literal-change-res" class="uni-common-mt">handle array literal comp change result:
+        {{handleArrayLiteralCompChangeRes}}</text>
+      <TypeEmits1 @change='handleTypeEmits1CompChange' />
+      <text id="handle-type-emits1-change-res" class="uni-common-mt">handle type emits comp change result:
+        {{handleTypeEmits1CompChangeRes}}</text>
+      <TypeEmits2 @change='handleTypeEmits2CompChange' />
+      <text id="handle-type-emits2-change-res" class="uni-common-mt">handle type emits named tuple syntax comp change
+        result: {{handleTypeEmits2CompChangeRes}}</text>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script setup>
+  import ArrayLiteral from './array-literal.uvue';
+  import TypeEmits1 from './type-emits-1.uvue';
+  import TypeEmits2 from './type-emits-2.uvue';
+
+  const handleArrayLiteralCompChangeRes = ref('')
+  const handleArrayLiteralCompChange = (num : number) => {
+    handleArrayLiteralCompChangeRes.value = `options is ${num}`
+  }
+
+  const handleTypeEmits1CompChangeRes = ref('')
+  const handleTypeEmits1CompChange = (num : number) => {
+    handleTypeEmits1CompChangeRes.value = `options is ${num}`
+  }
+
+  const handleTypeEmits2CompChangeRes = ref('')
+  const handleTypeEmits2CompChange = (num : number) => {
+    handleTypeEmits2CompChangeRes.value = `options is ${num}`
+  }
+</script>

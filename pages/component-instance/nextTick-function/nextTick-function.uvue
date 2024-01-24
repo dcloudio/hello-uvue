@@ -1,9 +1,9 @@
 <template>
   <!-- #ifdef APP -->
   <scroll-view style="flex: 1">
-    <!-- #endif -->
+  <!-- #endif -->
     <view class="page">
-      <view class="rect" :style="{ width: width, height: height }"></view>
+      <view class="rect" :style="{ width: width + 'px', height: height + 'px' }"></view>
       <view class="row"></view>
       <view class="row">
         <text ref="text">$nextTick Before Width:</text>
@@ -23,84 +23,76 @@
       </view>
       <next-tick-child class="next-tick-child"></next-tick-child>
     </view>
-    <!-- #ifdef APP -->
+  <!-- #ifdef APP -->
   </scroll-view>
   <!-- #endif -->
 </template>
 
 <script lang="ts">
-import child from './child.uvue'
+  import child from './child.uvue'
 
-export default {
-  components: {
-    nextTickChild: child
-  },
-  data () {
-    return {
-      value: 0,
-      width: 100,
-      height: 100,
-
-      nextTickBeforeWidth: 0,
-      nextTickBeforeHeight: 0,
-      nextTickAfterWidth: 0,
-      nextTickAfterHeight: 0,
-    }
-  },
-  mounted () {
-    this.nextTickCallback()
-    this.nextTickPromise()
-  },
-  methods: {
-    nextTickCallback (): void {
-      this.width = 100
-
-      uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-        const rect = ret[0] as NodeInfo
-		
-		this.width = 200
-		
-        this.$nextTick(() => {
-          uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-            const newRect = ret[0] as NodeInfo
-            this.nextTickAfterWidth = newRect.width!
-          })
-        })
-
-        this.nextTickBeforeWidth = rect.width!
-      });
+  export default {
+    components: {
+      nextTickChild: child
     },
-    nextTickPromise (): void {
-      this.height = 100
+    data() {
+      return {
+        value: 0,
+        width: 100,
+        height: 100,
 
-      uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-        const rect = ret[0] as NodeInfo
-
-		this.height = 200
-	  
-        this.$nextTick().then(() => {
-          uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-            const newRect = ret[0] as NodeInfo
-            this.nextTickAfterHeight = newRect.height!
+        nextTickBeforeWidth: 0,
+        nextTickBeforeHeight: 0,
+        nextTickAfterWidth: 0,
+        nextTickAfterHeight: 0,
+      }
+    },
+    mounted() {
+      this.nextTickCallback()
+      this.nextTickPromise()
+    },
+    methods: {
+      nextTickCallback() : void {
+        this.width = 100
+        uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+          const rect = ret[0] as NodeInfo
+          this.width = 200
+          this.$nextTick(() => {
+            uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+              const newRect = ret[0] as NodeInfo
+              this.nextTickAfterWidth = newRect.width!
+            })
           })
-        })
-
-        this.nextTickBeforeHeight = rect.height!
-      });
+          this.nextTickBeforeWidth = rect.width!
+        });
+      },
+      nextTickPromise() : void {
+        this.height = 100
+        uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+          const rect = ret[0] as NodeInfo
+          this.height = 200
+          this.$nextTick().then(() => {
+            uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+              const newRect = ret[0] as NodeInfo
+              this.nextTickAfterHeight = newRect.height!
+            })
+          })
+          this.nextTickBeforeHeight = rect.height!
+        });
+      }
     }
   }
-}
 </script>
 
 <style>
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
 
-.rect {
-  background-color: red;
-}
+  .rect {
+    background-color: red;
+  }
 </style>

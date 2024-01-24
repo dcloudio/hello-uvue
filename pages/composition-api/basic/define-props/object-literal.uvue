@@ -1,0 +1,34 @@
+<template>
+  <view>
+    <text class="bold uni-common-mt uni-common-mb">object literal</text>
+    <text class="uni-common-mb" id="object-literal-str">str: {{ str }}</text>
+    <text class="uni-common-mb" id="object-literal-num">num: {{ num }}</text>
+    <text class="uni-common-mb" id="object-literal-bool">bool: {{ bool }}</text>
+    <text class="uni-common-mb" id="object-literal-arr">arr: {{ arr }}</text>
+    <text class="uni-common-mb" id="object-literal-obj">obj: {{ obj }}</text>
+    <text class="uni-common-mb" id="object-literal-fn">fn: {{ fn() }}</text>
+  </view>
+</template>
+
+<script setup>
+  defineProps({
+    str: String,
+    num: Number,
+    bool: {
+      type: Boolean,
+      default: true
+    },
+    arr: {
+      type: Array as PropType<string[]>,
+      default: () : string[] => [] as string[]
+    },
+    obj: {
+      type: Object as PropType<UTSJSONObject>,
+      default: () : UTSJSONObject => ({ a: 1 })
+    },
+    fn: {
+      type: Function as PropType<() => string>,
+      default: () : string => ''
+    }
+  })
+</script>

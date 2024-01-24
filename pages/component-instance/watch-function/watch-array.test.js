@@ -14,8 +14,8 @@ describe('watch', () => {
     const btnChangeData1 = await page.$('.change-data1')
     await btnChangeData1.tap()
     await page.waitFor(100)
-    // count = 1, 暂不支持 deep
-    await validateCount(page, 1)
+    // count = 1, 支持 deep
+    await validateCount(page, 2)
     // 验证数据正确性
     await validateData1(page, 1, 2)
 
@@ -23,7 +23,7 @@ describe('watch', () => {
     await btnChangeData2.tap()
     await page.waitFor(100)
     // count = 2，重新赋值触发
-    await validateCount(page, 2)
+    await validateCount(page, 3)
     // 验证数据正确性
     await validateData2(page, 3, 4)
   })

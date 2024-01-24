@@ -1,0 +1,292 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+  <!-- #endif -->
+    <view class="uni-container">
+      <uni-collapse>
+        <template v-for="item in list" :key="item.id">
+          <uni-collapse-item :title="item.name" class="item">
+            <view class="uni-navigate-item" :hover-class="page.enable == false ? '' : 'is--active'"
+              v-for="(page, key) in item.pages" :key="key" @click="goDetailPage(item.id, page)">
+              <text class="uni-navigate-text"
+                :class="page.enable == false ? 'text-disabled' : ''">{{ page.name }}</text>
+            </view>
+          </uni-collapse-item>
+        </template>
+      </uni-collapse>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script setup lang="uts">
+  type PageItem = {
+    name : string
+    enable ?: boolean
+    url ?: string
+  }
+
+  type PageList = {
+    id : string
+    name : string
+    open : boolean
+    pages : PageItem[]
+    url ?: string
+    enable ?: boolean
+  }
+
+  const list = [
+    {
+      id: 'basic',
+      name: '基本使用',
+      open: false,
+      pages: [
+        {
+          name: 'defineProps',
+          url: 'define-props',
+          enable: true,
+        },
+        {
+          name: 'defineEmits',
+          url: 'define-emits',
+          enable: true,
+        },
+        {
+          name: 'defineExpose',
+          url: 'define-expose',
+          enable: true,
+        },
+        {
+          name: 'defineOptions',
+          url: 'define-options',
+					// #ifdef APP 
+          enable: true,
+					// #endif
+					// #ifdef WEB
+					enable: false,
+					// #endif
+        },
+        {
+          name: 'defineSlots',
+          url: 'define-slots',
+          enable: true,
+        },
+        {
+          name: 'defineModel',
+          url: 'define-model',
+					// #ifdef APP 
+          enable: true,
+					// #endif
+					// #ifdef WEB
+					enable: false,
+					// #endif
+        },
+        {
+          name: 'useSlots',
+          url: 'use-slots',
+          enable: true,
+        },
+        {
+          name: 'useAttrs',
+          url: 'use-attrs',
+          enable: true,
+        },
+      ] as PageItem[],
+    }, {
+      id: 'reactivity',
+      name: '响应式',
+      open: false,
+      pages: [
+        {
+          name: 'ref',
+          url: 'ref',
+          enable: true,
+        },
+        {
+          name: 'computed',
+          url: 'computed',
+          enable: true,
+        },
+        {
+          name: 'reactive',
+          url: 'reactive',
+          enable: true,
+        },
+        {
+          name: 'readonly',
+          url: 'readonly',
+          enable: true,
+        },
+        {
+          name: 'watch',
+          url: 'watch',
+          enable: true,
+        },
+        {
+          name: 'watchEffect',
+          url: 'watch-effect',
+          enable: true,
+        },
+        {
+          name: 'watchPostEffect',
+          url: 'watch-post-effect',
+          enable: true,
+        },
+        {
+          name: 'watchSyncEffect',
+          url: 'watch-sync-effect',
+          enable: true,
+        },
+        {
+          name: 'isRef',
+          url: 'is-ref',
+          enable: true,
+        },
+        {
+          name: 'unRef',
+          url: 'un-ref',
+          enable: true,
+        },
+        {
+          name: 'toRef',
+          url: 'to-ref',
+          enable: true,
+        },
+        {
+          name: 'toValue',
+          url: 'to-value',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'toRefs',
+          url: 'to-refs',
+          // #ifdef APP
+          enable: true,
+          // #endif
+          // #ifdef WEB
+          enable: false,
+          // #endif
+        },
+        {
+          name: 'isProxy',
+          url: 'is-proxy',
+          enable: true,
+        },
+        {
+          name: 'isReactive',
+          url: 'is-reactive',
+          enable: true,
+        },
+        {
+          name: 'isReadonly',
+          url: 'is-readonly',
+          enable: true,
+        },
+        {
+          name: 'shallowRef',
+          url: 'shallow-ref',
+          enable: true,
+        },
+        {
+          name: 'triggerRef',
+          url: 'trigger-ref',
+          enable: true,
+        },
+        {
+          name: 'customRef',
+          url: 'custom-ref',
+          enable: true,
+        },
+        {
+          name: 'shallowReactive',
+          url: 'shallow-reactive',
+          enable: true,
+        },
+        {
+          name: 'shallowReadonly',
+          url: 'shallow-readonly',
+          enable: true,
+        },
+        {
+          name: 'toRaw',
+          url: 'to-raw',
+          enable: true,
+        },
+        {
+          name: 'markRaw',
+          url: 'mark-raw',
+          enable: false, // 暂不支持
+        },
+        {
+          name: 'effectScope',
+          url: 'effect-scope',
+          enable: true,
+        },
+        {
+          name: 'getCurrentScope',
+          url: 'get-current-scope',
+          enable: true,
+        },
+        {
+          name: 'onScopeDispose',
+          url: 'on-scope-dispose',
+          enable: true,
+        },
+      ] as PageItem[],
+    }, {
+      id: 'lifecycle',
+      name: '生命周期',
+      open: false,
+      pages: [
+        {
+          name: '页面生命周期',
+          url: 'page-lifecycle',
+          enable: true,
+        },
+        {
+          name: '组件生命周期',
+          url: 'component-lifecycle',
+          enable: true,
+        },
+      ]
+    }, {
+      id: 'dependency-injection',
+      name: '依赖注入',
+      open: false,
+      pages: [
+        {
+          name: 'provide',
+          url: 'provide',
+          enable: true,
+        }
+      ]
+    }
+  ] as PageList[]
+
+  const goDetailPage = (id : string, e : PageItem) => {
+    if (e.enable == false) {
+      uni.showToast({
+        icon: 'none',
+        title: '暂不支持',
+      })
+      return
+    }
+
+    const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
+    uni.navigateTo({
+      url: `/pages/composition-api/${id}/${url}`,
+    })
+  }
+</script>
+
+<style>
+  .item {
+    margin-bottom: 12px;
+  }
+</style>

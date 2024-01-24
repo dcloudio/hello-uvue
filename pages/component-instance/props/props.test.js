@@ -8,6 +8,17 @@ describe('$props', () => {
   })
 
   it('$props 属性生效', async () => {
+    const arrayLiteralStr = await page.$('#array-literal-str')
+    expect(await arrayLiteralStr.text()).toBe('abcd')
+    const arrayLiteralNum = await page.$('#array-literal-num')
+    expect(await arrayLiteralNum.text()).toBe('12345')
+    const arrayLiteralBool = await page.$('#array-literal-bool')
+    expect(await arrayLiteralBool.text()).toBe('true')
+    const arrayLiteralObj = await page.$('#array-literal-obj')
+    expect((await arrayLiteralObj.text()).replaceAll(' ', '')).toBe('{"count":1}')
+    const arrayLiteralArr = await page.$('#array-literal-arr')
+    expect(await arrayLiteralArr.text()).toBe('[1,2,3]')
+    
     const string = await page.$('.string')
     const number = await page.$('.number')
     const boolean = await page.$('.boolean')
@@ -19,5 +30,10 @@ describe('$props', () => {
     expect(await boolean.text()).toBe('true')
     expect(await arrayString.text()).toBe('str1')
     expect(await object.text()).toBe('1')
+		
+		const checkTypeArr = await page.$('#check-type-arr')
+		expect(await checkTypeArr.text()).toBe('arr: ["a","b","c"]')
+		const fooArr = await page.$('#foo-arr')
+		expect(await fooArr.text()).toBe('arr: [1,2,3]')
   })
 })

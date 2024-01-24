@@ -1,15 +1,33 @@
 {
   "pages": [
     {
-      "path": "pages/index",
+      "path": "pages/tab-bar/options-api",
       "style": {
-        "navigationBarTitleText": "hello uvue"
+        "navigationBarTitleText": "选项式 API"
+      }
+    },
+    {
+      "path": "pages/tab-bar/composition-api",
+      "style": {
+        "navigationBarTitleText": "组合式 API"
       }
     },
     {
       "path": "pages/app-instance/index/index",
       "style": {
         "navigationBarTitleText": "app instance"
+      }
+    },
+    {
+      "path": "pages/app-instance/globalProperties/globalProperties",
+      "style": {
+        "navigationBarTitleText": "globalProperties"
+      }
+    },
+    {
+      "path": "pages/built-in-component/keep-alive/keep-alive",
+      "style": {
+        "navigationBarTitleText": "keep-alive"
       }
     },
     {
@@ -90,24 +108,26 @@
         "navigationBarTitleText": "v-on"
       }
     },
+    // #ifdef APP
     {
       "path": "pages/directive/v-once/v-once",
       "style": {
         "navigationBarTitleText": "v-once"
       }
     },
-		{
-		  "path": "pages/directive/v-memo/v-memo",
-		  "style": {
-		    "navigationBarTitleText": "v-memo"
-		  }
-		},
-		{
-		  "path": "pages/directive/v-pre/v-pre",
-		  "style": {
-		    "navigationBarTitleText": "v-pre"
-		  }
-		},
+    // #endif
+    {
+      "path": "pages/directive/v-memo/v-memo",
+      "style": {
+        "navigationBarTitleText": "v-memo"
+      }
+    },
+    {
+      "path": "pages/directive/v-pre/v-pre",
+      "style": {
+        "navigationBarTitleText": "v-pre"
+      }
+    },
     {
       "path": "pages/directive/v-show/v-show",
       "style": {
@@ -163,6 +183,7 @@
         "navigationBarTitleText": "$options"
       }
     },
+    // #ifdef APP
     {
       "path": "pages/component-instance/parent/parent",
       "style": {
@@ -175,6 +196,7 @@
         "navigationBarTitleText": "$root"
       }
     },
+    // #endif
     {
       "path": "pages/component-instance/slots/slots",
       "style": {
@@ -211,12 +233,12 @@
         "navigationBarTitleText": "$emit()"
       }
     },
-		{
-		  "path": "pages/component-instance/force-update/force-update",
-		  "style": {
-		    "navigationBarTitleText": "$forceUpdate"
-		  }
-		},
+    {
+      "path": "pages/component-instance/force-update/force-update",
+      "style": {
+        "navigationBarTitleText": "$forceUpdate"
+      }
+    },
     {
       "path": "pages/component-instance/nextTick-function/nextTick-function",
       "style": {
@@ -256,57 +278,49 @@
     {
       "path": "pages/state/data/data",
       "style": {
-        "navigationBarTitleText": "data",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "data"
       }
     },
     {
       "path": "pages/state/methods/methods",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/state/props/props",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/state/computed/computed",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/state/watch/watch",
       "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": ""
       }
     },
     {
       "path": "pages/rendering/slots/slots",
       "style": {
-        "navigationBarTitleText": "slots",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "slots"
       }
     },
     {
       "path": "pages/rendering/template/template",
       "style": {
-        "navigationBarTitleText": "template",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "template"
       }
     },
     {
       "path": "pages/rendering/unrecognized-component/unrecognized-component",
       "style": {
-        "navigationBarTitleText": "unrecognized-component",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "unrecognized-component"
       }
     },
     {
@@ -315,12 +329,13 @@
         "navigationBarTitleText": "component"
       }
     },
-		{
-		  "path": "pages/rendering/render/render",
-		  "style": {
-		    "navigationBarTitleText": "render function"
-		  }
-		},
+    {
+      "path": "pages/rendering/render/render",
+      "style": {
+        "navigationBarTitleText": "render function"
+      }
+    },
+    // #ifdef APP
     {
       "path": "pages/composition/mixins/mixins",
       "style": {
@@ -333,6 +348,7 @@
         "navigationBarTitleText": "mixins-page-2"
       }
     },
+    // #endif
     {
       "path": "pages/composition/provide/provide",
       "style": {
@@ -352,20 +368,270 @@
       }
     },
     {
+      "path": "pages/composition/setup/setup",
+      "style": {
+        "navigationBarTitleText": "setup"
+      }
+    },
+    {
       "path": "pages/examples/nested-component-communication/nested-component-communication",
       "style": {
-        "navigationBarTitleText": "嵌套组件通信",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "嵌套组件通信"
       }
     },
     {
       "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class",
       "style": {
-        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式",
-        "enablePullDownRefresh": false
+        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式"
+      }
+    },
+    {
+      "path": "pages/composition-api/basic/define-props/define-props",
+      "style": {
+        "navigationBarTitleText": "defineProps"
+      }
+    },
+    {
+      "path": "pages/composition-api/basic/define-emits/define-emits",
+      "style": {
+        "navigationBarTitleText": "defineEmits"
+      }
+    },
+    {
+      "path": "pages/composition-api/basic/define-expose/define-expose",
+      "style": {
+        "navigationBarTitleText": "defineExpose"
+      }
+    },
+		// #ifdef APP
+    {
+      "path": "pages/composition-api/basic/define-model/define-model",
+      "style": {
+        "navigationBarTitleText": "defineModel"
+      }
+    },
+    {
+      "path": "pages/composition-api/basic/define-options/define-options",
+      "style": {
+        "navigationBarTitleText": "defineOptions"
+      }
+    },
+		// #endif
+    {
+      "path": "pages/composition-api/basic/define-slots/define-slots",
+      "style": {
+        "navigationBarTitleText": "defineSlots"
+      }
+    },
+    {
+      "path": "pages/composition-api/basic/use-attrs/use-attrs",
+      "style": {
+        "navigationBarTitleText": "useAttrs"
+      }
+    },
+    {
+      "path": "pages/composition-api/basic/use-slots/use-slots",
+      "style": {
+        "navigationBarTitleText": "useSlots"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/ref/ref",
+      "style": {
+        "navigationBarTitleText": "ref"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/computed/computed",
+      "style": {
+        "navigationBarTitleText": "computed"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/reactive/reactive",
+      "style": {
+        "navigationBarTitleText": "reactive"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/readonly/readonly",
+      "style": {
+        "navigationBarTitleText": "readonly"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/watch/watch",
+      "style": {
+        "navigationBarTitleText": "watch"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/watch-effect/watch-effect",
+      "style": {
+        "navigationBarTitleText": "watchEffect"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/watch-post-effect/watch-post-effect",
+      "style": {
+        "navigationBarTitleText": "watchPostEffect"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/watch-sync-effect/watch-sync-effect",
+      "style": {
+        "navigationBarTitleText": "watchSyncEffect"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/is-ref/is-ref",
+      "style": {
+        "navigationBarTitleText": "isRef"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/un-ref/un-ref",
+      "style": {
+        "navigationBarTitleText": "unRef"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/to-ref/to-ref",
+      "style": {
+        "navigationBarTitleText": "toRef"
+      }
+    },
+    // #ifdef APP
+    {
+      "path": "pages/composition-api/reactivity/to-value/to-value",
+      "style": {
+        "navigationBarTitleText": "toValue"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/to-refs/to-refs",
+      "style": {
+        "navigationBarTitleText": "toRefs"
+      }
+    },
+    // #endif
+    {
+      "path": "pages/composition-api/reactivity/is-proxy/is-proxy",
+      "style": {
+        "navigationBarTitleText": "isProxy"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/is-reactive/is-reactive",
+      "style": {
+        "navigationBarTitleText": "isReactive"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/is-readonly/is-readonly",
+      "style": {
+        "navigationBarTitleText": "isReadonly"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/shallow-ref/shallow-ref",
+      "style": {
+        "navigationBarTitleText": "shallowRef"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/trigger-ref/trigger-ref",
+      "style": {
+        "navigationBarTitleText": "triggerRef"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/custom-ref/custom-ref",
+      "style": {
+        "navigationBarTitleText": "customRef"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/shallow-reactive/shallow-reactive",
+      "style": {
+        "navigationBarTitleText": "shallowReactive"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/shallow-readonly/shallow-readonly",
+      "style": {
+        "navigationBarTitleText": "shallowReadonly"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/to-raw/to-raw",
+      "style": {
+        "navigationBarTitleText": "toRaw"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/mark-raw/mark-raw",
+      "style": {
+        "navigationBarTitleText": "markRaw"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/effect-scope/effect-scope",
+      "style": {
+        "navigationBarTitleText": "effectScope"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/get-current-scope/get-current-scope",
+      "style": {
+        "navigationBarTitleText": "getCurrentScope"
+      }
+    },
+    {
+      "path": "pages/composition-api/reactivity/on-scope-dispose/on-scope-dispose",
+      "style": {
+        "navigationBarTitleText": "onScopeDispose"
+      }
+    },
+    {
+      "path" : "pages/composition-api/lifecycle/page-lifecycle/page-lifecycle",
+      "style" : 
+      {
+        "navigationBarTitleText" : "页面生命周期",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path" : "pages/composition-api/lifecycle/component-lifecycle/component-lifecycle",
+      "style" : 
+      {
+        "navigationBarTitleText" : "组件生命周期"
+      }
+    },
+    {
+      "path" : "pages/composition-api/dependency-injection/provide/provide",
+      "style" : 
+      {
+        "navigationBarTitleText" : "依赖注入"
       }
     }
   ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/tab-bar/options-api",
+        "text": "选项式 API"
+      },
+      {
+        "pagePath": "pages/tab-bar/composition-api",
+        "text": "组合式 API"
+      }
+    ]
+  },
   "globalStyle": {
     "pageOrientation": "portrait",
     "navigationBarTitleText": "Hello UVUE",
