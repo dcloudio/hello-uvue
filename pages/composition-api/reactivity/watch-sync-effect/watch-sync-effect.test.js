@@ -99,7 +99,10 @@ describe('watchSyncEffect', () => {
     expect(await objArr.text()).toBe(isWeb ? 'obj.arr: [\n0,\n1\n]' : 'obj.arr: [0,1]')
 
     expect(await watchObjRes.text()).toBe(
-      'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}')
+      isWeb ?
+      'watch obj result: obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}' :
+      'watch obj result: obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}'
+    )
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 1, obj.str ref text: obj.str: num: 0')
     expect(await watchObjArrRes.text()).toBe('watch obj.arr result: arr: [0,1]')
