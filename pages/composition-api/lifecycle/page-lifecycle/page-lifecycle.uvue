@@ -63,7 +63,7 @@
     return state.lifeCycleNum
   }
   // 自动化测试
-  const pageSetlifeCycleNum = (num: number) => {
+  const pageSetLifeCycleNum = (num: number) => {
     setLifeCycleNum(num)
   }
  
@@ -91,7 +91,7 @@
   
   defineExpose({
     getLifeCycleNum,
-    pageSetlifeCycleNum,
+    pageSetLifeCycleNum,
     pullDownRefresh,
     scrollToBottom,
     getIsScrolled

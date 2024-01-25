@@ -5,13 +5,6 @@ let page
 let lifeCycleNum
 
 describe('page-lifecycle', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      // TODO: onPageShow onPageHide 别名暂不支持
-      it('web', async () => {
-        expect(1).toBe(1)
-      })
-      return
-    }
   beforeAll(async () => {
     page = await program.reLaunch(HOME_PATH)
     await page.waitFor(700)
@@ -29,14 +22,14 @@ describe('page-lifecycle', () => {
 		await page.waitFor(700)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
 		expect(lifeCycleNum).toBe(120)
-		await page.callMethod('pageSetlifeCycleNum', 0)
+		await page.callMethod('pageSetLifeCycleNum', 0)
 	})
 	it('onPullDownRefresh', async () => {
 		await page.callMethod('pullDownRefresh')
 		await page.waitFor(1500)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
 		expect(lifeCycleNum).toBe(10)
-		await page.callMethod('pageSetlifeCycleNum', 0)
+		await page.callMethod('pageSetLifeCycleNum', 0)
 	})
 	it('onPageScroll onReachBottom', async () => {
 		await program.pageScrollTo(2000)
@@ -44,7 +37,7 @@ describe('page-lifecycle', () => {
 		expect(isScrolled).toBe(true)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
 		expect(lifeCycleNum).toBe(10)
-		await page.callMethod('pageSetlifeCycleNum', 0)
+		await page.callMethod('pageSetLifeCycleNum', 0)
 	})
 	it('onHide', async () => {
 		page = await program.navigateTo(INTER_PAGE_PATH)
