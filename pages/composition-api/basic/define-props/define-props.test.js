@@ -1,6 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/basic/define-props/define-props'
 
 describe('defineProps', () => {
+  console.log('process.env.uniTestPlatformInfo---------------', process.env.uniTestPlatformInfo)
 	const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
   let page = null
   beforeAll(async () => {

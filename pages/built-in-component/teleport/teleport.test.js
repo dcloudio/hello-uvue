@@ -9,9 +9,7 @@ describe('teleport', () => {
   
   it('teleport', async () => {
   	await page.waitFor(500)
-  	const image = await program.screenshot({
-  		fullPage: true
-  	});
+  	const image = await program.screenshot();
   	expect(image).toMatchImageSnapshot();
   })
 })

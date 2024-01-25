@@ -4,14 +4,12 @@
 	<!-- #endif -->
 		<view id="container" class="container">
 			<text class="text">.container 区域</text>
-			<!-- <subContainer></subContainer> -->
 			<view id="content1" class="content content-1">
 				<text class="text">content1 区域</text>
 			</view>
 			<view id="content2" class="content content-2">
 				<text class="text">content2 区域</text>
 			</view>
-			<!-- <button class="btn" @click="changePosition">点击穿梭</button> -->
 			<teleport v-if="show" to="#content1" :disabled="disabled">
 				<view class="send-content">
 					<text class="send-content-text">内容在.container中，使用teleport在#content1元素中展示</text>
@@ -24,9 +22,7 @@
 </template>
 
 <script>
-	// import subContainer from './sub-container.uvue'
 	export default {
-		// components: { subContainer },
 		data() {
 			return {
 				to: 'content1',

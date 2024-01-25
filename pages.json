@@ -613,7 +613,8 @@
       "path" : "pages/composition-api/lifecycle/component-lifecycle/component-lifecycle",
       "style" : 
       {
-        "navigationBarTitleText" : "组件生命周期"
+        "navigationBarTitleText": "组件生命周期",
+        "enablePullDownRefresh": true
       }
     },
     {

@@ -7,8 +7,11 @@
  </template>
 
  <script setup>
+  import type { Ref } from 'vue'
+  
   const useCustomRef = (value : UTSJSONObject) : Ref<UTSJSONObject> => {
-    return customRef((track, trigger) : UTSJSONObject => {
+    // @ts-ignore
+    return customRef<UTSJSONObject>((track, trigger) : UTSJSONObject => {
       return {
         get() : UTSJSONObject {
           track()
@@ -18,11 +21,11 @@
           value = newValue
           trigger()
         }
-      }
+      } as UTSJSONObject
     })
   }
 
-  const state = useCustomRef({ count: 0 })
+  const state = useCustomRef({ count: 0 } as UTSJSONObject)
 
   const increment = () => {
     (state.value as UTSJSONObject)['count'] = ((state.value as UTSJSONObject)['count'] as number) + 1
