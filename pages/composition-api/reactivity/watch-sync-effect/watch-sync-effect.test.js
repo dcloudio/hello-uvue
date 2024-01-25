@@ -1,6 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch-sync-effect/watch-sync-effect'
 
 describe('watchSyncEffect', () => {
+	const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
   const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {
@@ -76,7 +77,7 @@ describe('watchSyncEffect', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('obj.bool: false')
     const objArr = await page.$('#obj-arr')
-    expect(await objArr.text()).toBe('obj.arr: [0]')
+    expect(await objArr.text()).toBe(isSafari ? 'obj.arr: [ 0]' : 'obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
     expect(await watchObjRes.text()).toBe(
@@ -96,7 +97,7 @@ describe('watchSyncEffect', () => {
     expect(await objStr.text()).toBe('obj.str: num: 1')
     expect(await objNum.text()).toBe('obj.num: 1')
     expect(await objBool.text()).toBe('obj.bool: true')
-    expect(await objArr.text()).toBe('obj.arr: [0,1]')
+    expect(await objArr.text()).toBe(isSafari ? 'obj.arr: [ 0, 1]' : 'obj.arr: [0,1]')
 
     expect(await watchObjRes.text()).toBe(
       isWeb ?
