@@ -22,6 +22,9 @@ describe('defineModel', () => {
 
     const msgText = await page.$('#msg-text')
     expect(await msgText.text()).toBe('msg in Foo: msg')
+    
+    const defaultNumText = await page.$('#default-num-text')
+    expect(await defaultNumText.text()).toBe('num: 10')
 
     const msgInput = await page.$('#msg-input')
     expect(await msgInput.property('value')).toBe('msg')
