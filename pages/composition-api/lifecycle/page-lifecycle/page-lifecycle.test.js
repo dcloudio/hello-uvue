@@ -33,6 +33,7 @@ describe('page-lifecycle', () => {
 	})
 	it('onPageScroll onReachBottom', async () => {
 		await program.pageScrollTo(2000)
+    await page.waitFor(1000)
 		const isScrolled = await page.callMethod('getIsScrolled')
 		expect(isScrolled).toBe(true)
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
