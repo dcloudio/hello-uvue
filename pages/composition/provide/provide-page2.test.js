@@ -1,5 +1,6 @@
 const PAGE_PATH = '/pages/composition/provide/provide-page2'
 describe('函数方式创建 provide', () => {
+	const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
   const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page
   beforeAll(async () => {
@@ -51,21 +52,21 @@ describe('函数方式创建 provide', () => {
     const providePageArrEl = await page.$('.provide-page-arr')
     const providePageArrText = await providePageArrEl.text()
     expect(providePageArrText).toBe(
-      'providePageArr: ["函数方式定义 provide page arr"]'
+      isSafari ? 'providePageArr: [ "函数方式定义 provide page arr"]' : 'providePageArr: ["函数方式定义 provide page arr"]'
     )
   })
   it('map', async () => {
     const providePageMapEl = await page.$('.provide-page-map')
     const providePageMapText = await providePageMapEl.text()
     expect(providePageMapText).toBe(
-      isWeb ? 'providePageMap: {"key": "函数方式定义 provide page map"}' : 'providePageMap: {"key":"函数方式定义 provide page map"}'
+      isWeb ? (isSafari ? 'providePageMap: { "key": "函数方式定义 provide page map"}' : 'providePageMap: {"key": "函数方式定义 provide page map"}') : 'providePageMap: {"key":"函数方式定义 provide page map"}'
     )
   })
   it('set', async () => {
     const providePageSetEl = await page.$('.provide-page-set')
     const providePageSetText = await providePageSetEl.text()
     expect(providePageSetText).toBe(
-      'providePageSet: ["函数方式定义 provide page set"]'
+      isSafari ? 'providePageSet: [ "函数方式定义 provide page set"]' : 'providePageSet: ["函数方式定义 provide page set"]'
     )
   })
 })
