@@ -68,6 +68,10 @@
                 name: 'keepAlive',
                 url: 'keep-alive',
                 enable: true,
+              },{
+                name: 'teleport',
+                url: 'teleport',
+                enable: true,
               },
             ] as PageItem[],
           },

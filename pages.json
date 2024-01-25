@@ -622,6 +622,14 @@
       {
         "navigationBarTitleText" : "依赖注入"
       }
+    },
+    {
+    	"path" : "pages/built-in-component/teleport/teleport",
+    	"style" : 
+    	{
+    		"navigationBarTitleText" : "teleport",
+    		"enablePullDownRefresh" : false
+    	}
     }
   ],
   "tabBar": {
