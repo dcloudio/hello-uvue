@@ -2,7 +2,7 @@ const PAGE_PATH = '/pages/component-instance/props/props'
 
 describe('$props', () => {
   const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
-  const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
+  const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   let page
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

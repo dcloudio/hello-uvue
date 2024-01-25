@@ -1,6 +1,6 @@
 const PAGE_PATH = '/pages/composition/provide/provide-page2'
 describe('函数方式创建 provide', () => {
-	const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
+	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page
   beforeAll(async () => {
