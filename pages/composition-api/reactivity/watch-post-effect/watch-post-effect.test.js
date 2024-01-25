@@ -1,7 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch-post-effect/watch-post-effect'
 
 describe('watchPostEffect', () => {
-	const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
+	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {

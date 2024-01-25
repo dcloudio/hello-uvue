@@ -1,7 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/dependency-injection/provide/provide'
 
 describe('provide-inject-hasInjectionContext', () => {
-	const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
+	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {

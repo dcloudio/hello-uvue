@@ -44,7 +44,7 @@ describe('component-lifecycle', () => {
   })
   it('onPageScroll onReachBottom', async () => {
     await program.pageScrollTo(2000)
-    // web 端组件内监听 onPageScroll onReachBottom 不触发
+    // TODO: web 端组件内监听 onPageScroll onReachBottom 不触发
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       const isScrolled = await page.callMethod('getIsScrolled')
       expect(isScrolled).toBe(true)

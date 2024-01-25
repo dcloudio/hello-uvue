@@ -1,7 +1,7 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/reactive/reactive'
 
 describe('reactive', () => {
-	const isSafari = process.env.uniTestPlatformInfo.indexOf('safari') > -1
+	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
