@@ -16,12 +16,12 @@ describe('component-lifecycle', () => {
     page = await program.navigateTo(PAGE_PATH)
     await page.waitFor(700)
   })
-  // afterAll(async () => {
-  // 	const resetLifecycleNum = 1100
-  // 	await page.callMethod('setLifeCycleNum', resetLifecycleNum)
-  // 	lifeCycleNum = await page.callMethod('getLifeCycleNum')
-  // 	expect(lifeCycleNum).toBe(resetLifecycleNum)
-  // })
+  afterAll(async () => {
+    const resetLifecycleNum = 1100
+    await page.callMethod('setLifeCycleNum', resetLifecycleNum)
+    lifeCycleNum = await page.callMethod('getLifeCycleNum')
+    expect(lifeCycleNum).toBe(resetLifecycleNum)
+  })
 
   it('onLoad onPageShow onReady onBeforeMount onMounted', async () => {
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
@@ -44,13 +44,13 @@ describe('component-lifecycle', () => {
   })
   it('onPageScroll onReachBottom', async () => {
     await program.pageScrollTo(2000)
-    // 测试 web 端组件内监听 onPageScroll 不触发
+    // web 端组件内监听 onPageScroll onReachBottom 不触发
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       const isScrolled = await page.callMethod('getIsScrolled')
       expect(isScrolled).toBe(true)
+      lifeCycleNum = await page.callMethod('getLifeCycleNum')
+      expect(lifeCycleNum).toBe(10)
     }
-    lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(10)
     await page.callMethod('pageSetlifeCycleNum', 0)
   })
   it('onHide', async () => {
