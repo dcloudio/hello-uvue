@@ -7,8 +7,6 @@
  </template>
 
  <script setup>
-  import type { Ref } from 'vue'
-  
   const useCustomRef = (value : UTSJSONObject) : Ref<UTSJSONObject> => {
     // @ts-ignore
     return customRef<UTSJSONObject>((track, trigger) : UTSJSONObject => {
