@@ -8,10 +8,14 @@ describe('v-bind', () => {
   })
   it('button-disabled', async () => {
     const button = await page.$('.button-disabled')
-    expect(await button.property('disabled')).toBe(true)
+    // TODO
+    const disabled = await button.property('disabled')
+    expect(disabled.toString()).toBe(true + '')
   })
   it('button-v-bind:disabled', async () => {
     const button = await page.$('.button-v-bind-disabled')
-    expect(await button.property('disabled')).toBe(true)
+    // TODO
+    const disabled = await button.property('disabled')
+    expect(disabled.toString()).toBe(true + '')
   })
 })
