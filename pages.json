@@ -631,7 +631,21 @@
     		"navigationBarTitleText" : "teleport",
     		"enablePullDownRefresh" : false
     	}
-    }
+    },
+		{
+		  "path": "pages/webview-screenshot-comparison/webview-screenshot-comparison",
+		  "style": {
+		    "navigationBarTitleText": "截图对比测试",
+		    "navigationStyle": "custom"
+		  }
+		},
+		{
+		  "path": "pages/webview-screenshot/webview-screenshot",
+		  "style": {
+		    "navigationBarTitleText": "webview 截图测试",
+		    "navigationStyle": "custom"
+		  }
+		}
   ],
   "tabBar": {
     "color": "#7A7E83",

@@ -1,0 +1,76 @@
+<template>
+	<view v-if="!isCustomNavigationBar" class="top-placehoder"></view>
+	<web-view id="webview-screenshot-comparison" class="webview-screenshot-comparison" :webview-styles="webviewStyles"
+		:src="src" @loaded="loaded" @error="error">
+	</web-view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				baseSrc: '',
+				src: '',
+				webviewContext: null as WebviewContext | null,
+				isLoaded: false,
+				statusBarHeight: 0,
+				isCustomNavigationBar: false,
+				devicePixelRatio: 1,
+				webviewStyles: {
+					progress: false
+				}
+			}
+		},
+		onReady() {
+			this.getWindowInfo();
+			this.getDeviceInfo();
+			this.webviewContext = uni.createWebviewContext('webview-screenshot-comparison', this)
+		},
+		methods: {
+			customNavigationBarPageAppendWebHeadPlaceholder() {
+				if (this.src.indexOf('pages/template/navbar-lite/navbar-lite') > -1) {
+					this.webviewContext?.evalJS(`
+            const uniNavbar = document.querySelector('.uni-navbar');
+            uniNavbar.style.paddingTop = '${this.statusBarHeight}px';
+          `)
+				} else if (this.src.indexOf('pages/template/scroll-fold-nav/scroll-fold-nav') > -1) {
+					this.webviewContext?.evalJS(`
+        const heightSeat = document.querySelector('.height-seat');
+        heightSeat.style.height = '125px';
+        heightSeat.style.backgroundColor = '#f0f8ff';
+        const topBox = document.querySelector('.top-box');
+        topBox.style.top = '35px';
+      `)
+				}
+			},
+			loaded() {
+				this.isLoaded = true
+
+				this.customNavigationBarPageAppendWebHeadPlaceholder();
+			},
+			error(event : WebViewErrorEvent) {
+				console.log('webview load error', JSON.stringify(event.detail));
+			},
+			getWindowInfo() {
+				const res = uni.getWindowInfo();
+				// 获取状态栏+导航栏高度, 供截图对比使用
+				this.statusBarHeight = res.statusBarHeight;
+			},
+			getDeviceInfo: function () {
+				const res = uni.getDeviceInfo();
+				// 获取像素比, 供截图对比使用
+				this.devicePixelRatio = res.devicePixelRatio !== null ? parseFloat(res.devicePixelRatio!) : 1
+			}
+		}
+	}
+</script>
+<style>
+	.top-placehoder {
+		height: var(--status-bar-height);
+		background-color: #007aff;
+	}
+
+	.webview-screenshot-comparison {
+		flex: 1;
+	}
+</style>
