@@ -159,7 +159,7 @@ describe("shot-compare", () => {
     // set webview-screenshot-comparison page baseSrc
     baseSrc =
       process.env.UNI_WEB_SERVICE_URL ? `${process.env.UNI_WEB_SERVICE_URL}/#/` :
-				"http://192.168.31.223:5173/#/";
+				"http://test.dcloud.io/unix_h5_build/98_dev_hello-uvue/#/";
     page.setData({
       baseSrc,
     });
@@ -215,7 +215,7 @@ describe("shot-compare", () => {
       const isLoaded = await page.data("isLoaded");
       return isLoaded || Date.now() - startTime > 3000;
     });
-    await page.waitFor(3000);
+    await page.waitFor(800);
 
     // web 端非 adb 截图时设置 offsetY 移除导航栏
     const webSnapshot = await program.screenshot({
