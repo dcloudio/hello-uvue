@@ -1,0 +1,30 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+	<!-- #endif -->
+	<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script>
+	// 仅引用类型，模板中不使用，也要保证不报错
+	let testType : TestTypeComponentPublicInstance | null = null
+	export default {
+		data() {
+			return {
+
+			}
+		},
+		onLoad() {
+			console.log(testType)
+		},
+		methods: {
+
+		}
+	}
+</script>
+
+<style>
+
+</style>

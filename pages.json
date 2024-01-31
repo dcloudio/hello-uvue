@@ -645,6 +645,14 @@
 		    "navigationBarTitleText": "webview 截图测试",
 		    "navigationStyle": "custom"
 		  }
+		},
+		{
+			"path" : "pages/type/type",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
   ],
   "tabBar": {
