@@ -6,6 +6,7 @@
 </template>
 
 <script>
+	import { state, setStatusBarHeight, setDevicePixelRatio } from '@/store/index.uts'
   export default {
     data() {
       return {
@@ -16,13 +17,11 @@
         webviewStyles: {
           progress: false
         },
-				headerHeight: 0,
-				devicePixelRatio: 1
+				headerHeight: state.statusBarHeight,
+				devicePixelRatio: state.devicePixelRatio
       }
     },
     onReady() {
-			this.getWindowInfo();
-			this.getDeviceInfo();
       this.webviewContext = uni.createWebviewContext('webview-screenshot', this)
     },
     methods: {
@@ -35,12 +34,12 @@
 			getWindowInfo() {
 				const res = uni.getWindowInfo();
 				// 获取状态栏, 供截图对比使用
-				this.headerHeight = res.statusBarHeight;
+				setStatusBarHeight(res.statusBarHeight);
 			},
 			getDeviceInfo: function () {
 				const res = uni.getDeviceInfo();
 				// 获取像素比, 供截图对比使用
-				this.devicePixelRatio = res.devicePixelRatio !== null ? parseFloat(res.devicePixelRatio!) : 1
+				setDevicePixelRatio(res.devicePixelRatio !== null ? parseFloat(res.devicePixelRatio!) : 1);
 			}
     }
   }

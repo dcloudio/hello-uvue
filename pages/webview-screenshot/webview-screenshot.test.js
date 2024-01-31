@@ -148,7 +148,9 @@ describe("shot-compare", () => {
 	beforeAll(async () => {
 		page = await program.reLaunch(PAGE_PATH);
 		await page.waitFor(500);
-
+		await page.callMethod('getWindowInfo');
+		await page.callMethod('getDeviceInfo');
+		
 		// set webview-screenshot page baseSrc
 		baseSrc =
 			process.env.UNI_WEB_SERVICE_URL ? `${process.env.UNI_WEB_SERVICE_URL}/#/` :
