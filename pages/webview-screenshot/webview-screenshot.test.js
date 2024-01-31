@@ -35,11 +35,8 @@ const pages = [
 	'pages/component-instance/watch-function/watch-function',
 	'pages/component-instance/watch-function/watch-array',
 	'pages/component-instance/emit-function/emit-function',
-
 	'pages/component-instance/nextTick-function/nextTick-function',
 	'pages/component-instance/methods/call-method-uni-element',
-
-	'pages/component-instance/methods/call-method-other',
 	'pages/component-instance/circular-reference/circular-reference',
 	'pages/state/data/data',
 	'pages/state/methods/methods',
@@ -51,7 +48,6 @@ const pages = [
 	'pages/rendering/unrecognized-component/unrecognized-component',
 	'pages/rendering/component/component',
 	'pages/rendering/render/render',
-
 	'pages/composition/provide/provide',
 	'pages/composition/provide/provide-page2',
 	'pages/composition/inject/inject',
@@ -59,11 +55,9 @@ const pages = [
 	'pages/examples/nested-component-communication/nested-component-communication',
 	'pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class',
 	'pages/composition-api/basic/define-slots/define-slots',
-	
-	// 新增
+	'pages/composition-api/basic/define-props/define-props',
 	'pages/composition-api/basic/define-emits/define-emits',
 	'pages/composition-api/basic/define-expose/define-expose',
-	
 	'pages/composition-api/basic/use-attrs/use-attrs',
 	'pages/composition-api/basic/use-slots/use-slots',
 	'pages/composition-api/reactivity/ref/ref',
@@ -93,10 +87,9 @@ const pages = [
 	'pages/composition-api/lifecycle/page-lifecycle/page-lifecycle',
 	'pages/composition-api/lifecycle/component-lifecycle/component-lifecycle',
 	'pages/composition-api/dependency-injection/provide/provide',
-	'pages/built-in-component/teleport/teleport'
+	'pages/built-in-component/teleport/teleport',
 	
-
-	// web暂不支持
+	// 仅app
 	// 'pages/composition/mixins/mixins',
 	// 'pages/composition/mixins/mixins-page2',
 	// 'pages/directive/v-once/v-once',
@@ -111,7 +104,10 @@ const pages = [
 	// 空白页面无内容
 	// 'pages/component-instance/methods/call-method-easycom-uni-modules',
 	// 'pages/component-instance/methods/call-method-easycom',
+	// 'pages/component-instance/methods/call-method-other',
 	
+	// 仅web
+	// 'pages/composition/mixins/mixins-web',
 ]
 
 const childToParentPagesMap = new Map([]);
@@ -212,7 +208,8 @@ describe("shot-compare", () => {
 			const isLoaded = await page.data("isLoaded");
 			return isLoaded || Date.now() - startTime > 3000;
 		});
-		await page.waitFor(4000);
+		
+		await page.waitFor(5000)
 
 		// web 端非 adb 截图时设置 offsetY 移除导航栏
 		const webSnapshot = await program.screenshot({

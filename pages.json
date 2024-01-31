@@ -673,8 +673,8 @@
     "backgroundColorBottom": "#F4F5F6",
     "h5": {
       "maxWidth": 1190,
-      "navigationBarTextStyle": "black",
-      "navigationBarBackgroundColor": "#F1F1F1"
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#007AFF"
     }
   },
   "uniIdRouter": {},
