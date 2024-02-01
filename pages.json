@@ -631,7 +631,29 @@
     		"navigationBarTitleText" : "teleport",
     		"enablePullDownRefresh" : false
     	}
-    }
+    },
+		{
+		  "path": "pages/webview-screenshot-comparison/webview-screenshot-comparison",
+		  "style": {
+		    "navigationBarTitleText": "截图对比测试",
+		    "navigationStyle": "custom"
+		  }
+		},
+		{
+		  "path": "pages/webview-screenshot/webview-screenshot",
+		  "style": {
+		    "navigationBarTitleText": "webview 截图测试",
+		    "navigationStyle": "custom"
+		  }
+		},
+		{
+			"path" : "pages/type/type",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		}
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -659,8 +681,8 @@
     "backgroundColorBottom": "#F4F5F6",
     "h5": {
       "maxWidth": 1190,
-      "navigationBarTextStyle": "black",
-      "navigationBarBackgroundColor": "#F1F1F1"
+      "navigationBarTextStyle": "white",
+      "navigationBarBackgroundColor": "#007AFF"
     }
   },
   "uniIdRouter": {},
