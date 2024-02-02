@@ -318,6 +318,12 @@
       }
     },
     {
+      "path": "pages/rendering/template/template-map-style",
+      "style": {
+        "navigationBarTitleText": "template-map-style"
+      }
+    },
+    {
       "path": "pages/rendering/unrecognized-component/unrecognized-component",
       "style": {
         "navigationBarTitleText": "unrecognized-component"
