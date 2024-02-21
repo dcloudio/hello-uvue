@@ -183,13 +183,13 @@
         "navigationBarTitleText": "$options"
       }
     },
-    // #ifdef APP
     {
       "path": "pages/component-instance/parent/parent",
       "style": {
         "navigationBarTitleText": "$parent"
       }
     },
+    // #ifdef APP
     {
       "path": "pages/component-instance/root/root",
       "style": {
