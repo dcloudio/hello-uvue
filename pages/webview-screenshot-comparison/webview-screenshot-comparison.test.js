@@ -22,8 +22,6 @@ const pages = [
 	'pages/directive/v-show/v-show',
 	'pages/directive/v-slot/v-slot',
 	'pages/directive/v-html/v-html',
-	'pages/lifecycle/page/page',
-	'pages/lifecycle/component/component',
 	'pages/component-instance/data/data',
 	'pages/component-instance/options/options',
 	'pages/component-instance/refs/refs',
@@ -63,8 +61,6 @@ const pages = [
 	'pages/composition-api/reactivity/effect-scope/effect-scope',
 	'pages/composition-api/reactivity/get-current-scope/get-current-scope',
 	'pages/composition-api/reactivity/on-scope-dispose/on-scope-dispose',
-	'pages/composition-api/lifecycle/page-lifecycle/page-lifecycle',
-	'pages/composition-api/lifecycle/component-lifecycle/component-lifecycle',
 	'pages/built-in-component/teleport/teleport',
 	'pages/component-instance/watch-function/watch-function'
 
@@ -114,6 +110,12 @@ const pages = [
 	// 样式差异
 	// 'pages/component-instance/slots/slots',
 	// 'pages/rendering/render/render',
+	
+	// 因修改全局状态影响其他测试例结果
+	// 'pages/lifecycle/page/page',
+	// 'pages/lifecycle/component/component',
+	// 'pages/composition-api/lifecycle/page-lifecycle/page-lifecycle',
+	// 'pages/composition-api/lifecycle/component-lifecycle/component-lifecycle',
 ]
 
 const childToParentPagesMap = new Map([

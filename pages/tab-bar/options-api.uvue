@@ -306,12 +306,7 @@
               {
                 name: '$parent',
                 url: 'parent',
-                // #ifdef APP
                 enable: true,
-                // #endif
-                // #ifdef WEB
-                enable: false,
-                // #endif
               },
               {
                 name: '$root',

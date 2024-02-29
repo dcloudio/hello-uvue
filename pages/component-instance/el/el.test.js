@@ -9,10 +9,6 @@ describe('$el', () => {
 
   it('$el元素可用', async () => {
     const el = await page.$('.tag-name')
-    if(process.env.uniTestPlatformInfo.startsWith('web')) {
-      expect(await el.text()).toBe('UNI-VIEW')
-    } else {
-      expect(await el.text()).toBe('VIEW')
-    }
+    expect(await el.text()).toBe('VIEW')
   })
 })
