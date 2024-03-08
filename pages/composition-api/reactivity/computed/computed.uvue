@@ -11,7 +11,7 @@
 <script setup>
   const count = ref(0)
 
-  const doubleCount = computed<number>(() : number => {
+  const doubleCount = computed(() : number => {
     return count.value * 2
   })
 
