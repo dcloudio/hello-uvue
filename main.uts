@@ -23,7 +23,7 @@ export function createApp() {
 
   app.provide('globalProvideMsg', 'global provide message')
 
-  // #ifdef APP-ANDROID
+  // #ifdef APP-ANDROID || APP-IOS
   const globalChildMixin = defineMixin({
     components: { GlobalChildMixinComp1, MixinComp: MixinCompForGlobalChildMixin },
     props: {
