@@ -8,7 +8,7 @@
         <text id="slot-default" class="uni-common-mt">default slot num: {{num}}</text>
       </template>
       <template #footer="{arr}">
-        <text id="slot-footer" class="uni-common-mt">footer slot arr: {{arr}}</text>
+        <text id="slot-footer" class="uni-common-mt">footer slot arr: {{JSON.stringify(arr)}}</text>
       </template>
     </Foo>
   </view>

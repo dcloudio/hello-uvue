@@ -4,8 +4,8 @@
     <text class="uni-common-mb" id="type-str">str: {{ str }}</text>
     <text class="uni-common-mb" id="type-num">num: {{ num }}</text>
     <text class="uni-common-mb" id="type-bool">bool: {{ bool }}</text>
-    <text class="uni-common-mb" id="type-arr">arr: {{ arr }}</text>
-    <text class="uni-common-mb" id="type-obj">obj: {{ obj }}</text>
+    <text class="uni-common-mb" id="type-arr">arr: {{ JSON.stringify(arr) }}</text>
+    <text class="uni-common-mb" id="type-obj">obj: {{ JSON.stringify(obj) }}</text>
     <text id="type-fn">fn: {{ fn() }}</text>
   </view>
 </template>

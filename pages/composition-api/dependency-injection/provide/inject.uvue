@@ -3,8 +3,8 @@
     <text>inject page</text>
     <text class="uni-common-mt msg">msg: {{msg}}</text>
     <text class="uni-common-mt num">num: {{num}}</text>
-    <text class="uni-common-mt obj">obj: {{obj}}</text>
-    <text class="uni-common-mt arr">arr: {{arr}}</text>
+    <text class="uni-common-mt obj">obj: {{JSON.stringify(obj)}}</text>
+    <text class="uni-common-mt arr">arr: {{JSON.stringify(arr)}}</text>
     <text class="uni-common-mt fn">fn: {{(fn as () =>  string)()}}</text>
     <text class="uni-common-mt has-injection-context">hasInjectionContext:
       {{checkHasInjectionContextRes}}</text>
@@ -23,7 +23,7 @@
 
   const checkHasInjectionContext = () => {
     // TODO: web vue 版本低导致 hasInjectionContext 不支持, 待支持后调整
-    // #ifdef APP
+    // #ifdef APP-ANDROID
     checkHasInjectionContextRes.value = `${hasInjectionContext()}`
     // #endif
   }

@@ -1,7 +1,6 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch/watch'
 
 describe('watch', () => {
-	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -82,7 +81,7 @@ describe('watch', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('obj.bool: false')
     const objArr = await page.$('#obj-arr')
-    expect(await objArr.text()).toBe(isSafari ? 'obj.arr: [ 0]' : 'obj.arr: [0]')
+    expect(await objArr.text()).toBe('obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
@@ -108,7 +107,7 @@ describe('watch', () => {
     expect(await objStr.text()).toBe('obj.str: num: 1')
     expect(await objNum.text()).toBe('obj.num: 1')
     expect(await objBool.text()).toBe('obj.bool: true')
-    expect(await objArr.text()).toBe(isSafari ? 'obj.arr: [ 0, 1]' : 'obj.arr: [0,1]')
+    expect(await objArr.text()).toBe('obj.arr: [0,1]')
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchObjRes.text()).toBe(
