@@ -6,8 +6,6 @@
       <text id="count" ref="countRef" class="uni-common-mb">count: {{ count }}</text>
       <text id="watch-count-res" class="uni-common-mb">watch count result: {{ watchCountRes }}</text>
       <text id="watch-count-track-num" class="uni-common-mb">watch count track number: {{ watchCountTrackNum }}</text>
-      <text id="watch-count-trigger-num" class="uni-common-mb">watch count trigger number:
-        {{ watchCountTriggerNum }}</text>
       <text id="watch-count-cleanup-res" class="uni-common-mb">watch count cleanup result:
         {{ watchCountCleanupRes }}</text>
       <button id="increment-btn" class="uni-common-mb" @click="increment">
@@ -17,6 +15,8 @@
         stop watch count
       </button>
       <text id="obj-str" ref="objStrRef" class="uni-common-mb">obj.str: {{ obj.str }}</text>
+      <text id="watch-count-trigger-num" class="uni-common-mb">watch obj.str trigger number:
+        {{ watchObjStrTriggerNum }}</text>
       <text id="obj-num" class="uni-common-mb">obj.num: {{ obj.num }}</text>
       <text id="obj-bool" ref="objBoolRef" class="uni-common-mb">obj.bool: {{ obj.bool }}</text>
       <text id="obj-arr" ref="objArrRef" class="uni-common-mb">obj.arr: {{ JSON.stringify(obj.arr) }}</text>
@@ -47,7 +47,6 @@
   const watchCountRes = ref('')
   const watchCountCleanupRes = ref('')
   const watchCountTrackNum = ref(0)
-  const watchCountTriggerNum = ref(0)
 
   const stopWatchCount = watchSyncEffect((onCleanup : OnCleanup) => {
     if (countRef.value !== null) {
@@ -58,10 +57,10 @@
       watchCountRes.value = `count: ${count.value}, count ref text: ${(countRef.value!.childNodes[0] as HTMLElement).innerText}`
       // #endif 
     } else {
-      watchCountRes.value = `count: ${ count.value }, count ref text: `
+      watchCountRes.value = `count: ${count.value}, count ref text: `
     }
     const cancel = () => {
-      watchCountCleanupRes.value = `watch count cleanup: ${ count.value }`
+      watchCountCleanupRes.value = `watch count cleanup: ${count.value}`
     }
     onCleanup(cancel)
   },
@@ -70,12 +69,6 @@
       onTrack(event : DebuggerEvent) {
         if (event.type === 'get') {
           watchCountTrackNum.value++
-        }
-      },
-      // 侦听器回调被依赖项的变更触发时调用
-      onTrigger(event : DebuggerEvent) {
-        if (event.type === 'set') {
-          watchCountTriggerNum.value++
         }
       }
     },
@@ -96,37 +89,46 @@
 
   const watchObjRes = ref('')
   watchSyncEffect(() => {
-    watchObjRes.value = `obj: ${ JSON.stringify(obj) }`
+    watchObjRes.value = `obj: ${JSON.stringify(obj)}`
   })
 
   const objStrRef = ref<UniTextElement | null>(null)
   const watchObjStrRes = ref('')
+  const watchObjStrTriggerNum = ref(0)
+  
   watchSyncEffect(() => {
     if (objStrRef.value !== null) {
       // #ifdef APP
-      watchObjStrRes.value = `str: ${ obj.str }, obj.str ref text: ${ objStrRef.value!.value }`
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${objStrRef.value!.value}`
       // #endif
       // #ifdef WEB
-      watchObjStrRes.value = `str: ${ obj.str }, obj.str ref text: ${ (objStrRef.value!.childNodes[0] as HTMLElement).innerText }`
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${(objStrRef.value!.childNodes[0] as HTMLElement).innerText}`
       // #endif 
     } else {
-      watchObjStrRes.value = `str: ${ obj.str }, obj.str ref text: `
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: `
+    }
+  }, {
+    // 侦听器回调被依赖项的变更触发时调用
+    onTrigger(event : DebuggerEvent) {
+      if (event.type === 'set') {
+        watchObjStrTriggerNum.value++
+      }
     }
   })
 
   const watchObjArrRes = ref('')
   watchSyncEffect(() => {
-    watchObjArrRes.value = `arr: ${ JSON.stringify(obj.arr) }`
+    watchObjArrRes.value = `arr: ${JSON.stringify(obj.arr)}`
   })
 
   const watchCountAndObjNumRes = ref('')
   watchSyncEffect(() => {
-    watchCountAndObjNumRes.value = `count: ${ count.value }, obj.num: ${ obj.num }`
+    watchCountAndObjNumRes.value = `count: ${count.value}, obj.num: ${obj.num}`
   })
 
   const updateObj = () => {
     obj.num++
-    obj.str = `num: ${ obj.num }`
+    obj.str = `num: ${obj.num}`
     obj.bool = !obj.bool
     obj.arr.push(obj.num)
   }
