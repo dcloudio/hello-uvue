@@ -26,27 +26,26 @@ export default {
   },
   computed: {
     hasPropsAttrs(): boolean {
-      // #ifdef UNI-APP-X && APP-ANDROID
+      // #ifdef APP-ANDROID
       return this.$attrs.has('val')
       // #endif
-      // #ifdef UNI-APP-X && WEB
+      // #ifndef APP-ANDROID
       return !!this.$attrs['val']
       // #endif
-
     },
     hasEmitsAttr (): boolean {
-      // #ifdef UNI-APP-X && APP-ANDROID
+      // #ifdef APP-ANDROID
       return this.$attrs.has('result')
       // #endif
-      // #ifdef UNI-APP-X && WEB
+      // #ifndef APP-ANDROID
       return !!this.$attrs['result']
       // #endif
     },
     hasAttrs (): boolean {
-      // #ifdef UNI-APP-X && APP-ANDROID
+      // #ifdef APP-ANDROID
       return this.$attrs.has('class')
       // #endif
-      // #ifdef UNI-APP-X && WEB
+      // #ifndef APP-ANDROID
       return !!this.$attrs['class']
       // #endif
     }
