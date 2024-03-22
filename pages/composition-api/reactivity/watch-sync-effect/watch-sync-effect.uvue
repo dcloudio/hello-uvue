@@ -15,7 +15,7 @@
         stop watch count
       </button>
       <text id="obj-str" ref="objStrRef" class="uni-common-mb">obj.str: {{ obj.str }}</text>
-      <text id="watch-count-trigger-num" class="uni-common-mb">watch obj.str trigger number:
+      <text id="watch-obj-str-trigger-num" class="uni-common-mb">watch obj.str trigger number:
         {{ watchObjStrTriggerNum }}</text>
       <text id="obj-num" class="uni-common-mb">obj.num: {{ obj.num }}</text>
       <text id="obj-bool" ref="objBoolRef" class="uni-common-mb">obj.bool: {{ obj.bool }}</text>

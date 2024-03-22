@@ -70,7 +70,8 @@
         watchCountTrackNum.value++
       }
     }
-    // TODO: vue>3.4.15 开始 onTrack onTrigger 同时存在修改响应式数据时,会报错 Maximum call stack size exceeded
+    // TODO: vue>3.4.15 开始 监听函数、onTrack、onTrigger 同时存在修改响应式数据时,会报错 Maximum call stack size exceeded
+    // 所以将 onTrack 与 onTrigger 调整到两个 watch 里
   })
 
   const triggerStopWatchCount = () => stopWatchCount()
