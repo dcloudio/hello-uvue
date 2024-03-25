@@ -1,100 +1,100 @@
 <template>
-    <view class="page">
-        <view class="rect" :style="{width: width, height: height}">child component</view>
-        <view class="row"></view>
-        <view class="row">
-            <text ref="text">$nextTick Before Width:</text>
-            <text>{{nextTickBeforeWidth}}</text>
-        </view>
-        <view class="row">
-            <text ref="text">$nextTick Before Height:</text>
-            <text>{{nextTickBeforeHeight}}</text>
-        </view>
-        <view class="row">
-            <text ref="text">$nextTick After Width:</text>
-            <text>{{nextTickAfterWidth}}</text>
-        </view>
-        <view class="row">
-            <text ref="text">$nextTick After Height:</text>
-            <text>{{nextTickAfterHeight}}</text>
-        </view>
+  <view class="page">
+    <view class="rect" :style="{width: width + 'px', height: height + 'px'}">child component</view>
+    <view class="row"></view>
+    <view class="row">
+      <text ref="text">$nextTick Before Width:</text>
+      <text>{{nextTickBeforeWidth}}</text>
     </view>
+    <view class="row">
+      <text ref="text">$nextTick Before Height:</text>
+      <text>{{nextTickBeforeHeight}}</text>
+    </view>
+    <view class="row">
+      <text ref="text">$nextTick After Width:</text>
+      <text>{{nextTickAfterWidth}}</text>
+    </view>
+    <view class="row">
+      <text ref="text">$nextTick After Height:</text>
+      <text>{{nextTickAfterHeight}}</text>
+    </view>
+  </view>
 </template>
 
 <script lang="ts">
-    export default {
-        name: "nextTickChild",
-        data() {
-            return {
-                value: 0,
-                width: 100,
-                height: 100,
+  export default {
+    name: "nextTickChild",
+    data() {
+      return {
+        value: 0,
+        width: 100,
+        height: 100,
 
-                nextTickBeforeWidth: 0,
-                nextTickBeforeHeight: 0,
-                nextTickAfterWidth: 0,
-                nextTickAfterHeight: 0,
-            }
-        },
-        mounted() {
-            this.nextTickCallback()
-            this.nextTickPromise()
-        },
-        methods: {
-            nextTickCallback(): void {
-                this.width = 100
+        nextTickBeforeWidth: 0,
+        nextTickBeforeHeight: 0,
+        nextTickAfterWidth: 0,
+        nextTickAfterHeight: 0,
+      }
+    },
+    mounted() {
+      this.nextTickCallback()
+      this.nextTickPromise()
+    },
+    methods: {
+      nextTickCallback() : void {
+        this.width = 100
 
-                this.$nextTick(() => {
-                    uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-                        const rect = ret[0] as NodeInfo
+        this.$nextTick(() => {
+          uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+            const rect = ret[0] as NodeInfo
 
-                        this.width = 200
-                        this.$nextTick(() => {
-                            uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-                                const newRect = ret[0] as NodeInfo
-                                this.nextTickAfterWidth = newRect.width!
-                            })
-                        })
+            this.width = 200
+            this.$nextTick(() => {
+              uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+                const newRect = ret[0] as NodeInfo
+                this.nextTickAfterWidth = newRect.width!
+              })
+            })
 
-                        this.nextTickBeforeWidth = rect.width!
-                    });
-                })
-            },
-            nextTickPromise(): void {
-                this.height = 100
+            this.nextTickBeforeWidth = rect.width!
+          });
+        })
+      },
+      nextTickPromise() : void {
+        this.height = 100
 
-                this.$nextTick().then(() => {
-                    uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-                        const rect = ret[0] as NodeInfo
+        this.$nextTick().then(() => {
+          uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+            const rect = ret[0] as NodeInfo
 
-                        this.height = 200
-                        this.$nextTick().then(() => {
-                            uni.createSelectorQuery().select('.rect').boundingClientRect(null).exec((ret: Array<any>) => {
-                                const newRect = ret[0] as NodeInfo
-                                this.nextTickAfterHeight = newRect.height!
-                            })
-                        })
+            this.height = 200
+            this.$nextTick().then(() => {
+              uni.createSelectorQuery().in(this).select('.rect').boundingClientRect(null).exec((ret : Array<any>) => {
+                const newRect = ret[0] as NodeInfo
+                this.nextTickAfterHeight = newRect.height!
+              })
+            })
 
-                        this.nextTickBeforeHeight = rect.height!
-                    });
-                })
-            }
-        }
+            this.nextTickBeforeHeight = rect.height!
+          });
+        })
+      }
     }
+  }
 </script>
 
 <style>
-    .row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
 
-    .rect {
-        background-color: blue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .rect {
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>

@@ -1,0 +1,35 @@
+<template>
+  <view class="page">
+    <text id="count" class="uni-common-mb">count: {{ count }}</text>
+    <text id="double-count" class="uni-common-mb">computed double count: {{ doubleCount }}</text>
+    <text id="obj-arr" class="uni-common-mb">obj.arr: {{ obj.arr }}</text>
+    <text id="obj-arr-len" class="uni-common-mb">computed obj.arr.length: {{ objArrLen }}</text>
+    <button id="update-btn" @click="update">update</button>
+  </view>
+</template>
+
+<script setup>
+  const count = ref(0)
+
+  const doubleCount = computed<number>(() : number => {
+    return count.value * 2
+  })
+
+  type Obj = {
+    arr : number[]
+  }
+
+  const obj = reactive({
+    arr: [1, 2, 3]
+  } as Obj)
+
+
+  const objArrLen = computed<number>(() : number => {
+    return obj.arr.length
+  })
+
+  const update = () => {
+    count.value++
+    obj.arr.push(obj.arr.length + 1)
+  }
+</script>

@@ -11,9 +11,12 @@ export default {
       root: true
     }
   },
+  onReady() {
+    console.log(this.getRoot())
+  },
   methods: {
     getRoot (): boolean {
-      return this.$root!.$data.get('root') as boolean
+      return this.$root!.$data['root'] as boolean
     }
   }
 }

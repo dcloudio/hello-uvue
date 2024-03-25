@@ -1,0 +1,30 @@
+<template>
+  <view class="page">
+    <text id="check-to-raw-ref">check toRaw ref: {{ checkToRawRef }}</text>
+    <text class="uni-common-mt" id="check-to-raw-reactive">check toRaw reactive: {{ checkToRawReactive }}</text>
+    <text class="uni-common-mt" id="check-to-raw-readonly">check toRaw readonly: {{ checkToRawReadonly }}</text>
+    <text class="uni-common-mt" id="check-to-raw-shallow-reactive">check toRaw shallowReactive:
+      {{ checkToRawShallowReactive }}</text>
+    <text class="uni-common-mt" id="check-to-raw-shallow-readonly">check toRaw shallowReadonly:
+      {{ checkToRawShallowReadonly }}</text>
+  </view>
+</template>
+
+<script setup>
+  const obj = {}
+
+  const refObj = ref(obj);
+  const checkToRawRef = toRaw<UTSJSONObject>(refObj) === obj;
+
+  const reactiveObj = reactive(obj);
+  const checkToRawReactive = toRaw<UTSJSONObject>(reactiveObj) === obj;
+
+  const readonlyObj = readonly(obj);
+  const checkToRawReadonly = toRaw<UTSJSONObject>(readonlyObj) === obj;
+
+  const shallowReactiveObj = shallowReactive(obj);
+  const checkToRawShallowReactive = toRaw<UTSJSONObject>(shallowReactiveObj) === obj;
+
+  const shallowReadonlyObj = shallowReadonly(obj);
+  const checkToRawShallowReadonly = toRaw<UTSJSONObject>(shallowReadonlyObj) === obj;
+</script>

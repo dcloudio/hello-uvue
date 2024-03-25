@@ -19,11 +19,7 @@ export default {
   },
   methods: {
     testFunction () {
-			// #ifdef UNI-APP-X && APP-ANDROID
       this.callbackValue = this.$parent!.$callMethod('testFunction') as string
-			// #endif
-			// TODO: 非 app-android 简单绕过, web 无法通过 this.$parent.functionName 调用父组件 methods 中的方法
-			this.callbackValue = 'parentFunctionResult'
     }
   }
 }

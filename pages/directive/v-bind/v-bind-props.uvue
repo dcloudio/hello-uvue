@@ -1,7 +1,7 @@
 <template>
   <view class="page">
     <view class="split-title">v-bind-props</view>
-    <counter class="counter1" :id="post.id" :title="post.title"></counter>
+    <counter class="counter1" :id="post.id" :title="post.title" :obj="{name: 'obj prop name'}"></counter>
     <!-- TODO 暂不支持 -->
     <!-- <counter class="counter2" v-bind="post"></counter> -->
   </view>

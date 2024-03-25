@@ -1,0 +1,22 @@
+<template>
+  <view>
+    <text id="model-value-text">modelValue in Foo: {{modelValue}}</text>
+    <text class='uni-common-mt' id="msg-text">msg in Foo: {{msg}}</text>
+    <text class='uni-common-mt' id="default-num-text">num: {{defaultNum}}</text>
+    <button class='uni-common-mt' id="update-value-btn" @click='updateValue'>update value</button>
+  </view>
+</template>
+
+<script setup>
+  // 在被修改时，触发 "update:modelValue" 事件
+  const modelValue = defineModel({ type: String })
+
+  // 在被修改时，触发 "update:msg" 事件
+  const msg = defineModel('msg', { type: String, default: 'default msg' })
+  const defaultNum = defineModel('num', { type: Number, default: 10 })
+
+  const updateValue = () => {
+    modelValue.value += '1'
+    msg.value += '2'
+  }
+</script>

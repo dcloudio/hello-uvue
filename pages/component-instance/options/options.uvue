@@ -20,7 +20,7 @@ export default {
     }
   },
   mounted () {
-    this.name = this.$options.name
+    this.name = this.$options.name!
   },
   methods: {
     // getCustomKey (): string {

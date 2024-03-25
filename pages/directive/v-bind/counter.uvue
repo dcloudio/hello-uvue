@@ -2,6 +2,7 @@
   <view>
     <text class="count-id">{{id}}</text>
     <text class="count-title">{{title}}</text>
+    <text class="count-obj">{{obj!['name']}}</text>
   </view>
 </template>
 
@@ -15,7 +16,10 @@
       title: {
         type: String,
         default: ''
-      }
+      },
+			obj: {
+				type: Object as PropType<UTSJSONObject>
+			}
     }
   }
 </script>

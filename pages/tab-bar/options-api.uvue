@@ -1,30 +1,21 @@
 <template>
   <!-- #ifdef APP -->
   <scroll-view style="flex: 1">
-    <!-- #endif -->
+  <!-- #endif -->
     <view class="uni-container">
-      <view class="uni-panel" v-for="(item, index) in list" :key="item.id">
-        <view class="uni-panel-h" @click="triggerCollapse(item, index)">
-          <text class="uni-panel-text">{{ item.name }}</text>
-          <!-- <text class="uni-panel-icon uni-icon" :class="item.open ? 'uni-panel-icon-on' : ''">{{item.open ? '&#xe581;' : '&#xe470;'}}</text> -->
-        </view>
-        <view class="uni-panel-c" v-if="item.open">
-          <view
-            class="uni-navigate-item"
-            v-for="page in item.pages"
-            :key="page.name"
-            @click="goDetailPage(item.id, page)">
-            <text
-              class="uni-navigate-text"
-              :class="page.enable != true ? 'text-disabled' : ''"
-              >{{ page.name }}</text
-            >
-            <!-- <text class="uni-navigate-icon uni-icon">&#xe470;</text> -->
-          </view>
-        </view>
-      </view>
+      <uni-collapse>
+        <template v-for="item in list" :key="item.id">
+          <uni-collapse-item :title="item.name" class="item">
+            <view class="uni-navigate-item" :hover-class="page.enable == false ? '' : 'is--active'"
+              v-for="(page, key) in item.pages" :key="key" @click="goDetailPage(item.id, page)">
+              <text class="uni-navigate-text"
+                :class="page.enable == false ? 'text-disabled' : ''">{{ page.name }}</text>
+            </view>
+          </uni-collapse-item>
+        </template>
+      </uni-collapse>
     </view>
-    <!-- #ifdef APP -->
+  <!-- #ifdef APP -->
   </scroll-view>
   <!-- #endif -->
 </template>
@@ -59,6 +50,27 @@
               {
                 name: 'index',
                 url: 'index',
+                enable: true,
+              },
+              {
+                name: 'globalProperties',
+                url: 'globalProperties',
+                enable: true,
+              },
+            ] as PageItem[],
+          },
+          {
+            id: 'built-in-component',
+            name: '内置组件',
+            open: false,
+            pages: [
+              {
+                name: 'keepAlive',
+                url: 'keep-alive',
+                enable: true,
+              },{
+                name: 'teleport',
+                url: 'teleport',
                 enable: true,
               },
             ] as PageItem[],
@@ -173,20 +185,20 @@
               {
                 name: 'v-once',
                 url: 'v-once',
-                // #ifdef APP-ANDROID
+                // #ifdef APP
                 enable: true,
                 // #endif
-                // #ifndef APP-ANDROID
+                // #ifdef WEB
                 enable: false,
                 // #endif
               },
               {
                 name: 'v-memo',
                 url: 'v-memo',
-                // #ifdef APP-ANDROID
+                // #ifdef APP
                 enable: true,
                 // #endif
-                // #ifndef APP-ANDROID
+                // #ifdef WEB
                 enable: false,
                 // #endif
               },
@@ -242,7 +254,12 @@
               {
                 name: 'render',
                 url: 'render',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: 'slots',
@@ -294,7 +311,12 @@
               {
                 name: '$root',
                 url: 'root',
+                // #ifdef APP
                 enable: true,
+                // #endif
+                // #ifdef WEB
+                enable: false,
+                // #endif
               },
               {
                 name: '$slots',
@@ -329,12 +351,7 @@
               {
                 name: '$forceUpdate',
                 url: 'force-update',
-                // #ifdef APP-ANDROID
                 enable: true,
-                // #endif
-                // #ifndef APP-ANDROID
-                enable: false,
-                // #endif
               },
               {
                 name: '$nextTick',
@@ -376,38 +393,37 @@
               {
                 name: 'provide',
                 url: 'provide',
-                // #ifdef APP-ANDROID
                 enable: true,
-                // #endif
-                // #ifndef APP-ANDROID
-                enable: false,
-                // #endif
               },
               {
                 name: 'inject',
                 url: 'inject',
-                // #ifdef APP-ANDROID
                 enable: true,
-                // #endif
-                // #ifndef APP-ANDROID
-                enable: false,
-                // #endif
               },
+              // #ifdef APP
               {
                 name: 'mixins',
                 url: 'mixins',
-                // #ifdef APP-ANDROID
                 enable: true,
-                // #endif
-                // #ifndef APP-ANDROID
-                enable: false,
-                // #endif
               },
+              // #endif
+              // #ifdef WEB
+              {
+                name: 'mixins',
+                url: 'mixins/mixins-web',
+                enable: true,
+              },
+              // #endif
               {
                 name: 'extends',
                 url: 'extends',
                 enable: false,
               },
+              {
+                name: 'setup',
+                url: 'setup',
+                enable: true,
+              }
             ] as PageItem[],
           },
           {
@@ -419,7 +435,7 @@
                 name: '嵌套组件通信',
                 url: 'nested-component-communication',
                 enable: true,
-              },{
+              }, {
                 name: '自定义组件中使用 class 定制另一个自定义组件根节点样式',
                 url: 'set-custom-child-component-root-node-class',
                 enable: true,
@@ -430,9 +446,6 @@
       }
     },
     methods: {
-      triggerCollapse(_ : PageList, index : number) {
-        this.list[index].open = !this.list[index].open
-      },
       goDetailPage(id : string, e : PageItem) {
         if (e.enable == false) {
           uni.showToast({
@@ -465,22 +478,7 @@
 </script>
 
 <style>
-.arrow {
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #ccc;
-  border-left: 2px solid #ccc;
-}
-
-.arrow-right {
-  transform: rotate(135deg);
-}
-
-.arrow-up {
-  transform: rotate(45deg);
-}
-
-.arrow-down {
-  transform: rotate(-135deg);
-}
+  .item {
+    margin-bottom: 12px;
+  }
 </style>

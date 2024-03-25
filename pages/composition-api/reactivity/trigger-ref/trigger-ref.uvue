@@ -1,0 +1,25 @@
+<template>
+  <view class="page">
+    <text id="state-count" class="uni-common-mb">state.count: {{ state.count }}</text>
+    <button id="increment-state-count-btn" class="uni-common-mb" @click="incrementStateCount">increment
+      state.count</button>
+    <button id="trigger-ref-state-btn" @click="triggerRefState">trigger state</button>
+  </view>
+</template>
+
+<script setup>
+  type State = {
+    count: number
+  }
+  const state = shallowRef({
+    count: 0
+  } as State)
+
+  const incrementStateCount = () => {
+    state.value.count++
+  }
+
+  const triggerRefState = () => {
+    triggerRef(state)
+  }
+</script>

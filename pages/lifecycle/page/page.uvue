@@ -12,7 +12,7 @@
 </template>
 
 <script lang="uts">
-import { State, state, setLifeCycleNum } from '@/store/index.uts'
+import { state, setLifeCycleNum } from '@/store/index.uts'
 
 export default {
   data() {
@@ -57,6 +57,10 @@ export default {
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 100)
   },
+  onResize(_){
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  },
   methods: {
     // 自动化测试
     getLifeCycleNum() : number {
@@ -66,6 +70,7 @@ export default {
     setLifeCycleNum(num : number) {
       setLifeCycleNum(num)
     },
+    // 自动化测试
     pullDownRefresh() {
       uni.startPullDownRefresh({
         success() {

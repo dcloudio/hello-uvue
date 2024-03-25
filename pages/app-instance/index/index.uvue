@@ -1,24 +1,25 @@
 <template>
   <view class="page">
     <CompForAppComponent class="component-for-app-component" />
-    // #ifdef APP-ANDROID
     <CompForAppUse class="component-for-app-use" />
-    // #endif
   </view>
 </template>
 
 <script lang="uts">
-import CompForAppComponent from '@/components/CompForAppComponent.uvue'
-// #ifdef APP-ANDROID
-import CompForAppUse from '@/components/CompForAppUse.uvue'
-// #endif
+  import { state} from '@/store/index.uts'
+  import CompForAppComponent from '@/components/CompForAppComponent.uvue'
+  import CompForAppUse from '@/components/CompForAppUse.uvue'
 
-export default {
-  components: {
-    CompForAppComponent,
-    // #ifdef APP-ANDROID
-    CompForAppUse
-    // #endif
+  export default {
+    components: {
+      CompForAppComponent,
+      CompForAppUse
+    },
+    methods: {
+      // 自动化测试
+      getLifeCycleNum() : number {
+        return state.lifeCycleNum
+      },
+    }
   }
-}
 </script>

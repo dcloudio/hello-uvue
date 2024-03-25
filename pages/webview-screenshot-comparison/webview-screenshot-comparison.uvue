@@ -1,0 +1,57 @@
+<template>
+	<view v-if="!isCustomNavigationBar" class="top-placehoder"></view>
+	<web-view id="webview-screenshot-comparison" class="webview-screenshot-comparison" :webview-styles="webviewStyles"
+		:src="src" @loaded="loaded" @error="error">
+	</web-view>
+</template>
+
+<script>
+	import { state, setStatusBarHeight, setDevicePixelRatio } from '@/store/index.uts'
+	export default {
+		data() {
+			return {
+				baseSrc: '',
+				src: '',
+				webviewContext: null as WebviewContext | null,
+				isLoaded: false,
+				statusBarHeight: state.statusBarHeight,
+				isCustomNavigationBar: false,
+				devicePixelRatio: state.devicePixelRatio,
+				webviewStyles: {
+					progress: false
+				}
+			}
+		},
+		onReady() {
+			this.webviewContext = uni.createWebviewContext('webview-screenshot-comparison', this)
+		},
+		methods: {
+			loaded() {
+				this.isLoaded = true
+			},
+			error(event : WebViewErrorEvent) {
+				console.log('webview load error', JSON.stringify(event.detail));
+			},
+			getWindowInfo() {
+				const res = uni.getWindowInfo();
+				// 获取状态栏, 供截图对比使用
+				setStatusBarHeight(res.statusBarHeight);
+			},
+			getDeviceInfo: function () {
+				const res = uni.getDeviceInfo();
+				// 获取像素比, 供截图对比使用
+				setDevicePixelRatio(res.devicePixelRatio !== null ? parseFloat(res.devicePixelRatio!) : 1);
+			}
+		}
+	}
+</script>
+<style>
+	.top-placehoder {
+		height: var(--status-bar-height);
+		background-color: #007aff;
+	}
+
+	.webview-screenshot-comparison {
+		flex: 1;
+	}
+</style>

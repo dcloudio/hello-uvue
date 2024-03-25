@@ -1,86 +1,63 @@
 <template>
-  <view class="component">
-    <view class="row">
-      <text>string: </text><text class="string">{{str}}</text>
-    </view>
-    <view class="row">
-      <text>num: </text><text class="number">{{num}}</text>
-    </view>
-    <view class="row">
-      <text>bool: </text><text class="boolean">{{bool}}</text>
-    </view>
-    <view class="row">
-      <text>ArrayString: </text>
-      <text class="array-string" v-for="str in arrayString">{{str}}</text>
-    </view>
-    <view class="row">
-      <text>obj.count: </text>
-      <text class="object">{{obj.count}}</text>
-    </view>
-    <!--    <view class="row">-->
-    <!--      <text>obj.key: </text><text>{{obj.key}}</text>-->
-    <!--    </view>-->
-    <!--    <view class="row">-->
-    <!--      <text>date timestamp: </text><text>{{date.now()}}</text>-->
-    <!--    </view>-->
-    <!--    <view class="row">-->
-    <!--      <text>function result: </text><text>{{func()}}</text>-->
-    <!--    </view>-->
-    <!--    <view class="row">-->
-    <!--      <text>symbol: </text><text>{{symbol}}</text>-->
-    <!--    </view>-->
-  </view>
+	<view class="component">
+		<view class="row">
+			<text>string: </text><text class="string">{{str}}</text>
+		</view>
+		<view class="row">
+			<text>num: </text><text class="number">{{num}}</text>
+		</view>
+		<view class="row">
+			<text>bool: </text><text class="boolean">{{bool}}</text>
+		</view>
+		<view class="row">
+			<text>ArrayString: </text>
+			<text class="array-string" v-for="str in arrayString">{{str}}</text>
+		</view>
+		<view class="row">
+			<text>obj.count: </text>
+			<text class="object">{{obj.count}}</text>
+		</view>
+		<view class="row">
+			<text id="check-type-arr">arr: {{arr}}</text>
+		</view>
+	</view>
 </template>
 
 <script>
-  import { type PropType } from 'vue'
+	import { type PropType } from 'vue'
 
-  export type CusomObject = { count : number }
+	export type CusomObject = { count : number }
 
-  export default {
-    props: {
-      str: {
-        type: String,
-        default: 'default value'
-      },
-      num: {
-        type: Number,
-        default: 0
-      },
-      bool: {
-        type: Boolean,
-        default: false
-      },
-      arrayString: {
-        type: Array as PropType<string[]>,
-        default: () : Array<string> => {
-          return []
-        }
-      },
-      obj: {
-        type: Object as PropType<CusomObject>,
-        default: () : CusomObject => ({ count: 0 } as CusomObject)
-      },
-      // date: {
-      //   type: Date,
-      //   default: () => {
-      //     return new Date()
-      //   }
-      // },
-      // func: {
-      //   type: Function,
-      //   default: () => {
-      //     return () => {}
-      //   }
-      // },
-      // symbol: {
-      //   type: Symbol,
-      //   default: Symbol('default')
-      // },
-    }
-  }
+	export default {
+		props: {
+			str: {
+				type: String,
+				default: 'default value'
+			},
+			num: {
+				type: Number,
+				default: 0
+			},
+			bool: {
+				type: Boolean,
+				default: false
+			},
+			arrayString: {
+				type: Array as PropType<string[]>,
+				default: () : Array<string> => {
+					return []
+				}
+			},
+			obj: {
+				type: Object as PropType<CusomObject>,
+				default: () : CusomObject => ({ count: 0 } as CusomObject)
+			},
+			arr: {
+				type: Array as PropType<string[]>,
+				default: () : Array<string> => {
+					return ['a', 'b', 'c']
+				}
+			}
+		}
+	}
 </script>
-
-<style scoped>
-
-</style>
