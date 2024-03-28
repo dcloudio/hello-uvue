@@ -61,6 +61,12 @@
       }
     },
     {
+      "path": "pages/directive/v-bind/v-bind-array-deep",
+      "style": {
+        "navigationBarTitleText": "v-bind-array-deep"
+      }
+    },
+    {
       "path": "pages/directive/v-for/v-for",
       "style": {
         "navigationBarTitleText": "v-for"

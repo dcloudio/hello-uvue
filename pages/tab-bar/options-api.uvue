@@ -163,6 +163,11 @@
                 enable: false,
               },
               {
+                name: 'v-bind-array-deep',
+                url: 'v-bind/v-bind-array-deep',
+                enable: true,
+              },
+              {
                 name: 'v-model',
                 url: 'v-model',
                 enable: true,
