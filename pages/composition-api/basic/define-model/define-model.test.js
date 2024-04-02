@@ -1,13 +1,6 @@
 const PAGE_PATH = '/pages/composition-api/basic/define-model/define-model'
 
 describe('defineModel', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: web 端暂不支持
-    it('web', async () => {
-      expect(1).toBe(1)
-    })
-    return
-  }
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -18,7 +11,7 @@ describe('defineModel', () => {
     expect(await modelValueText.text()).toBe('modelValue in Foo: str')
 
     const modelValueInput = await page.$('#model-value-input')
-    expect(await modelValueInput.property('value')).toBe('str')
+    expect(await modelValueInput.value()).toBe('str')
 
     const msgText = await page.$('#msg-text')
     expect(await msgText.text()).toBe('msg in Foo: msg')
@@ -27,15 +20,15 @@ describe('defineModel', () => {
     expect(await defaultNumText.text()).toBe('num: 10')
 
     const msgInput = await page.$('#msg-input')
-    expect(await msgInput.property('value')).toBe('msg')
+    expect(await msgInput.value()).toBe('msg')
 
     const updateValueBtn = await page.$('#update-value-btn')
     await updateValueBtn.tap()
 
     expect(await modelValueText.text()).toBe('modelValue in Foo: str1')
-    expect(await modelValueInput.property('value')).toBe('str1')
+    expect(await modelValueInput.value()).toBe('str1')
 
     expect(await msgText.text()).toBe('msg in Foo: msg2')
-    expect(await msgInput.property('value')).toBe('msg2')
+    expect(await msgInput.value()).toBe('msg2')
   })
 })
