@@ -168,6 +168,11 @@
                 enable: true,
               },
               {
+                name: 'v-bind-map',
+                url: 'v-bind/v-bind-map',
+                enable: true,
+              },
+              {
                 name: 'v-model',
                 url: 'v-model',
                 enable: true,

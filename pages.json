@@ -67,6 +67,12 @@
       }
     },
     {
+      "path": "pages/directive/v-bind/v-bind-map",
+      "style": {
+        "navigationBarTitleText": "v-bind-map"
+      }
+    },
+    {
       "path": "pages/directive/v-for/v-for",
       "style": {
         "navigationBarTitleText": "v-for"
