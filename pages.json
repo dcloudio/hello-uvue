@@ -73,6 +73,12 @@
       }
     },
     {
+      "path": "pages/directive/v-bind/v-bind-set",
+      "style": {
+        "navigationBarTitleText": "v-bind-set"
+      }
+    },
+    {
       "path": "pages/directive/v-for/v-for",
       "style": {
         "navigationBarTitleText": "v-for"

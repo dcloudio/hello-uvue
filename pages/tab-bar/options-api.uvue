@@ -173,6 +173,11 @@
                 enable: true,
               },
               {
+                name: 'v-bind-set',
+                url: 'v-bind/v-bind-set',
+                enable: true,
+              },
+              {
                 name: 'v-model',
                 url: 'v-model',
                 enable: true,
