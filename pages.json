@@ -54,12 +54,30 @@
         "navigationBarTitleText": "v-bind-props"
       }
     },
-    // {
-    //   "path": "pages/directive/v-bind/v-bind-attribute",
-    //   "style": {
-    //     "navigationBarTitleText": "v-bind-attribute"
-    //   }
-    // },
+    {
+      "path": "pages/directive/v-bind/v-bind-attribute",
+      "style": {
+        "navigationBarTitleText": "v-bind-attribute"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-array-deep",
+      "style": {
+        "navigationBarTitleText": "v-bind-array-deep"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-map",
+      "style": {
+        "navigationBarTitleText": "v-bind-map"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-set",
+      "style": {
+        "navigationBarTitleText": "v-bind-set"
+      }
+    },
     {
       "path": "pages/directive/v-for/v-for",
       "style": {
@@ -417,7 +435,7 @@
         "navigationBarTitleText": "defineExpose"
       }
     },
-		// #ifdef APP
+    // #ifdef APP
     {
       "path": "pages/composition-api/basic/define-model/define-model",
       "style": {
@@ -430,7 +448,7 @@
         "navigationBarTitleText": "defineOptions"
       }
     },
-		// #endif
+    // #endif
     {
       "path": "pages/composition-api/basic/define-slots/define-slots",
       "style": {
@@ -608,58 +626,53 @@
       }
     },
     {
-      "path" : "pages/composition-api/lifecycle/page-lifecycle/page-lifecycle",
-      "style" : 
-      {
-        "navigationBarTitleText" : "页面生命周期",
+      "path": "pages/composition-api/lifecycle/page-lifecycle/page-lifecycle",
+      "style": {
+        "navigationBarTitleText": "页面生命周期",
         "enablePullDownRefresh": true
       }
     },
     {
-      "path" : "pages/composition-api/lifecycle/component-lifecycle/component-lifecycle",
-      "style" : 
-      {
+      "path": "pages/composition-api/lifecycle/component-lifecycle/component-lifecycle",
+      "style": {
         "navigationBarTitleText": "组件生命周期",
         "enablePullDownRefresh": true
       }
     },
     {
-      "path" : "pages/composition-api/dependency-injection/provide/provide",
-      "style" : 
-      {
-        "navigationBarTitleText" : "依赖注入"
+      "path": "pages/composition-api/dependency-injection/provide/provide",
+      "style": {
+        "navigationBarTitleText": "依赖注入"
       }
     },
     {
-    	"path" : "pages/built-in-component/teleport/teleport",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "teleport",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/built-in-component/teleport/teleport",
+      "style": {
+        "navigationBarTitleText": "teleport",
+        "enablePullDownRefresh": false
+      }
     },
-		{
-		  "path": "pages/webview-screenshot-comparison/webview-screenshot-comparison",
-		  "style": {
-		    "navigationBarTitleText": "截图对比测试",
-		    "navigationStyle": "custom"
-		  }
-		},
-		{
-		  "path": "pages/webview-screenshot/webview-screenshot",
-		  "style": {
-		    "navigationBarTitleText": "webview 截图测试",
-		    "navigationStyle": "custom"
-		  }
-		},
-		{
-			"path" : "pages/type/type",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
-			}
-		}
+    {
+      "path": "pages/webview-screenshot-comparison/webview-screenshot-comparison",
+      "style": {
+        "navigationBarTitleText": "截图对比测试",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/webview-screenshot/webview-screenshot",
+      "style": {
+        "navigationBarTitleText": "webview 截图测试",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/type/type",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    }
   ],
   "tabBar": {
     "color": "#7A7E83",

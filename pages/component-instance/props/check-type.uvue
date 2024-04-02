@@ -18,7 +18,7 @@
 			<text class="object">{{obj.count}}</text>
 		</view>
 		<view class="row">
-			<text id="check-type-arr">arr: {{arr}}</text>
+			<text id="check-type-arr">arr: {{JSON.stringify(arr)}}</text>
 		</view>
 	</view>
 </template>

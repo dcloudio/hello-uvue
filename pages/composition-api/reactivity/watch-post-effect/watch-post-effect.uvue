@@ -6,8 +6,6 @@
       <text id="count" ref="countRef" class="uni-common-mb">count: {{ count }}</text>
       <text id="watch-count-res" class="uni-common-mb">watch count result: {{ watchCountRes }}</text>
       <text id="watch-count-track-num" class="uni-common-mb">watch count track number: {{ watchCountTrackNum }}</text>
-      <text id="watch-count-trigger-num" class="uni-common-mb">watch count trigger number:
-        {{ watchCountTriggerNum }}</text>
       <text id="watch-count-cleanup-res" class="uni-common-mb">watch count cleanup result: {{ watchCountCleanupRes }}</text>
       <button id="increment-btn" class="uni-common-mb" @click="increment">
         increment
@@ -16,9 +14,11 @@
         stop watch count
       </button>
       <text id="obj-str" ref="objStrRef" class="uni-common-mb">obj.str: {{ obj.str }}</text>
+      <text id="watch-obj-str-trigger-num" class="uni-common-mb">watch obj.str trigger number:
+        {{ watchObjStrTriggerNum }}</text>
       <text id="obj-num" class="uni-common-mb">obj.num: {{ obj.num }}</text>
       <text id="obj-bool" ref="objBoolRef" class="uni-common-mb">obj.bool: {{ obj.bool }}</text>
-      <text id="obj-arr" ref="objArrRef" class="uni-common-mb">obj.arr: {{ obj.arr }}</text>
+      <text id="obj-arr" ref="objArrRef" class="uni-common-mb">obj.arr: {{ JSON.stringify(obj.arr) }}</text>
       <text id="watch-obj-res" class="uni-common-mb">watch obj result: {{ watchObjRes }}</text>
       <text id="watch-obj-str-res" class="uni-common-mb">watch obj.str result: {{ watchObjStrRes }}</text>
       <text id="watch-obj-arr-res" class="uni-common-mb">watch obj.arr result: {{ watchObjArrRes }}</text>
@@ -46,7 +46,6 @@
   const watchCountRes = ref('')
   const watchCountCleanupRes = ref('')
   const watchCountTrackNum = ref(0)
-  const watchCountTriggerNum = ref(0)
 
   const stopWatchCount = watchPostEffect((onCleanup : OnCleanup) => {
     if (countRef.value !== null) {
@@ -69,12 +68,6 @@
       onTrack(event : DebuggerEvent) {
         if (event.type === 'get') {
           watchCountTrackNum.value++
-        }
-      },
-      // 侦听器回调被依赖项的变更触发时调用
-      onTrigger(event : DebuggerEvent) {
-        if (event.type === 'set') {
-          watchCountTriggerNum.value++
         }
       }
     },
@@ -100,6 +93,8 @@
 
   const objStrRef = ref<UniTextElement | null>(null)
   const watchObjStrRes = ref('')
+  const watchObjStrTriggerNum = ref(0)
+  
   watchPostEffect(() => {
     if (objStrRef.value !== null) {
       // #ifdef APP
@@ -110,6 +105,13 @@
       // #endif 
     } else {
       watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: `
+    }
+  },{
+    // 侦听器回调被依赖项的变更触发时调用
+    onTrigger(event : DebuggerEvent) {
+      if (event.type === 'set') {
+        watchObjStrTriggerNum.value++
+      }
     }
   })
 

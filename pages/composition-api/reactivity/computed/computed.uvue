@@ -2,7 +2,7 @@
   <view class="page">
     <text id="count" class="uni-common-mb">count: {{ count }}</text>
     <text id="double-count" class="uni-common-mb">computed double count: {{ doubleCount }}</text>
-    <text id="obj-arr" class="uni-common-mb">obj.arr: {{ obj.arr }}</text>
+    <text id="obj-arr" class="uni-common-mb">obj.arr: {{ JSON.stringify(obj.arr) }}</text>
     <text id="obj-arr-len" class="uni-common-mb">computed obj.arr.length: {{ objArrLen }}</text>
     <button id="update-btn" @click="update">update</button>
   </view>
@@ -11,7 +11,7 @@
 <script setup>
   const count = ref(0)
 
-  const doubleCount = computed<number>(() : number => {
+  const doubleCount = computed(() : number => {
     return count.value * 2
   })
 

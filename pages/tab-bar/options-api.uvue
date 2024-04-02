@@ -163,6 +163,21 @@
                 enable: false,
               },
               {
+                name: 'v-bind-array-deep',
+                url: 'v-bind/v-bind-array-deep',
+                enable: true,
+              },
+              {
+                name: 'v-bind-map',
+                url: 'v-bind/v-bind-map',
+                enable: true,
+              },
+              {
+                name: 'v-bind-set',
+                url: 'v-bind/v-bind-set',
+                enable: true,
+              },
+              {
                 name: 'v-model',
                 url: 'v-model',
                 enable: true,

@@ -13,9 +13,9 @@
     <text class="uni-common-mt provide-page-object-content"
       >providePageObject.content: {{ providePageObject['content'] }}</text
     >
-    <text class="uni-common-mt provide-page-arr">providePageArr: {{ providePageArr }}</text>
-    <text class="uni-common-mt provide-page-map">providePageMap: {{ providePageMapObj }}</text>
-    <text class="uni-common-mt provide-page-set">providePageSet: {{ providePageSetArr }}</text>
+    <text class="uni-common-mt provide-page-arr">providePageArr: {{ JSON.stringify(providePageArr) }}</text>
+    <text class="uni-common-mt provide-page-map">providePageMap: {{ JSON.stringify(providePageMapObj) }}</text>
+    <text class="uni-common-mt provide-page-set">providePageSet: {{ JSON.stringify(providePageSetArr) }}</text>
   </view>
 </template>
 

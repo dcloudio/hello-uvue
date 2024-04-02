@@ -3,8 +3,8 @@
     <view class="row"><text>str: </text><text id="array-literal-str">{{ str }}</text></view>
     <view class="row"><text>num: </text><text id="array-literal-num">{{ num }}</text></view>
     <view class="row"><text>bool: </text><text id="array-literal-bool">{{ bool }}</text></view>
-    <view class="row"><text>obj: </text><text id="array-literal-obj">{{ obj }}</text></view>
-    <view class="row"><text>array: </text><text id="array-literal-arr">{{ arr }}</text></view>
+    <view class="row"><text>obj: </text><text id="array-literal-obj">{{ JSON.stringify(obj) }}</text></view>
+    <view class="row"><text>array: </text><text id="array-literal-arr">{{ JSON.stringify(arr) }}</text></view>
   </view>
 </template>
 

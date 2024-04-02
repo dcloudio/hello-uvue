@@ -20,13 +20,13 @@
       >providePageObject.content: {{ providePageObject['content'] }}</text
     >
     <text class="uni-common-mt provide-page-arr"
-      >providePageArr: {{ providePageArr }}</text
+      >providePageArr: {{ JSON.stringify(providePageArr) }}</text
     >
    <text class="uni-common-mt provide-page-map"
-      >providePageMap: {{ providePageMapObj }}</text
+      >providePageMap: {{ JSON.stringify(providePageMapObj) }}</text
     >
     <text class="uni-common-mt provide-page-set"
-      >providePageSet: {{ providePageSetArr }}</text
+      >providePageSet: {{ JSON.stringify(providePageSetArr) }}</text
     >
     <text class="uni-common-mt test-inject-string-default-value"
       >testInjectStringDefaultValue: {{ testInjectStringDefaultValue }}</text
