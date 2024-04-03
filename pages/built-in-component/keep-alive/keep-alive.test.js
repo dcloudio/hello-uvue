@@ -1,7 +1,7 @@
 const PAGE_PATH = '/pages/built-in-component/keep-alive/keep-alive'
 
 describe('keep-alive', () => {
-  if(process.env.uniTestPlatformInfo.startsWith('IOS')){
+  if(process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')){
     it("IOS platform not support", async () => {
       expect(1).toBe(1);
     });

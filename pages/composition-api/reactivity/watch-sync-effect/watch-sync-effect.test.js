@@ -19,7 +19,7 @@ describe('watchSyncEffect', () => {
     const watchCountTrackNum = await page.$('#watch-count-track-num')
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       // TODO: 确认 IOS 的差异是否正常
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 11')
     } else {
@@ -42,7 +42,7 @@ describe('watchSyncEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       // TODO: 确认 IOS 的差异是否正常
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 19')
     } else {
@@ -61,7 +61,7 @@ describe('watchSyncEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       // TODO: 确认 IOS 的差异是否正常
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 27')
     } else {
@@ -84,7 +84,7 @@ describe('watchSyncEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       // TODO: 确认 IOS 的差异是否正常
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 27')
     } else {
