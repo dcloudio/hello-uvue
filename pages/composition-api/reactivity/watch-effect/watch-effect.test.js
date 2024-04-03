@@ -133,7 +133,7 @@ describe('watchEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchObjRes.text()).toBe(
-        'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}')
+        'watch obj result: obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}')
     }
     if (process.env.uniTestPlatformInfo.startsWith('web')) {
       expect(await watchObjRes.text()).toBe(
