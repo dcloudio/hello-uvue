@@ -106,8 +106,7 @@ describe('watchSyncEffect', () => {
     expect(await objArr.text()).toBe('obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
-    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.startsWith(
-        'IOS')) {
+    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       expect(await watchObjRes.text()).toBe(
         'watch obj result: obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}'
       )
@@ -136,14 +135,13 @@ describe('watchSyncEffect', () => {
     expect(await objBool.text()).toBe('obj.bool: true')
     expect(await objArr.text()).toBe('obj.arr: [0,1]')
 
-    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.startsWith(
-        'IOS')) {
+    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       expect(await watchObjRes.text()).toBe(
         'watch obj result: obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}'
       )
     } else {
       expect(await watchObjRes.text()).toBe(
-        'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
+        'watch obj result: obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}'
       )
     }
 
