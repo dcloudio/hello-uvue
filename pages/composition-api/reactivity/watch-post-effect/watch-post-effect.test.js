@@ -20,7 +20,7 @@ describe('watchPostEffect', () => {
     const watchCountTrackNum = await page.$('#watch-count-track-num')
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       // TODO: 确认 IOS 的差异是否正常
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 8')
     } else {
@@ -45,7 +45,7 @@ describe('watchPostEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 16')
     } else {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 6')
@@ -63,7 +63,7 @@ describe('watchPostEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 24')
     } else {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 9')
@@ -85,7 +85,7 @@ describe('watchPostEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 24')
     } else {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 9')

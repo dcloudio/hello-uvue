@@ -20,7 +20,7 @@ describe('defineProps', () => {
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await arrayLiteralObj.text()).toBe('obj: {"arr":[1,2,3],"num":0,"str":"obj str"}')
     }
-    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       expect(await arrayLiteralObj.text()).toBe('obj: {"str":"obj str","num":0,"arr":[1,2,3]}')
     }
     
@@ -55,7 +55,7 @@ describe('defineProps', () => {
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await typeObj.text()).toBe('obj: {"arr":[1,2,3],"num":0,"str":"obj str"}')
     }
-    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.startsWith('IOS')) {
+    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
       expect(await typeObj.text()).toBe('obj: {"str":"obj str","num":0,"arr":[1,2,3]}')
     }
     const typeFn = await page.$('#type-fn')

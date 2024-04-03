@@ -1,7 +1,7 @@
 const PAGE_PATH = '/pages/built-in-component/teleport/teleport'
 
 describe('teleport', () => {
-  if(process.env.uniTestPlatformInfo.startsWith('IOS')){
+  if(process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')){
     it("IOS platform not support", async () => {
       expect(1).toBe(1);
     });
