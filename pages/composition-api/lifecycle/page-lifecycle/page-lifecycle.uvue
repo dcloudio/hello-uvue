@@ -73,7 +73,7 @@
       success() {
         setTimeout(() => {
           uni.stopPullDownRefresh()
-        }, 1000)
+        }, 1500)
       },
     })
   }
