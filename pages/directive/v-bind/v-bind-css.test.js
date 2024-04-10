@@ -12,11 +12,11 @@ describe('v-bind-css', () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor(500)
   })
-	it('screenshot', async () => {
-		await page.waitFor(500)
-		const image = await program.screenshot({
-			fullPage: true
-		});
-		expect(image).toMatchImageSnapshot();
-	})
+  it('screenshot', async () => {
+    await page.waitFor(500)
+    const image = await program.screenshot({
+      fullPage: true
+    });
+    expect(image).toMatchImageSnapshot();
+  })
 })
