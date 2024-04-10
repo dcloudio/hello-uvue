@@ -78,6 +78,14 @@
         "navigationBarTitleText": "v-bind-set"
       }
     },
+    // #ifdef WEB
+    {
+      "path": "pages/directive/v-bind/v-bind-css",
+      "style": {
+        "navigationBarTitleText": "v-bind-css"
+      }
+    },
+    // #endif
     {
       "path": "pages/directive/v-for/v-for",
       "style": {
