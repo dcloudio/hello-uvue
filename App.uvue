@@ -107,36 +107,11 @@
     transform: rotate(180deg);
   }
 
-  .uni-navigate-item {
-    flex-direction: row;
-    align-items: center;
-    background-color: #ffffff;
-    border-top-style: solid;
-    border-top-color: #f0f0f0;
-    border-top-width: 1px;
-    padding: 12px;
-    justify-content: space-between;
-  }
-
-  .uni-navigate-item:active {
-    background-color: #f8f8f8;
-  }
-
-  .uni-navigate-text {
-    color: #000000;
-    font-size: 12px;
-    opacity: 0.8;
-  }
-
   .uni-navigate-icon {
     margin-left: 15px;
     color: #999999;
     font-size: 14px;
     font-weight: normal;
-  }
-
-  .text-disabled {
-    color: #a0a0a0;
   }
 
   .list-item-text {

@@ -1,0 +1,172 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1">
+    <!-- #endif -->
+    <view>
+      <uni-collapse>
+        <uni-collapse-item
+          v-for="menu in menus"
+          :key="menu.id"
+          :title="menu.name"
+          class="menu">
+          <view v-for="(page, index) in menu.pages" :key="page.name">
+            <view
+              v-if="page.url"
+              class="page-item"
+              :class="{ 'first-child': index == 0 }"
+              @click="goDetailPage(menu.id, page)">
+              <text
+                :class="{ 'text-disabled': page.enable == false }"
+                class="text"
+                >{{ page.name }}</text
+              >
+            </view>
+            <template v-if="page.children">
+              <uni-collapse style="flex: 1">
+                <uni-collapse-item :title="page.name" class="menu">
+                  <view
+                    v-for="(child, index) in page.children"
+                    :key="child.url"
+                    class="page-item"
+                    :class="{ 'first-child': index == 0 }"
+                    @click="goDetailPage(`${menu.id}/${page.id}`, child)">
+                    <text
+                      :class="{ 'text-disabled': child.enable == false }"
+                      class="text"
+                      >{{ child.name }}</text
+                    >
+                  </view>
+                </uni-collapse-item>
+              </uni-collapse>
+            </template>
+          </view>
+        </uni-collapse-item>
+      </uni-collapse>
+    </view>
+    <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script lang="uts">
+import { setLifeCycleNum, state } from '@/store/index.uts'
+
+type Page = {
+  id: string,
+  name : string
+  enable?: boolean
+  url ?: string
+  children?: Page[]
+}
+
+type Menu = {
+  id : string
+  name : string
+  pages : Page[]
+  url ?: string
+  enable ?: boolean
+}
+
+export default {
+  data() {
+    return {
+      menus: [
+        {
+          id: 'app-instance',
+          name: 'App 实例',
+          pages: [
+            {
+              id: 'component',
+              name: 'component',
+              url: 'component/component',
+            },
+            {
+              id: 'globalProperties',
+              name: 'globalProperties',
+              children: [
+                {
+                  id: 'globalProperties-options',
+                  name: 'globalProperties  选项式 API',
+                  url: 'globalProperties-composition',
+                },
+                {
+                  id: 'globalProperties-composition',
+                  name: 'globalProperties 组合式 API',
+                  url: 'globalProperties-composition',
+                }
+              ]
+            },
+            {
+              id: 'use',
+              name: 'use',
+              children: [
+                {
+                  id: 'use-options',
+                  name: 'use 选项式 API',
+                  url: 'use-composition',
+                },
+                {
+                  id: 'use-composition',
+                  name: 'use 组合式 API',
+                  url: 'use-composition',
+                }
+              ]
+            }
+          ] as Page[],
+        }
+      ] as Menu[],
+    }
+  },
+  methods: {
+    goDetailPage(parentName : string, page : Page) {
+      if (page.enable == false) {
+        uni.showToast({
+          icon: 'none',
+          title: '暂不支持',
+        })
+        return
+      }
+      console.log('`/pages/${parentName}/${page.url}`',`/pages/${parentName}/${page.url}`)
+      uni.navigateTo({
+        url: `/pages/${parentName}/${page.url}`,
+      })
+    },
+    // 自动化测试
+    setLifeCycleNum(num : number) {
+      setLifeCycleNum(num)
+    },
+    // 自动化测试
+    getLifeCycleNum() : number {
+      return state.lifeCycleNum
+    },
+    // 自动化测试
+    checkLaunchPath() : boolean {
+      const app = getApp()
+      return app.checkLaunchPath()
+    },
+  },
+}
+</script>
+
+<style lang="scss">
+.menu {
+  border-bottom: 1px solid #dbd9d9;
+  &.open {
+    border-bottom: none;
+  }
+}
+.page-item {
+  padding: 12px 10px;
+  border-bottom: 1px solid #dbd9d9;
+  &.first-child {
+    border-top: 1px solid #dbd9d9;
+  }
+  .text {
+    font-size: 14px;
+    color: #333;
+    &.text-disabled {
+      color: #999;
+    }
+  }
+}
+</style>

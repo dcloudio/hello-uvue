@@ -16,12 +16,11 @@ script 中不要有空的 data, onLoad, methods\
 ## app instance
 
 - [x] app.component
-- [x] app.use               app.use
 - [x] app.globalProperties  app.globalProperties
+- [x] app.use               app.use
 
 ## component instance
 - [ ] attrs useAttrs
-- [ ] circular reference
 - [ ] data
 - [ ] props defineProps
 - [ ] el
@@ -32,15 +31,24 @@ script 中不要有空的 data, onLoad, methods\
 - [ ] refs  ref
 - [ ] emit defineEmits
 - [ ] forceUpdate
-- [ ] nextTick
 - [ ] methods
+- [ ] provide  provide
 - [ ] inject   inject
 - [ ] mixins   mixins
-- [ ] provide  provide
+- [ ] nextTick
 - [ ] options API setup
 - [ ] defineExpose
+- [ ] circular reference
 
 ## reactivity
+- [ ] ref
+- [ ] reactive
+- [ ] computed computed
+- [ ] watch    watch
+- [ ] watchEffect
+- [ ] watchPostEffect
+- [ ] watchSyncEffect
+- [ ] readonly
 - [ ] customRef
 - [ ] effectScope
 - [ ] getCurrentScope
@@ -49,9 +57,6 @@ script 中不要有空的 data, onLoad, methods\
 - [ ] isRef
 - [ ] markRaw
 - [ ] onScopeDispose
-- [ ] reactive
-- [ ] readonly
-- [ ] ref
 - [ ] shallowReactive
 - [ ] shallowReadonly
 - [ ] shallowRef
@@ -61,25 +66,20 @@ script 中不要有空的 data, onLoad, methods\
 - [ ] toValue
 - [ ] triggerRef
 - [ ] unRef
-- [ ] computed computed
-- [ ] watch    watch
-- [ ] watchEffect
-- [ ] watchPostEffect
-- [ ] watchSyncEffect
 
 ## directives
 
 - [ ] v-bind      v-bind
 - [ ] v-for       v-for
-- [ ] v-html      v-html
 - [ ] v-if        v-if
-- [ ] v-memo      v-memo
 - [ ] v-model     defineModel
 - [ ] v-on        v-on
-- [ ] v-once      v-once
-- [ ] v-pre       v-pre
 - [ ] v-show      v-show
 - [ ] v-slot      v-slot
+- [ ] v-once      v-once
+- [ ] v-memo      v-memo
+- [ ] v-pre       v-pre
+- [ ] v-html      v-html
 
 ## lifecycle
 

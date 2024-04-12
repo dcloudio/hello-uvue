@@ -1,17 +1,9 @@
-const PAGE_PATH = '/pages/app-instance/index/index'
+const OPTIONS_PAGE_PATH = '/pages/app-instance/use/use-options'
+const COMPOSITION_PAGE_PATH = '/pages/app-instance/use/use-composition'
 
 describe('app-instance', () => {
   let page = null
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor('view')
-  })
-  it('app.component', async () => {
-    const CompForAppComponent = await page.$('.component-for-app-component')
-    const CompForAppComponentText = await CompForAppComponent.text()
-    expect(CompForAppComponentText).toBe('component for app.component')
-  })
-  it('app.use', async () => {
+  const test = async (page) => {
     const plugin1El = await page.$('.plugin1')
     const plugin1Text = await plugin1El.text()
     expect(plugin1Text).toBe('plugin1: 通过字面量方式创建的 plugin')
@@ -35,5 +27,20 @@ describe('app-instance', () => {
     const compForPluginEl = await page.$('.component-for-plugin')
     const compForPluginText = await compForPluginEl.text()
     expect(compForPluginText).toBe('component for plugin')
+  }
+  
+  it('app.use options API', async () => {
+    page = await program.reLaunch(OPTIONS_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
+  })
+  
+  it('app.use composition API', async () => {
+    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
   })
 })
+

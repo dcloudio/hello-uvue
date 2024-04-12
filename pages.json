@@ -1,27 +1,40 @@
 {
   "pages": [
     {
-      "path": "pages/tab-bar/options-api",
+      "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "选项式 API"
+        "navigationBarTitleText": "hello uvue"
+      }
+    },
+
+    {
+      "path": "pages/app-instance/component/component",
+      "style": {
+        "navigationBarTitleText": "app.component"
       }
     },
     {
-      "path": "pages/tab-bar/composition-api",
+      "path": "pages/app-instance/globalProperties/globalProperties-options",
       "style": {
-        "navigationBarTitleText": "组合式 API"
+        "navigationBarTitleText": "app.globalProperties"
       }
     },
     {
-      "path": "pages/app-instance/index/index",
+      "path": "pages/app-instance/globalProperties/globalProperties-composition",
       "style": {
-        "navigationBarTitleText": "app instance"
+        "navigationBarTitleText": "app.globalProperties"
       }
     },
     {
-      "path": "pages/app-instance/globalProperties/globalProperties",
+      "path": "pages/app-instance/use/use-options",
       "style": {
-        "navigationBarTitleText": "globalProperties"
+        "navigationBarTitleText": "app.use"
+      }
+    },
+    {
+      "path": "pages/app-instance/use/use-composition",
+      "style": {
+        "navigationBarTitleText": "app.use"
       }
     },
     {
@@ -666,22 +679,6 @@
       }
     }
   ],
-  "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#007AFF",
-    "borderStyle": "black",
-    "backgroundColor": "#F8F8F8",
-    "list": [
-      {
-        "pagePath": "pages/tab-bar/options-api",
-        "text": "选项式 API"
-      },
-      {
-        "pagePath": "pages/tab-bar/composition-api",
-        "text": "组合式 API"
-      }
-    ]
-  },
   "globalStyle": {
     "pageOrientation": "portrait",
     "navigationBarTitleText": "Hello UVUE",
