@@ -87,7 +87,7 @@ export default {
                 {
                   id: 'globalProperties-options',
                   name: 'globalProperties  选项式 API',
-                  url: 'globalProperties-composition',
+                  url: 'globalProperties-options',
                 },
                 {
                   id: 'globalProperties-composition',
@@ -113,12 +113,33 @@ export default {
               ]
             }
           ] as Page[],
+        },{
+          id: 'component-instance',
+          name: '组件 实例',
+          pages: [
+            {
+              id: 'attrs',
+              name: 'attrs',
+              children: [
+                {
+                  id: 'attrs-options',
+                  name: 'attrs  选项式 API',
+                  url: 'attrs-options',
+                },
+                {
+                  id: 'attrs-composition',
+                  name: 'attrs 组合式 API',
+                  url: 'attrs-composition',
+                }
+              ]
+            },
+          ] as Page[],
         }
       ] as Menu[],
     }
   },
   methods: {
-    goDetailPage(parentName : string, page : Page) {
+    goDetailPage(parentUrl : string, page : Page) {
       if (page.enable == false) {
         uni.showToast({
           icon: 'none',
@@ -126,9 +147,8 @@ export default {
         })
         return
       }
-      console.log('`/pages/${parentName}/${page.url}`',`/pages/${parentName}/${page.url}`)
       uni.navigateTo({
-        url: `/pages/${parentName}/${page.url}`,
+        url: `/pages/${parentUrl}/${page.url}`,
       })
     },
     // 自动化测试

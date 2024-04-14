@@ -6,7 +6,6 @@
         "navigationBarTitleText": "hello uvue"
       }
     },
-
     {
       "path": "pages/app-instance/component/component",
       "style": {
@@ -35,6 +34,18 @@
       "path": "pages/app-instance/use/use-composition",
       "style": {
         "navigationBarTitleText": "app.use"
+      }
+    },
+    {
+      "path": "pages/component-instance/attrs/attrs-options",
+      "style": {
+        "navigationBarTitleText": "$attrs"
+      }
+    },
+    {
+      "path": "pages/component-instance/attrs/attrs-composition",
+      "style": {
+        "navigationBarTitleText": "useAttrs"
       }
     },
     {
@@ -246,12 +257,6 @@
       "path": "pages/component-instance/refs/refs",
       "style": {
         "navigationBarTitleText": "$refs"
-      }
-    },
-    {
-      "path": "pages/component-instance/attrs/attrs",
-      "style": {
-        "navigationBarTitleText": "$attrs"
       }
     },
     {

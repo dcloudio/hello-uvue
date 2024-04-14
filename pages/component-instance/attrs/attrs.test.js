@@ -1,24 +1,29 @@
-const PAGE_PATH = '/pages/component-instance/attrs/attrs'
+const OPTIONS_PAGE_PATH = '/pages/component-instance/attrs/attrs-options'
+const COMPOSITION_PAGE_PATH = '/pages/component-instance/attrs/attrs-composition'
 
-describe('$props', () => {
+describe('$attrs', () => {
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
+  
+  const test = async (page) => {
+    const hasPropsAttr = await page.$('#has-props-attr')
+    expect(await hasPropsAttr.text()).toBe('false')
+    const hasEmitsAttr = await page.$('#has-emits-attr')
+    expect(await hasEmitsAttr.text()).toBe('false')
+    const hasClassAttr = await page.$('#has-class-attr')
+    expect(await hasClassAttr.text()).toBe('true')
+  }
+  
+  it('$attrs options API', async () => {
+    page = await program.reLaunch(OPTIONS_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
   })
 
-  it('$attrs中不应该存在$props属性（已在组件props中声明）', async () => {
-    const val = await page.$('.has-props-attrs')
-    expect(await val.text()).toBe('false')
-  })
-
-  it('$attrs中不应该存在$emits属性（已在组件emits中声明）', async () => {
-    const val = await page.$('.has-emits-attrs')
-    expect(await val.text()).toBe('false')
-  })
-
-  it('$attrs中可以获取到未声明的属性', async () => {
-    const val = await page.$('.has-attrs')
-    expect(await val.text()).toBe('true')
+  it('useAttrs composition API', async () => {
+    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
   })
 })
