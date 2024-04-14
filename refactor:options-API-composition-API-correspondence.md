@@ -11,7 +11,8 @@
 
 不要有空的style, script\
 script 中不要有空的 data, onLoad, methods\
-缩进使用两个空格
+缩进使用两个空格\
+公共 css class 维护在 styles/common.css 中
 
 ## app instance
 
