@@ -1,0 +1,26 @@
+
+<template>
+    <view class="page">
+      <view class="mb-10 flex justify-between flex-row">
+        <text>root str in parent component: </text>
+        <text id="root-str-parent">{{ rootStr }}</text>
+      </view>
+      <child />
+    </view>
+</template>
+
+<script setup lang="uts">
+import Child from './child-composition.uvue'
+
+const str = ref('root component str')
+const rootStr = ref('')
+
+onReady(() => {
+  const instance = getCurrentInstance()!.proxy!
+  rootStr.value = (instance.$root!.$exposed['str'] as Ref<string>).value as string
+})
+
+defineExpose({
+  str
+})
+</script>

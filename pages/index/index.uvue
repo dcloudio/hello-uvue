@@ -208,6 +208,24 @@ export default {
                 }
               ]
             },
+            // #ifdef APP 
+            {
+              id: 'root',
+              name: '$root',
+              children: [
+                {
+                  id: 'root-options',
+                  name: '$root 选项式 API',
+                  url: 'root-options',
+                },
+                {
+                  id: 'root-composition',
+                  name: '$root 组合式 API',
+                  url: 'root-composition',
+                }
+              ]
+            },
+            // #endif
           ] as Page[],
         }
       ] as Menu[],

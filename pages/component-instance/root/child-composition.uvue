@@ -1,0 +1,16 @@
+<template>
+  <view class="flex justify-between flex-row">
+    <text>root str in parent component: </text>
+    <text id="root-str-child">{{ rootStr }}</text>
+  </view>
+</template>
+
+<script setup lang="uts">
+const str = ref('child component str')
+const rootStr = ref('')
+
+onMounted(() => {
+  const instance = getCurrentInstance()!.proxy!
+  rootStr.value = (instance.$root!.$exposed['str'] as Ref<string>).value as string
+})
+</script>

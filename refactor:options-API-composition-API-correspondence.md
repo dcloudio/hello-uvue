@@ -21,6 +21,11 @@ script 中不要有空的 data, onLoad, methods\
 ### transform function
 
 目前仅处理了 script 节点
+已知问题：
+- script 节点无法增加 setup
+- 无法处理函数返回值类型
+- 无法处理函数换行
+
 ```js
 function transform(fileInfo, api) {
   const $ = api.gogocode
@@ -41,7 +46,10 @@ function transform(fileInfo, api) {
 
   script
     .find('watch:{}')
-    .replace('$_$:{handler($_$){$$$}}', 'watch(() => $_$,($_$) => {$$$})')
+    .replace(
+      '$_$:{handler($_$){$$$}}',
+      'watch(() => $_$,($_$) => {$$$})'
+    )
     .replace('$_$:{handler(){$$$}}', 'watch(() => $_$,() => {$$$})')
     .replace(
       "'$_$':{handler($_$){$$$},deep: true}",
@@ -56,6 +64,12 @@ function transform(fileInfo, api) {
     .replace('watch:{$$$}', '$$$')
 
   script
+    .replace('onLoad(){$$$}', 'onLoad(() => {$$$})')
+    .replace('onShow(){$$$}', 'onShow(() => {$$$})')
+    .replace('onReady(){$$$}', 'onReady(() => {$$$})')
+    .replace('onHide(){$$$}', 'onHide(() => {$$$})')
+    .replace('onUnload(){$$$}', 'onUnload(() => {$$$})')
+    .replace('onBackPress(){$$$}', 'onBackPress(() => {$$$})')
     .replace('created(){$$$}', 'onBeforeMount(() => {$$$})')
     .replace('mounted(){$$$}', 'onMounted(() => {$$$})')
     .replace('beforeUnmount(){$$$}', 'onBeforeUnmount(() => {$$$})')
@@ -65,11 +79,11 @@ function transform(fileInfo, api) {
 
   script
     .find('methods:{}')
-    .replace('async $_$($$$0){$$$1}', 'const $_$ = async ($$$0) => {$$$1}')
     .replace(
-      '$_$($$$0){$$$1}',
-      'const $_$ = ($$$0) => {$$$1}'
+      'async $_$($$$0){$$$1}',
+      'const $_$ = async ($$$0) => {$$$1}'
     )
+    .replace('$_$($$$0){$$$1}', 'const $_$ = ($$$0) => {$$$1}')
     .replace('async $_$(){$$$}', 'const $_$ = async () => {$$$}')
     .replace('$_$(){$$$}', 'const $_$ = () => {$$$}')
     .replace('methods:{$$$}', '$$$')

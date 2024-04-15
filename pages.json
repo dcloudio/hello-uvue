@@ -108,6 +108,19 @@
         "navigationBarTitleText": "$parent 组合式 API"
       }
     },
+    // #ifdef APP
+    {
+      "path": "pages/component-instance/root/root-options",
+      "style": {
+        "navigationBarTitleText": "$root 选项式 API"
+      }
+    },{
+      "path": "pages/component-instance/root/root-composition",
+      "style": {
+        "navigationBarTitleText": "$root 组合式 API"
+      }
+    },
+    // #endif
 
     {
       "path": "pages/built-in-component/keep-alive/keep-alive",
@@ -270,14 +283,6 @@
         "navigationBarTitleText": "component-lifecycle"
       }
     },
-    // #ifdef APP
-    {
-      "path": "pages/component-instance/root/root",
-      "style": {
-        "navigationBarTitleText": "$root"
-      }
-    },
-    // #endif
     {
       "path": "pages/component-instance/slots/slots",
       "style": {
