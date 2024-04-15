@@ -162,6 +162,21 @@ export default {
                   url: 'props-composition',
                 }
               ]
+            },{
+              id: 'el',
+              name: '$el',
+              children: [
+                {
+                  id: 'el-options',
+                  name: '$el 选项式 API',
+                  url: 'el-options',
+                },
+                {
+                  id: 'el-composition',
+                  name: '$el 组合式 API',
+                  url: 'el-composition',
+                }
+              ]
             },
           ] as Page[],
         }

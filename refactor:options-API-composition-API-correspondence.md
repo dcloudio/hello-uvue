@@ -24,7 +24,7 @@ script 中不要有空的 data, onLoad, methods\
 - [x] attrs useAttrs
 - [x] data
 - [x] props defineProps
-- [ ] el
+- [x] el
 - [ ] options defineOptions
 - [ ] parent
 - [ ] root  root

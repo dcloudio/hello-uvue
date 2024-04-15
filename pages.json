@@ -72,6 +72,18 @@
         "navigationBarTitleText": "defineProps"
       }
     },
+    {
+      "path": "pages/component-instance/el/el-options",
+      "style": {
+        "navigationBarTitleText": "$el 选项式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/el/el-composition",
+      "style": {
+        "navigationBarTitleText": "$el 组合式 API"
+      }
+    },
 
     {
       "path": "pages/built-in-component/keep-alive/keep-alive",
@@ -232,12 +244,6 @@
       "path": "pages/lifecycle/component/component",
       "style": {
         "navigationBarTitleText": "component-lifecycle"
-      }
-    },
-    {
-      "path": "pages/component-instance/el/el",
-      "style": {
-        "navigationBarTitleText": "$el"
       }
     },
     {

@@ -8,8 +8,8 @@
 
 <script setup lang="uts">
 import ArrayLiteral from './array-literal-composition.uvue'
-import objectType from "./object-type-composition.uvue";
-import sameNamePropDefaultValue from "./same-name-prop-default-value-composition.uvue";
+import ObjectType from "./object-type-composition.uvue";
+import SameNamePropDefaultValue from "./same-name-prop-default-value-composition.uvue";
 
 const str = 'str'
 const num = 10

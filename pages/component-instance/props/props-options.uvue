@@ -8,14 +8,14 @@
 
 <script lang="uts">
 import ArrayLiteral from './array-literal-options.uvue'
-import objectType from "./object-type-options.uvue";
-import sameNamePropDefaultValue from "./same-name-prop-default-value-options.uvue";
+import ObjectType from "./object-type-options.uvue";
+import SameNamePropDefaultValue from "./same-name-prop-default-value-options.uvue";
 
 export default {
   components: {
     ArrayLiteral,
-    objectType,
-    sameNamePropDefaultValue
+    ObjectType,
+    SameNamePropDefaultValue
   },
   data() {
     return {
