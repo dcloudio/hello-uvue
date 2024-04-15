@@ -2,16 +2,16 @@
   <view class="page">
     <view class="mb-10 flex justify-between flex-row">
       <text>component name: </text>
-      <text id="component-name">{{ name }}</text>
+      <text id="component-name">{{ dataInfo.name }}</text>
     </view>
     <!-- #ifndef APP-ANDROID -->
     <view class="mb-10 flex justify-between flex-row">
       <text>custom key: </text>
-      <text id="custom-key">{{ customKey }}</text>
+      <text id="custom-key">{{ dataInfo.customKey }}</text>
     </view>
     <view class="mb-10 flex justify-between flex-row">
       <text>mixin data str: </text>
-      <text id="mixin-data-str">{{ mixinDataStr }}</text>
+      <text id="mixin-data-str">{{ dataInfo.mixinDataStr }}</text>
     </view>
     <!-- #endif -->
   </view>
@@ -20,26 +20,34 @@
 <script lang="uts">
 import mixins from "./mixins.uts"
 
+type DataInfo = {
+  name: string
+  customKey: string
+  mixinDataStr: string
+}
+
 export default {
   mixins: [mixins],
   name: "$options",
   _customKey: "custom key",
   data() {
     return {
-      name: "",
-      customKey: "",
-      mixinDataStr: "",
+      dataInfo: {
+        name: "",
+        customKey: "",
+        mixinDataStr: "",
+      } as DataInfo
     }
   },
   mounted() {
     // #ifdef APP-ANDROID
-    this.name = this.$options.name
+    this.dataInfo.name = this.$options.name
     // #endif
     // #ifndef APP-ANDROID
-    this.name = this.$options.name!
-    this.customKey = this.$options._customKey
+    this.dataInfo.name = this.$options.name!
+    this.dataInfo.customKey = this.$options._customKey
     // @ts-ignore
-    this.mixinDataStr = this.$options.data({})['str']
+    this.dataInfo.mixinDataStr = this.$options.data({})['str']
     // #endif
   },
 }

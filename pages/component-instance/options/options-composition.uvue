@@ -2,16 +2,16 @@
   <view class="page">
     <view class="mb-10 flex justify-between flex-row">
       <text>component name: </text>
-      <text id="component-name">{{ name }}</text>
+      <text id="component-name">{{ dataInfo.name }}</text>
     </view>
     <!-- #ifndef APP-ANDROID -->
     <view class="mb-10 flex justify-between flex-row">
       <text>custom key: </text>
-      <text id="custom-key">{{ customKey }}</text>
+      <text id="custom-key">{{ dataInfo.customKey }}</text>
     </view>
     <view class="mb-10 flex justify-between flex-row">
       <text>mixin data str: </text>
-      <text id="mixin-data-str">{{ mixinDataStr }}</text>
+      <text id="mixin-data-str">{{ dataInfo.mixinDataStr }}</text>
     </view>
     <!-- #endif -->
   </view>
@@ -22,23 +22,35 @@ import mixins from "./mixins.uts"
 
 defineOptions({
   mixins: [mixins],
-  name: "options",
+  name: "$options",
   _customKey: "custom key"
 })
 
-const name = ref("")
-const customKey = ref("")
-const mixinDataStr = ref("")
+type DataInfo = {
+  name: string
+  customKey: string
+  mixinDataStr: string
+}
+
+const dataInfo = reactive({
+  name: "",
+  customKey: "",
+  mixinDataStr: ""
+} as DataInfo)
 
 onMounted(() => {
   const instance = getCurrentInstance()!.proxy!
   // #ifdef APP-ANDROID
-  name.value = instance.$options.name
+  dataInfo.name = instance.$options.name
   // #endif
   // #ifndef APP-ANDROID
-  name.value = instance.$options.name!
-  customKey.value = instance.$options._customKey
-  mixinDataStr.value = instance.$options.data!({})!['str']
+  dataInfo.name = instance.$options.name!
+  dataInfo.customKey = instance.$options._customKey
+  dataInfo.mixinDataStr = instance.$options.data!({})!['str']
   // #endif
+})
+
+defineExpose({
+  dataInfo
 })
 </script>

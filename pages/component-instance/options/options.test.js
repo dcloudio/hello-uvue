@@ -1,14 +1,26 @@
-const PAGE_PATH = '/pages/component-instance/options/options'
+const OPTIONS_PAGE_PATH = '/pages/component-instance/options/options-options'
+const COMPOSITION_PAGE_PATH = '/pages/component-instance/options/options-composition'
 
 describe('$options', () => {
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
-  })
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isAndroid = platformInfo.includes('android')
+  const test = async (page) => {
+    const dataInfo = await page.data('dataInfo')
+    expect(dataInfo.name).toBe('$options')
+    if (!isAndroid) {
+      expect(dataInfo.customKey).toBe('custom key')
+      expect(dataInfo.mixinDataStr).toBe('str in mixin data')
+    }
+  }
 
-  it('获取到组件name属性', async () => {
-    const data = await page.data()
-    expect(data.name).toBe('$options')
+  it('$options 选项式 API', async () => {
+    page = await program.reLaunch(OPTIONS_PAGE_PATH)
+    await test(page)
   });
+
+  it('$options 组合式 API', async () => {
+    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
+    await test(page)
+  })
 })
