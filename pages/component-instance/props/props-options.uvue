@@ -1,0 +1,30 @@
+<template>
+  <view class="page">
+    <array-literal :str="str" :num="num" :bool="bool" :obj="obj" :arr="arr" />
+    <object-type str="str" :num="num" :bool="bool" :obj="obj" :arr="arr" />
+    <same-name-prop-default-value />
+  </view>
+</template>
+
+<script lang="uts">
+import ArrayLiteral from './array-literal-options.uvue'
+import objectType from "./object-type-options.uvue";
+import sameNamePropDefaultValue from "./same-name-prop-default-value-options.uvue";
+
+export default {
+  components: {
+    ArrayLiteral,
+    objectType,
+    sameNamePropDefaultValue
+  },
+  data() {
+    return {
+      str: 'str',
+      num: 10,
+      bool: true,
+      obj: {age: 18},
+      arr: ['a','b','c']
+    }
+  },
+}
+</script>

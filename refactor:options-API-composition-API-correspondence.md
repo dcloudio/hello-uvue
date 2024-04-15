@@ -23,7 +23,7 @@ script 中不要有空的 data, onLoad, methods\
 ## component instance
 - [x] attrs useAttrs
 - [x] data
-- [ ] props defineProps
+- [x] props defineProps
 - [ ] el
 - [ ] options defineOptions
 - [ ] parent
@@ -89,8 +89,8 @@ script 中不要有空的 data, onLoad, methods\
 
 ## built-in components
 
-- [x] keepAlive keepAlive
-- [x] teleport  teleport 
+- [ ] keepAlive keepAlive
+- [ ] teleport  teleport 
 
 ## template
 

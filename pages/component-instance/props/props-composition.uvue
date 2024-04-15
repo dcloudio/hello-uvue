@@ -1,0 +1,19 @@
+<template>
+  <view class="page">
+    <array-literal :str="str" :num="num" :bool="bool" :obj="obj" :arr="arr" />
+    <object-type str="str" :num="num" :bool="bool" :obj="obj" :arr="arr" />
+    <same-name-prop-default-value />
+  </view>
+</template>
+
+<script setup lang="uts">
+import ArrayLiteral from './array-literal-composition.uvue'
+import objectType from "./object-type-composition.uvue";
+import sameNamePropDefaultValue from "./same-name-prop-default-value-composition.uvue";
+
+const str = 'str'
+const num = 10
+const bool = true
+const obj = {age: 18}
+const arr = ['a','b','c']
+</script>

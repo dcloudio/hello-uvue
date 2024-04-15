@@ -1,0 +1,54 @@
+<template>
+  <view>
+    <text class="mb-10 bold">object type</text>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>str: </text>
+      <text id="object-type-str">{{ str }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>num: </text>
+      <text id="object-type-num">{{ num }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>bool: </text>
+      <text id="object-type-bool">{{ bool }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>obj: </text>
+      <text id="object-type-obj">{{ JSON.stringify(obj) }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>arr: </text>
+      <text id="object-type-arr">{{ JSON.stringify(arr) }}</text>
+    </view>
+  </view>
+</template>
+
+<script setup lang="uts">
+import { type PropType } from 'vue'
+
+defineProps({
+	str: {
+		type: String,
+		default: 'default str'
+	},
+	num: {
+		type: Number,
+		default: 0
+	},
+	bool: {
+		type: Boolean,
+		default: false
+	},
+	obj: {
+		type: Object as PropType<UTSJSONObject>,
+		default: (): UTSJSONObject => ({})
+	},
+	arr: {
+		type: Array as PropType<string[]>,
+		default: () : Array<string> => {
+			return []
+		}
+	}
+})
+</script>

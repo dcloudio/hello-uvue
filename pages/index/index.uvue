@@ -147,6 +147,21 @@ export default {
                   url: 'data-composition',
                 }
               ]
+            },{
+              id: 'props',
+              name: 'props',
+              children: [
+                {
+                  id: 'props-options',
+                  name: 'props 选项式 API',
+                  url: 'props-options',
+                },
+                {
+                  id: 'props-composition',
+                  name: 'props 组合式 API',
+                  url: 'props-composition',
+                }
+              ]
             },
           ] as Page[],
         }

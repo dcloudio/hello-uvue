@@ -60,6 +60,18 @@
         "navigationBarTitleText": "data 组合式 API"
       }
     },
+    {
+      "path": "pages/component-instance/props/props-options",
+      "style": {
+        "navigationBarTitleText": "$props"
+      }
+    },
+    {
+      "path": "pages/component-instance/props/props-composition",
+      "style": {
+        "navigationBarTitleText": "defineProps"
+      }
+    },
 
     {
       "path": "pages/built-in-component/keep-alive/keep-alive",
@@ -220,12 +232,6 @@
       "path": "pages/lifecycle/component/component",
       "style": {
         "navigationBarTitleText": "component-lifecycle"
-      }
-    },
-    {
-      "path": "pages/component-instance/props/props",
-      "style": {
-        "navigationBarTitleText": "$props"
       }
     },
     {
