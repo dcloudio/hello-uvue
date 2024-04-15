@@ -96,6 +96,18 @@
         "navigationBarTitleText": "defineOptions"
       }
     },
+    {
+      "path": "pages/component-instance/parent/parent-options",
+      "style": {
+        "navigationBarTitleText": "$parent 选项式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/parent/parent-composition",
+      "style": {
+        "navigationBarTitleText": "$parent 组合式 API"
+      }
+    },
 
     {
       "path": "pages/built-in-component/keep-alive/keep-alive",
@@ -256,12 +268,6 @@
       "path": "pages/lifecycle/component/component",
       "style": {
         "navigationBarTitleText": "component-lifecycle"
-      }
-    },
-    {
-      "path": "pages/component-instance/parent/parent",
-      "style": {
-        "navigationBarTitleText": "$parent"
       }
     },
     // #ifdef APP

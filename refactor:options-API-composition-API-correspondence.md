@@ -92,7 +92,7 @@ function transform(fileInfo, api) {
 - [x] props defineProps
 - [x] el
 - [x] options defineOptions
-- [ ] parent
+- [x] parent
 - [ ] root  root
 - [ ] slots defineSlots useSlots
 - [ ] refs  ref

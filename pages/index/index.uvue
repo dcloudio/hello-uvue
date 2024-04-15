@@ -192,6 +192,21 @@ export default {
                   url: 'options-composition',
                 }
               ]
+            },{
+              id: 'parent',
+              name: '$parent',
+              children: [
+                {
+                  id: 'parent-options',
+                  name: '$parent 选项式 API',
+                  url: 'parent-options',
+                },
+                {
+                  id: 'parent-composition',
+                  name: '$parent 组合式 API',
+                  url: 'parent-composition',
+                }
+              ]
             },
           ] as Page[],
         }
