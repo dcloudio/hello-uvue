@@ -123,13 +123,28 @@ export default {
               children: [
                 {
                   id: 'attrs-options',
-                  name: 'attrs  选项式 API',
+                  name: 'attrs 选项式 API',
                   url: 'attrs-options',
                 },
                 {
                   id: 'attrs-composition',
                   name: 'attrs 组合式 API',
                   url: 'attrs-composition',
+                }
+              ]
+            },{
+              id: 'data',
+              name: 'data',
+              children: [
+                {
+                  id: 'data-options',
+                  name: 'data 选项式 API',
+                  url: 'data-options',
+                },
+                {
+                  id: 'data-composition',
+                  name: 'data 组合式 API',
+                  url: 'data-composition',
                 }
               ]
             },

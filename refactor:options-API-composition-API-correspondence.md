@@ -21,8 +21,8 @@ script 中不要有空的 data, onLoad, methods\
 - [x] app.use               app.use
 
 ## component instance
-- [ ] attrs useAttrs
-- [ ] data
+- [x] attrs useAttrs
+- [x] data
 - [ ] props defineProps
 - [ ] el
 - [ ] options defineOptions

@@ -49,6 +49,19 @@
       }
     },
     {
+      "path": "pages/component-instance/data/data-options",
+      "style": {
+        "navigationBarTitleText": "$data"
+      }
+    },
+    {
+      "path": "pages/component-instance/data/data-composition",
+      "style": {
+        "navigationBarTitleText": "data 组合式 API"
+      }
+    },
+
+    {
       "path": "pages/built-in-component/keep-alive/keep-alive",
       "style": {
         "navigationBarTitleText": "keep-alive"
@@ -207,12 +220,6 @@
       "path": "pages/lifecycle/component/component",
       "style": {
         "navigationBarTitleText": "component-lifecycle"
-      }
-    },
-    {
-      "path": "pages/component-instance/data/data",
-      "style": {
-        "navigationBarTitleText": "$data"
       }
     },
     {
