@@ -14,6 +14,72 @@ script 中不要有空的 data, onLoad, methods\
 缩进使用两个空格\
 公共 css class 维护在 styles/common.css 中
 
+## GoGoCode 
+
+一个用于进行代码转换的 vscode 插件，在本项目中，可用于将 options API 写法转为 composition setup API 写法
+
+### transform function
+
+目前仅处理了 script 节点
+```js
+function transform(fileInfo, api) {
+  const $ = api.gogocode
+  const source = fileInfo.source
+  const ast = $(source, { parseOptions: { language: 'vue' } })
+  const script = ast.find('<script></script>')
+
+  script.replace('components:{},', '').replace('mixins:[]', '')
+
+  script
+    .find('data(){return {}},')
+    .replace('$_$:$_$', 'const $_$ = ref($_$)')
+    .replace('data(){return {$$$}}', '$$$')
+
+  script
+    .find('computed:{}')
+    .replace('$_$(){$$$}', 'const $_$ = computed(() => {$$$})')
+
+  script
+    .find('watch:{}')
+    .replace('$_$:{handler($_$){$$$}}', 'watch(() => $_$,($_$) => {$$$})')
+    .replace('$_$:{handler(){$$$}}', 'watch(() => $_$,() => {$$$})')
+    .replace(
+      "'$_$':{handler($_$){$$$},deep: true}",
+      'watch(() => $_$,($_$) => {$$$},{deep: true})'
+    )
+    .replace(
+      "'$_$':{handler($_$){$$$}}",
+      'watch(() => $_$,($_$) => {$$$})'
+    )
+    .replace('$_$($_$){$$$}', 'watch(() => $_$,($_$) => {$$$})')
+    .replace('$_$(){$$$}', 'watch(() => $_$,() => {$$$})')
+    .replace('watch:{$$$}', '$$$')
+
+  script
+    .replace('created(){$$$}', 'onBeforeMount(() => {$$$})')
+    .replace('mounted(){$$$}', 'onMounted(() => {$$$})')
+    .replace('beforeUnmount(){$$$}', 'onBeforeUnmount(() => {$$$})')
+    .replace('unmounted(){$$$}', 'onUnmounted(() => {$$$})')
+    .replace('beforeDestroy(){$$$}', 'onBeforeUnmount(() => {$$$})')
+    .replace('destoryed(){$$$}', 'onUnmounted(() => {$$$})')
+
+  script
+    .find('methods:{}')
+    .replace('async $_$($$$0){$$$1}', 'const $_$ = async ($$$0) => {$$$1}')
+    .replace(
+      '$_$($$$0){$$$1}',
+      'const $_$ = ($$$0) => {$$$1}'
+    )
+    .replace('async $_$(){$$$}', 'const $_$ = async () => {$$$}')
+    .replace('$_$(){$$$}', 'const $_$ = () => {$$$}')
+    .replace('methods:{$$$}', '$$$')
+
+  script.replace('export default {$$$}', '$$$')
+
+  return ast.generate()
+}
+```
+
 ## app instance
 
 - [x] app.component
