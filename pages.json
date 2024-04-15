@@ -84,6 +84,18 @@
         "navigationBarTitleText": "$el 组合式 API"
       }
     },
+    {
+      "path": "pages/component-instance/options/options-options",
+      "style": {
+        "navigationBarTitleText": "$options"
+      }
+    },
+    {
+      "path": "pages/component-instance/options/options-composition",
+      "style": {
+        "navigationBarTitleText": "defineOptions"
+      }
+    },
 
     {
       "path": "pages/built-in-component/keep-alive/keep-alive",
@@ -244,12 +256,6 @@
       "path": "pages/lifecycle/component/component",
       "style": {
         "navigationBarTitleText": "component-lifecycle"
-      }
-    },
-    {
-      "path": "pages/component-instance/options/options",
-      "style": {
-        "navigationBarTitleText": "$options"
       }
     },
     {

@@ -1,0 +1,44 @@
+<template>
+  <view class="page">
+    <view class="mb-10 flex justify-between flex-row">
+      <text>component name: </text>
+      <text id="component-name">{{ name }}</text>
+    </view>
+    <!-- #ifndef APP-ANDROID -->
+    <view class="mb-10 flex justify-between flex-row">
+      <text>custom key: </text>
+      <text id="custom-key">{{ customKey }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>mixin data str: </text>
+      <text id="mixin-data-str">{{ mixinDataStr }}</text>
+    </view>
+    <!-- #endif -->
+  </view>
+</template>
+
+<script setup lang="uts">
+import mixins from "./mixins.uts"
+
+defineOptions({
+  mixins: [mixins],
+  name: "options",
+  _customKey: "custom key"
+})
+
+const name = ref("")
+const customKey = ref("")
+const mixinDataStr = ref("")
+
+onMounted(() => {
+  const instance = getCurrentInstance()!.proxy!
+  // #ifdef APP-ANDROID
+  name.value = instance.$options.name
+  // #endif
+  // #ifndef APP-ANDROID
+  name.value = instance.$options.name!
+  customKey.value = instance.$options._customKey
+  mixinDataStr.value = instance.$options.data!({})!['str']
+  // #endif
+})
+</script>

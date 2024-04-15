@@ -177,6 +177,21 @@ export default {
                   url: 'el-composition',
                 }
               ]
+            },{
+              id: 'options',
+              name: '$options',
+              children: [
+                {
+                  id: 'options-options',
+                  name: '$options 选项式 API',
+                  url: 'options-options',
+                },
+                {
+                  id: 'options-composition',
+                  name: '$options 组合式 API',
+                  url: 'options-composition',
+                }
+              ]
             },
           ] as Page[],
         }
