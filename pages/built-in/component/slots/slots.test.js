@@ -1,9 +1,9 @@
 // uni-app自动化测试教程: uni-app自动化测试教程: https://uniapp.dcloud.net.cn/worktile/auto/hbuilderx-extension/
 
-describe('/pages/rendering/slots/slots', () => {
+describe('/pages/built-in/component/slots/slots', () => {
 	let page;
 	beforeAll(async () => {
-		page = await program.reLaunch('/pages/rendering/slots/slots')
+		page = await program.reLaunch('/pages/built-in/component/slots/slots')
 		await page.waitFor('view')
 	});
 	it('slots', async () => {

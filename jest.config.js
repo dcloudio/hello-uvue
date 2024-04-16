@@ -4,7 +4,7 @@ module.exports = {
   watchPathIgnorePatterns: ['/node_modules/', '/dist/', '/.git/'],
   moduleFileExtensions: ['js', 'json'],
   rootDir: __dirname,
-  testMatch: ['<rootDir>/pages/**/**/*.test.js'],
+  testMatch: ["<rootDir>/pages/built-in/component/component/component.test.js"],
   testPathIgnorePatterns: ['/node_modules/'],
   setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
 }

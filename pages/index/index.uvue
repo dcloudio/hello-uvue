@@ -251,6 +251,63 @@ export default {
 			  ]
 		    }
 		  ] as Page[]
+		},
+		{
+		  id: 'built-in',
+		  name: '内置组件',
+		  pages: [
+		    {
+		      id: 'component/keep-alive',
+		      name: 'keep-alive',
+			  children: [
+				  {
+				    id: 'keep-alive-options',
+				    name: 'keep-alive（选项式）',
+				    url: 'keep-alive-options',
+				  },
+				  
+				  {
+				    id: 'keep-alive-composition',
+				    name: 'keep-alive（组合式）',
+				    url: 'keep-alive-composition',
+				  }
+			  ]
+		    },
+		    {
+		      id: 'component/teleport',
+		      name: 'teleport',
+			  children: [
+				  {
+				    id: 'teleport-options',
+				    name: 'teleport（选项式）',
+				    url: 'teleport-options',
+				  },
+				  
+				  {
+				    id: 'teleport-composition',
+				    name: 'teleport（组合式）',
+				    url: 'teleport-composition',
+				  }
+			  ]
+		    },
+		    {
+		      id: 'component/component',
+		      name: 'component',
+			  children: [
+				  {
+				    id: 'component-options',
+				    name: 'component（选项式）',
+				    url: 'component-options',
+				  },
+				  
+				  {
+				    id: 'component-composition',
+				    name: 'component（组合式）',
+				    url: 'component-composition',
+				  }
+			  ]
+		    },
+		  ] as Page[]
 		}
       ] as Menu[],
     }

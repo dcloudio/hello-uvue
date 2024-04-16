@@ -1,9 +1,9 @@
 // uni-app自动化测试教程: https://uniapp.dcloud.net.cn/worktile/auto/hbuilderx-extension/
 
-describe('/pages/rendering/template/template', () => {
+describe('/pages/built-in/component/template/template', () => {
 	let page
 	beforeAll(async () => {
-		page = await program.reLaunch('/pages/rendering/template/template')
+		page = await program.reLaunch('/pages/built-in/component/template/template')
 		await page.waitFor('view')
 	})
 	it('template', async () => {

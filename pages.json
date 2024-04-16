@@ -123,9 +123,15 @@
     // #endif
 
     {
-      "path": "pages/built-in-component/keep-alive/keep-alive",
+      "path": "pages/built-in/component/keep-alive/keep-alive-options",
       "style": {
-        "navigationBarTitleText": "keep-alive"
+        "navigationBarTitleText": "keep-alive（选项式）"
+      }
+    },
+    {
+      "path": "pages/built-in/component/keep-alive/keep-alive-composition",
+      "style": {
+        "navigationBarTitleText": "keep-alive（组合式）"
       }
     },
     {
@@ -393,19 +399,19 @@
       }
     },
     {
-      "path": "pages/rendering/slots/slots",
+      "path": "pages/built-in/component/slots/slots",
       "style": {
         "navigationBarTitleText": "slots"
       }
     },
     {
-      "path": "pages/rendering/template/template",
+      "path": "pages/built-in/component/template/template",
       "style": {
         "navigationBarTitleText": "template"
       }
     },
     {
-      "path": "pages/rendering/template/template-map-style",
+      "path": "pages/built-in/component/template/template-map-style",
       "style": {
         "navigationBarTitleText": "template-map-style"
       }
@@ -417,9 +423,15 @@
       }
     },
     {
-      "path": "pages/rendering/component/component",
+      "path": "pages/built-in/component/component/component-options",
       "style": {
-        "navigationBarTitleText": "component"
+        "navigationBarTitleText": "component（选项式）"
+      }
+    },
+    {
+      "path": "pages/built-in/component/component/component-composition",
+      "style": {
+        "navigationBarTitleText": "component（组合式）"
       }
     },
     {
@@ -713,9 +725,16 @@
       }
     },
     {
-      "path": "pages/built-in-component/teleport/teleport",
+      "path": "pages/built-in/component/teleport/teleport-options",
       "style": {
-        "navigationBarTitleText": "teleport",
+        "navigationBarTitleText": "teleport（选项式）",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/built-in/component/teleport/teleport-composition",
+      "style": {
+        "navigationBarTitleText": "teleport（组合式）",
         "enablePullDownRefresh": false
       }
     },
