@@ -22,16 +22,16 @@ script 中不要有空的 data, onLoad, methods\
 
 目前仅处理了 script 节点
 已知问题：
-- script 节点无法增加 setup
 - 无法处理函数返回值类型
 - 无法处理函数换行
 
 ```js
 function transform(fileInfo, api) {
   const $ = api.gogocode
-  const source = fileInfo.source
+  let source = fileInfo.source
+  source = source.replace(/<script/g, "<script setup");
   const ast = $(source, { parseOptions: { language: 'vue' } })
-  const script = ast.find('<script></script>')
+  const script = ast.find('<script setup></script>')
 
   script.replace('components:{},', '').replace('mixins:[]', '')
 
