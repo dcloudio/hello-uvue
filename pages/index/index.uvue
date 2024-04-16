@@ -113,7 +113,8 @@ export default {
               ]
             }
           ] as Page[],
-        },{
+        },
+		{
           id: 'component-instance',
           name: '组件 实例',
           pages: [
@@ -227,7 +228,30 @@ export default {
             },
             // #endif
           ] as Page[],
-        }
+        },
+		{
+		  id: 'lifecycle',
+		  name: '生命周期',
+		  pages: [
+		    {
+		      id: 'page',
+		      name: '页面生命周期',
+			  children: [
+				  {
+				    id: 'page-options',
+				    name: '页面生命周期（选项式）',
+				    url: 'page-options',
+				  },
+				  
+				  {
+				    id: 'page-composition',
+				    name: '页面生命周期（组合式）',
+				    url: 'page-composition',
+				  }
+			  ]
+		    }
+		  ] as Page[]
+		}
       ] as Menu[],
     }
   },

@@ -271,9 +271,16 @@
       }
     },
     {
-      "path": "pages/lifecycle/page/page",
+      "path": "pages/lifecycle/page/page-composition",
       "style": {
-        "navigationBarTitleText": "page-lifecycle",
+        "navigationBarTitleText": "page-lifecycle（组合式）",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/lifecycle/page/page-options",
+      "style": {
+        "navigationBarTitleText": "page-lifecycle（选项式）",
         "enablePullDownRefresh": true
       }
     },

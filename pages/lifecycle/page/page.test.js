@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/lifecycle/page/page'
+const PAGE_PATH = '/pages/lifecycle/page/page-options'
 const HOME_PATH = '/pages/tab-bar/options-api'
 const INTER_PAGE_PATH = '/pages/app-instance/index/index'
 let page
