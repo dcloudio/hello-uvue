@@ -78,6 +78,14 @@
         "navigationBarTitleText": "v-bind-set"
       }
     },
+    // #ifdef WEB
+    {
+      "path": "pages/directive/v-bind/v-bind-css",
+      "style": {
+        "navigationBarTitleText": "v-bind-css"
+      }
+    },
+    // #endif
     {
       "path": "pages/directive/v-for/v-for",
       "style": {
@@ -435,7 +443,6 @@
         "navigationBarTitleText": "defineExpose"
       }
     },
-    // #ifdef APP
     {
       "path": "pages/composition-api/basic/define-model/define-model",
       "style": {
@@ -448,7 +455,6 @@
         "navigationBarTitleText": "defineOptions"
       }
     },
-    // #endif
     {
       "path": "pages/composition-api/basic/define-slots/define-slots",
       "style": {
@@ -650,20 +656,6 @@
       "style": {
         "navigationBarTitleText": "teleport",
         "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/webview-screenshot-comparison/webview-screenshot-comparison",
-      "style": {
-        "navigationBarTitleText": "截图对比测试",
-        "navigationStyle": "custom"
-      }
-    },
-    {
-      "path": "pages/webview-screenshot/webview-screenshot",
-      "style": {
-        "navigationBarTitleText": "webview 截图测试",
-        "navigationStyle": "custom"
       }
     },
     {

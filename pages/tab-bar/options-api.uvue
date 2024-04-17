@@ -153,6 +153,16 @@
                 enable: true,
               },
               {
+                name: 'v-bind-css',
+                url: 'v-bind/v-bind-css',
+                // #ifdef WEB
+                enable: true,
+                // #endif
+                // #ifndef WEB
+                enable: false,
+                // #endif
+              },
+              {
                 name: 'v-bind-props',
                 url: 'v-bind/v-bind-props',
                 enable: true,
