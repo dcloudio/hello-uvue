@@ -15,8 +15,8 @@
 </template>
 
 <script lang="uts">
-  import child from './child-options.uvue';
-  export default {
-    components: { child },
-  }
+import child from './child-options.uvue';
+export default {
+  components: { child }
+};
 </script>

@@ -13,13 +13,13 @@
 </template>
 
 <script lang="uts">
-  import { SlotsType } from 'vue'
-  export default {
-    name: "child",
-    slots: Object as SlotsType<{
-      header : { msg : string },
-      default : { msg : string },
-      footer : { msg : string }
-    }>,
-  }
+import { SlotsType } from 'vue';
+export default {
+  name: 'child',
+  slots: Object as SlotsType<{
+    header: { msg: string };
+    default: { msg: string };
+    footer: { msg: string };
+  }>
+};
 </script>
