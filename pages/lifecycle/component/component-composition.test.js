@@ -1,6 +1,5 @@
-const PAGE_PATH = '/pages/composition-api/lifecycle/component-lifecycle/component-lifecycle'
-const INTER_PAGE_PATH = '/pages/app-instance/index/index'
-const HOME_PATH = '/pages/tab-bar/options-api'
+const PAGE_PATH = '/pages/lifecycle/component/component-composition'
+const HOME_PATH = '/pages/index/index'
 
 describe('component-lifecycle', () => {
   let page
@@ -24,23 +23,23 @@ describe('component-lifecycle', () => {
   })
 
   it('onLoad onPageShow onReady onBeforeMount onMounted', async () => {
-    lifeCycleNum = await page.callMethod('getLifeCycleNum')
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
     expect(lifeCycleNum).toBe(112)
-    await page.callMethod('pageSetlifeCycleNum', 0)
+    await page.callMethod('pageSetLifeCycleNum', 0)
   })
   it('onBeforeUpdate onUpdated', async () => {
     const updateTitleBtn = await page.$('.component-lifecycle-btn')
     await updateTitleBtn.tap()
-    lifeCycleNum = await page.callMethod('getLifeCycleNum')
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
     expect(lifeCycleNum).toBe(2)
-    await page.callMethod('pageSetlifeCycleNum', 0)
+    await page.callMethod('pageSetLifeCycleNum', 0)
   })
   it('onPullDownRefresh', async () => {
     await page.callMethod('pullDownRefresh')
-    await page.waitFor(1500)
-    lifeCycleNum = await page.callMethod('getLifeCycleNum')
+    await page.waitFor(2000)
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
     expect(lifeCycleNum).toBe(10)
-    await page.callMethod('pageSetlifeCycleNum', 0)
+    await page.callMethod('pageSetLifeCycleNum', 0)
   })
   it('onPageScroll onReachBottom', async () => {
     await program.pageScrollTo(2000)
@@ -48,21 +47,21 @@ describe('component-lifecycle', () => {
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       const isScrolled = await page.callMethod('getIsScrolled')
       expect(isScrolled).toBe(true)
-      lifeCycleNum = await page.callMethod('getLifeCycleNum')
+      lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
       expect(lifeCycleNum).toBe(10)
     }
-    await page.callMethod('pageSetlifeCycleNum', 0)
+    await page.callMethod('pageSetLifeCycleNum', 0)
   })
   it('onHide', async () => {
-    page = await program.navigateTo(INTER_PAGE_PATH)
+    page = await program.navigateTo(HOME_PATH)
     await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(-10)
     page = await program.navigateBack()
     await page.waitFor('view')
-    lifeCycleNum = await page.callMethod('getLifeCycleNum')
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
     expect(lifeCycleNum).toBe(0)
-    await page.callMethod('pageSetlifeCycleNum', 0)
+    await page.callMethod('pageSetLifeCycleNum', 0)
   })
   it('beforeUnmount unmounted onUnload onBackPress', async () => {
     page = await program.navigateBack()

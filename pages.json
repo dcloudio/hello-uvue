@@ -292,9 +292,17 @@
       }
     },
     {
-      "path": "pages/lifecycle/component/component",
+      "path": "pages/lifecycle/component/component-options",
       "style": {
-        "navigationBarTitleText": "component-lifecycle"
+        "navigationBarTitleText": "component-lifecycle 选项式 API",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/lifecycle/component/component-composition",
+      "style": {
+        "navigationBarTitleText": "component-lifecycle 组合式 API",
+        "enablePullDownRefresh": true
       }
     },
     {
@@ -757,20 +765,6 @@
       "path": "pages/composition-api/reactivity/on-scope-dispose/on-scope-dispose",
       "style": {
         "navigationBarTitleText": "onScopeDispose"
-      }
-    },
-    {
-      "path": "pages/composition-api/lifecycle/page-lifecycle/page-lifecycle",
-      "style": {
-        "navigationBarTitleText": "页面生命周期",
-        "enablePullDownRefresh": true
-      }
-    },
-    {
-      "path": "pages/composition-api/lifecycle/component-lifecycle/component-lifecycle",
-      "style": {
-        "navigationBarTitleText": "组件生命周期",
-        "enablePullDownRefresh": true
       }
     },
     {

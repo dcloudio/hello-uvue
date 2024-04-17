@@ -2,29 +2,29 @@
   <!-- #ifdef APP -->
   <scroll-view style="flex:1">
   <!-- #endif -->
-    <view class="pag container">
-      <text class="uni-common-mb">component lifecycle</text>
-      <component-lifecycle class="component-lifecycle" @updateIsScroll="updateIsScroll" />
-      <button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
+    <view class="page container">
+      <text class="mb-10">component lifecycle 组合式 API</text>
+      <child-component @updateIsScroll="updateIsScroll" />
+      <button class="mt-10" @click="scrollToBottom">scrollToBottom</button>
     </view>
   <!-- #ifdef APP -->
   </scroll-view>
   <!-- #endif -->
 </template>
 
-<script setup>
-  import ComponentLifecycle from '@/components/CompositionAPILifecycle.uvue'
+<script setup lang='uts'>
+  import ChildComponent from './ChildComponentComposition.uvue'
   import { state, setLifeCycleNum } from '@/store/index.uts'
 
   const isScrolled = ref(false)
 
   // 自动化测试
-  const getLifeCycleNum = () : number => {
+  const pageGetLifeCycleNum = () : number => {
     return state.lifeCycleNum
   }
 
   // 自动化测试
-  const pageSetlifeCycleNum = (num : number) => {
+  const pageSetLifeCycleNum = (num : number) => {
     setLifeCycleNum(num)
   }
 
@@ -55,8 +55,8 @@
   }
 
   defineExpose({
-    getLifeCycleNum,
-    pageSetlifeCycleNum,
+    pageGetLifeCycleNum,
+    pageSetLifeCycleNum,
     pullDownRefresh,
     scrollToBottom,
     getIsScrolled

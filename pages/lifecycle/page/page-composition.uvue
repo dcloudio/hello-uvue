@@ -3,7 +3,7 @@
   <scroll-view style="flex: 1" :bounces="false">
   <!-- #endif -->
     <view class="page container">
-      <text>page lifecycle</text>
+      <text>page lifecycle 组合式 API</text>
       <button class="mt-10" @click="scrollToBottom">
         scrollToBottom
       </button>

@@ -4,10 +4,22 @@
     <!-- #endif -->
     <view>
       <uni-collapse>
-        <uni-collapse-item v-for="menu in menus" :key="menu.id" :title="menu.name" class="menu">
+        <uni-collapse-item
+          v-for="menu in menus"
+          :key="menu.id"
+          :title="menu.name"
+          class="menu">
           <view v-for="(page, index) in menu.pages" :key="page.name">
-            <view v-if="page.url" class="page-item" :class="{ 'first-child': index == 0 }" @click="goDetailPage(menu.id, page)">
-              <text :class="{ 'text-disabled': page.enable == false }" class="text">{{ page.name }}</text>
+            <view
+              v-if="page.url"
+              class="page-item"
+              :class="{ 'first-child': index == 0 }"
+              @click="goDetailPage(menu.id, page)">
+              <text
+                :class="{ 'text-disabled': page.enable == false }"
+                class="text"
+                >{{ page.name }}</text
+              >
             </view>
             <template v-if="page.children">
               <uni-collapse style="flex: 1">
@@ -17,9 +29,12 @@
                     :key="child.url"
                     class="page-item"
                     :class="{ 'first-child': index == 0 }"
-                    @click="goDetailPage(`${menu.id}/${page.id}`, child)"
-                  >
-                    <text :class="{ 'text-disabled': child.enable == false }" class="text">{{ child.name }}</text>
+                    @click="goDetailPage(`${menu.id}/${page.id}`, child)">
+                    <text
+                      :class="{ 'text-disabled': child.enable == false }"
+                      class="text"
+                      >{{ child.name }}</text
+                    >
                   </view>
                 </uni-collapse-item>
               </uni-collapse>
@@ -301,6 +316,22 @@ export default {
                   id: 'page-composition',
                   name: '页面生命周期 组合式 API',
                   url: 'page-composition'
+                }
+              ]
+            }, {
+              id: 'component',
+              name: '组件生命周期',
+              children: [
+                {
+                  id: 'component-options',
+                  name: '组件生命周期 选项式 API',
+                  url: 'component-options'
+                },
+
+                {
+                  id: 'component-composition',
+                  name: '组件生命周期 组合式 API',
+                  url: 'component-composition'
                 }
               ]
             }

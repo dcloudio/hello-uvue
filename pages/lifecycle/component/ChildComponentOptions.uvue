@@ -1,12 +1,12 @@
 <template>
   title: {{ title }}
-  <button class="component-lifecycle-btn uni-common-mt" @click="updateTitle">
+  <button class="component-lifecycle-btn mt-10" @click="updateTitle">
     updateTitle
   </button>
 </template>
 
-<script>
-  import { state, setLifeCycleNum } from '../store/index.uts';
+<script lang='uts'>
+  import { state, setLifeCycleNum } from '@/store/index.uts';
   export default {
     name: 'OptionsAPIComponentLifecycle',
     data() {
