@@ -298,7 +298,13 @@
       }
     },
     {
-      "path": "pages/component-instance/slots/slots",
+      "path": "pages/component-instance/slots/slots-options",
+      "style": {
+        "navigationBarTitleText": "$slots"
+      }
+    },
+    {
+      "path": "pages/component-instance/slots/slots-composition",
       "style": {
         "navigationBarTitleText": "$slots"
       }

@@ -1,0 +1,28 @@
+<template>
+  <view class="page">
+    <slot-comp class="slot-comp">
+      <template v-slot:header>header</template>
+      <template v-slot:default>default</template>
+      <template v-slot:footer>footer</template>
+    </slot-comp>
+  </view>
+</template>
+
+<script lang="uts">
+  import slot from './slot-options.uvue'
+
+  export default {
+    components: {
+      slotComp: slot
+    }
+  }
+</script>
+
+<style>
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+</style>

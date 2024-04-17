@@ -215,8 +215,24 @@ export default {
                   url: 'root-composition'
                 }
               ]
-            }
+            },
             // #endif
+            {
+              id: 'slots',
+              name: '$slots',
+              children: [
+                {
+                  id: 'slots-options',
+                  name: '$slots 选项式 API',
+                  url: 'slots-options'
+                },
+                {
+                  id: 'slots-composition',
+                  name: '$slots 组合式 API',
+                  url: 'slots-composition'
+                }
+              ]
+            }
           ] as Page[]
         },
         {
@@ -229,13 +245,13 @@ export default {
               children: [
                 {
                   id: 'page-options',
-                  name: '页面生命周期（选项式）',
+                  name: '页面生命周期 选项式 API',
                   url: 'page-options'
                 },
 
                 {
                   id: 'page-composition',
-                  name: '页面生命周期（组合式）',
+                  name: '页面生命周期 组合式 API',
                   url: 'page-composition'
                 }
               ]
@@ -252,13 +268,13 @@ export default {
               children: [
                 {
                   id: 'keep-alive-options',
-                  name: 'keep-alive（选项式）',
+                  name: 'keep-alive 选项式 API',
                   url: 'keep-alive-options'
                 },
 
                 {
                   id: 'keep-alive-composition',
-                  name: 'keep-alive（组合式）',
+                  name: 'keep-alive 组合式 API',
                   url: 'keep-alive-composition'
                 }
               ]
@@ -269,13 +285,13 @@ export default {
               children: [
                 {
                   id: 'teleport-options',
-                  name: 'teleport（选项式）',
+                  name: 'teleport 选项式 API',
                   url: 'teleport-options'
                 },
 
                 {
                   id: 'teleport-composition',
-                  name: 'teleport（组合式）',
+                  name: 'teleport 组合式 API',
                   url: 'teleport-composition'
                 }
               ]
@@ -286,13 +302,13 @@ export default {
               children: [
                 {
                   id: 'component-options',
-                  name: 'component（选项式）',
+                  name: 'component 选项式 API',
                   url: 'component-options'
                 },
 
                 {
                   id: 'component-composition',
-                  name: 'component（组合式）',
+                  name: 'component 组合式 API',
                   url: 'component-composition'
                 }
               ]
@@ -303,13 +319,13 @@ export default {
               children: [
                 {
                   id: 'slots-options',
-                  name: 'slots（选项式）',
+                  name: 'slots 选项式 API',
                   url: 'slots-options'
                 },
 
                 {
                   id: 'slots-composition',
-                  name: 'slots（组合式）',
+                  name: 'slots 组合式 API',
                   url: 'slots-composition'
                 }
               ]
@@ -320,13 +336,13 @@ export default {
               children: [
                 {
                   id: 'template-options',
-                  name: 'template（选项式）',
+                  name: 'template 选项式 API',
                   url: 'template-options'
                 },
 
                 {
                   id: 'template-composition',
-                  name: 'template（组合式）',
+                  name: 'template 组合式 API',
                   url: 'template-composition'
                 }
               ]
@@ -339,7 +355,7 @@ export default {
           pages: [
             {
               id: 'render',
-              name: 'render Function（选项式）',
+              name: 'render Function 选项式 API',
               url: 'render/render'
             },
             {
