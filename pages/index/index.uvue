@@ -99,7 +99,7 @@ export default {
             }
           ] as Page[]
         },
-        {
+		    {
           id: 'component-instance',
           name: '组件 实例',
           pages: [
@@ -219,122 +219,88 @@ export default {
             // #endif
           ] as Page[]
         },
-        {
-          id: 'lifecycle',
-          name: '生命周期',
-          pages: [
-            {
-              id: 'page',
-              name: '页面生命周期',
-              children: [
-                {
-                  id: 'page-options',
-                  name: '页面生命周期（选项式）',
-                  url: 'page-options'
-                },
+		{
+		  id: 'lifecycle',
+		  name: '生命周期',
+		  pages: [
+		    {
+		      id: 'page',
+		      name: '页面生命周期',
+			  children: [
+				  {
+				    id: 'page-options',
+				    name: '页面生命周期（选项式）',
+				    url: 'page-options',
+				  },
 
-                {
-                  id: 'page-composition',
-                  name: '页面生命周期（组合式）',
-                  url: 'page-composition'
-                }
-              ]
-            }
-          ] as Page[]
-        },
-        {
-          id: 'built-in',
-          name: '内置组件',
-          pages: [
-            {
-              id: 'component/keep-alive',
-              name: 'keep-alive',
-              children: [
-                {
-                  id: 'keep-alive-options',
-                  name: 'keep-alive（选项式）',
-                  url: 'keep-alive-options'
-                },
+				  {
+				    id: 'page-composition',
+				    name: '页面生命周期（组合式）',
+				    url: 'page-composition',
+				  }
+			  ]
+		    }
+		  ] as Page[]
+		},
+		{
+		  id: 'built-in',
+		  name: '内置组件',
+		  pages: [
+		    {
+		      id: 'component/keep-alive',
+		      name: 'keep-alive',
+			  children: [
+				  {
+				    id: 'keep-alive-options',
+				    name: 'keep-alive（选项式）',
+				    url: 'keep-alive-options',
+				  },
 
-                {
-                  id: 'keep-alive-composition',
-                  name: 'keep-alive（组合式）',
-                  url: 'keep-alive-composition'
-                }
-              ]
-            },
-            {
-              id: 'component/teleport',
-              name: 'teleport',
-              children: [
-                {
-                  id: 'teleport-options',
-                  name: 'teleport（选项式）',
-                  url: 'teleport-options'
-                },
+				  {
+				    id: 'keep-alive-composition',
+				    name: 'keep-alive（组合式）',
+				    url: 'keep-alive-composition',
+				  }
+			  ]
+		    },
+		    {
+		      id: 'component/teleport',
+		      name: 'teleport',
+			  children: [
+				  {
+				    id: 'teleport-options',
+				    name: 'teleport（选项式）',
+				    url: 'teleport-options',
+				  },
 
-                {
-                  id: 'teleport-composition',
-                  name: 'teleport（组合式）',
-                  url: 'teleport-composition'
-                }
-              ]
-            },
-            {
-              id: 'component/component',
-              name: 'component',
-              children: [
-                {
-                  id: 'component-options',
-                  name: 'component（选项式）',
-                  url: 'component-options'
-                },
+				  {
+				    id: 'teleport-composition',
+				    name: 'teleport（组合式）',
+				    url: 'teleport-composition',
+				  }
+			  ]
+		    },
+		    {
+		      id: 'component/component',
+		      name: 'component',
+			  children: [
+				  {
+				    id: 'component-options',
+				    name: 'component（选项式）',
+				    url: 'component-options',
+				  },
 
-                {
-                  id: 'component-composition',
-                  name: 'component（组合式）',
-                  url: 'component-composition'
-                }
-              ]
-            },
-            {
-              id: 'component/slots',
-              name: 'slot',
-              children: [
-                {
-                  id: 'slots-options',
-                  name: 'slots（选项式）',
-                  url: 'slots-options'
-                },
-
-                {
-                  id: 'slots-composition',
-                  name: 'slots（组合式）',
-                  url: 'slots-composition'
-                }
-              ]
-            },
-            {
-              id: 'component/template',
-              name: 'template',
-              children: [
-                {
-                  id: 'template-options',
-                  name: 'template（选项式）',
-                  url: 'template-options'
-                },
-
-                {
-                  id: 'template-composition',
-                  name: 'template（组合式）',
-                  url: 'template-composition'
-                }
-              ]
-            }
-          ] as Page[]
-        }
-      ] as Menu[]
-    };
+				  {
+				    id: 'component-composition',
+				    name: 'component（组合式）',
+				    url: 'component-composition',
+				  }
+			  ]
+		    },
+		  ] as Page[]
+		}
+      ] as Menu[],
+    }
   },
   methods: {
     goDetailPage(parentUrl: string, page: Page) {

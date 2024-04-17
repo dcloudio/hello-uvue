@@ -1,110 +1,106 @@
 <template>
-	<!-- #ifdef APP -->
-	<scroll-view style="flex: 1" :bounces="false">
-	<!-- #endif -->
-		<view class="page container">
-			<text>page lifecycle</text>
-			<button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
-		</view>
-	<!-- #ifdef APP -->
-	</scroll-view>
-	<!-- #endif -->
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1" :bounces="false">
+  <!-- #endif -->
+    <view class="page container">
+      <text>page lifecycle</text>
+      <button class="mt-10" @click="scrollToBottom">
+        scrollToBottom
+      </button>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
 </template>
 
 <script setup lang="uts">
-	import { state, setLifeCycleNum } from '@/store/index.uts'
+  import { state, setLifeCycleNum } from '@/store/index.uts'
+  type DataInfo = {
+    isScrolled : boolean
+  }
+  const dataInfo = reactive({
+    isScrolled: false,
+  } as DataInfo)
 
-	const isScrolled = ref<boolean>(false)
+  onLoad((_ : OnLoadOptions) => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 100)
+  })
+  onPageShow(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onReady(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onPullDownRefresh(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onPageScroll((_) => {
+    // 自动化测试
+    dataInfo.isScrolled = true
+  })
+  onReachBottom(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
+  onBackPress((_ : OnBackPressOptions) : boolean | null => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 10)
+    return null
+  })
+  onPageHide(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 10)
+  })
+  onUnload(() => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 100)
+  })
+  onResize((_) => {
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 10)
+  })
 
-	onLoad((_ : OnLoadOptions) => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 100)
-	})
+  // 自动化测试
+  const pageGetLifeCycleNum = () : number => {
+    return state.lifeCycleNum
+  }
+  // 自动化测试
+  const pageSetLifeCycleNum = (num : number) => {
+    setLifeCycleNum(num)
+  }
 
-	onUnload(() => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum - 100)
-	})
+  // 自动化测试
+  const pullDownRefresh = () => {
+    uni.startPullDownRefresh({
+      success() {
+        setTimeout(() => {
+          uni.stopPullDownRefresh()
+        }, 1500)
+      },
+    })
+  }
 
-	onReady(() => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 10)
-	})
+  const scrollToBottom = () => {
+    uni.pageScrollTo({
+      scrollTop: 2000,
+    })
+  }
 
-	onPageShow(() => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 10)
-	})
-
-	onPageHide(() => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum - 10)
-	})
-
-	onPageScroll((_) => {
-		// 自动化测试
-		isScrolled.value = true
-	})
-
-	onPullDownRefresh(() => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 10)
-	})
-
-	onReachBottom(() => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 10)
-	})
-
-	onBackPress((_ : OnBackPressOptions) : boolean | null => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum - 10)
-		return null
-	})
-
-	onResize((_ : OnResizeOptions) => {
-		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 10)
-	})
-
-	// 自动化测试
-	const getLifeCycleNum = () : number => {
-		return state.lifeCycleNum
-	}
-
-	// 自动化测试
-	const setLifeCycleNum = (num : number) => {
-		setLifeCycleNum(num)
-	}
-
-	// 自动化测试
-	const pullDownRefresh = () => {
-		uni.startPullDownRefresh({
-			success() {
-				setTimeout(() => {
-					uni.stopPullDownRefresh()
-					// 一秒后立即停止下拉刷新不会触发 onPullDownRefresh，因为下拉动画时间大概需要1.1～1.2秒
-				}, 1500)
-			},
-		})
-	}
-
-	const scrollToBottom = () => {
-		uni.pageScrollTo({
-			scrollTop: 2000,
-		})
-	}
-
-	defineExpose({
-		getLifeCycleNum,
-		setLifeCycleNum,
-		pullDownRefresh,
-		scrollToBottom
-	})
+  defineExpose({
+    dataInfo,
+    pageGetLifeCycleNum,
+    pageSetLifeCycleNum,
+    pullDownRefresh,
+    scrollToBottom,
+  })
 </script>
 
 <style>
-	.container {
-		height: 1200px;
-	}
+  .container {
+    height: 1200px;
+  }
 </style>

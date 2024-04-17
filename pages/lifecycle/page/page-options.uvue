@@ -4,7 +4,7 @@
 	<!-- #endif -->
 		<view class="page container">
 			<text>page lifecycle</text>
-			<button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
+			<button class="mt-10" @click="scrollToBottom">scrollToBottom</button>
 		</view>
 	<!-- #ifdef APP -->
 	</scroll-view>
@@ -13,11 +13,15 @@
 
 <script lang="uts">
 	import { state, setLifeCycleNum } from '@/store/index.uts'
-
+  type DataInfo = {
+  	isScrolled: boolean
+  }
 	export default {
 		data() {
 			return {
-				isScrolled: false,
+				dataInfo: {
+          isScrolled: false,
+        } as DataInfo
 			}
 		},
 		onLoad(_ : OnLoadOptions) {
@@ -38,7 +42,7 @@
 		},
 		onPageScroll(_) {
 			// 自动化测试
-			this.isScrolled = true
+			this.dataInfo.isScrolled = true
 		},
 		onReachBottom() {
 			// 自动化测试
@@ -63,11 +67,11 @@
 		},
 		methods: {
 			// 自动化测试
-			getLifeCycleNum() : number {
+			pageGetLifeCycleNum() : number {
 				return state.lifeCycleNum
 			},
 			// 自动化测试
-			setLifeCycleNum(num : number) {
+			pageSetLifeCycleNum(num : number) {
 				setLifeCycleNum(num)
 			},
 			// 自动化测试
