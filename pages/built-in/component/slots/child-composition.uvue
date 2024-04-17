@@ -15,11 +15,11 @@
 <script setup lang="uts">
 defineOptions({
   name: 'child'
-});
+})
 
 defineSlots<{
-  default(props: { msg: string }): any;
-  header(props: { msg: string }): any;
-  footer(props: { msg: string }): any;
-}>();
+  default(props: { msg: string }): any
+  header(props: { msg: string }): any
+  footer(props: { msg: string }): any
+}>()
 </script>

@@ -13,24 +13,24 @@
 
 <script setup lang="uts">
 type ListItem = {
-  name: string;
-};
+  name: string
+}
 
 // 自动化测试拿不到 ref
 defineOptions({
   data() {
     return {
       isShow: false
-    };
+    }
   },
   methods: {
     handleShow() {
-      this.isShow = !this.isShow;
+      this.isShow = !this.isShow
     }
   }
-});
+})
 
-const title = ref<string>('hello');
+const title = ref<string>('hello')
 const list = ref<ListItem[]>([
   {
     name: 'foo1'
@@ -38,15 +38,15 @@ const list = ref<ListItem[]>([
   {
     name: 'foo2'
   }
-] as ListItem[]);
+] as ListItem[])
 
 const goMapStyle = () => {
-  uni.navigateTo({ url: '/pages/built-in/component/template/template-map-style-composition' });
-};
+  uni.navigateTo({ url: '/pages/built-in/component/template/template-map-style-composition' })
+}
 
 defineExpose({
   goMapStyle
-});
+})
 </script>
 
 <style>

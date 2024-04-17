@@ -38,9 +38,9 @@
 </template>
 
 <script setup lang="uts">
-import Counter from '@/components/keep-alive/Counter.uvue';
-import Message from '@/components/keep-alive/Message.uvue';
-import ShouldExclude from '@/components/keep-alive/ShouldExclude.uvue';
+import Counter from '@/components/keep-alive/Counter.uvue'
+import Message from '@/components/keep-alive/Message.uvue'
+import ShouldExclude from '@/components/keep-alive/ShouldExclude.uvue'
 
 defineOptions({
   components: {
@@ -48,13 +48,13 @@ defineOptions({
     Message,
     ShouldExclude
   }
-});
+})
 
-const currentComponent = ref<string>('ShouldExclude');
+const currentComponent = ref<string>('ShouldExclude')
 
 const changeComponent = (componentName: string) => {
-  currentComponent.value = componentName;
-};
+  currentComponent.value = componentName
+}
 </script>
 
 <style>

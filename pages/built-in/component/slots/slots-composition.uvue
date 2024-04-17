@@ -15,5 +15,5 @@
 </template>
 
 <script setup lang="uts">
-import child from './child-composition.uvue';
+import child from './child-composition.uvue'
 </script>
