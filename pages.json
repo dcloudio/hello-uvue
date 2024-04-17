@@ -126,13 +126,13 @@
     {
       "path": "pages/built-in/component/keep-alive/keep-alive-options",
       "style": {
-        "navigationBarTitleText": "keep-alive（选项式 API）"
+        "navigationBarTitleText": "keep-alive 选项式 API"
       }
     },
     {
       "path": "pages/built-in/component/keep-alive/keep-alive-composition",
       "style": {
-        "navigationBarTitleText": "keep-alive（组合式 API）"
+        "navigationBarTitleText": "keep-alive 组合式 API"
       }
     },
     {
@@ -280,14 +280,14 @@
     {
       "path": "pages/lifecycle/page/page-composition",
       "style": {
-        "navigationBarTitleText": "page-lifecycle（组合式 API）",
+        "navigationBarTitleText": "page-lifecycle 组合式 API",
         "enablePullDownRefresh": true
       }
     },
     {
       "path": "pages/lifecycle/page/page-options",
       "style": {
-        "navigationBarTitleText": "page-lifecycle（选项式 API）",
+        "navigationBarTitleText": "page-lifecycle 选项式 API",
         "enablePullDownRefresh": true
       }
     },
@@ -312,13 +312,13 @@
     {
       "path": "pages/component-instance/refs/refs-options",
       "style": {
-        "navigationBarTitleText": "$refs（选项式 API）"
+        "navigationBarTitleText": "$refs 选项式 API"
       }
     },
     {
       "path": "pages/component-instance/refs/refs-composition",
       "style": {
-        "navigationBarTitleText": "$refs（组合式 API）"
+        "navigationBarTitleText": "$refs 组合式 API"
       }
     },
     {
@@ -334,9 +334,15 @@
       }
     },
     {
-      "path": "pages/component-instance/emit-function/emit-function",
+      "path": "pages/component-instance/emit-function/emit-function-options",
       "style": {
-        "navigationBarTitleText": "$emit()"
+        "navigationBarTitleText": "$emit() 选项式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/emit-function/emit-function-composition",
+      "style": {
+        "navigationBarTitleText": "defineEmits 组合式 API"
       }
     },
     {
@@ -414,37 +420,37 @@
     {
       "path": "pages/built-in/component/slots/slots-composition",
       "style": {
-        "navigationBarTitleText": "slots（组合式 API）"
+        "navigationBarTitleText": "slots 组合式 API"
       }
     },
     {
       "path": "pages/built-in/component/slots/slots-options",
       "style": {
-        "navigationBarTitleText": "slots（选项式 API）"
+        "navigationBarTitleText": "slots 选项式 API"
       }
     },
     {
       "path": "pages/built-in/component/template/template-options",
       "style": {
-        "navigationBarTitleText": "template（选项式 API）"
+        "navigationBarTitleText": "template 选项式 API"
       }
     },
     {
       "path": "pages/built-in/component/template/template-composition",
       "style": {
-        "navigationBarTitleText": "template（组合式 API）"
+        "navigationBarTitleText": "template 组合式 API"
       }
     },
     {
       "path": "pages/built-in/component/template/template-map-style-options",
       "style": {
-        "navigationBarTitleText": "template-map-style（选项式 API）"
+        "navigationBarTitleText": "template-map-style 选项式 API"
       }
     },
     {
       "path": "pages/built-in/component/template/template-map-style-composition",
       "style": {
-        "navigationBarTitleText": "template-map-style（组合式 API）"
+        "navigationBarTitleText": "template-map-style 组合式 API"
       }
     },
     {
@@ -456,13 +462,13 @@
     {
       "path": "pages/built-in/component/component/component-options",
       "style": {
-        "navigationBarTitleText": "component（选项式 API）"
+        "navigationBarTitleText": "component 选项式 API"
       }
     },
     {
       "path": "pages/built-in/component/component/component-composition",
       "style": {
-        "navigationBarTitleText": "component（组合式 API）"
+        "navigationBarTitleText": "component 组合式 API"
       }
     },
     {
@@ -520,25 +526,25 @@
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication-options",
       "style": {
-        "navigationBarTitleText": "嵌套组件通信（选项式 API）"
+        "navigationBarTitleText": "嵌套组件通信 选项式 API"
       }
     },
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication-composition",
       "style": {
-        "navigationBarTitleText": "嵌套组件通信（组合式 API）"
+        "navigationBarTitleText": "嵌套组件通信 组合式 API"
       }
     },
     {
       "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class-options",
       "style": {
-        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式（选项式 API）"
+        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式 选项式 API"
       }
     },
     {
       "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class-composition",
       "style": {
-        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式（组合式 API）"
+        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式 组合式 API"
       }
     },
     {
@@ -770,14 +776,14 @@
     {
       "path": "pages/built-in/component/teleport/teleport-options",
       "style": {
-        "navigationBarTitleText": "teleport（选项式 API）",
+        "navigationBarTitleText": "teleport 选项式 API",
         "enablePullDownRefresh": false
       }
     },
     {
       "path": "pages/built-in/component/teleport/teleport-composition",
       "style": {
-        "navigationBarTitleText": "teleport（组合式 API）",
+        "navigationBarTitleText": "teleport 组合式 API",
         "enablePullDownRefresh": false
       }
     },

@@ -1,0 +1,19 @@
+<template>
+  <view class="page">
+    <view class="split-title">$forceUpdate</view>
+    <text class="uni-common-mt time">Date.now(): {{ Date.now() }}</text>
+    <button class="uni-common-mt trigger-force-update-btn" type="primary" @click="triggerForceUpdate">trigger $forceUpdate</button>
+  </view>
+</template>
+
+<script setup lang="uts">
+const instance = getCurrentInstance()
+
+const triggerForceUpdate = () => {
+  instance.$.forceUpdate()
+}
+
+defineExpose({
+  triggerForceUpdate
+})
+</script>

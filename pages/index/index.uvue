@@ -248,6 +248,22 @@ export default {
                   url: 'refs-composition'
                 }
               ]
+            },
+            {
+              id: 'emit-function',
+              name: '$emit',
+              children: [
+                {
+                  id: 'emit-options',
+                  name: '$emit 选项式 API',
+                  url: 'emit-function-options'
+                },
+                {
+                  id: 'emit-composition',
+                  name: 'defineEmits 组合式 API',
+                  url: 'emit-function-options'
+                }
+              ]
             }
           ] as Page[]
         },

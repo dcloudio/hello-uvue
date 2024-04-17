@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import child from './child.uvue'
+import child from './child-options.uvue'
 
 export default {
   components: {
