@@ -1,0 +1,36 @@
+<template>
+  <view class="page">
+    <view ref="node">NodeRef: {{ existRef }}</view>
+    <view ref="nodeRef">childRef: {{ exisChildRef }}</view>
+    <child ref="childRef">ComponentRef</child>
+  </view>
+</template>
+
+<script lang="uts">
+import child from './child-options.uvue'
+
+export default {
+  components: {
+    child
+  },
+  data() {
+    return {
+      existRef: false,
+      exisChildRef: false
+    }
+  },
+  onReady() {
+    this.existRef = this.$refs['node'] !== null
+    this.exisChildRef = this.$refs['childRef'] !== null
+  }
+}
+</script>
+
+<style>
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+</style>

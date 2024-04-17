@@ -1,17 +1,13 @@
 <script>
 export default {
-  data () {
+  data() {
     return {
-      value: "child value"
+      value: 'child value'
     }
   }
 }
 </script>
 
 <template>
-
+  {{ value }}
 </template>
-
-<style scoped>
-
-</style>

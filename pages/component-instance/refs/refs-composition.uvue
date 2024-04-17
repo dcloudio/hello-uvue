@@ -1,0 +1,40 @@
+<template>
+  <view class="page">
+    <view ref="nodeRef">NodeRef: {{ refObject.existRef }}</view>
+    <view ref="nodeRef">childRef: {{ refObject.exisChildRef }}</view>
+    <Child ref="childRef">ComponentRef</Child>
+  </view>
+</template>
+
+<script setup lang="uts">
+import Child from './child-composition.uvue'
+
+type RefObject = { existRef: boolean; exisChildRef: boolean }
+
+// NOTE 由于自动化测试读不到 ref，composition 改为使用 reactive
+const refObject = reactive<RefObject>({
+  existRef: false,
+  exisChildRef: false
+} as RefObject)
+
+const nodeRef = ref<ComponentPublicInstance | null>(null)
+const childRef = ref<ComponentPublicInstance | null>(null)
+
+onReady(() => {
+  refObject.existRef = nodeRef.value !== null
+  refObject.exisChildRef = childRef.value !== null
+})
+
+defineExpose({
+  refObject
+})
+</script>
+
+<style>
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+</style>

@@ -232,6 +232,22 @@ export default {
                   url: 'slots-composition'
                 }
               ]
+            },
+            {
+              id: 'refs',
+              name: '$refs',
+              children: [
+                {
+                  id: 'refs-options',
+                  name: '$refs 选项式 API',
+                  url: 'refs-options'
+                },
+                {
+                  id: 'refs-composition',
+                  name: '$refs 组合式 API',
+                  url: 'refs-composition'
+                }
+              ]
             }
           ] as Page[]
         },
