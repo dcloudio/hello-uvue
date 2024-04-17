@@ -293,6 +293,40 @@
                   }
                 ]
               },
+              {
+              id: 'component/slots',
+              name: 'slot',
+              children: [
+                {
+                  id: 'slots-options',
+                  name: 'slots（选项式）',
+                  url: 'slots-options'
+                },
+
+                {
+                  id: 'slots-composition',
+                  name: 'slots（组合式）',
+                  url: 'slots-composition'
+                }
+              ]
+            },
+            {
+              id: 'component/template',
+              name: 'template',
+              children: [
+                {
+                  id: 'template-options',
+                  name: 'template（选项式）',
+                  url: 'template-options'
+                },
+
+                {
+                  id: 'template-composition',
+                  name: 'template（组合式）',
+                  url: 'template-composition'
+                }
+              ]
+            }
             ] as Page[]
           }
         ] as Menu[],
