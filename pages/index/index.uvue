@@ -4,22 +4,10 @@
     <!-- #endif -->
     <view>
       <uni-collapse>
-        <uni-collapse-item
-          v-for="menu in menus"
-          :key="menu.id"
-          :title="menu.name"
-          class="menu">
+        <uni-collapse-item v-for="menu in menus" :key="menu.id" :title="menu.name" class="menu">
           <view v-for="(page, index) in menu.pages" :key="page.name">
-            <view
-              v-if="page.url"
-              class="page-item"
-              :class="{ 'first-child': index == 0 }"
-              @click="goDetailPage(menu.id, page)">
-              <text
-                :class="{ 'text-disabled': page.enable == false }"
-                class="text"
-                >{{ page.name }}</text
-              >
+            <view v-if="page.url" class="page-item" :class="{ 'first-child': index == 0 }" @click="goDetailPage(menu.id, page)">
+              <text :class="{ 'text-disabled': page.enable == false }" class="text">{{ page.name }}</text>
             </view>
             <template v-if="page.children">
               <uni-collapse style="flex: 1">
@@ -29,12 +17,9 @@
                     :key="child.url"
                     class="page-item"
                     :class="{ 'first-child': index == 0 }"
-                    @click="goDetailPage(`${menu.id}/${page.id}`, child)">
-                    <text
-                      :class="{ 'text-disabled': child.enable == false }"
-                      class="text"
-                      >{{ child.name }}</text
-                    >
+                    @click="goDetailPage(`${menu.id}/${page.id}`, child)"
+                  >
+                    <text :class="{ 'text-disabled': child.enable == false }" class="text">{{ child.name }}</text>
                   </view>
                 </uni-collapse-item>
               </uni-collapse>
@@ -49,23 +34,23 @@
 </template>
 
 <script lang="uts">
-import { setLifeCycleNum, state } from '@/store/index.uts'
+import { setLifeCycleNum, state } from '@/store/index.uts';
 
 type Page = {
-  id: string,
-  name : string
-  enable?: boolean
-  url ?: string
-  children?: Page[]
-}
+  id: string;
+  name: string;
+  enable?: boolean;
+  url?: string;
+  children?: Page[];
+};
 
 type Menu = {
-  id : string
-  name : string
-  pages : Page[]
-  url ?: string
-  enable ?: boolean
-}
+  id: string;
+  name: string;
+  pages: Page[];
+  url?: string;
+  enable?: boolean;
+};
 
 export default {
   data() {
@@ -78,7 +63,7 @@ export default {
             {
               id: 'component',
               name: 'component',
-              url: 'component/component',
+              url: 'component/component'
             },
             {
               id: 'globalProperties',
@@ -87,12 +72,12 @@ export default {
                 {
                   id: 'globalProperties-options',
                   name: 'globalProperties  选项式 API',
-                  url: 'globalProperties-options',
+                  url: 'globalProperties-options'
                 },
                 {
                   id: 'globalProperties-composition',
                   name: 'globalProperties 组合式 API',
-                  url: 'globalProperties-composition',
+                  url: 'globalProperties-composition'
                 }
               ]
             },
@@ -103,18 +88,18 @@ export default {
                 {
                   id: 'use-options',
                   name: 'use 选项式 API',
-                  url: 'use-composition',
+                  url: 'use-composition'
                 },
                 {
                   id: 'use-composition',
                   name: 'use 组合式 API',
-                  url: 'use-composition',
+                  url: 'use-composition'
                 }
               ]
             }
-          ] as Page[],
+          ] as Page[]
         },
-		{
+        {
           id: 'component-instance',
           name: '组件 实例',
           pages: [
@@ -125,91 +110,96 @@ export default {
                 {
                   id: 'attrs-options',
                   name: 'attrs 选项式 API',
-                  url: 'attrs-options',
+                  url: 'attrs-options'
                 },
                 {
                   id: 'attrs-composition',
                   name: 'attrs 组合式 API',
-                  url: 'attrs-composition',
+                  url: 'attrs-composition'
                 }
               ]
-            },{
+            },
+            {
               id: 'data',
               name: 'data',
               children: [
                 {
                   id: 'data-options',
                   name: 'data 选项式 API',
-                  url: 'data-options',
+                  url: 'data-options'
                 },
                 {
                   id: 'data-composition',
                   name: 'data 组合式 API',
-                  url: 'data-composition',
+                  url: 'data-composition'
                 }
               ]
-            },{
+            },
+            {
               id: 'props',
               name: 'props',
               children: [
                 {
                   id: 'props-options',
                   name: 'props 选项式 API',
-                  url: 'props-options',
+                  url: 'props-options'
                 },
                 {
                   id: 'props-composition',
                   name: 'props 组合式 API',
-                  url: 'props-composition',
+                  url: 'props-composition'
                 }
               ]
-            },{
+            },
+            {
               id: 'el',
               name: '$el',
               children: [
                 {
                   id: 'el-options',
                   name: '$el 选项式 API',
-                  url: 'el-options',
+                  url: 'el-options'
                 },
                 {
                   id: 'el-composition',
                   name: '$el 组合式 API',
-                  url: 'el-composition',
+                  url: 'el-composition'
                 }
               ]
-            },{
+            },
+            {
               id: 'options',
               name: '$options',
               children: [
                 {
                   id: 'options-options',
                   name: '$options 选项式 API',
-                  url: 'options-options',
+                  url: 'options-options'
                 },
                 {
                   id: 'options-composition',
                   name: '$options 组合式 API',
-                  url: 'options-composition',
+                  url: 'options-composition'
                 }
               ]
-            },{
+            },
+            {
               id: 'parent',
               name: '$parent',
               children: [
                 {
                   id: 'parent-options',
                   name: '$parent 选项式 API',
-                  url: 'parent-options',
+                  url: 'parent-options'
                 },
                 {
                   id: 'parent-composition',
                   name: '$parent 组合式 API',
-                  url: 'parent-composition',
+                  url: 'parent-composition'
                 }
               ]
             },
-            // #ifdef APP 
+            // #ifdef APP
             {
               id: 'root',
               name: '$root',
@@ -217,129 +207,163 @@ export default {
                 {
                   id: 'root-options',
                   name: '$root 选项式 API',
-                  url: 'root-options',
+                  url: 'root-options'
                 },
                 {
                   id: 'root-composition',
                   name: '$root 组合式 API',
-                  url: 'root-composition',
+                  url: 'root-composition'
+                }
+              ]
+            }
+            // #endif
+          ] as Page[]
+        },
+        {
+          id: 'lifecycle',
+          name: '生命周期',
+          pages: [
+            {
+              id: 'page',
+              name: '页面生命周期',
+              children: [
+                {
+                  id: 'page-options',
+                  name: '页面生命周期（选项式）',
+                  url: 'page-options'
+                },
+
+                {
+                  id: 'page-composition',
+                  name: '页面生命周期（组合式）',
+                  url: 'page-composition'
+                }
+              ]
+            }
+          ] as Page[]
+        },
+        {
+          id: 'built-in',
+          name: '内置组件',
+          pages: [
+            {
+              id: 'component/keep-alive',
+              name: 'keep-alive',
+              children: [
+                {
+                  id: 'keep-alive-options',
+                  name: 'keep-alive（选项式）',
+                  url: 'keep-alive-options'
+                },
+
+                {
+                  id: 'keep-alive-composition',
+                  name: 'keep-alive（组合式）',
+                  url: 'keep-alive-composition'
                 }
               ]
             },
-            // #endif
-          ] as Page[],
-        },
-		{
-		  id: 'lifecycle',
-		  name: '生命周期',
-		  pages: [
-		    {
-		      id: 'page',
-		      name: '页面生命周期',
-			  children: [
-				  {
-				    id: 'page-options',
-				    name: '页面生命周期（选项式）',
-				    url: 'page-options',
-				  },
-				  
-				  {
-				    id: 'page-composition',
-				    name: '页面生命周期（组合式）',
-				    url: 'page-composition',
-				  }
-			  ]
-		    }
-		  ] as Page[]
-		},
-		{
-		  id: 'built-in',
-		  name: '内置组件',
-		  pages: [
-		    {
-		      id: 'component/keep-alive',
-		      name: 'keep-alive',
-			  children: [
-				  {
-				    id: 'keep-alive-options',
-				    name: 'keep-alive（选项式）',
-				    url: 'keep-alive-options',
-				  },
-				  
-				  {
-				    id: 'keep-alive-composition',
-				    name: 'keep-alive（组合式）',
-				    url: 'keep-alive-composition',
-				  }
-			  ]
-		    },
-		    {
-		      id: 'component/teleport',
-		      name: 'teleport',
-			  children: [
-				  {
-				    id: 'teleport-options',
-				    name: 'teleport（选项式）',
-				    url: 'teleport-options',
-				  },
-				  
-				  {
-				    id: 'teleport-composition',
-				    name: 'teleport（组合式）',
-				    url: 'teleport-composition',
-				  }
-			  ]
-		    },
-		    {
-		      id: 'component/component',
-		      name: 'component',
-			  children: [
-				  {
-				    id: 'component-options',
-				    name: 'component（选项式）',
-				    url: 'component-options',
-				  },
-				  
-				  {
-				    id: 'component-composition',
-				    name: 'component（组合式）',
-				    url: 'component-composition',
-				  }
-			  ]
-		    },
-		  ] as Page[]
-		}
-      ] as Menu[],
-    }
+            {
+              id: 'component/teleport',
+              name: 'teleport',
+              children: [
+                {
+                  id: 'teleport-options',
+                  name: 'teleport（选项式）',
+                  url: 'teleport-options'
+                },
+
+                {
+                  id: 'teleport-composition',
+                  name: 'teleport（组合式）',
+                  url: 'teleport-composition'
+                }
+              ]
+            },
+            {
+              id: 'component/component',
+              name: 'component',
+              children: [
+                {
+                  id: 'component-options',
+                  name: 'component（选项式）',
+                  url: 'component-options'
+                },
+
+                {
+                  id: 'component-composition',
+                  name: 'component（组合式）',
+                  url: 'component-composition'
+                }
+              ]
+            },
+            {
+              id: 'component/slots',
+              name: 'slot',
+              children: [
+                {
+                  id: 'slots-options',
+                  name: 'slots（选项式）',
+                  url: 'slots-options'
+                },
+
+                {
+                  id: 'slots-composition',
+                  name: 'slots（组合式）',
+                  url: 'slots-composition'
+                }
+              ]
+            },
+            {
+              id: 'component/template',
+              name: 'template',
+              children: [
+                {
+                  id: 'template-options',
+                  name: 'template（选项式）',
+                  url: 'template-options'
+                },
+
+                {
+                  id: 'template-composition',
+                  name: 'template（组合式）',
+                  url: 'template-composition'
+                }
+              ]
+            }
+          ] as Page[]
+        }
+      ] as Menu[]
+    };
   },
   methods: {
-    goDetailPage(parentUrl : string, page : Page) {
+    goDetailPage(parentUrl: string, page: Page) {
       if (page.enable == false) {
         uni.showToast({
           icon: 'none',
-          title: '暂不支持',
-        })
-        return
+          title: '暂不支持'
+        });
+        return;
       }
       uni.navigateTo({
-        url: `/pages/${parentUrl}/${page.url}`,
-      })
+        url: `/pages/${parentUrl}/${page.url}`
+      });
     },
     // 自动化测试
-    setLifeCycleNum(num : number) {
-      setLifeCycleNum(num)
+    setLifeCycleNum(num: number) {
+      setLifeCycleNum(num);
     },
     // 自动化测试
-    getLifeCycleNum() : number {
-      return state.lifeCycleNum
+    getLifeCycleNum(): number {
+      return state.lifeCycleNum;
     },
     // 自动化测试
-    checkLaunchPath() : boolean {
-      const app = getApp()
-      return app.checkLaunchPath()
-    },
-  },
-}
+    checkLaunchPath(): boolean {
+      const app = getApp();
+      return app.checkLaunchPath();
+    }
+  }
+};
 </script>
 
 <style lang="scss">

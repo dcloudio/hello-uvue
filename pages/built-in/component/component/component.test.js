@@ -4,6 +4,7 @@ const PAGE_COMPOSITION = '/pages/built-in/component/component/component-composit
 describe('built-in/component', () => {
 	let page
 	const test = async () => {
+		await page.waitFor('view')
 		let fooList = await page.$$('.component-foo')
 		expect(fooList.length).toBe(2)
 		expect(await fooList[0].text()).toBe('this is component Foo')
@@ -24,12 +25,10 @@ describe('built-in/component', () => {
 	}
 	it('component Options API', async () => {
 		page = await program.reLaunch(PAGE_OPTIONS)
-		await page.waitFor('view')
 		await test()
 	})
 	it('component Composition API', async () => {
 		page = await program.reLaunch(PAGE_COMPOSITION)
-		await page.waitFor('view')
 		await test()
 	})
 });

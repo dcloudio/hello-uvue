@@ -1,0 +1,59 @@
+<template>
+  <view class="page">
+    <template v-if="isShow">
+      <view class="title">{{ title }}</view>
+    </template>
+    <view class="show-botton" @click="handleShow">{{ isShow ? '点击隐藏' : '点击显示' }}</view>
+    <template v-for="(item, index) in list" :key="index">
+      <view class="item">{{ index + 1 }}.{{ item.name }}</view>
+    </template>
+    <button @click="goMapStyle">跳转绑定 Map 类型 style 页面</button>
+  </view>
+</template>
+
+<script setup lang="uts">
+type ListItem = {
+  name: string;
+};
+
+// 自动化测试拿不到 ref
+defineOptions({
+  data() {
+    return {
+      isShow: false
+    };
+  },
+  methods: {
+    handleShow() {
+      this.isShow = !this.isShow;
+    }
+  }
+});
+
+const title = ref<string>('hello');
+const list = ref<ListItem[]>([
+  {
+    name: 'foo1'
+  },
+  {
+    name: 'foo2'
+  }
+] as ListItem[]);
+
+const goMapStyle = () => {
+  uni.navigateTo({ url: '/pages/built-in/component/template/template-map-style-composition' });
+};
+
+defineExpose({
+  goMapStyle
+});
+</script>
+
+<style>
+.item {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  border: #eee solid 1px;
+}
+</style>

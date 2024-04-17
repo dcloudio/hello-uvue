@@ -1,20 +1,26 @@
-// uni-app自动化测试教程: https://uniapp.dcloud.net.cn/worktile/auto/hbuilderx-extension/
+const PAGE_PATH_OPTIONS = '/pages/built-in/component/template/template-options'
+const PAGE_PATH_COMPONSITION = '/pages/built-in/component/template/template-composition'
 
-describe('/pages/built-in/component/template/template', () => {
-	let page
-	beforeAll(async () => {
-		page = await program.reLaunch('/pages/built-in/component/template/template')
-		await page.waitFor('view')
-	})
-	it('template', async () => {
-		expect.assertions(4);
-		const showBtn = await page.$('.show-botton')
-		await showBtn.tap()
-		expect((await page.data()).isShow).toBeTruthy()
-		const getTitle = await page.$('.title')
-		expect(await getTitle.text()).toBe("hello")
-		const getShow = await page.$('.show-botton')
-		expect(await getShow.text()).toBe("点击隐藏")
-		expect((await page.$$('.item')).length).toBe(2)
-	})
+describe('built-in/component', () => {
+  let page
+  const test = async () => {
+    await page.waitFor('view')
+    expect.assertions(4);
+    const showBtn = await page.$('.show-botton')
+    await showBtn.tap()
+    expect((await page.data()).isShow).toBeTruthy()
+    const getTitle = await page.$('.title')
+    expect(await getTitle.text()).toBe("hello")
+    const getShow = await page.$('.show-botton')
+    expect(await getShow.text()).toBe("点击隐藏")
+    expect((await page.$$('.item')).length).toBe(2)
+  }
+  it('template Options API', async () => {
+    page = await program.reLaunch(PAGE_PATH_OPTIONS)
+    await test()
+  })
+  it('template Composition API', async () => {
+    page = await program.reLaunch(PAGE_PATH_COMPONSITION)
+    await test()
+  })
 });

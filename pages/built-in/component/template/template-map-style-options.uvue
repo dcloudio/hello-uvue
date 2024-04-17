@@ -24,7 +24,7 @@
       <text>background-color: blue;</text>
       <text class="text-red">this text color: red;</text>
     </view>
-    <button class="uni-common-mt" id="btn" @click="toggleIsClassValid">toggle isClassValid</button>
+    <button class="mt-10" id="btn" @click="toggleIsClassValid">toggle isClassValid</button>
   </view>
 </template>
 
