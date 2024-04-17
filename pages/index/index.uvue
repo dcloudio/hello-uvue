@@ -261,7 +261,23 @@ export default {
                 {
                   id: 'emit-composition',
                   name: 'defineEmits 组合式 API',
-                  url: 'emit-function-options'
+                  url: 'emit-function-composition'
+                }
+              ]
+            },
+            {
+              id: 'force-update',
+              name: '$force-update',
+              children: [
+                {
+                  id: 'force-update-options',
+                  name: '$forceUpdate 选项式 API',
+                  url: 'force-update-options'
+                },
+                {
+                  id: 'force-update-composition',
+                  name: '$forceUpdate 组合式 API',
+                  url: 'force-update-composition'
                 }
               ]
             }

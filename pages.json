@@ -346,9 +346,15 @@
       }
     },
     {
-      "path": "pages/component-instance/force-update/force-update",
+      "path": "pages/component-instance/force-update/force-update-options",
       "style": {
-        "navigationBarTitleText": "$forceUpdate"
+        "navigationBarTitleText": "$forceUpdate 选项式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/force-update/force-update-composition",
+      "style": {
+        "navigationBarTitleText": "$forceUpdate 组合式 API"
       }
     },
     {
