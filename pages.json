@@ -506,15 +506,27 @@
       }
     },
     {
-      "path": "pages/examples/nested-component-communication/nested-component-communication",
+      "path": "pages/examples/nested-component-communication/nested-component-communication-options",
       "style": {
-        "navigationBarTitleText": "嵌套组件通信"
+        "navigationBarTitleText": "嵌套组件通信（选项式）"
       }
     },
     {
-      "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class",
+      "path": "pages/examples/nested-component-communication/nested-component-communication-composition",
       "style": {
-        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式"
+        "navigationBarTitleText": "嵌套组件通信（组合式）"
+      }
+    },
+    {
+      "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class-options",
+      "style": {
+        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式（选项式）"
+      }
+    },
+    {
+      "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class-composition",
+      "style": {
+        "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式（组合式）"
       }
     },
     {
