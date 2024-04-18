@@ -372,27 +372,51 @@
       }
     },
     {
-      "path": "pages/component-instance/methods/call-method-uni-element",
+      "path": "pages/component-instance/methods/call-method-uni-element-options",
       "style": {
-        "navigationBarTitleText": "call-method-uni-element"
+        "navigationBarTitleText": "call-method-uni-element 选项式 API"
       }
     },
     {
-      "path": "pages/component-instance/methods/call-method-easycom",
+      "path": "pages/component-instance/methods/call-method-uni-element-composition",
       "style": {
-        "navigationBarTitleText": "call-method-easycom"
+        "navigationBarTitleText": "call-method-uni-element 组合式 API"
       }
     },
     {
-      "path": "pages/component-instance/methods/call-method-easycom-uni-modules",
+      "path": "pages/component-instance/methods/call-method-easycom-options",
       "style": {
-        "navigationBarTitleText": "call-method-easycom-uni-modules"
+        "navigationBarTitleText": "call-method-easycom 选项式 API"
       }
     },
     {
-      "path": "pages/component-instance/methods/call-method-other",
+      "path": "pages/component-instance/methods/call-method-easycom-composition",
       "style": {
-        "navigationBarTitleText": "call-method-other"
+        "navigationBarTitleText": "call-method-easycom 组合式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-easycom-uni-modules-options",
+      "style": {
+        "navigationBarTitleText": "call-method-easycom-uni-modules 选项式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-easycom-uni-modules-composition",
+      "style": {
+        "navigationBarTitleText": "call-method-easycom-uni-modules 组合式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-other-options",
+      "style": {
+        "navigationBarTitleText": "call-method-other 选项式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/methods/call-method-other-composition",
+      "style": {
+        "navigationBarTitleText": "call-method-other 组合式 API"
       }
     },
     {

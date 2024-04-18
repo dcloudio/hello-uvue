@@ -23,6 +23,7 @@
         callback()
       },
       foo5(text1: string): any | null {
+        this.result = text1
         return text1
       }
     }

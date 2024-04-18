@@ -295,6 +295,42 @@ export default {
                   url: 'force-update-composition'
                 }
               ]
+            },
+            {
+              id: 'methods',
+              name: '$methods',
+              children: [
+                {
+                  id: 'call-method-easycom-uni-modules-options',
+                  name: '调用 uni_modules easycom 组件方法 选项式 API',
+                  url: 'call-method-easycom-uni-modules-options'
+                },
+                {
+                  id: 'call-method-easycom-uni-modules-composition',
+                  name: '调用 uni_modules easycom 组件方法 组合式 API',
+                  url: 'call-method-easycom-uni-modules-composition'
+                },
+                {
+                  id: 'call-method-uni-element-options',
+                  name: '调用内置组件方法 选项式 API',
+                  url: 'call-method-uni-element-options'
+                },
+                {
+                  id: 'call-method-uni-element-composition',
+                  name: '调用内置组件方法 组合式 API',
+                  url: 'call-method-uni-element-composition'
+                },
+                {
+                  id: 'call-method-other-options',
+                  name: '调用自定义组件方法 选项式 API',
+                  url: 'call-method-other-options'
+                },
+                {
+                  id: 'call-method-other-composition',
+                  name: '调用自定义组件方法 组合式 API',
+                  url: 'call-method-other-composition'
+                }
+              ]
             }
           ] as Page[]
         },
