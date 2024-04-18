@@ -7,17 +7,13 @@
 <script setup lang="uts">
 const sliderRef = ref<UniSliderElement | null>(null)
 
-const setValue = () => {
-  sliderRef.value!.value = 80
-}
-
 onReady(() => {
-  setValue()
+  sliderRef.value!.value = 80
 })
 
 const callMethodTest = (text: string): string | null => {
-  sliderRef.value!.setAttribute('str', text)
-  const result = sliderRef.value!.getAttribute('str') as string
+  sliderRef.value?.setAttribute('str', text)
+  const result = sliderRef.value?.getAttribute('str') as string
   return result
 }
 

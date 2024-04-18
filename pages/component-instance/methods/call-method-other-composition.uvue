@@ -12,22 +12,22 @@ const componentRef = ref<ComponentPublicInstance | null>(null)
 
 const callMethod1 = () => {
   // 通过 $callMethod 调用组件的 foo1 方法
-  componentRef.value!.$callMethod('foo1')
+  componentRef.value?.$callMethod('foo1')
 }
 
 const callMethod2 = () => {
   // 通过 $callMethod 调用组件的 foo2 方法并传递 1个参数
-  componentRef.value!.$callMethod('foo2', Date.now())
+  componentRef.value?.$callMethod('foo2', Date.now())
 }
 
 const callMethod3 = () => {
   // 通过 $callMethod 调用组件的 foo3 方法并传递 2个参数
-  componentRef.value!.$callMethod('foo3', Date.now(), Date.now())
+  componentRef.value?.$callMethod('foo3', Date.now(), Date.now())
 }
 
 const callMethod4 = () => {
   // 通过 $callMethod 调用组件的 foo4 方法并传递 callback
-  componentRef.value!.$callMethod('foo4', () => {
+  componentRef.value?.$callMethod('foo4', () => {
     console.log('callback')
   })
 }
@@ -35,12 +35,12 @@ const callMethod4 = () => {
 const callMethod5 = () => {
   // 通过 $callMethod 调用组件的 foo5 方法并接收返回值
   // 注意： 返回值可能为 null，当前例子一定不为空，所以加了 !
-  const result = componentRef.value!.$callMethod('foo5', 'string1') as string
+  const result = componentRef.value?.$callMethod('foo5', 'string1') as string
   console.log(result) // string1
 }
 
 const callMethodTest = (text: string): string | null => {
-  const result = componentRef.value!.$callMethod('foo5', text) as string
+  const result = componentRef.value?.$callMethod('foo5', text) as string
   return result
 }
 
