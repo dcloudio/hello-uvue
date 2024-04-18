@@ -107,14 +107,14 @@ function transform(fileInfo, api) {
 - [x] el
 - [x] options defineOptions
 - [x] parent
-- [ ] root  root
-- [ ] slots defineSlots useSlots
-- [ ] refs  ref
-- [ ] emit defineEmits
-- [ ] forceUpdate
-- [ ] methods
-- [ ] provide  provide
-- [ ] inject   inject
+- [x] root  root
+- [x] slots defineSlots useSlots
+- [x] refs  ref
+- [x] emit defineEmits
+- [x] forceUpdate
+- [x] methods
+- [x] provide  provide
+- [x] inject   inject
 - [ ] mixins   mixins
 - [ ] nextTick
 - [ ] options API setup
@@ -164,24 +164,24 @@ function transform(fileInfo, api) {
 
 ## lifecycle
 
-- [ ] component
-- [ ] page
+- [x] component
+- [x] page
 
 ## built-in components
 
-- [ ] keepAlive keepAlive
-- [ ] teleport  teleport 
+- [x] keepAlive keepAlive
+- [x] teleport  teleport 
 
 ## template
 
-- [ ] nested-component-communication
-- [ ] set-custom-child-component-root-node-class
+- [x] nested-component-communication
+- [x] set-custom-child-component-root-node-class
 
 ## rendering
 
-- [ ] component is
-- [ ] render function
-- [ ] slots
-- [ ] template  节点中 style class v-bind map 数据
-- [ ] template 标签测试
-- [ ] unrecognized-component
+- [x] component is
+- [x] render function 暂不支持 composition API
+- [x] slots
+- [x] template  节点中 style class v-bind map 数据
+- [x] template 标签测试
+- [x] unrecognized-component
