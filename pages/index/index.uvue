@@ -331,6 +331,27 @@ export default {
                   url: 'call-method-other-composition'
                 }
               ]
+            },
+            {
+              id: 'provide',
+              name: 'provide',
+              children: [
+                {
+                  id: 'provide-options-1',
+                  name: 'provide 选项式 API 字面量方式',
+                  url: 'provide-options-1'
+                },
+                {
+                  id: 'provide-options-2',
+                  name: 'provide 选项式 API 函数方式',
+                  url: 'provide-options-2'
+                },
+                {
+                  id: 'provide-composition',
+                  name: 'provide 组合式 API',
+                  url: 'provide-composition'
+                },
+              ]
             }
           ] as Page[]
         },

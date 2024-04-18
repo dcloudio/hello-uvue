@@ -1,6 +1,6 @@
-const PAGE_PATH = '/pages/composition-api/dependency-injection/provide/provide'
+const PAGE_PATH = '/pages/component-instance/provide/provide-composition'
 
-describe('provide-inject-hasInjectionContext', () => {
+describe('组合式 API provide', () => {
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

@@ -420,6 +420,26 @@
       }
     },
     {
+      "path": "pages/component-instance/provide/provide-options-1",
+      "style": {
+        "navigationBarTitleText": "provide 选项式 API 字面量"
+      }
+    },
+    {
+      "path": "pages/component-instance/provide/provide-options-2",
+      "style": {
+        "navigationBarTitleText": "provide 选项式 API 函数"
+      }
+    },
+    {
+      "path": "pages/component-instance/provide/provide-composition",
+      "style": {
+        "navigationBarTitleText": "provide 组合式 API"
+      }
+    },
+    
+
+    {
       "path": "pages/component-instance/circular-reference/circular-reference",
       "style": {
         "navigationBarTitleText": "circular reference"
@@ -537,24 +557,6 @@
       }
     },
     // #endif
-    {
-      "path": "pages/composition/provide/provide",
-      "style": {
-        "navigationBarTitleText": "provide"
-      }
-    },
-    {
-      "path": "pages/composition/provide/provide-page2",
-      "style": {
-        "navigationBarTitleText": "provide-page-2"
-      }
-    },
-    {
-      "path": "pages/composition/inject/inject",
-      "style": {
-        "navigationBarTitleText": "inject"
-      }
-    },
     {
       "path": "pages/composition/setup/setup",
       "style": {
@@ -789,12 +791,6 @@
       "path": "pages/composition-api/reactivity/on-scope-dispose/on-scope-dispose",
       "style": {
         "navigationBarTitleText": "onScopeDispose"
-      }
-    },
-    {
-      "path": "pages/composition-api/dependency-injection/provide/provide",
-      "style": {
-        "navigationBarTitleText": "依赖注入"
       }
     },
     {

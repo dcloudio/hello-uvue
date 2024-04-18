@@ -1,5 +1,5 @@
-const PAGE_PATH = '/pages/composition/provide/provide-page2'
-describe('函数方式创建 provide', () => {
+const PAGE_PATH = '/pages/component-instance/provide/provide-options-2'
+describe('选项式 API 函数方式创建 provide', () => {
   let page
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

@@ -12,7 +12,7 @@
 </template>
 
 <script lang="uts">
-import ComponentForInject from './component-for-inject-2.uvue'
+import ComponentForInject from '../inject/inject-options-2.uvue'
 
 export default {
   components: {

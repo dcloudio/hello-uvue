@@ -4,7 +4,7 @@
     <!-- #endif -->
     <view class="page">
       <text>provide page</text>
-      <button class="uni-common-mt" @click="goProvidePage2">
+      <button class="mt-10" @click="goProvidePage2">
         跳转函数方式定义 provide 示例
       </button>
       <ComponentForInject />
@@ -15,8 +15,7 @@
 </template>
 
 <script lang="uts">
-import { computed } from 'vue'
-import ComponentForInject from './component-for-inject-1.uvue'
+import ComponentForInject from '../inject/inject-options-1.uvue'
 
 export default {
   components: {

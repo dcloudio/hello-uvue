@@ -1,5 +1,8 @@
-const PAGE_PATH = '/pages/composition/provide/provide'
-describe('字面量方式创建 provide', () => {
+jest.setTimeout(20000)
+
+const PAGE_PATH = '/pages/component-instance/provide/provide-options-1'
+
+describe('选项式 API 字面量方式创建 provide', () => {
   let page
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

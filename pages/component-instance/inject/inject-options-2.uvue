@@ -1,21 +1,21 @@
 <template>
   <view>
-    <text class="uni-common-mt bold">component for inject 2</text>
-    <text class="uni-common-mt provide-page-title"
+    <text class="mt-10 bold">component for inject 2</text>
+    <text class="mt-10 provide-page-title"
       >providePageTitle: {{ providePageTitle }}</text
     >
-    <text class="uni-common-mt provide-page-str">providePageStr: {{ providePageStr }}</text>
-    <text class="uni-common-mt provide-page-num">providePageNum: {{ providePageNum }}</text>
-    <text class="uni-common-mt provide-page-bool">providePageBool: {{ providePageBool }}</text>
-    <text class="uni-common-mt provide-page-object-title"
+    <text class="mt-10 provide-page-str">providePageStr: {{ providePageStr }}</text>
+    <text class="mt-10 provide-page-num">providePageNum: {{ providePageNum }}</text>
+    <text class="mt-10 provide-page-bool">providePageBool: {{ providePageBool }}</text>
+    <text class="mt-10 provide-page-object-title"
       >providePageObject.title: {{ providePageObject['title'] }}</text
     >
-    <text class="uni-common-mt provide-page-object-content"
+    <text class="mt-10 provide-page-object-content"
       >providePageObject.content: {{ providePageObject['content'] }}</text
     >
-    <text class="uni-common-mt provide-page-arr">providePageArr: {{ JSON.stringify(providePageArr) }}</text>
-    <text class="uni-common-mt provide-page-map">providePageMap: {{ JSON.stringify(providePageMapObj) }}</text>
-    <text class="uni-common-mt provide-page-set">providePageSet: {{ JSON.stringify(providePageSetArr) }}</text>
+    <text class="mt-10 provide-page-arr">providePageArr: {{ JSON.stringify(providePageArr) }}</text>
+    <text class="mt-10 provide-page-map">providePageMap: {{ JSON.stringify(providePageMapObj) }}</text>
+    <text class="mt-10 provide-page-set">providePageSet: {{ JSON.stringify(providePageSetArr) }}</text>
   </view>
 </template>
 

@@ -1,41 +1,41 @@
 <template>
   <view>
-    <text class="uni-common-mt bold">component for inject 1</text>
-    <text class="uni-common-mt alias-provide-page-title"
+    <text class="mt-10 bold">component for inject 1</text>
+    <text class="mt-10 alias-provide-page-title"
       >aliasProvidePageTitle: {{ aliasProvidePageTitle }}</text
     >
-    <text class="uni-common-mt provide-page-str"
+    <text class="mt-10 provide-page-str"
       >providePageStr: {{ providePageStr }}</text
     >
-    <text class="uni-common-mt provide-page-num"
+    <text class="mt-10 provide-page-num"
       >providePageNum: {{ providePageNum }}</text
     >
-    <text class="uni-common-mt provide-page-bool"
+    <text class="mt-10 provide-page-bool"
       >providePageBool: {{ providePageBool }}</text
     >
-    <text class="uni-common-mt provide-page-object-title"
+    <text class="mt-10 provide-page-object-title"
       >providePageObject.title: {{ providePageObject['title'] }}</text
     >
-    <text class="uni-common-mt provide-page-object-content"
+    <text class="mt-10 provide-page-object-content"
       >providePageObject.content: {{ providePageObject['content'] }}</text
     >
-    <text class="uni-common-mt provide-page-arr"
+    <text class="mt-10 provide-page-arr"
       >providePageArr: {{ JSON.stringify(providePageArr) }}</text
     >
-   <text class="uni-common-mt provide-page-map"
+   <text class="mt-10 provide-page-map"
       >providePageMap: {{ JSON.stringify(providePageMapObj) }}</text
     >
-    <text class="uni-common-mt provide-page-set"
+    <text class="mt-10 provide-page-set"
       >providePageSet: {{ JSON.stringify(providePageSetArr) }}</text
     >
-    <text class="uni-common-mt test-inject-string-default-value"
+    <text class="mt-10 test-inject-string-default-value"
       >testInjectStringDefaultValue: {{ testInjectStringDefaultValue }}</text
     >
-    <text class="uni-common-mt test-inject-object-default-value-title"
+    <text class="mt-10 test-inject-object-default-value-title"
       >testInjectObjectDefaultValue.title:
       {{ testInjectObjectDefaultValue['title'] }}</text
     >
-    <text class="uni-common-mt test-inject-object-default-value-content"
+    <text class="mt-10 test-inject-object-default-value-content"
       >testInjectObjectDefaultValue.content:
       {{ testInjectObjectDefaultValue['content'] }}</text
     >
