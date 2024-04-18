@@ -1,0 +1,21 @@
+{
+  "pages/rendering/template/template-map-style.test.js": [
+    "/Users/wangzhenyu/work/DCloud/git/hello-uvue/pages/rendering/template/__image_snapshots__/template-map-style-test-js--pages-rendering-template-template-map-style-init-screen-shot-1.png",
+    "/Users/wangzhenyu/work/DCloud/git/hello-uvue/pages/rendering/template/__image_snapshots__/template-map-style-test-js--pages-rendering-template-template-map-style-change-is-class-valid-screen-shot-1.png"
+  ],
+  "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class.test.js": [
+    "/Users/wangzhenyu/work/DCloud/git/hello-uvue/pages/examples/set-custom-child-component-root-node-class/__image_snapshots__/set-custom-child-component-root-node-class-test-js-自定义组件中使用-class-定制另一个自定义组件根节点样式-screenshot-1.png"
+  ],
+  "pages/directive/v-html/v-html.test.js": [
+    "/Users/wangzhenyu/work/DCloud/git/hello-uvue/pages/directive/v-html/__image_snapshots__/v-html-test-js-v-html-basic-1.png"
+  ],
+  "pages/directive/v-bind/v-bind-css.test.js": [
+    "/Users/wangzhenyu/work/DCloud/git/hello-uvue/pages/directive/v-bind/__image_snapshots__/v-bind-css-test-js-v-bind-css-screenshot-1.png"
+  ],
+  "pages/built-in-component/teleport/teleport.test.js": [
+    "/Users/wangzhenyu/work/DCloud/git/hello-uvue/pages/built-in-component/teleport/__image_snapshots__/teleport-test-js-teleport-teleport-1.png"
+  ],
+  "pages/app-instance/globalProperties/globalProperties.test.js": [
+    "/Users/wangzhenyu/work/DCloud/git/hello-uvue/pages/app-instance/globalProperties/__image_snapshots__/global-properties-test-js-global-properties-screenshot-1.png"
+  ]
+}

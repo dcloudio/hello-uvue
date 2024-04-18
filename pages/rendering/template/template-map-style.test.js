@@ -6,13 +6,13 @@ describe('/pages/rendering/template/template-map-style', () => {
   })
   it('init screen shot', async () => {
     const image = await program.screenshot();
-    expect(image).toMatchImageSnapshot();
+    expect(image).toSaveImageSnapshot();
   })
 
   it('change isClassValid screen shot', async () => {
     const btn = await page.$('#btn')
     await btn.tap()
     const image = await program.screenshot();
-    expect(image).toMatchImageSnapshot();
+    expect(image).toSaveImageSnapshot();
   })
 });
