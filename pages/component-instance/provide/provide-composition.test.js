@@ -23,14 +23,12 @@ describe('组合式 API provide', () => {
     const fn = await page.$('.fn')
     expect(await fn.text()).toBe('fn: hello')
 
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      const hasInjectionContext = await page.$('.has-injection-context')
-      expect(await hasInjectionContext.text()).toBe('hasInjectionContext: true')
+    const hasInjectionContext = await page.$('.has-injection-context')
+    expect(await hasInjectionContext.text()).toBe('hasInjectionContext: true')
 
-      const checkHasInjectionContextBtn = await page.$('.check-has-injection-context-btn')
-      await checkHasInjectionContextBtn.tap()
+    const checkHasInjectionContextBtn = await page.$('.check-has-injection-context-btn')
+    await checkHasInjectionContextBtn.tap()
 
-      expect(await hasInjectionContext.text()).toBe('hasInjectionContext: false')
-    }
+    expect(await hasInjectionContext.text()).toBe('hasInjectionContext: false')
   })
 })
