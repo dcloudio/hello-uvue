@@ -116,7 +116,7 @@ export default {
         },
         {
           id: 'component-instance',
-          name: '组件 实例',
+          name: '组件实例',
           pages: [
             {
               id: 'attrs',
@@ -350,6 +350,22 @@ export default {
                   id: 'provide-composition',
                   name: 'provide 组合式 API',
                   url: 'provide-composition'
+                },
+              ]
+            },
+            {
+              id: 'nextTick',
+              name: 'nextTick',
+              children: [
+                {
+                  id: 'nextTick-options',
+                  name: 'nextTick 选项式 API',
+                  url: 'nextTick-options'
+                },
+                {
+                  id: 'nextTick-composition',
+                  name: 'nextTick 组合式 API',
+                  url: 'nextTick-composition'
                 },
               ]
             }

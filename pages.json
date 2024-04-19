@@ -366,6 +366,19 @@
       }
     },
     {
+      "path": "pages/component-instance/nextTick/nextTick-options",
+      "style": {
+        "navigationBarTitleText": "$nextTick"
+      }
+    },
+    {
+      "path": "pages/component-instance/nextTick/nextTick-composition",
+      "style": {
+        "navigationBarTitleText": "nextTick"
+      }
+    },
+
+    {
       "path": "pages/component-instance/nextTick-function/nextTick-function",
       "style": {
         "navigationBarTitleText": "$nextTick()"
