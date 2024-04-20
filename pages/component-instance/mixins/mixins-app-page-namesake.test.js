@@ -1,6 +1,6 @@
-const PAGE_PATH = '/pages/composition/mixins/mixins-page2'
+const PAGE_PATH = '/pages/component-instance/mixins/mixins-app-page-namesake'
 
-describe('mixins-page2', () => {
+describe('mixins-page-namesake', () => {
   if (process.env.uniTestPlatformInfo.startsWith('web')) {
     // TODO: web 端暂不支持
     it('web', async () => {

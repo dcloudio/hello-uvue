@@ -394,6 +394,31 @@ export default {
                   url: 'circular-reference-composition'
                 },
               ]
+            },
+            {
+              id: 'mixins',
+              name: 'mixins',
+              children: [
+                // #ifdef APP
+                {
+                  id: 'mixins-app',
+                  name: 'mixins',
+                  url: 'mixins-app'
+                },
+                {
+                  id: 'mixins-app-page-namesake',
+                  name: 'mixins page namesake',
+                  url: 'mixins-app-page-namesake'
+                },
+                // #endif
+                // #ifdef WEB
+                {
+                  id: 'mixins-web',
+                  name: 'mixins',
+                  url: 'mixins-web'
+                },
+                // #endif
+              ]
             }
           ] as Page[]
         },

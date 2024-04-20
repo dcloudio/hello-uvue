@@ -1,18 +1,18 @@
 <template>
-  <view class="uni-common-mt" ref="mixin-comp-root">
+  <view class="mt-10" ref="mixin-comp-root">
     <text class="bold">Comp2:</text>
-    <text class="uni-common-mt"
+    <text class="mt-10"
       >inheritAttrs: true, rootElementTitle should not be null</text
     >
-    <text class="uni-common-mt root-element-title-2"
+    <text class="mt-10 root-element-title-2"
       >rootElementTitle: {{ rootElementTitle }}</text
     >
-    <text class="uni-common-mt">{{ namesakeMixinProp }}</text>
-    <text class="uni-common-mt">{{ namesakeMixinDataMsg }}</text>
-    <text class="uni-common-mt">{{ namesakeMixinComputed }}</text>
-    <text class="uni-common-mt mixin-watch-msg">{{ mixinWatchMsg }}</text>
-    <text class="uni-common-mt">{{ namesakeMixinMethod() }}</text>
-    <button class="uni-common-mt" @click="changeGlobalMixinOnloadMsg1">
+    <text class="mt-10">{{ namesakeMixinProp }}</text>
+    <text class="mt-10">{{ namesakeMixinDataMsg }}</text>
+    <text class="mt-10">{{ namesakeMixinComputed }}</text>
+    <text class="mt-10 mixin-watch-msg">{{ mixinWatchMsg }}</text>
+    <text class="mt-10">{{ namesakeMixinMethod() }}</text>
+    <button class="mt-10" @click="changeGlobalMixinOnloadMsg1">
       change globalMixinOnloadMsg1
     </button>
     <MixinComp />

@@ -467,6 +467,28 @@
         "navigationBarTitleText": "循环引用 组合式 API"
       }
     },
+    // #ifdef APP
+    {
+      "path": "pages/component-instance/mixins/mixins-app",
+      "style": {
+        "navigationBarTitleText": "mixins"
+      }
+    },
+    {
+      "path": "pages/component-instance/mixins/mixins-app-page-namesake",
+      "style": {
+        "navigationBarTitleText": "mixins page namesake"
+      }
+    },
+    // #endif
+    // #ifdef WEB
+    {
+      "path": "pages/component-instance/mixins/mixins-web",
+      "style": {
+        "navigationBarTitleText": "mixins"
+      }
+    },
+    // #endif
 
 
     {
@@ -559,28 +581,6 @@
         "navigationBarTitleText": "render function"
       }
     },
-    // #ifdef APP
-    {
-      "path": "pages/composition/mixins/mixins",
-      "style": {
-        "navigationBarTitleText": "mixins"
-      }
-    },
-    {
-      "path": "pages/composition/mixins/mixins-page2",
-      "style": {
-        "navigationBarTitleText": "mixins-page-2"
-      }
-    },
-    // #endif
-    // #ifdef WEB
-    {
-      "path": "pages/composition/mixins/mixins-web",
-      "style": {
-        "navigationBarTitleText": "mixins"
-      }
-    },
-    // #endif
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication-options",
       "style": {

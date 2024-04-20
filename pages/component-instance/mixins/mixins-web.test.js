@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/composition/mixins/mixins-web'
+const PAGE_PATH = '/pages/component-instance/mixins/mixins-web'
 let page
 
 describe('mixins', () => {

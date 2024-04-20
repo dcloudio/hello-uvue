@@ -4,22 +4,22 @@
     <!-- #endif -->
     <view class="page">
       <text class="bold">props:</text>
-      <text class="uni-common-mt namesake-mixin-prop">{{ namesakeMixinProp }}</text>
-      <text class="uni-common-mt namesake-child-mixin-prop">{{ namesakeChildMixinProp }}</text>
+      <text class="mt-10 namesake-mixin-prop">{{ namesakeMixinProp }}</text>
+      <text class="mt-10 namesake-child-mixin-prop">{{ namesakeChildMixinProp }}</text>
 
-      <text class="bold uni-common-mt">data:</text>
-      <text class="uni-common-mt namesake-mixin-data-msg">{{ namesakeMixinDataMsg }}</text>
-      <text class="uni-common-mt namesake-child-mixin-data-msg">{{ namesakeChildMixinDataMsg }}</text>
+      <text class="bold mt-10">data:</text>
+      <text class="mt-10 namesake-mixin-data-msg">{{ namesakeMixinDataMsg }}</text>
+      <text class="mt-10 namesake-child-mixin-data-msg">{{ namesakeChildMixinDataMsg }}</text>
 
-      <text class="bold uni-common-mt">computed:</text>
-      <text class="uni-common-mt namesake-mixin-computed">{{ namesakeMixinComputed }}</text>
-      <text class="uni-common-mt namesake-child-mixin-computed">{{ namesakeChildMixinComputed }}</text>
+      <text class="bold mt-10">computed:</text>
+      <text class="mt-10 namesake-mixin-computed">{{ namesakeMixinComputed }}</text>
+      <text class="mt-10 namesake-child-mixin-computed">{{ namesakeChildMixinComputed }}</text>
 
-      <text class="uni-common-mt bold">method:</text>
-      <text class="uni-common-mt namesake-mixin-method">{{ namesakeMixinMethod() }}</text>
-      <text class="uni-common-mt namesake-child-mixin-method">{{ namesakeChildMixinMethod() }}</text>
+      <text class="mt-10 bold">method:</text>
+      <text class="mt-10 namesake-mixin-method">{{ namesakeMixinMethod() }}</text>
+      <text class="mt-10 namesake-child-mixin-method">{{ namesakeChildMixinMethod() }}</text>
 
-      <text class="uni-common-mt bold">mixin component:</text>
+      <text class="mt-10 bold">mixin component:</text>
       <GlobalMixinComp1 />
       <GlobalChildMixinComp1 />
       <GlobalMixinComp2 />

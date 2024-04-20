@@ -1,12 +1,12 @@
 <template>
-  <text class="uni-common-mt mixin-component-1">{{ title }}</text>
+  <text class="mt-10 component-for-page">{{ title }}</text>
 </template>
 
 <script lang="uts">
 export default {
   data(){
     return {
-      title: 'mixin component 1'
+      title: 'component for page'
     }
   }
 }

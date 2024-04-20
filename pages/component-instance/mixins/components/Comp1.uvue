@@ -1,31 +1,31 @@
 <template>
-  <view class="uni-common-mt" ref="mixin-comp-root">
+  <view class="mt-10" ref="mixin-comp-root">
     <text class="bold">Comp1:</text>
-    <text class="uni-common-mt"
+    <text class="mt-10"
       >inheritAttrs: false, rootElementTitle should be null</text
     >
-    <text class="uni-common-mt root-element-title-1">rootElementTitle: {{ rootElementTitle }}</text>
-    <text class="uni-common-mt bold">trigger emitter:</text>
-    <button class="uni-common-mt global-mixin-emit-1" @click="triggerEmitter('globalMixinEmit1')">
+    <text class="mt-10 root-element-title-1">rootElementTitle: {{ rootElementTitle }}</text>
+    <text class="mt-10 bold">trigger emitter:</text>
+    <button class="mt-10 global-mixin-emit-1" @click="triggerEmitter('globalMixinEmit1')">
       trigger globalMixinEmit1
     </button>
     <button
-      class="uni-common-mt global-child-mixin-emit-1"
+      class="mt-10 global-child-mixin-emit-1"
       @click="triggerEmitter('globalChildMixinEmit1')">
       trigger globalChildMixinEmit1
     </button>
-    <button class="uni-common-mt global-mixin-emit-2" @click="triggerEmitter('globalMixinEmit2')">
+    <button class="mt-10 global-mixin-emit-2" @click="triggerEmitter('globalMixinEmit2')">
       trigger globalMixinEmit2
     </button>
     <button
-      class="uni-common-mt global-child-mixin-emit-2"
+      class="mt-10 global-child-mixin-emit-2"
       @click="triggerEmitter('globalChildMixinEmit2')">
       trigger globalChildMixinEmit2
     </button>
-    <button class="uni-common-mt mixin-emit" @click="triggerEmitter('mixinEmit')">
+    <button class="mt-10 mixin-emit" @click="triggerEmitter('mixinEmit')">
       trigger mixinEmit
     </button>
-    <button class="uni-common-mt child-mixin-emit" @click="triggerEmitter('childMixinEmit')">
+    <button class="mt-10 child-mixin-emit" @click="triggerEmitter('childMixinEmit')">
       trigger childMixinEmit
     </button>
     <MixinComp />

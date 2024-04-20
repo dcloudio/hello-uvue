@@ -3,10 +3,10 @@
   <scroll-view style="flex: 1">
   <!-- #endif -->
     <view class="page">
-      <text id="mixin-prop" class="uni-common-mb">mixinProp: {{mixinProp}}</text>
-      <text id="mixin-data-msg" class="uni-common-mb">mixinDataMsg: {{mixinDataMsg}}</text>
-      <text id="mixin-onload-msg" class="uni-common-mb">mixinOnloadMsg: {{mixinOnloadMsg}}</text>
-      <text id="mixin-computed" class="uni-common-mb">mixinComputed: {{mixinComputed}}</text>
+      <text id="mixin-prop" class="mb-10">mixinProp: {{mixinProp}}</text>
+      <text id="mixin-data-msg" class="mb-10">mixinDataMsg: {{mixinDataMsg}}</text>
+      <text id="mixin-onload-msg" class="mb-10">mixinOnloadMsg: {{mixinOnloadMsg}}</text>
+      <text id="mixin-computed" class="mb-10">mixinComputed: {{mixinComputed}}</text>
     </view>
   <!-- #ifdef APP -->
   </scroll-view>

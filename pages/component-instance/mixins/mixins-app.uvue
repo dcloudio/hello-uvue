@@ -3,78 +3,78 @@
   <scroll-view style="flex: 1">
     <!-- #endif -->
     <view class="page">
-      <button type="primary" @click="goMixinPage2">跳转 mixin page 2</button>
-      <text class="uni-common-mt bold">props:</text>
-      <text class="uni-common-mt global-mixin-prop-1">{{ globalMixinProp1 }}</text>
-      <text class="uni-common-mt global-child-mixin-prop-1">{{ globalChildMixinProp1 }}</text>
-      <text class="uni-common-mt global-mixin-prop-2">{{ globalMixinProp2 }}</text>
-      <text class="uni-common-mt global-child-mixin-prop-2">{{ globalChildMixinProp2 }}</text>
-      <text class="uni-common-mt mixin-prop-1">{{ mixinProp1 }}</text>
-      <text class="uni-common-mt child-mixin-prop-1">{{ childMixinProp1 }}</text>
-      <text class="uni-common-mt mixin-prop-2">{{ mixinProp2 }}</text>
-      <text class="uni-common-mt child-mixin-prop-2">{{ childMixinProp2 }}</text>
-      <text class="uni-common-mt namesake-mixin-prop">{{ namesakeMixinProp }}</text>
-      <text class="uni-common-mt namesake-child-mixin-prop">{{ namesakeChildMixinProp }}</text>
+      <button type="primary" @click="goMixinPageNamesake">go mixin page namesake</button>
+      <text class="mt-10 bold">props:</text>
+      <text class="mt-10 global-mixin-prop-1">{{ globalMixinProp1 }}</text>
+      <text class="mt-10 global-child-mixin-prop-1">{{ globalChildMixinProp1 }}</text>
+      <text class="mt-10 global-mixin-prop-2">{{ globalMixinProp2 }}</text>
+      <text class="mt-10 global-child-mixin-prop-2">{{ globalChildMixinProp2 }}</text>
+      <text class="mt-10 mixin-prop-1">{{ mixinProp1 }}</text>
+      <text class="mt-10 child-mixin-prop-1">{{ childMixinProp1 }}</text>
+      <text class="mt-10 mixin-prop-2">{{ mixinProp2 }}</text>
+      <text class="mt-10 child-mixin-prop-2">{{ childMixinProp2 }}</text>
+      <text class="mt-10 namesake-mixin-prop">{{ namesakeMixinProp }}</text>
+      <text class="mt-10 namesake-child-mixin-prop">{{ namesakeChildMixinProp }}</text>
 
-      <text class="bold uni-common-mt">data:</text>
-      <text class="uni-common-mt global-mixin-data-msg-1">{{ globalMixinDataMsg1 }}</text>
-      <text class="uni-common-mt global-child-mixin-data-msg-1">{{ globalChildMixinDataMsg1 }}</text>
-      <text class="uni-common-mt global-mixin-data-msg-2">{{ globalMixinDataMsg2 }}</text>
-      <text class="uni-common-mt global-child-mixin-data-msg-2">{{ globalChildMixinDataMsg2 }}</text>
-      <text class="uni-common-mt mixin-data-msg-1">{{ mixinDataMsg1 }}</text>
-      <text class="uni-common-mt child-mixin-data-msg-1">{{ childMixinDataMsg1 }}</text>
-      <text class="uni-common-mt mixin-data-msg-2">{{ mixinDataMsg2 }}</text>
-      <text class="uni-common-mt child-mixin-data-msg-2">{{ childMixinDataMsg2 }}</text>
-      <text class="uni-common-mt namesake-mixin-data-msg">{{ namesakeMixinDataMsg }}</text>
-      <text class="uni-common-mt namesake-child-mixin-data-msg">{{ namesakeChildMixinDataMsg }}</text>
+      <text class="bold mt-10">data:</text>
+      <text class="mt-10 global-mixin-data-msg-1">{{ globalMixinDataMsg1 }}</text>
+      <text class="mt-10 global-child-mixin-data-msg-1">{{ globalChildMixinDataMsg1 }}</text>
+      <text class="mt-10 global-mixin-data-msg-2">{{ globalMixinDataMsg2 }}</text>
+      <text class="mt-10 global-child-mixin-data-msg-2">{{ globalChildMixinDataMsg2 }}</text>
+      <text class="mt-10 mixin-data-msg-1">{{ mixinDataMsg1 }}</text>
+      <text class="mt-10 child-mixin-data-msg-1">{{ childMixinDataMsg1 }}</text>
+      <text class="mt-10 mixin-data-msg-2">{{ mixinDataMsg2 }}</text>
+      <text class="mt-10 child-mixin-data-msg-2">{{ childMixinDataMsg2 }}</text>
+      <text class="mt-10 namesake-mixin-data-msg">{{ namesakeMixinDataMsg }}</text>
+      <text class="mt-10 namesake-child-mixin-data-msg">{{ namesakeChildMixinDataMsg }}</text>
 
-      <text class="bold uni-common-mt">computed:</text>
-      <text class="uni-common-mt global-mixin-computed-1">{{ globalMixinComputed1 }}</text>
-      <text class="uni-common-mt global-child-mixin-computed-1">{{ globalChildMixinComputed1 }}</text>
-      <text class="uni-common-mt global-mixin-computed-2">{{ globalMixinComputed2 }}</text>
-      <text class="uni-common-mt global-child-mixin-computed-2">{{ globalChildMixinComputed2 }}</text>
-      <text class="uni-common-mt mixin-computed-1">{{ mixinComputed1 }}</text>
-      <text class="uni-common-mt child-mixin-computed-1">{{ childMixinComputed1 }}</text>
-      <text class="uni-common-mt mixin-computed-2">{{ mixinComputed2 }}</text>
-      <text class="uni-common-mt child-mixin-computed-2">{{ childMixinComputed2 }}</text>
-      <text class="uni-common-mt namesake-mixin-computed">{{ namesakeMixinComputed }}</text>
-      <text class="uni-common-mt namesake-child-mixin-computed">{{ namesakeChildMixinComputed }}</text>
+      <text class="bold mt-10">computed:</text>
+      <text class="mt-10 global-mixin-computed-1">{{ globalMixinComputed1 }}</text>
+      <text class="mt-10 global-child-mixin-computed-1">{{ globalChildMixinComputed1 }}</text>
+      <text class="mt-10 global-mixin-computed-2">{{ globalMixinComputed2 }}</text>
+      <text class="mt-10 global-child-mixin-computed-2">{{ globalChildMixinComputed2 }}</text>
+      <text class="mt-10 mixin-computed-1">{{ mixinComputed1 }}</text>
+      <text class="mt-10 child-mixin-computed-1">{{ childMixinComputed1 }}</text>
+      <text class="mt-10 mixin-computed-2">{{ mixinComputed2 }}</text>
+      <text class="mt-10 child-mixin-computed-2">{{ childMixinComputed2 }}</text>
+      <text class="mt-10 namesake-mixin-computed">{{ namesakeMixinComputed }}</text>
+      <text class="mt-10 namesake-child-mixin-computed">{{ namesakeChildMixinComputed }}</text>
 
-      <text class="bold uni-common-mt">watch:</text>
-      <text class="uni-common-mt global-mixin-watch-1">{{ globalMixinWatchMsg1 }}</text>
-      <text class="uni-common-mt global-child-mixin-watch-1">{{ globalChildMixinWatchMsg1 }}</text>
-      <text class="uni-common-mt global-mixin-watch-2">{{ globalMixinWatchMsg2 }}</text>
-      <text class="uni-common-mt global-child-mixin-watch-2">{{ globalChildMixinWatchMsg2 }}</text>
-      <text class="uni-common-mt mixin-watch-1">{{ mixinWatchMsg1 }}</text>
-      <text class="uni-common-mt child-mixin-watch-1">{{ childMixinWatchMsg1 }}</text>
-      <text class="uni-common-mt mixin-watch-2">{{ mixinWatchMsg2 }}</text>
-      <text class="uni-common-mt child-mixin-watch-2">{{ childMixinWatchMsg2 }}</text>
-      <text class="uni-common-mt mixin-watch">{{ mixinWatchMsg }}</text>
+      <text class="bold mt-10">watch:</text>
+      <text class="mt-10 global-mixin-watch-1">{{ globalMixinWatchMsg1 }}</text>
+      <text class="mt-10 global-child-mixin-watch-1">{{ globalChildMixinWatchMsg1 }}</text>
+      <text class="mt-10 global-mixin-watch-2">{{ globalMixinWatchMsg2 }}</text>
+      <text class="mt-10 global-child-mixin-watch-2">{{ globalChildMixinWatchMsg2 }}</text>
+      <text class="mt-10 mixin-watch-1">{{ mixinWatchMsg1 }}</text>
+      <text class="mt-10 child-mixin-watch-1">{{ childMixinWatchMsg1 }}</text>
+      <text class="mt-10 mixin-watch-2">{{ mixinWatchMsg2 }}</text>
+      <text class="mt-10 child-mixin-watch-2">{{ childMixinWatchMsg2 }}</text>
+      <text class="mt-10 mixin-watch">{{ mixinWatchMsg }}</text>
 
-      <text class="bold uni-common-mt">lifecycle:</text>
-      <text class="uni-common-mt">{{ globalMixinOnloadMsg1 }}</text>
-      <text class="uni-common-mt">{{ globalMixinOnloadMsg2 }}</text>
-      <text class="uni-common-mt">{{ globalChildMixinOnloadMsg1 }}</text>
-      <text class="uni-common-mt">{{ globalChildMixinOnloadMsg2 }}</text>
-      <text class="uni-common-mt">{{ mixinOnloadMsg1 }}</text>
-      <text class="uni-common-mt">{{ mixinOnloadMsg2 }}</text>
-      <text class="uni-common-mt">{{ childMixinOnloadMsg1 }}</text>
-      <text class="uni-common-mt">{{ childMixinOnloadMsg2 }}</text>
-      <text class="uni-common-mt">{{ onloadMsg }}</text>
+      <text class="bold mt-10">lifecycle:</text>
+      <text class="mt-10">{{ globalMixinOnloadMsg1 }}</text>
+      <text class="mt-10">{{ globalMixinOnloadMsg2 }}</text>
+      <text class="mt-10">{{ globalChildMixinOnloadMsg1 }}</text>
+      <text class="mt-10">{{ globalChildMixinOnloadMsg2 }}</text>
+      <text class="mt-10">{{ mixinOnloadMsg1 }}</text>
+      <text class="mt-10">{{ mixinOnloadMsg2 }}</text>
+      <text class="mt-10">{{ childMixinOnloadMsg1 }}</text>
+      <text class="mt-10">{{ childMixinOnloadMsg2 }}</text>
+      <text class="mt-10">{{ onloadMsg }}</text>
 
-      <text class="uni-common-mt bold">method:</text>
-      <text class="uni-common-mt global-mixin-method-1">{{ globalMixinMethod1() }}</text>
-      <text class="uni-common-mt global-child-mixin-method-1">{{ globalChildMixinMethod1() }}</text>
-      <text class="uni-common-mt global-mixin-method-2">{{ globalMixinMethod2() }}</text>
-      <text class="uni-common-mt global-child-mixin-method-2">{{ globalChildMixinMethod2() }}</text>
-      <text class="uni-common-mt mixin-method-1">{{ mixinMethod1() }}</text>
-      <text class="uni-common-mt child-mixin-method-1">{{ childMixinMethod1() }}</text>
-      <text class="uni-common-mt mixin-method-2">{{ mixinMethod2() }}</text>
-      <text class="uni-common-mt child-mixin-method-2">{{ childMixinMethod2() }}</text>
-      <text class="uni-common-mt namesake-mixin-method">{{ namesakeMixinMethod() }}</text>
-      <text class="uni-common-mt namesake-child-mixin-method">{{ namesakeChildMixinMethod() }}</text>
+      <text class="mt-10 bold">method:</text>
+      <text class="mt-10 global-mixin-method-1">{{ globalMixinMethod1() }}</text>
+      <text class="mt-10 global-child-mixin-method-1">{{ globalChildMixinMethod1() }}</text>
+      <text class="mt-10 global-mixin-method-2">{{ globalMixinMethod2() }}</text>
+      <text class="mt-10 global-child-mixin-method-2">{{ globalChildMixinMethod2() }}</text>
+      <text class="mt-10 mixin-method-1">{{ mixinMethod1() }}</text>
+      <text class="mt-10 child-mixin-method-1">{{ childMixinMethod1() }}</text>
+      <text class="mt-10 mixin-method-2">{{ mixinMethod2() }}</text>
+      <text class="mt-10 child-mixin-method-2">{{ childMixinMethod2() }}</text>
+      <text class="mt-10 namesake-mixin-method">{{ namesakeMixinMethod() }}</text>
+      <text class="mt-10 namesake-child-mixin-method">{{ namesakeChildMixinMethod() }}</text>
 
-      <text class="uni-common-mt bold">component:</text>
+      <text class="mt-10 bold">component:</text>
       <Comp1
         title="title"
         @globalMixinEmit1="(arg: string) => handleMixinEmitter('globalMixinEmit1', arg)"
@@ -83,11 +83,11 @@
         @globalChildMixinEmit2="(arg: string) => handleMixinEmitter('globalChildMixinEmit2', arg)"
         @mixinEmit="(arg: string) => handleMixinEmitter('mixinEmit', arg)"
         @childMixinEmit="(arg: string) => handleMixinEmitter('childMixinEmit', arg)" />
-      <text v-if="handleMixinEmitterMsg" class="uni-common-mt handle-mixin-emitter-msg"
+      <text v-if="handleMixinEmitterMsg" class="mt-10 handle-mixin-emitter-msg"
         >handleMixinEmitterMsg: {{ handleMixinEmitterMsg }}</text
       >
       <Comp2 class='comp2' title="title" />
-      <text class="uni-common-mt bold">mixin component:</text>
+      <text class="mt-10 bold">mixin component:</text>
       <GlobalMixinComp1 />
       <GlobalChildMixinComp1 />
       <GlobalMixinComp2 />
@@ -254,8 +254,8 @@ export default {
     this.onloadMsg = res
   },
   methods: {
-    goMixinPage2(){
-      uni.navigateTo({url: './mixins-page2'})
+    goMixinPageNamesake(){
+      uni.navigateTo({url: './mixins-app-page-namesake'})
     },
     handleMixinEmitter(emit: string, arg: string){
       this.handleMixinEmitterMsg = `触发 ${emit}, 参数为 ${arg}`

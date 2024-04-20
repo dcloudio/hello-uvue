@@ -1,5 +1,5 @@
 <template>
-  <text class="uni-common-mt mixin-component-for-child-mixin">{{ title }}</text>
+  <text class="mt-10 mixin-component-for-child-mixin">{{ title }}</text>
 </template>
 
 <script lang="uts">
