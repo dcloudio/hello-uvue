@@ -1,0 +1,33 @@
+<template>
+  <view class="page">
+    <text id="ref-count">ref count: {{ refCount }}</text>
+    <text class="mt-10" id="is-ref-ref-count">isRef ref count: {{ isRefRefCount }}</text>
+    <text class="mt-10" id="count">count: {{ count }}</text>
+    <text class="mt-10" id="is-ref-count">isRef count: {{ isRefCount }}</text>
+
+    <text class="mt-10" id="obj-num">obj.num: {{ obj.num }}</text>
+    <text class="mt-10" id="to-value-obj-num">toValue(() => obj.num): {{ toValueObjNum }}</text>
+    <button class="mt-10" id="increment-btn" @click="increment">increment obj.num</button>
+  </view>
+</template>
+
+<script setup>
+  const refCount = ref<number>(0);;
+  const isRefRefCount = isRef(refCount);
+  const count = toValue(refCount);
+  const isRefCount = isRef(count);
+
+  type Obj = {
+    num : number
+  }
+  const obj = reactive({
+    num: 0
+  } as Obj)
+
+  let toValueObjNum = toValue(() : number => obj.num)
+
+  const increment = () => {
+    obj.num++;
+    toValueObjNum++;
+  }
+</script>

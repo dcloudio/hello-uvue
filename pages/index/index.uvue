@@ -423,6 +423,23 @@ export default {
           ] as Page[]
         },
         {
+          id: 'reactivity',
+          name: '响应式',
+          pages: [
+            {
+              id: 'core',
+              name: '核心',
+              children: [
+                {
+                  id: 'ref',
+                  name: 'ref',
+                  url: 'ref/ref'
+                }
+              ]
+            }
+          ] as Page[]
+        },
+        {
           id: 'lifecycle',
           name: '生命周期',
           pages: [

@@ -1,0 +1,134 @@
+<template>
+  <!-- #ifdef APP -->
+  <scroll-view style="flex: 1; padding-bottom: 20px">
+  <!-- #endif -->
+    <view class="page">
+      <text id="count" ref="countRef" class="mb-10">count: {{ count }}</text>
+      <text id="watch-count-res" class="mb-10">watch count result: {{ watchCountRes }}</text>
+      <text id="watch-count-track-num" class="mb-10">watch count track number: {{ watchCountTrackNum }}</text>
+      <text id="watch-count-cleanup-res" class="mb-10">watch count cleanup result: {{ watchCountCleanupRes }}</text>
+      <button id="increment-btn" class="mb-10" @click="increment">
+        increment
+      </button>
+      <button id="stop-watch-count-btn" class="mb-10" @click="triggerStopWatchCount">
+        stop watch count
+      </button>
+      <text id="obj-str" ref="objStrRef" class="mb-10">obj.str: {{ obj.str }}</text>
+      <text id="watch-obj-str-trigger-num" class="mb-10">watch obj.str trigger number:
+        {{ watchObjStrTriggerNum }}</text>
+      <text id="obj-num" class="mb-10">obj.num: {{ obj.num }}</text>
+      <text id="obj-bool" ref="objBoolRef" class="mb-10">obj.bool: {{ obj.bool }}</text>
+      <text id="obj-arr" ref="objArrRef" class="mb-10">obj.arr: {{ JSON.stringify(obj.arr) }}</text>
+      <text id="watch-obj-res" class="mb-10">watch obj result: {{ watchObjRes }}</text>
+      <text id="watch-obj-str-res" class="mb-10">watch obj.str result: {{ watchObjStrRes }}</text>
+      <text id="watch-obj-arr-res" class="mb-10">watch obj.arr result: {{ watchObjArrRes }}</text>
+      <button id="update-obj-btn" class="mb-10" @click="updateObj">
+        update obj
+      </button>
+      <text id="watch-count-obj-num-res" class="mb-10">watch count and obj.num result:
+        {{ watchCountAndObjNumRes }}</text>
+    </view>
+  <!-- #ifdef APP -->
+  </scroll-view>
+  <!-- #endif -->
+</template>
+
+<script setup>
+  type Obj = {
+    num : number,
+    str : string,
+    bool : boolean,
+    arr : number[]
+  }
+
+  const countRef = ref<UniTextElement | null>(null)
+  const count = ref<number>(0)
+  const watchCountRes = ref('')
+  const watchCountCleanupRes = ref('')
+  const watchCountTrackNum = ref(0)
+
+  const stopWatchCount = watchPostEffect((onCleanup : OnCleanup) => {
+    if (countRef.value !== null) {
+      // #ifdef APP
+      watchCountRes.value = `count: ${count.value}, count ref text: ${countRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchCountRes.value = `count: ${count.value}, count ref text: ${(countRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
+    } else {
+      watchCountRes.value = `count: ${count.value}, count ref text: `
+    }
+    const cancel = () => {
+      watchCountCleanupRes.value = `watch count cleanup: ${count.value}`
+    }
+    onCleanup(cancel)
+  },
+    {
+      // 响应属性或引用作为依赖项被跟踪时调用
+      onTrack(event : DebuggerEvent) {
+        if (event.type === 'get') {
+          watchCountTrackNum.value++
+        }
+      }
+    },
+  )
+
+  const triggerStopWatchCount = () => stopWatchCount()
+
+  const increment = () => {
+    count.value++
+  }
+
+  const obj = reactive({
+    num: 0,
+    str: 'num: 0',
+    bool: false,
+    arr: [0]
+  } as Obj)
+
+  const watchObjRes = ref('')
+  watchPostEffect(() => {
+    watchObjRes.value = `obj: ${JSON.stringify(obj)}`
+  })
+
+  const objStrRef = ref<UniTextElement | null>(null)
+  const watchObjStrRes = ref('')
+  const watchObjStrTriggerNum = ref(0)
+  
+  watchPostEffect(() => {
+    if (objStrRef.value !== null) {
+      // #ifdef APP
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${objStrRef.value!.value}`
+      // #endif
+      // #ifdef WEB
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: ${(objStrRef.value!.childNodes[0] as HTMLElement).innerText}`
+      // #endif 
+    } else {
+      watchObjStrRes.value = `str: ${obj.str}, obj.str ref text: `
+    }
+  },{
+    // 侦听器回调被依赖项的变更触发时调用
+    onTrigger(event : DebuggerEvent) {
+      if (event.type === 'set') {
+        watchObjStrTriggerNum.value++
+      }
+    }
+  })
+
+  const watchObjArrRes = ref('')
+  watchPostEffect(() => {
+    watchObjArrRes.value = `arr: ${JSON.stringify(obj.arr)}`
+  })
+
+  const watchCountAndObjNumRes = ref('')
+  watchPostEffect(() => {
+    watchCountAndObjNumRes.value = `count: ${count.value}, obj.num: ${obj.num}`
+  })
+
+  const updateObj = () => {
+    obj.num++
+    obj.str = `num: ${obj.num}`
+    obj.bool = !obj.bool
+    obj.arr.push(obj.num)
+  }
+</script>

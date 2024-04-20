@@ -1,0 +1,29 @@
+<template>
+  <view class="page">
+    <text id="has-current-scope">hasCurrentScope: {{ hasCurrentScope }}</text>
+    <button id="create-scope-btn" class="mt-10" @click="createScope">create scope</button>
+    <button id="stop-scope-btn" class="mt-10" @click="stopScope">stop scope</button>
+  </view>
+</template>
+
+<script setup>
+  const hasCurrentScope = ref(false)
+
+  let scope = null as EffectScope | null
+
+  const createScope = () => {
+    scope = effectScope();
+    (scope as EffectScope).run(() => {
+      hasCurrentScope.value = getCurrentScope() != null
+      onScopeDispose(() => {
+        hasCurrentScope.value = getCurrentScope() != null
+      })
+    })
+  }
+
+  const stopScope = () => {
+    if (scope !== null) {
+      (scope as EffectScope).stop()
+    }
+  }
+</script>

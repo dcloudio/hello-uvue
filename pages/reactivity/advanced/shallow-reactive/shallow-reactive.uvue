@@ -1,0 +1,36 @@
+<template>
+  <view class="page">
+    <text id="state-count" class="mb-10" :data-count="state.count">state.count: {{ state.count }}</text>
+    <text id="state-nested-count" class="mb-10">state.nested.count: {{ state.nested.count }}</text>
+    <button class="increment-state-count-btn mb-10" @click="incrementStateCount">
+      increment state.count
+    </button>
+    <button class="increment-state-nested-count-btn" @click="incrementStateNestedCount">
+      increment state.nested.count
+    </button>
+  </view>
+</template>
+
+<script setup>
+  type StateNested = {
+    count : number
+  }
+  type State = {
+    count : number,
+    nested : StateNested
+  }
+  const state = shallowReactive({
+    count: 0,
+    nested: {
+      count: 0
+    } as StateNested
+  } as State)
+
+  const incrementStateCount = () => {
+    state.count++
+  }
+
+  const incrementStateNestedCount = () => {
+    state.nested.count++
+  }
+</script>
