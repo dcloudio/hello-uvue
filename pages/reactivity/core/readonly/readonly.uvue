@@ -1,44 +1,63 @@
 <template>
   <view class="page">
-    <text id="data-str" class="mb-10">data.str: {{ data.str }}</text>
-    <text id="data-num" class="mb-10">data.num: {{ data.num }}</text>
-    <text id="data-arr" class="mb-10">data.arr: {{ JSON.stringify(data.arr) }}</text>
+    <view class="flex justify-between flex-row mb-10">
+      <text>data.str:</text>
+      <text id="data-str">{{ data.str }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>data.num:</text>
+      <text id="data-num">{{ data.num }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>data.arr:</text>
+      <text id="data-arr">{{ JSON.stringify(data.arr) }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>readonly data.str:</text>
+      <text id="readonly-data-str">{{ readonlyData.str }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>readonly data.num:</text>
+      <text id="readonly-data-num">{{ readonlyData.num }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>readonly data.arr:</text>
+      <text id="readonly-data-arr">{{ JSON.stringify(readonlyData.arr) }}</text>
+    </view>
 
-    <text id="readonly-data-str" class="mb-10">readonly data.str: {{ readonlyData.str }}</text>
-    <text id="readonly-data-num" class="mb-10">readonly data.num: {{ readonlyData.num }}</text>
-    <text id="readonly-data-arr" class="mb-10">readonly data.arr: {{ JSON.stringify(readonlyData.arr) }}</text>
-
-    <button id="update-data-btn" class="mb-10" @click="updateData">update data</button>
-    <button id="update-readonly-data-btn" @click="updateReadonlyData">update readonly data</button>
+    <button id="update-data-btn" class="mb-10" @click="updateData">
+      update data
+    </button>
+    <button id="update-readonly-data-btn" @click="updateReadonlyData">
+      update readonly data
+    </button>
   </view>
 </template>
 
-<script setup>
-  type Data = {
-    str : string,
-    num : number,
-    arr : string[]
-  }
+<script setup lang="uts">
+type Data = {
+  str : string,
+  num : number,
+  arr : string[]
+}
 
-  const data = reactive({
-    str: 'default str',
-    num: 0,
-    arr: ['a', 'b', 'c']
-  } as Data)
+const data = reactive({
+  str: 'default str',
+  num: 0,
+  arr: ['a', 'b', 'c']
+} as Data)
 
-  const readonlyData = readonly(data)
+const readonlyData = readonly(data)
 
-  const updateData = () => {
-    data.str = 'new str'
-    data.num++
-    data.arr.push('d')
-  }
+const updateData = () => {
+  data.str = 'new str'
+  data.num++
+  data.arr.push('d')
+}
 
-  // #ifdef APP
-  const updateReadonlyData = () => {
-    readonlyData.str = 'new readonly str'
-    readonlyData.num++
-    readonlyData.arr.push('e')
-  }
-  // #endif
+const updateReadonlyData = () => {
+  readonlyData.str = 'new readonly str'
+  readonlyData.num++
+  readonlyData.arr.push('e')
+}
 </script>

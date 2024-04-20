@@ -486,6 +486,11 @@ export default {
                   name: 'reactive',
                   url: 'reactive/reactive'
                 },
+                {
+                  id: 'readonly',
+                  name: 'readonly',
+                  url: 'readonly/readonly'
+                },
               ]
             }
           ] as Page[]
