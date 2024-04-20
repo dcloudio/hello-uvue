@@ -1,16 +1,24 @@
 <template>
-  <view>
-    <!-- <child-a class="page-child-a" :text="text" :limit="10"></child-a> -->
-    <child-c class="page-child-c" :text="text" :limit="10"></child-c>
+  <view class="page">
+    <!-- #ifdef APP-ANDROID -->
+    <!-- TODO: ios & web 不支持 a b 互相引用 -->
+    <child-a :limit="5"></child-a>
+    <!-- #endif -->
+    <child-c :limit="5"></child-c>
   </view>
 </template>
 
-<script>
-  // import childA from './child-a.uvue'
-  import childC from './child-c.uvue'
+<script lang='uts'>
+  // #ifdef APP-ANDROID
+  import childA from './childA.uvue'
+  // #endif
+  import childC from './childC.uvue'
+
   export default {
     components: {
-      // childA,
+      // #ifdef APP-ANDROID
+      childA,
+      // #endif
       childC
     },
     data() {
@@ -18,8 +26,5 @@
         text: ''
       }
     },
-    onLoad() {
-      this.text = "Date.now().toString()"
-    }
   }
 </script>

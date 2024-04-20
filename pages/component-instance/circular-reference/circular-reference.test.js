@@ -4,17 +4,21 @@ describe('circular-reference', () => {
   let page
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
+    await page.waitFor(1000)
   })
 
-  it('render', async () => {
-    // const child_a = await page.$$('.child-a-child-b')
-    // expect(child_a.length).toBe(5)
+  if (process.env.uniTestPlatformInfo.toLowerCase().includes('android')) {
+    it('cross reference', async () => {
+      const childA = await page.$$('.child-a')
+      expect(childA.length).toBe(3)
 
-    // const child_b = await page.$$('.child-b-child-a')
-    // expect(child_b.length).toBe(5)
+      const childB = await page.$$('.child-b')
+      expect(childB.length).toBe(2)
+    })
+  }
 
-    const child_c = await page.$$('.child-c-child-c')
-    expect(child_c.length).toBe(10)
+  it('reference self', async () => {
+    const childC = await page.$$('.child-c')
+    expect(childC.length).toBe(5)
   })
 })

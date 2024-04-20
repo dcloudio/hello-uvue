@@ -378,6 +378,11 @@ export default {
               id: 'define-expose',
               name: 'defineExpose',
               url: 'define-expose/define-expose'
+            },
+            {
+              id: 'circular-reference',
+              name: 'circular reference',
+              url: 'circular-reference/circular-reference'
             }
           ] as Page[]
         },
