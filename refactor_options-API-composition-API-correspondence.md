@@ -115,11 +115,11 @@ function transform(fileInfo, api) {
 - [x] methods
 - [x] provide  provide
 - [x] inject   inject
-- [ ] mixins   mixins
-- [ ] nextTick
-- [ ] options API setup
-- [ ] defineExpose
-- [ ] circular reference
+- [x] mixins
+- [x] nextTick
+- [x] options API setup
+- [x] defineExpose
+- [x] circular reference
 
 ## reactivity
 - [ ] ref
