@@ -4,16 +4,16 @@
       <text>child B limit:</text>
       <text>{{limit}}</text>
     </view>
-    <child-a v-if="limit>1" :limit="limit-1"></child-a>
+    <child-a v-if="limit>1" :limit="limit-1" />
   </view>
 </template>
 
 <script lang='uts'>
-  import childA from './childA.uvue'
+  import ChildA from './childA-options.uvue'
 
   export default {
     components: {
-      childA
+      ChildA
     },
     props: {
       limit: {

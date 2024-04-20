@@ -382,7 +382,18 @@ export default {
             {
               id: 'circular-reference',
               name: 'circular reference',
-              url: 'circular-reference/circular-reference'
+              children: [
+                {
+                  id: 'circular-reference-options',
+                  name: '循环引用 选项式 API',
+                  url: 'circular-reference-options'
+                },
+                {
+                  id: 'circular-reference-composition',
+                  name: '循环引用 组合式 API',
+                  url: 'circular-reference-composition'
+                },
+              ]
             }
           ] as Page[]
         },

@@ -456,9 +456,15 @@
       }
     },
     {
-      "path": "pages/component-instance/circular-reference/circular-reference",
+      "path": "pages/component-instance/circular-reference/circular-reference-options",
       "style": {
-        "navigationBarTitleText": "circular reference"
+        "navigationBarTitleText": "循环引用 选项式 API"
+      }
+    },
+    {
+      "path": "pages/component-instance/circular-reference/circular-reference-composition",
+      "style": {
+        "navigationBarTitleText": "循环引用 组合式 API"
       }
     },
 
