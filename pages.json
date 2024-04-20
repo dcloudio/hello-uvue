@@ -377,13 +377,6 @@
         "navigationBarTitleText": "nextTick"
       }
     },
-
-    {
-      "path": "pages/component-instance/nextTick-function/nextTick-function",
-      "style": {
-        "navigationBarTitleText": "$nextTick()"
-      }
-    },
     {
       "path": "pages/component-instance/methods/call-method-uni-element-options",
       "style": {
