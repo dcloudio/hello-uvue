@@ -468,9 +468,15 @@
       }
     },
     {
-      "path": "pages/reactivity/core/computed/computed",
+      "path": "pages/reactivity/core/computed/computed-options",
       "style": {
-        "navigationBarTitleText": "computed"
+        "navigationBarTitleText": "computed 选项式 API"
+      }
+    },
+    {
+      "path": "pages/reactivity/core/computed/computed-composition",
+      "style": {
+        "navigationBarTitleText": "computed 组合式 API"
       }
     },
     {

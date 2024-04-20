@@ -26,15 +26,45 @@
                 <uni-collapse-item :title="page.name" class="menu">
                   <view
                     v-for="(child, index) in page.children"
-                    :key="child.url"
-                    class="page-item"
-                    :class="{ 'first-child': index == 0 }"
-                    @click="goDetailPage(`${menu.id}/${page.id}`, child)">
-                    <text
-                      :class="{ 'text-disabled': child.enable == false }"
-                      class="text"
-                      >{{ child.name }}</text
-                    >
+                    :key="`${child.id}-${index}`">
+                    <view
+                      v-if="child.url"
+                      class="page-item"
+                      :class="{ 'first-child': index == 0 }"
+                      @click="goDetailPage(`${menu.id}/${page.id}`, child)">
+                      <text
+                        :class="{ 'text-disabled': child.enable == false }"
+                        class="text"
+                        >{{ child.name }}</text
+                      >
+                    </view>
+                    <template v-else>
+                      <uni-collapse style="flex: 1">
+                        <uni-collapse-item :title="child.name" class="menu">
+                          <view
+                            v-for="(childChild, index) in child.children"
+                            :key="`${childChild.id}-${index}`">
+                            <view
+                              class="page-item"
+                              :class="{ 'first-child': index == 0 }"
+                              @click="
+                                goDetailPage(
+                                  `${menu.id}/${page.id}/${child.id}`,
+                                  childChild
+                                )
+                              ">
+                              <text
+                                :class="{
+                                  'text-disabled': childChild.enable == false,
+                                }"
+                                class="text"
+                                >{{ childChild.name }}</text
+                              >
+                            </view>
+                          </view>
+                        </uni-collapse-item>
+                      </uni-collapse>
+                    </template>
                   </view>
                 </uni-collapse-item>
               </uni-collapse>
@@ -434,7 +464,23 @@ export default {
                   id: 'ref',
                   name: 'ref',
                   url: 'ref/ref'
-                }
+                },
+                {
+                  id: 'computed',
+                  name: 'computed',
+                  children: [
+                    {
+                      id: 'computed-options',
+                      name: 'computed 选项式 API',
+                      url: 'computed-options'
+                    },
+                    {
+                      id: 'computed-composition',
+                      name: 'computed 组合式 API',
+                      url: 'computed-composition'
+                    },
+                  ]
+                },
               ]
             }
           ] as Page[]
@@ -635,6 +681,8 @@ export default {
         })
         return
       }
+console.log('parentUrl', parentUrl)
+console.log('page', page)
       uni.navigateTo({
         url: `/pages/${parentUrl}/${page.url}`
       })
