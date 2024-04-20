@@ -481,6 +481,11 @@ export default {
                     },
                   ]
                 },
+                {
+                  id: 'reactive',
+                  name: 'reactive',
+                  url: 'reactive/reactive'
+                },
               ]
             }
           ] as Page[]
