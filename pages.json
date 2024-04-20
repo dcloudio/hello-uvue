@@ -449,6 +449,13 @@
         "navigationBarTitleText": "setup()"
       }
     },
+    {
+      "path": "pages/component-instance/define-expose/define-expose",
+      "style": {
+        "navigationBarTitleText": "defineExpose"
+      }
+    },
+
 
     {
       "path": "pages/component-instance/circular-reference/circular-reference",
@@ -602,12 +609,6 @@
       "path": "pages/composition-api/basic/define-emits/define-emits",
       "style": {
         "navigationBarTitleText": "defineEmits"
-      }
-    },
-    {
-      "path": "pages/composition-api/basic/define-expose/define-expose",
-      "style": {
-        "navigationBarTitleText": "defineExpose"
       }
     },
     {

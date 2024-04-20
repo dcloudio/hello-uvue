@@ -373,6 +373,11 @@ export default {
               id: 'setup-function',
               name: 'setup()',
               url: 'setup-function/setup-function'
+            },
+            {
+              id: 'define-expose',
+              name: 'defineExpose',
+              url: 'define-expose/define-expose'
             }
           ] as Page[]
         },
