@@ -1,6 +1,4 @@
-// TODO web端
-
-const PAGE_PATH = '/pages/composition/setup/setup'
+const PAGE_PATH = '/pages/component-instance/setup-function/setup-function'
 describe('options setup', () => {
   let page
   beforeAll(async () => {
@@ -9,21 +7,21 @@ describe('options setup', () => {
   })
   it('basic', async () => {
     const str = await page.$('#str')
-    expect(await str.text()).toBe('str: default str')
+    expect(await str.text()).toBe('default str')
     const num = await page.$('#num')
-    expect(await num.text()).toBe('num: 0')
+    expect(await num.text()).toBe('0')
     const bool = await page.$('#bool')
-    expect(await bool.text()).toBe('bool: false')
+    expect(await bool.text()).toBe('false')
 
     const count = await page.$('#count')
-    expect(await count.text()).toBe('count: 0')
+    expect(await count.text()).toBe('0')
 
     const objStr = await page.$('#obj-str')
-    expect(await objStr.text()).toBe('obj.str: obj default str')
+    expect(await objStr.text()).toBe('obj default str')
     const objNum = await page.$('#obj-num')
-    expect(await objNum.text()).toBe('obj.num: 0')
+    expect(await objNum.text()).toBe('0')
     const objBool = await page.$('#obj-bool')
-    expect(await objBool.text()).toBe('obj.bool: false')
+    expect(await objBool.text()).toBe('false')
 
     if (!process.env.uniTestPlatformInfo.startsWith('web')) {
       const propsStr = await page.$('#props-str')
@@ -43,7 +41,7 @@ describe('options setup', () => {
     await incrementBtn.tap()
 
     const count = await page.$('#count')
-    expect(await count.text()).toBe('count: 1')
+    expect(await count.text()).toBe('1')
     if (!process.env.uniTestPlatformInfo.startsWith('web')) {
       const propsCount = await page.$('#props-count')
       expect(await propsCount.text()).toBe('props.count: 1')
@@ -53,11 +51,11 @@ describe('options setup', () => {
     await updateObjBtn.tap()
 
     const objStr = await page.$('#obj-str')
-    expect(await objStr.text()).toBe('obj.str: obj new str')
+    expect(await objStr.text()).toBe('obj new str')
     const objNum = await page.$('#obj-num')
-    expect(await objNum.text()).toBe('obj.num: 100')
+    expect(await objNum.text()).toBe('100')
     const objBool = await page.$('#obj-bool')
-    expect(await objBool.text()).toBe('obj.bool: true')
+    expect(await objBool.text()).toBe('true')
 
     if (!process.env.uniTestPlatformInfo.startsWith('web')) {
       const propsObjStr = await page.$('#props-obj-str')
@@ -88,6 +86,6 @@ describe('options setup', () => {
     const defaultSlotInFoo = await page.$('#default-slot-in-foo')
     expect(await defaultSlotInFoo.text()).toBe('default slot in Foo')
     const hasDefaultSlot = await page.$('#has-default-slot')
-    expect(await hasDefaultSlot.text()).toBe('hasDefaultSlot: true')
+    expect(await hasDefaultSlot.text()).toBe('true')
   })
 })

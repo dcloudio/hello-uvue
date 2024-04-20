@@ -368,6 +368,11 @@ export default {
                   url: 'nextTick-composition'
                 },
               ]
+            },
+            {
+              id: 'setup-function',
+              name: 'setup()',
+              url: 'setup-function/setup-function'
             }
           ] as Page[]
         },

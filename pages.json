@@ -443,7 +443,12 @@
         "navigationBarTitleText": "provide 组合式 API"
       }
     },
-    
+    {
+      "path": "pages/component-instance/setup-function/setup-function",
+      "style": {
+        "navigationBarTitleText": "setup()"
+      }
+    },
 
     {
       "path": "pages/component-instance/circular-reference/circular-reference",
@@ -563,12 +568,6 @@
       }
     },
     // #endif
-    {
-      "path": "pages/composition/setup/setup",
-      "style": {
-        "navigationBarTitleText": "setup"
-      }
-    },
     {
       "path": "pages/examples/nested-component-communication/nested-component-communication-options",
       "style": {
