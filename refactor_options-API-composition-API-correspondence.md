@@ -122,13 +122,13 @@ function transform(fileInfo, api) {
 - [x] circular reference
 
 ## reactivity
-- [ ] ref
-- [ ] reactive
-- [ ] computed computed
-- [ ] watch    watch
-- [ ] watchEffect
-- [ ] watchPostEffect
-- [ ] watchSyncEffect
+- [x] ref
+- [x] reactive
+- [x] computed computed
+- [x] watch    watch
+- [x] watchEffect
+- [x] watchPostEffect
+- [x] watchSyncEffect
 - [ ] readonly
 - [ ] customRef
 - [ ] effectScope

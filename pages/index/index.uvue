@@ -517,6 +517,11 @@ export default {
                   name: 'watchPostEffect',
                   url: 'watch-post-effect/watch-post-effect'
                 },
+                {
+                  id: 'watch-sync-effect',
+                  name: 'watchSyncEffect',
+                  url: 'watch-sync-effect/watch-sync-effect'
+                },
               ]
             }
           ] as Page[]
@@ -717,8 +722,6 @@ export default {
         })
         return
       }
-console.log('parentUrl', parentUrl)
-console.log('page', page)
       uni.navigateTo({
         url: `/pages/${parentUrl}/${page.url}`
       })
