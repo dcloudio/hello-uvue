@@ -512,6 +512,11 @@ export default {
                   name: 'watchEffect',
                   url: 'watch-effect/watch-effect'
                 },
+                {
+                  id: 'watch-post-effect',
+                  name: 'watchPostEffect',
+                  url: 'watch-post-effect/watch-post-effect'
+                },
               ]
             }
           ] as Page[]

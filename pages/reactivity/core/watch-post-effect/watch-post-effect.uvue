@@ -1,39 +1,78 @@
 <template>
   <!-- #ifdef APP -->
   <scroll-view style="flex: 1; padding-bottom: 20px">
-  <!-- #endif -->
+    <!-- #endif -->
     <view class="page">
-      <text id="count" ref="countRef" class="mb-10">count: {{ count }}</text>
-      <text id="watch-count-res" class="mb-10">watch count result: {{ watchCountRes }}</text>
-      <text id="watch-count-track-num" class="mb-10">watch count track number: {{ watchCountTrackNum }}</text>
-      <text id="watch-count-cleanup-res" class="mb-10">watch count cleanup result: {{ watchCountCleanupRes }}</text>
-      <button id="increment-btn" class="mb-10" @click="increment">
-        increment
-      </button>
-      <button id="stop-watch-count-btn" class="mb-10" @click="triggerStopWatchCount">
+      <view class="flex justify-between flex-row mb-10">
+        <text>count:</text>
+        <text id="count" ref="countRef">{{ count }}</text>
+      </view>
+      <view class="flex justify-between mb-10">
+        <text>watch count result:</text>
+        <text id="watch-count-res">{{ watchCountRes }}</text>
+      </view>
+      <view class="flex justify-between flex-row mb-10">
+        <text>watch count track number:</text>
+        <text id="watch-count-track-num">{{ watchCountTrackNum }}</text>
+      </view>
+      <view class="flex justify-between mb-10">
+        <text>watch count cleanup number:</text>
+        <text id="watch-count-cleanup-res">{{ watchCountCleanupRes }}</text>
+      </view>
+
+      <button class="increment-btn mb-10" @click="increment">increment</button>
+      <button class="stop-watch-count-btn mb-10" @click="triggerStopWatchCount">
         stop watch count
       </button>
-      <text id="obj-str" ref="objStrRef" class="mb-10">obj.str: {{ obj.str }}</text>
-      <text id="watch-obj-str-trigger-num" class="mb-10">watch obj.str trigger number:
-        {{ watchObjStrTriggerNum }}</text>
-      <text id="obj-num" class="mb-10">obj.num: {{ obj.num }}</text>
-      <text id="obj-bool" ref="objBoolRef" class="mb-10">obj.bool: {{ obj.bool }}</text>
-      <text id="obj-arr" ref="objArrRef" class="mb-10">obj.arr: {{ JSON.stringify(obj.arr) }}</text>
-      <text id="watch-obj-res" class="mb-10">watch obj result: {{ watchObjRes }}</text>
-      <text id="watch-obj-str-res" class="mb-10">watch obj.str result: {{ watchObjStrRes }}</text>
-      <text id="watch-obj-arr-res" class="mb-10">watch obj.arr result: {{ watchObjArrRes }}</text>
-      <button id="update-obj-btn" class="mb-10" @click="updateObj">
+
+      <view class="flex justify-between flex-row mb-10">
+        <text>obj.str:</text>
+        <text id="obj-str" ref="objStrRef">{{ obj.str }}</text>
+      </view>
+      <view class="flex justify-between flex-row mb-10">
+        <text>watch obj.str trigger number:</text>
+        <text id="watch-obj-str-trigger-num">{{ watchObjStrTriggerNum }}</text>
+      </view>
+      <view class="flex justify-between flex-row mb-10">
+        <text>obj.num:</text>
+        <text id="obj-num">{{ obj.num }}</text>
+      </view>
+      <view class="flex justify-between flex-row mb-10">
+        <text>obj.bool:</text>
+        <text id="obj-bool" ref="objBoolRef">{{ obj.bool }}</text>
+      </view>
+      <view class="flex justify-between flex-row mb-10">
+        <text>obj.arr:</text>
+        <text id="obj-arr" ref="objArrRef">{{ JSON.stringify(obj.arr) }}</text>
+      </view>
+      <view class="flex justify-between mb-10">
+        <text>watch obj result:</text>
+        <text id="watch-obj-res">{{ watchObjRes }}</text>
+      </view>
+      <view class="flex justify-between mb-10">
+        <text>watch obj.str result:</text>
+        <text id="watch-obj-str-res">{{ watchObjStrRes }}</text>
+      </view>
+      <view class="flex justify-between mb-10">
+        <text>watch obj.arr result:</text>
+        <text id="watch-obj-arr-res">{{ watchObjArrRes }}</text>
+      </view>
+
+      <button class="update-obj-btn mb-10" @click="updateObj">
         update obj
       </button>
-      <text id="watch-count-obj-num-res" class="mb-10">watch count and obj.num result:
-        {{ watchCountAndObjNumRes }}</text>
+
+      <view class="flex justify-between mb-10">
+        <text>watch count and obj.num result:</text>
+        <text id="watch-count-obj-num-res">{{ watchCountAndObjNumRes }}</text>
+      </view>
     </view>
-  <!-- #ifdef APP -->
+    <!-- #ifdef APP -->
   </scroll-view>
   <!-- #endif -->
 </template>
 
-<script setup>
+<script setup lang='uts'>
   type Obj = {
     num : number,
     str : string,
