@@ -492,9 +492,15 @@
       }
     },
     {
-      "path": "pages/reactivity/core/watch/watch",
+      "path": "pages/reactivity/core/watch/watch-options",
       "style": {
-        "navigationBarTitleText": "watch"
+        "navigationBarTitleText": "watch 选项式 API"
+      }
+    },
+    {
+      "path": "pages/reactivity/core/watch/watch-composition",
+      "style": {
+        "navigationBarTitleText": "watch 组合式 API"
       }
     },
     {

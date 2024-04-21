@@ -491,6 +491,22 @@ export default {
                   name: 'readonly',
                   url: 'readonly/readonly'
                 },
+                {
+                  id: 'watch',
+                  name: 'watch',
+                  children: [
+                    {
+                      id: 'watch-options',
+                      name: 'watch 选项式 API',
+                      url: 'watch-options'
+                    },
+                    {
+                      id: 'watch-composition',
+                      name: 'watch 组合式 API',
+                      url: 'watch-composition'
+                    },
+                  ]
+                },
               ]
             }
           ] as Page[]
