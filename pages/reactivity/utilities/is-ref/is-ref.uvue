@@ -1,15 +1,27 @@
 <template>
   <view class="page">
-    <text id="ref-count">ref count: {{ refCount }}</text>
-    <text class="mt-10" id="is-ref-ref-count">isRef ref count: {{ isRefRefCount }}</text>
-    <text class="mt-10" id="count">count: {{ count }}</text>
-    <text class="mt-10" id="is-ref-count">isRef count: {{ isRefCount }}</text>
+    <view class="flex justify-between flex-row mb-10">
+      <text>ref count:</text>
+      <text id="ref-count">{{ refCount }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>isRef ref count:</text>
+      <text id="is-ref-ref-count">{{ isRefRefCount }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>count:</text>
+      <text id="count">{{ count }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>isRef count:</text>
+      <text id="is-ref-count">{{ isRefCount }}</text>
+    </view>
   </view>
 </template>
 
-<script setup>
-  const refCount = ref(0);
-  const count = 0;
-  const isRefRefCount = isRef(refCount);
-  const isRefCount = isRef(count);
+<script setup lang="uts">
+const refCount = ref(0);
+const count = 0;
+const isRefRefCount = isRef(refCount);
+const isRefCount = isRef(count);
 </script>

@@ -543,6 +543,11 @@ export default {
                   name: 'isReadonly',
                   url: 'is-readonly/is-readonly'
                 },
+                {
+                  id: 'is-ref',
+                  name: 'isRef',
+                  url: 'is-ref/is-ref'
+                },
               ]
             }
           ] as Page[]
