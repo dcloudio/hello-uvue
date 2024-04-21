@@ -149,7 +149,7 @@ function transform(fileInfo, api) {
 - [x] shallowReadonly
 - [x] shallowRef
 - [x] toRaw
-- [ ] triggerRef
+- [x] triggerRef
 
 ## directives
 

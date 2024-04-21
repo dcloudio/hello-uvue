@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/composition-api/reactivity/trigger-ref/trigger-ref'
+const PAGE_PATH = '/pages/reactivity/advanced/trigger-ref/trigger-ref'
 
 describe('triggerRef', () => {
   let page = null
@@ -8,16 +8,16 @@ describe('triggerRef', () => {
   })
   it('basic', async () => {
     const stateCount = await page.$('#state-count')
-    expect(await stateCount.text()).toBe('state.count: 0')
+    expect(await stateCount.text()).toBe('0')
 
     const incrementStateCountBtn = await page.$('#increment-state-count-btn')
     await incrementStateCountBtn.tap()
 
-    expect(await stateCount.text()).toBe('state.count: 0')
+    expect(await stateCount.text()).toBe('0')
 
     const triggerRefStateBtn = await page.$('#trigger-ref-state-btn')
     await triggerRefStateBtn.tap()
 
-    expect(await stateCount.text()).toBe('state.count: 1')
+    expect(await stateCount.text()).toBe('1')
   })
 })

@@ -622,6 +622,11 @@ export default {
                   name: 'toRaw',
                   url: 'to-raw/to-raw'
                 },
+                {
+                  id: 'trigger-ref',
+                  name: 'triggerRef',
+                  url: 'trigger-ref/trigger-ref'
+                },
               ]
             }
           ] as Page[]
