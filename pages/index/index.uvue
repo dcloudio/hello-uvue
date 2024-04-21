@@ -507,6 +507,11 @@ export default {
                     },
                   ]
                 },
+                {
+                  id: 'watch-effect',
+                  name: 'watchEffect',
+                  url: 'watch-effect/watch-effect'
+                },
               ]
             }
           ] as Page[]
