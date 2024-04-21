@@ -597,6 +597,11 @@ export default {
                   url: 'mark-raw/mark-raw',
                   enable: false
                 },
+                {
+                  id: 'on-scope-dispose',
+                  name: 'onScopeDispose',
+                  url: 'on-scope-dispose/on-scope-dispose'
+                },
               ]
             }
           ] as Page[]

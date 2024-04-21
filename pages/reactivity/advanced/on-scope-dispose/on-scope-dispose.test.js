@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/composition-api/reactivity/on-scope-dispose/on-scope-dispose'
+const PAGE_PATH = '/pages/reactivity/advanced/on-scope-dispose/on-scope-dispose'
 
 describe('onScopeDispose', () => {
   let page = null
@@ -8,16 +8,16 @@ describe('onScopeDispose', () => {
   })
   it('basic', async () => {
     const hasCurrentScope = await page.$('#has-current-scope')
-    expect(await hasCurrentScope.text()).toBe('hasCurrentScope: false')
+    expect(await hasCurrentScope.text()).toBe('false')
 
     const createScopeBtn = await page.$('#create-scope-btn')
     await createScopeBtn.tap()
 
-    expect(await hasCurrentScope.text()).toBe('hasCurrentScope: true')
+    expect(await hasCurrentScope.text()).toBe('true')
 
     const stopScopeBtn = await page.$('#stop-scope-btn')
     await stopScopeBtn.tap()
 
-    expect(await hasCurrentScope.text()).toBe('hasCurrentScope: false')
+    expect(await hasCurrentScope.text()).toBe('false')
   })
 })
