@@ -541,15 +541,15 @@
     },
     // #ifdef APP
     {
-      "path": "pages/reactivity/utilities/to-value/to-value",
-      "style": {
-        "navigationBarTitleText": "toValue"
-      }
-    },
-    {
       "path": "pages/reactivity/utilities/to-refs/to-refs",
       "style": {
         "navigationBarTitleText": "toRefs"
+      }
+    },
+    {
+      "path": "pages/reactivity/utilities/to-value/to-value",
+      "style": {
+        "navigationBarTitleText": "toValue"
       }
     },
     // #endif

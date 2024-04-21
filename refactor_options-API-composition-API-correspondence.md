@@ -136,7 +136,7 @@ function transform(fileInfo, api) {
 - [x] isReadonly
 - [x] isRef
 - [x] toRef
-- [ ] toRefs
+- [x] toRefs
 - [ ] toValue
 - [ ] unRef
 

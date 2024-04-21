@@ -553,6 +553,13 @@ export default {
                   name: 'toRef',
                   url: 'to-ref/to-ref'
                 },
+                // #ifdef APP
+                {
+                  id: 'to-refs',
+                  name: 'toRefs',
+                  url: 'to-refs/to-refs'
+                },
+                // #endif
               ]
             }
           ] as Page[]

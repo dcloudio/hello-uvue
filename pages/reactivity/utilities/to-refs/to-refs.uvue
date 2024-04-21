@@ -1,16 +1,26 @@
 <template>
   <view class="page">
-    <text id="state-num">state.num: {{ state['num'] }}</text>
-    <text class="mt-10" id="state-str">state.str: {{ state['str'] }}</text>
-    <text class="mt-10" id="state-as-refs-num">stateAsRefs.num:
-      {{ (stateAsRefs['num'] as Ref<number>).value }}</text>
-    <text class="mt-10" id="state-as-refs-str">stateAsRefs.str:
-      {{ (stateAsRefs['str'] as Ref<string>).value}}</text>
+    <view class="flex justify-between flex-row mb-10">
+      <text>state.num:</text>
+      <text id="state-num">{{ state['num'] }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>state.str:</text>
+      <text id="state-str">{{ state['str'] }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>stateAsRefs.num:</text>
+      <text id="state-as-refs-num">{{ (stateAsRefs['num'] as Ref<number>).value }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>stateAsRefs.str:</text>
+      <text id="state-as-refs-str">{{ (stateAsRefs['str'] as Ref<string>).value }}</text>
+    </view>
     <button class="mt-10" id="update-state-btn" @click="updateState">update state</button>
   </view>
 </template>
 
-<script setup>
+<script setup lang='uts'>
   // toRefs 仅支持 array 和 UTSJSONObject, 不支持自定义类型
   const state = reactive({
     num: 0,

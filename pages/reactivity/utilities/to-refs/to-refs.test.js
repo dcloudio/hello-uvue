@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/composition-api/reactivity/to-refs/to-refs'
+const PAGE_PATH = '/pages/reactivity/utilities/to-refs/to-refs'
 
 describe('toRefs', () => {
   if (process.env.uniTestPlatformInfo.startsWith('web')) {
@@ -15,20 +15,20 @@ describe('toRefs', () => {
   })
   it('basic', async () => {
     const stateNum = await page.$('#state-num')
-    expect(await stateNum.text()).toBe('state.num: 0')
+    expect(await stateNum.text()).toBe('0')
     const stateStr = await page.$('#state-str')
-    expect(await stateStr.text()).toBe('state.str: str-0')
+    expect(await stateStr.text()).toBe('str-0')
     const stateAsRefsNum = await page.$('#state-as-refs-num')
-    expect(await stateAsRefsNum.text()).toBe('stateAsRefs.num: 0')
+    expect(await stateAsRefsNum.text()).toBe('0')
     const stateAsRefsStr = await page.$('#state-as-refs-str')
-    expect(await stateAsRefsStr.text()).toBe('stateAsRefs.str: str-0')
+    expect(await stateAsRefsStr.text()).toBe('str-0')
 
     const updateStateBtn = await page.$('#update-state-btn')
     await updateStateBtn.tap()
 
-    expect(await stateNum.text()).toBe('state.num: 1')
-    expect(await stateStr.text()).toBe('state.str: str-1')
-    expect(await stateAsRefsNum.text()).toBe('stateAsRefs.num: 1')
-    expect(await stateAsRefsStr.text()).toBe('stateAsRefs.str: str-1')
+    expect(await stateNum.text()).toBe('1')
+    expect(await stateStr.text()).toBe('str-1')
+    expect(await stateAsRefsNum.text()).toBe('1')
+    expect(await stateAsRefsStr.text()).toBe('str-1')
   })
 })
