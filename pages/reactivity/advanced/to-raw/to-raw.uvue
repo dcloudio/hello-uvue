@@ -1,30 +1,47 @@
 <template>
   <view class="page">
-    <text id="check-to-raw-ref">check toRaw ref: {{ checkToRawRef }}</text>
-    <text class="mt-10" id="check-to-raw-reactive">check toRaw reactive: {{ checkToRawReactive }}</text>
-    <text class="mt-10" id="check-to-raw-readonly">check toRaw readonly: {{ checkToRawReadonly }}</text>
-    <text class="mt-10" id="check-to-raw-shallow-reactive">check toRaw shallowReactive:
-      {{ checkToRawShallowReactive }}</text>
-    <text class="mt-10" id="check-to-raw-shallow-readonly">check toRaw shallowReadonly:
-      {{ checkToRawShallowReadonly }}</text>
+    <view class="flex justify-between flex-row mb-10">
+      <text>check toRaw ref:</text>
+      <text id="check-to-raw-ref">{{ checkToRawRef }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>check toRaw reactive:</text>
+      <text id="check-to-raw-reactive">{{ checkToRawReactive }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>check toRaw readonly:</text>
+      <text id="check-to-raw-readonly">{{ checkToRawReadonly }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>check toRaw shallowReactive:</text>
+      <text id="check-to-raw-shallow-reactive">{{
+        checkToRawShallowReactive
+      }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>check toRaw shallowReadonly:</text>
+      <text id="check-to-raw-shallow-readonly">{{
+        checkToRawShallowReadonly
+      }}</text>
+    </view>
   </view>
 </template>
 
-<script setup>
-  const obj = {}
+<script setup lang="uts">
+const obj = {}
 
-  const refObj = ref(obj);
-  const checkToRawRef = toRaw<UTSJSONObject>(refObj) === obj;
+const refObj = ref(obj);
+const checkToRawRef = toRaw<UTSJSONObject>(refObj) === obj;
 
-  const reactiveObj = reactive(obj);
-  const checkToRawReactive = toRaw<UTSJSONObject>(reactiveObj) === obj;
+const reactiveObj = reactive(obj);
+const checkToRawReactive = toRaw<UTSJSONObject>(reactiveObj) === obj;
 
-  const readonlyObj = readonly(obj);
-  const checkToRawReadonly = toRaw<UTSJSONObject>(readonlyObj) === obj;
+const readonlyObj = readonly(obj);
+const checkToRawReadonly = toRaw<UTSJSONObject>(readonlyObj) === obj;
 
-  const shallowReactiveObj = shallowReactive(obj);
-  const checkToRawShallowReactive = toRaw<UTSJSONObject>(shallowReactiveObj) === obj;
+const shallowReactiveObj = shallowReactive(obj);
+const checkToRawShallowReactive = toRaw<UTSJSONObject>(shallowReactiveObj) === obj;
 
-  const shallowReadonlyObj = shallowReadonly(obj);
-  const checkToRawShallowReadonly = toRaw<UTSJSONObject>(shallowReadonlyObj) === obj;
+const shallowReadonlyObj = shallowReadonly(obj);
+const checkToRawShallowReadonly = toRaw<UTSJSONObject>(shallowReadonlyObj) === obj;
 </script>
