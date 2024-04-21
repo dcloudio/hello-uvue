@@ -140,7 +140,7 @@ function transform(fileInfo, api) {
 - [x] toValue
 - [x] unRef
 
-- [ ] customRef
+- [x] customRef
 - [ ] effectScope
 - [ ] getCurrentScope
 - [ ] markRaw

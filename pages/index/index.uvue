@@ -571,6 +571,17 @@ export default {
                   url: 'un-ref/un-ref'
                 },
               ]
+            },
+            {
+              id: 'advanced',
+              name: '进阶',
+              children: [
+                {
+                  id: 'custom-ref',
+                  name: 'customRef',
+                  url: 'custom-ref/custom-ref'
+                },
+              ]
             }
           ] as Page[]
         },
