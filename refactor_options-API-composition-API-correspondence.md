@@ -145,7 +145,7 @@ function transform(fileInfo, api) {
 - [x] getCurrentScope
 - [x] markRaw
 - [x] onScopeDispose
-- [ ] shallowReactive
+- [x] shallowReactive
 - [ ] shallowReadonly
 - [ ] shallowRef
 - [ ] toRaw

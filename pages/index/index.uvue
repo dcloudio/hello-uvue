@@ -602,6 +602,11 @@ export default {
                   name: 'onScopeDispose',
                   url: 'on-scope-dispose/on-scope-dispose'
                 },
+                {
+                  id: 'shallow-reactive',
+                  name: 'shallowReactive',
+                  url: 'shallow-reactive/shallow-reactive'
+                },
               ]
             }
           ] as Page[]
