@@ -591,6 +591,12 @@ export default {
                   name: 'getCurrentScope',
                   url: 'get-current-scope/get-current-scope'
                 },
+                {
+                  id: 'mark-raw',
+                  name: 'markRaw',
+                  url: 'mark-raw/mark-raw',
+                  enable: false
+                },
               ]
             }
           ] as Page[]
