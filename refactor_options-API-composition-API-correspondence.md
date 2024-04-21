@@ -138,7 +138,7 @@ function transform(fileInfo, api) {
 - [x] toRef
 - [x] toRefs
 - [x] toValue
-- [ ] unRef
+- [x] unRef
 
 - [ ] customRef
 - [ ] effectScope

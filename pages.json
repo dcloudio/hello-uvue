@@ -522,6 +522,24 @@
       }
     },
     {
+      "path": "pages/reactivity/utilities/is-proxy/is-proxy",
+      "style": {
+        "navigationBarTitleText": "isProxy"
+      }
+    },
+    {
+      "path": "pages/reactivity/utilities/is-reactive/is-reactive",
+      "style": {
+        "navigationBarTitleText": "isReactive"
+      }
+    },
+    {
+      "path": "pages/reactivity/utilities/is-readonly/is-readonly",
+      "style": {
+        "navigationBarTitleText": "isReadonly"
+      }
+    },
+    {
       "path": "pages/reactivity/utilities/is-ref/is-ref",
       "style": {
         "navigationBarTitleText": "isRef"
@@ -553,24 +571,6 @@
       }
     },
     // #endif
-    {
-      "path": "pages/reactivity/utilities/is-proxy/is-proxy",
-      "style": {
-        "navigationBarTitleText": "isProxy"
-      }
-    },
-    {
-      "path": "pages/reactivity/utilities/is-reactive/is-reactive",
-      "style": {
-        "navigationBarTitleText": "isReactive"
-      }
-    },
-    {
-      "path": "pages/reactivity/utilities/is-readonly/is-readonly",
-      "style": {
-        "navigationBarTitleText": "isReadonly"
-      }
-    },
     {
       "path": "pages/reactivity/advanced/shallow-ref/shallow-ref",
       "style": {
