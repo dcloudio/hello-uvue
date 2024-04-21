@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/composition-api/reactivity/to-value/to-value'
+const PAGE_PATH = '/pages/reactivity/utilities/to-value/to-value'
 
 describe('toValue', () => {
   if (process.env.uniTestPlatformInfo.startsWith('web')) {
@@ -15,23 +15,23 @@ describe('toValue', () => {
   })
   it('basic', async () => {
     const refCount = await page.$('#ref-count')
-    expect(await refCount.text()).toBe('ref count: 0')
+    expect(await refCount.text()).toBe('0')
     const isRefRefCount = await page.$('#is-ref-ref-count')
-    expect(await isRefRefCount.text()).toBe('isRef ref count: true')
+    expect(await isRefRefCount.text()).toBe('true')
     const count = await page.$('#count')
-    expect(await count.text()).toBe('count: 0')
+    expect(await count.text()).toBe('0')
     const isRefCount = await page.$('#is-ref-count')
-    expect(await isRefCount.text()).toBe('isRef count: false')
+    expect(await isRefCount.text()).toBe('false')
 
     const objNum = await page.$('#obj-num')
-    expect(await objNum.text()).toBe('obj.num: 0')
+    expect(await objNum.text()).toBe('0')
     const toValueObjNum = await page.$('#to-value-obj-num')
-    expect(await toValueObjNum.text()).toBe('toValue(() => obj.num): 0')
+    expect(await toValueObjNum.text()).toBe('0')
 
     const incrementBtn = await page.$('#increment-btn')
     await incrementBtn.tap()
 
-    expect(await objNum.text()).toBe('obj.num: 1')
-    expect(await toValueObjNum.text()).toBe('toValue(() => obj.num): 1')
+    expect(await objNum.text()).toBe('1')
+    expect(await toValueObjNum.text()).toBe('1')
   })
 })

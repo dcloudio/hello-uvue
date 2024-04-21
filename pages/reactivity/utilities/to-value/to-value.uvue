@@ -1,33 +1,52 @@
 <template>
   <view class="page">
-    <text id="ref-count">ref count: {{ refCount }}</text>
-    <text class="mt-10" id="is-ref-ref-count">isRef ref count: {{ isRefRefCount }}</text>
-    <text class="mt-10" id="count">count: {{ count }}</text>
-    <text class="mt-10" id="is-ref-count">isRef count: {{ isRefCount }}</text>
-
-    <text class="mt-10" id="obj-num">obj.num: {{ obj.num }}</text>
-    <text class="mt-10" id="to-value-obj-num">toValue(() => obj.num): {{ toValueObjNum }}</text>
-    <button class="mt-10" id="increment-btn" @click="increment">increment obj.num</button>
+    <view class="flex justify-between flex-row mb-10">
+      <text>ref count:</text>
+      <text id="ref-count">{{ refCount }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>isRef ref count:</text>
+      <text id="is-ref-ref-count">{{ isRefRefCount }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>count:</text>
+      <text id="count">{{ count }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>isRef count:</text>
+      <text id="is-ref-count">{{ isRefCount }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>obj.num:</text>
+      <text id="obj-num">{{ obj.num }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>toValue(() => obj.num):</text>
+      <text id="to-value-obj-num">{{ toValueObjNum }}</text>
+    </view>
+    <button class="mt-10" id="increment-btn" @click="increment">
+      increment obj.num
+    </button>
   </view>
 </template>
 
-<script setup>
-  const refCount = ref<number>(0);;
-  const isRefRefCount = isRef(refCount);
-  const count = toValue(refCount);
-  const isRefCount = isRef(count);
+<script setup lang="uts">
+const refCount = ref<number>(0);;
+const isRefRefCount = isRef(refCount);
+const count = toValue(refCount);
+const isRefCount = isRef(count);
 
-  type Obj = {
-    num : number
-  }
-  const obj = reactive({
-    num: 0
-  } as Obj)
+type Obj = {
+  num : number
+}
+const obj = reactive({
+  num: 0
+} as Obj)
 
-  let toValueObjNum = toValue(() : number => obj.num)
+let toValueObjNum = toValue(() : number => obj.num)
 
-  const increment = () => {
-    obj.num++;
-    toValueObjNum++;
-  }
+const increment = () => {
+  obj.num++;
+  toValueObjNum++;
+}
 </script>

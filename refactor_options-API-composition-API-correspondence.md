@@ -137,7 +137,7 @@ function transform(fileInfo, api) {
 - [x] isRef
 - [x] toRef
 - [x] toRefs
-- [ ] toValue
+- [x] toValue
 - [ ] unRef
 
 - [ ] customRef

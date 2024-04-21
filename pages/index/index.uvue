@@ -559,6 +559,11 @@ export default {
                   name: 'toRefs',
                   url: 'to-refs/to-refs'
                 },
+                {
+                  id: 'to-value',
+                  name: 'toValue',
+                  url: 'to-value/to-value'
+                },
                 // #endif
               ]
             }
