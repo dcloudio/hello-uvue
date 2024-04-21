@@ -22,6 +22,7 @@ describe('shallowReactive', () => {
     await incrementStateCountBtn.tap()
 
     expect(await stateCount.text()).toBe('1')
+    // TODO: web 失败，获取到的还是 0
     expect(await stateNestedCount.text()).toBe('1')
   })
 })

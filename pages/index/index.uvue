@@ -607,6 +607,11 @@ export default {
                   name: 'shallowReactive',
                   url: 'shallow-reactive/shallow-reactive'
                 },
+                {
+                  id: 'shallow-readonly',
+                  name: 'shallowReadonly',
+                  url: 'shallow-readonly/shallow-readonly'
+                },
               ]
             }
           ] as Page[]
