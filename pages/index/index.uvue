@@ -586,6 +586,11 @@ export default {
                   name: 'effectScope',
                   url: 'effect-scope/effect-scope'
                 },
+                {
+                  id: 'get-current-scope',
+                  name: 'getCurrentScope',
+                  url: 'get-current-scope/get-current-scope'
+                },
               ]
             }
           ] as Page[]

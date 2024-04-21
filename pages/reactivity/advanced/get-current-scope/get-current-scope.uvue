@@ -1,18 +1,22 @@
 <template>
   <view class="page">
-    <text id="has-current-scope">hasCurrentScope: {{ hasCurrentScope }}</text>
-    <button id="create-scope-btn" class="mt-10" @click="createScope">create scope</button>
+    <view class="flex justify-between flex-row mb-10">
+      <text>hasCurrentScope:</text>
+      <text id="has-current-scope">{{ hasCurrentScope }}</text>
+    </view>
+    <button id="create-scope-btn" class="mt-10" @click="createScope">
+      create scope
+    </button>
   </view>
 </template>
 
-<script setup>
-  
-  const hasCurrentScope = ref(false)
-  
-  const createScope = () => {
-    const scope = effectScope()
-    scope.run(() => {
-      hasCurrentScope.value = getCurrentScope() !== null
-    })
-  }
+<script setup lang="uts">
+const hasCurrentScope = ref(false);
+
+const createScope = () => {
+  const scope = effectScope();
+  scope.run(() => {
+    hasCurrentScope.value = getCurrentScope() !== null;
+  });
+};
 </script>

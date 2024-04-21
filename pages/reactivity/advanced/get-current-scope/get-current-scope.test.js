@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/composition-api/reactivity/get-current-scope/get-current-scope'
+const PAGE_PATH = '/pages/reactivity/advanced/get-current-scope/get-current-scope'
 
 describe('getCurrentScope', () => {
   let page = null
@@ -8,11 +8,11 @@ describe('getCurrentScope', () => {
   })
   it('basic', async () => {
     const hasCurrentScope = await page.$('#has-current-scope')
-    expect(await hasCurrentScope.text()).toBe('hasCurrentScope: false')
+    expect(await hasCurrentScope.text()).toBe('false')
 
     const createScopeBtn = await page.$('#create-scope-btn')
     await createScopeBtn.tap()
 
-    expect(await hasCurrentScope.text()).toBe('hasCurrentScope: true')
+    expect(await hasCurrentScope.text()).toBe('true')
   })
 })
