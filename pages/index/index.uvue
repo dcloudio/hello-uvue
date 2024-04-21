@@ -533,6 +533,11 @@ export default {
                   name: 'isProxy',
                   url: 'is-proxy/is-proxy'
                 },
+                {
+                  id: 'is-reactive',
+                  name: 'isReactive',
+                  url: 'is-reactive/is-reactive'
+                },
               ]
             }
           ] as Page[]
