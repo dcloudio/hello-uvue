@@ -135,7 +135,7 @@ function transform(fileInfo, api) {
 - [x] isReactive
 - [x] isReadonly
 - [x] isRef
-- [ ] toRef
+- [x] toRef
 - [ ] toRefs
 - [ ] toValue
 - [ ] unRef

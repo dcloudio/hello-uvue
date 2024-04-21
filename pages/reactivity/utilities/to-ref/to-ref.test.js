@@ -1,4 +1,4 @@
-const PAGE_PATH = '/pages/composition-api/reactivity/to-ref/to-ref'
+const PAGE_PATH = '/pages/reactivity/utilities/to-ref/to-ref'
 
 describe('toRef', () => {
   if (process.env.uniTestPlatformInfo.startsWith('web')) {
@@ -15,26 +15,26 @@ describe('toRef', () => {
   })
   it('basic', async () => {
     const count = await page.$('#count')
-    expect(await count.text()).toBe('count: 0')
+    expect(await count.text()).toBe('0')
     const isRefCount = await page.$('#is-ref-count')
-    expect(await isRefCount.text()).toBe('isRef count: false')
+    expect(await isRefCount.text()).toBe('false')
     const refCount = await page.$('#ref-count')
-    expect(await refCount.text()).toBe('ref count: 0')
+    expect(await refCount.text()).toBe('0')
     const isRefRefCount = await page.$('#is-ref-ref-count')
-    expect(await isRefRefCount.text()).toBe('isRef ref count: true')
+    expect(await isRefRefCount.text()).toBe('true')
 
     const objNum = await page.$('#obj-num')
-    expect(await objNum.text()).toBe('obj.num: 0')
+    expect(await objNum.text()).toBe('0')
     const toRefObjNum = await page.$('#to-ref-obj-num')
-    expect(await toRefObjNum.text()).toBe('toRef(obj, "num"): 0')
+    expect(await toRefObjNum.text()).toBe('0')
     const toRefFnObjNum = await page.$('#to-ref-fn-obj-num')
-    expect(await toRefFnObjNum.text()).toBe('toRef(() => obj.num): 0')
+    expect(await toRefFnObjNum.text()).toBe('0')
 
     const incrementBtn = await page.$('#increment-btn')
     await incrementBtn.tap()
 
-    expect(await objNum.text()).toBe('obj.num: 2')
-    expect(await toRefObjNum.text()).toBe('toRef(obj, "num"): 2')
-    expect(await toRefFnObjNum.text()).toBe('toRef(() => obj.num): 2')
+    expect(await objNum.text()).toBe('2')
+    expect(await toRefObjNum.text()).toBe('2')
+    expect(await toRefFnObjNum.text()).toBe('2')
   })
 })
