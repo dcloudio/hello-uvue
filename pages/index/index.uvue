@@ -538,6 +538,11 @@ export default {
                   name: 'isReactive',
                   url: 'is-reactive/is-reactive'
                 },
+                {
+                  id: 'is-readonly',
+                  name: 'isReadonly',
+                  url: 'is-readonly/is-readonly'
+                },
               ]
             }
           ] as Page[]

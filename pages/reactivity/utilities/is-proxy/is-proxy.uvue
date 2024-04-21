@@ -5,10 +5,6 @@
       <text id="is-proxy-count">{{ isProxyCount }}</text>
     </view>
     <view class="flex justify-between flex-row mb-10">
-      <text>isProxy(count):</text>
-      <text id="is-proxy-count">{{ isProxyCount }}</text>
-    </view>
-    <view class="flex justify-between flex-row mb-10">
       <text>isProxy(refCount):</text>
       <text id="is-proxy-ref-count">{{ isProxyRefCount }}</text>
     </view>
