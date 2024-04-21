@@ -612,6 +612,11 @@ export default {
                   name: 'shallowReadonly',
                   url: 'shallow-readonly/shallow-readonly'
                 },
+                {
+                  id: 'shallow-ref',
+                  name: 'shallowRef',
+                  url: 'shallow-ref/shallow-ref'
+                },
               ]
             }
           ] as Page[]

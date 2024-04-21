@@ -1,26 +1,32 @@
 <template>
   <view class="page">
-    <text id="state-count" class="mb-10">state.count: {{ state.count }}</text>
-    <button class="increment-state-count-btn mb-10" @click="incrementStateCount">increment
-      state.count</button>
+    <view class="flex justify-between flex-row mb-10">
+      <text>state.count:</text>
+      <text id="state-count">{{ state.count }}</text>
+    </view>
+    <button
+      class="increment-state-count-btn mb-10"
+      @click="incrementStateCount">
+      increment state.count
+    </button>
     <button class="update-state-btn" @click="updateState">update state</button>
   </view>
 </template>
 
-<script setup>
-  type State = {
-    count: number
-  }
-  
-  const state = shallowRef({
-    count: 0
-  } as State)
+<script setup lang="uts">
+type State = {
+  count: number
+}
 
-  const incrementStateCount = () => {
-    state.value.count++
-  }
+const state = shallowRef({
+  count: 0
+} as State)
 
-  const updateState = () => {
-    state.value = { count: state.value.count } as State
-  }
+const incrementStateCount = () => {
+  state.value.count++
+}
+
+const updateState = () => {
+  state.value = { count: state.value.count } as State
+}
 </script>
