@@ -581,6 +581,11 @@ export default {
                   name: 'customRef',
                   url: 'custom-ref/custom-ref'
                 },
+                {
+                  id: 'effect-scope',
+                  name: 'effectScope',
+                  url: 'effect-scope/effect-scope'
+                },
               ]
             }
           ] as Page[]
