@@ -129,24 +129,27 @@ function transform(fileInfo, api) {
 - [x] watchEffect
 - [x] watchPostEffect
 - [x] watchSyncEffect
-- [ ] readonly
+- [x] readonly
+
+- [x] isProxy
+- [ ] is-reactive
+- [ ] isReadonly
+- [ ] isRef
+- [ ] toRef
+- [ ] toRefs
+- [ ] toValue
+- [ ] unRef
+
 - [ ] customRef
 - [ ] effectScope
 - [ ] getCurrentScope
-- [ ] isProxy
-- [ ] isReadonly
-- [ ] isRef
 - [ ] markRaw
 - [ ] onScopeDispose
 - [ ] shallowReactive
 - [ ] shallowReadonly
 - [ ] shallowRef
 - [ ] toRaw
-- [ ] toRef
-- [ ] toRefs
-- [ ] toValue
 - [ ] triggerRef
-- [ ] unRef
 
 ## directives
 

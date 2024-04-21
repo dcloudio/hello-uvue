@@ -523,6 +523,17 @@ export default {
                   url: 'watch-sync-effect/watch-sync-effect'
                 },
               ]
+            },
+            {
+              id: 'utilities',
+              name: '工具',
+              children: [
+                {
+                  id: 'is-proxy',
+                  name: 'isProxy',
+                  url: 'is-proxy/is-proxy'
+                },
+              ]
             }
           ] as Page[]
         },
