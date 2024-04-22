@@ -290,6 +290,12 @@
       }
     },
     {
+      "path": "pages/component-instance/methods/call-method-define-expose",
+      "style": {
+        "navigationBarTitleText": "call-method-define-expose"
+      }
+    },
+    {
       "path": "pages/component-instance/methods/call-method-other",
       "style": {
         "navigationBarTitleText": "call-method-other"

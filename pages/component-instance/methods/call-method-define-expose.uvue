@@ -1,0 +1,29 @@
+<template>
+  <view>
+    <component-define-expose ref="comp"></component-define-expose>
+  </view>
+</template>
+
+<script>
+  // 非easycom组件需import引用组件 component1.uvue
+  import ComponentDefineExpose from './component-define-expose.uvue'
+
+  export default {
+    components: {
+      ComponentDefineExpose
+    },
+    data() {
+      return {
+        component: null as ComponentPublicInstance | null
+      }
+    },
+    onReady() {
+      this.component = this.$refs['comp'] as ComponentPublicInstance;
+    },
+    methods: {
+      callMethod() {
+        return this.component!.$callMethod('test', 'call-method-define-expose')
+      }
+    }
+  }
+</script>
