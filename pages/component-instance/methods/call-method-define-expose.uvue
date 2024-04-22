@@ -21,8 +21,8 @@
       this.component = this.$refs['comp'] as ComponentPublicInstance;
     },
     methods: {
-      callMethod() {
-        return this.component!.$callMethod('test', 'call-method-define-expose')
+      callMethod() : string {
+        return this.component!.$callMethod('test', 'call-method-define-expose') as string
       }
     }
   }

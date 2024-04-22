@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-  function test(name: string) {
+  function test(name : string) : string {
     return `hello ${name}`
   }
   defineExpose({
