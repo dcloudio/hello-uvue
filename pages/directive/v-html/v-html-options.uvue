@@ -6,7 +6,7 @@
 export default {
   data() {
     return {
-      html: '<p class="p" style="color: red;">hello world!</p>'
+      html: '<p class="p" style="color: red;">hello world for options API!</p>'
     }
   }
 }

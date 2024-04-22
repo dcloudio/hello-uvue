@@ -136,6 +136,18 @@
       }
     },
     {
+      "path": "pages/directive/v-html/v-html-options",
+      "style": {
+        "navigationBarTitleText": "v-html 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-html/v-html-composition",
+      "style": {
+        "navigationBarTitleText": "v-html 组合式 API"
+      }
+    },
+    {
       "path": "pages/directive/v-bind/v-bind",
       "style": {
         "navigationBarTitleText": "v-bind"
@@ -269,12 +281,6 @@
       "path": "pages/directive/v-slot/v-slot",
       "style": {
         "navigationBarTitleText": "v-slot"
-      }
-    },
-    {
-      "path": "pages/directive/v-html/v-html",
-      "style": {
-        "navigationBarTitleText": "v-html"
       }
     },
     {

@@ -631,6 +631,28 @@ export default {
             }
           ] as Page[]
         },
+         {
+          id: 'directive',
+          name: '指令',
+          pages: [
+            {
+              id: 'v-html',
+              name: 'v-html',
+              children: [
+                {
+                  id: 'v-html-options',
+                  name: 'v-html 选项式 API',
+                  url: 'v-html-options'
+                },
+                {
+                  id: 'v-html-composition',
+                  name: 'v-html 组合式 API',
+                  url: 'v-html-composition'
+                },
+              ]
+            }
+          ]
+        },
         {
           id: 'lifecycle',
           name: '生命周期',

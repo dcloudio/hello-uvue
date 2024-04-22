@@ -153,17 +153,19 @@ function transform(fileInfo, api) {
 
 ## directives
 
-- [ ] v-bind      v-bind
-- [ ] v-for       v-for
-- [ ] v-if        v-if
-- [ ] v-model     defineModel
-- [ ] v-on        v-on
-- [ ] v-show      v-show
-- [ ] v-slot      v-slot
-- [ ] v-once      v-once
-- [ ] v-memo      v-memo
-- [ ] v-pre       v-pre
-- [ ] v-html      v-html
+- [x] v-html
+- [ ] v-show
+- [ ] v-if v-else-if v-else
+- [ ] v-for
+- [ ] v-on
+- [ ] v-bind
+- [ ] v-model
+- [ ] v-slot
+- [ ] v-pre
+- [ ] v-once
+- [ ] v-memo
+- [ ] v-text
+- [ ] -cloak
 
 ## lifecycle
 
