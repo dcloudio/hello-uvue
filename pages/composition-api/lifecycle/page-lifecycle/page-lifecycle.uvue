@@ -8,8 +8,8 @@
         <text>{{ isOnloadTriggered }}</text>
       </view>
       <view class="item-container">
-        <text>onShow 触发：</text>
-        <text>{{ isOnShowTriggered }}</text>
+        <text>onPageShow 触发：</text>
+        <text>{{ isOnPageShowTriggered }}</text>
       </view>
       <view class="item-container">
         <text>onReady 触发：</text>
@@ -28,8 +28,8 @@
         <text>{{ isOnBackPressTriggered }}</text>
       </view>
       <view class="item-container">
-        <text>onHide 触发：</text>
-        <text>{{ isOnHideTriggered }}</text>
+        <text>onPageHide 触发：</text>
+        <text>{{ isOnPageHideTriggered }}</text>
       </view>
       <view class="item-container">
         <text>onResize 触发：</text>
@@ -50,13 +50,13 @@
   
   const isScrolled = ref(false)
   const isOnloadTriggered = ref(false)
-  const isOnShowTriggered = ref(false)
+  const isOnPageShowTriggered = ref(false)
   const isOnReadyTriggered = ref(false)
   const isOnPullDownRefreshTriggered = ref(false)
   const isOnPageScrollTriggered = ref(false)
   const isOnReachBottomTriggered = ref(false)
   const isOnBackPressTriggered = ref(false)
-  const isOnHideTriggered = ref(false)
+  const isOnPageHideTriggered = ref(false)
   const isOnResizeTriggered = ref(false)
   
   onLoad((_: OnLoadOptions) => {
@@ -65,7 +65,7 @@
     setLifeCycleNum(state.lifeCycleNum + 100)
   })
   onPageShow(() => {
-    isOnShowTriggered.value = true
+    isOnPageShowTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   })
