@@ -154,7 +154,7 @@ function transform(fileInfo, api) {
 ## directives
 
 - [x] v-html
-- [ ] v-show
+- [x] v-show
 - [ ] v-if v-else-if v-else
 - [ ] v-for
 - [ ] v-on

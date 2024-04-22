@@ -148,6 +148,19 @@
       }
     },
     {
+      "path": "pages/directive/v-show/v-show-options",
+      "style": {
+        "navigationBarTitleText": "v-show 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-show/v-show-composition",
+      "style": {
+        "navigationBarTitleText": "v-show 组合式 API"
+      }
+    },
+
+    {
       "path": "pages/directive/v-bind/v-bind",
       "style": {
         "navigationBarTitleText": "v-bind"
@@ -269,12 +282,6 @@
       "path": "pages/directive/v-pre/v-pre",
       "style": {
         "navigationBarTitleText": "v-pre"
-      }
-    },
-    {
-      "path": "pages/directive/v-show/v-show",
-      "style": {
-        "navigationBarTitleText": "v-show"
       }
     },
     {

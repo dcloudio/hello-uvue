@@ -650,6 +650,22 @@ export default {
                   url: 'v-html-composition'
                 },
               ]
+            },
+            {
+              id: 'v-show',
+              name: 'v-show',
+              children: [
+                {
+                  id: 'v-show-options',
+                  name: 'v-show 选项式 API',
+                  url: 'v-show-options'
+                },
+                {
+                  id: 'v-show-composition',
+                  name: 'v-show 组合式 API',
+                  url: 'v-show-composition'
+                },
+              ]
             }
           ]
         },

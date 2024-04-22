@@ -1,36 +1,41 @@
-const PAGE_PATH = '/pages/directive/v-show/v-show'
+const OPTIONS_PAGE_PATH = '/pages/directive/v-show/v-show-options'
+const COMPOSITION_PAGE_PATH = '/pages/directive/v-show/v-show-composition'
 
 describe('v-show', () => {
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
-  })
-  it('style::display', async () => {
-    const element = await page.$('.v-show-content')
-    expect(await element.style('display')).toBe('flex')
+  
+  const test = async (page) => {
+    let dataInfo = await page.data('dataInfo')
+    expect(dataInfo.show).toBe(true)
+    
+    const vShowElement = await page.$('.v-show-element')
+    expect(await vShowElement.style('display')).toBe('flex')
+    
 
-    const toggle = await page.$('.btn-toggle')
+    const toggle = await page.$('#toggle-btn')
     await toggle.tap()
-    expect(await element.style('display')).toBe('none')
+    
+    dataInfo = await page.data('dataInfo')
+    expect(dataInfo.show).toBe(false)
+    expect(await vShowElement.style('display')).toBe('none')
+    
     await toggle.tap()
-    expect(await element.style('display')).toBe('flex')
+    dataInfo = await page.data('dataInfo')
+    expect(dataInfo.show).toBe(true)
+    expect(await vShowElement.style('display')).toBe('flex')
+  }
+  
+  it('v-show options API', async () => {
+    page = await program.reLaunch(OPTIONS_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
   })
-  // it('screenshot', async () => {
-  //   const toggle = await page.$('.btn-toggle')
-  //   const element = await page.$('.hello')
-
-  //   const image1 = await program.screenshot()
-  //   expect(image1).toMatchSnapshot()
-
-  //   await toggle.tap()
-  //   await page.waitFor(20)
-  //   const image2 = await program.screenshot()
-  //   expect(image2).toMatchSnapshot()
-
-  //   await toggle.tap()
-  //   await page.waitFor(20)
-  //   const image3 = await program.screenshot()
-  //   expect(image3).toMatchSnapshot()
-  // })
+  
+  it('v-show composition API', async () => {
+    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
+  })
 })
