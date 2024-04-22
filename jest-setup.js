@@ -1,32 +1,21 @@
-const path = require('path');
+const path = require("path");
 const fs = require("fs");
 const {
-	configureToMatchImageSnapshot
+    configureToMatchImageSnapshot
 } = require('jest-image-snapshot');
-
-const hbuilderx_version = process.env.HX_Version
-const uniTestPlatformInfo = process.env.uniTestPlatformInfo ? process.env.uniTestPlatformInfo.replace(/\s/g,'_') : ''
-const folderName = `__image_snapshots__/${hbuilderx_version}/__${uniTestPlatformInfo}__`
-let environment = 'official'
-if(hbuilderx_version.includes('dev')){
-  environment = 'dev'
-}else if(hbuilderx_version.includes('alpha')){
-  environment = 'alpha'
-}
-const baseFolderName = `__image_snapshots__/base/${environment}/__${uniTestPlatformInfo}__`
+let saveImageSnapshotDir = process.env.saveImageSnapshotDir || path.join(__dirname, '__snapshot__');
 
 expect.extend({
-	toMatchImageSnapshot: configureToMatchImageSnapshot({
-		customSnapshotIdentifier(args) {
-			return args.currentTestName.replace(/\//g, '-').replace(' ', '-');
-		},
-		customSnapshotsDir: path.join(__dirname, baseFolderName),
-		customDiffDir: path.join(__dirname, `${folderName}/`, 'diff'),
-	}),
-	toSaveSnapshot,
-	toSaveImageSnapshot,
+    toMatchImageSnapshot: configureToMatchImageSnapshot({
+        customSnapshotIdentifier(args) {
+            return args.currentTestName.replace(/\//g, "-").replace(" ", "-");
+        },
+        customSnapshotsDir: process.env.saveImageSnapshotDir,
+        customDiffDir: path.join(saveImageSnapshotDir, "diff"),
+    }),
+    toSaveSnapshot,
+    toSaveImageSnapshot,
 });
-
 
 const testCaseToSnapshotFilePath =
     process.env.testCaseToSnapshotFilePath || "./testCaseToSnapshotFilePath.json";
@@ -200,4 +189,3 @@ function checkSnapshotDir(snapshotDir) {
 }
 
 const timesCalled = new Map();
-
