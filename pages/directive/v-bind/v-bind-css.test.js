@@ -17,6 +17,6 @@ describe('v-bind-css', () => {
     const image = await program.screenshot({
       fullPage: true
     });
-    expect(image).toMatchImageSnapshot();
+    expect(image).toSaveImageSnapshot();
   })
 })

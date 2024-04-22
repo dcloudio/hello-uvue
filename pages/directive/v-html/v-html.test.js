@@ -11,6 +11,6 @@ describe('v-html', () => {
     await page.waitFor(500)
     
     const image = await program.screenshot()
-    expect(image).toMatchImageSnapshot()
+    expect(image).toSaveImageSnapshot()
   })
 })

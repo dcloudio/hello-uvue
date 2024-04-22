@@ -54,6 +54,6 @@ describe('globalProperties', () => {
 		const image = await program.screenshot({
 			fullPage: true
 		});
-		expect(image).toMatchImageSnapshot();
+		expect(image).toSaveImageSnapshot();
 	})
 })

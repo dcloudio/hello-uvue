@@ -10,6 +10,6 @@ describe('自定义组件中使用 class 定制另一个自定义组件根节点
 
   it('screenshot', async () => {
     const image = await program.screenshot()
-    expect(image).toMatchImageSnapshot()
+    expect(image).toSaveImageSnapshot()
   })
 })
