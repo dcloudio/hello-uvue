@@ -159,6 +159,18 @@
         "navigationBarTitleText": "v-show 组合式 API"
       }
     },
+    {
+      "path": "pages/directive/v-if/v-if-options",
+      "style": {
+        "navigationBarTitleText": "v-if 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-if/v-if-composition",
+      "style": {
+        "navigationBarTitleText": "v-if 组合式 API"
+      }
+    },
 
     {
       "path": "pages/directive/v-bind/v-bind",
@@ -244,12 +256,6 @@
       "path": "pages/directive/v-for/v-for-v-for",
       "style": {
         "navigationBarTitleText": "v-for-v-for"
-      }
-    },
-    {
-      "path": "pages/directive/v-if/v-if",
-      "style": {
-        "navigationBarTitleText": "v-if"
       }
     },
     {

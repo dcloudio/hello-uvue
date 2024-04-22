@@ -27,8 +27,6 @@ defineProps({
 
 const attrs = useAttrs()
 
-console.log('attrs', attrs)
-
 const hasPropsAttr = computed(():boolean => {
   // #ifdef APP-ANDROID
   return attrs.has('val')
