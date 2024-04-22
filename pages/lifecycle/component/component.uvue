@@ -1,11 +1,10 @@
 <template>
   <view class="page">
-    <text class="uni-common-mb">component lifecycle</text>
     <component-lifecycle class="component-lifecycle" />
   </view>
 </template>
 
-<script>
+<script lang="uts">
 import ComponentLifecycle from '@/components/OptionsAPILifecycle.uvue'
 import { state } from '@/store/index.uts'
 export default {

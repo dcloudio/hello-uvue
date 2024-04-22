@@ -3,8 +3,44 @@
   <scroll-view style="flex: 1" :bounces="false">
     <!-- #endif -->
     <view class="page container">
-      <text>page lifecycle</text>
-      <button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
+      <view class="item-container">
+        <text>onLoad 触发：</text>
+        <text>{{ isOnloadTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onShow 触发：</text>
+        <text>{{ isOnShowTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onReady 触发：</text>
+        <text>{{ isOnReadyTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onPullDownRefresh 触发：</text>
+        <text>{{ isOnPullDownRefreshTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onReachBottom 触发：</text>
+        <text>{{ isOnReachBottomTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onBackPress 触发：</text>
+        <text>{{ isOnBackPressTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onHide 触发：</text>
+        <text>{{ isOnHideTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onResize 触发：</text>
+        <text>{{ isOnResizeTriggered }}</text>
+      </view>
+      <button class="uni-common-mt" @click="scrollToBottom">
+        scrollToBottom
+      </button>
+      <button class="uni-common-mt" @click="pullDownRefresh">
+        trigger pullDownRefresh
+      </button>
     </view>
     <!-- #ifdef APP -->
   </scroll-view>
@@ -18,38 +54,55 @@ export default {
   data() {
     return {
       isScrolled: false,
+      isOnloadTriggered: false,
+      isOnShowTriggered: false,
+      isOnReadyTriggered: false,
+      isOnPullDownRefreshTriggered: false,
+      isOnPageScrollTriggered: false,
+      isOnReachBottomTriggered: false,
+      isOnBackPressTriggered: false,
+      isOnHideTriggered: false,
+      isOnResizeTriggered: false,
     }
   },
   onLoad(_ : OnLoadOptions) {
+    this.isOnloadTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 100)
   },
   onShow() {
+    this.isOnShowTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   },
   onReady() {
+    this.isOnReadyTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   },
   onPullDownRefresh() {
+    this.isOnPullDownRefreshTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   },
   onPageScroll(_) {
+    this.isOnPageScrollTriggered = true
     // 自动化测试
     this.isScrolled = true
   },
   onReachBottom() {
+    this.isOnReachBottomTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   },
   onBackPress(_ : OnBackPressOptions) : boolean | null {
+    this.isOnBackPressTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 10)
     return null
   },
   onHide() {
+    this.isOnHideTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 10)
   },
@@ -58,6 +111,7 @@ export default {
     setLifeCycleNum(state.lifeCycleNum - 100)
   },
   onResize(_){
+    this.isOnResizeTriggered = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   },
@@ -93,5 +147,11 @@ export default {
 <style>
 .container {
   height: 1200px;
+}
+.item-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 </style>

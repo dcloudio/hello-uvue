@@ -1,101 +1,198 @@
 <template>
   title: {{ title }}
+  <view class="uni-common-mt item-container">
+    <text>onLoad 触发：</text>
+    <text>{{ isOnloadTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onPageShow 触发：</text>
+    <text>{{ isOnShowTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onReady 触发：</text>
+    <text>{{ isOnReadyTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onBeforeMount 触发：</text>
+    <text>{{ isOnBeforeMountTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onMounted 触发：</text>
+    <text>{{ isOnMountedTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onBeforeUpdate 触发：</text>
+    <text>{{ isOnBeforeUpdateTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onUpdated 触发：</text>
+    <text>{{ isOnUpdatedTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onBeforeUnmount 触发：</text>
+    <text>{{ isOnBeforeUnmountTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onUnmounted 触发：</text>
+    <text>{{ isOnUnmountedTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onPullDownRefresh 触发：</text>
+    <text>{{ isOnPullDownRefreshTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onReachBottom 触发：</text>
+    <text>{{ isOnReachBottomTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onBackPress 触发：</text>
+    <text>{{ isOnBackPressTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onPageHide 触发：</text>
+    <text>{{ isOnHideTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>onResize 触发：</text>
+    <text>{{ isOnResizeTriggered }}</text>
+  </view>
   <button class="component-lifecycle-btn uni-common-mt" @click="updateTitle">
     updateTitle
   </button>
 </template>
 
-<script setup>
-  import { state, setLifeCycleNum } from '../store/index.uts'
+<script setup lang="uts">
+import { state, setLifeCycleNum } from '../store/index.uts'
 
-  const title = ref('component for composition API lifecycle test')
-  
-  const emit = defineEmits<{
-    (e : 'updateIsScroll', val : boolean) : void
-  }>()
+const title = ref('component for composition API lifecycle test')
 
-  onLoad((_ : OnLoadOptions) => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 100)
-  })
-  onPageShow(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 10)
-  })
-  onReady(() => {
-    // 自动化测试
-    // TODO: onReady 未触发
-    setLifeCycleNum(state.lifeCycleNum + 10)
-  })
-  
-  onPullDownRefresh(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 10)
-  })
-  onPageScroll((_) => {
-    // 自动化测试
-    emit('updateIsScroll', true)
-  })
-  onReachBottom(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 10)
-  })
-  onBackPress((_ : OnBackPressOptions) : boolean | null => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum - 10)
-    return null
-  })
-  onPageHide(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum - 10)
-  })
-  onUnload(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum - 100)
-  })
+const isOnloadTriggered = ref(false)
+const isOnShowTriggered = ref(false)
+const isOnReadyTriggered = ref(false)
+const isOnPullDownRefreshTriggered = ref(false)
+const isOnPageScrollTriggered = ref(false)
+const isOnReachBottomTriggered = ref(false)
+const isOnBackPressTriggered = ref(false)
+const isOnHideTriggered = ref(false)
+const isOnResizeTriggered = ref(false)
 
-  onBeforeMount(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 1)
-    console.log('component for lifecycle test mounted')
-  })
+const isOnBeforeMountTriggered = ref(false)
+const isOnMountedTriggered = ref(false)
+const isOnBeforeUpdateTriggered = ref(false)
+const isOnUpdatedTriggered = ref(false)
+const isOnBeforeUnmountTriggered = ref(false)
+const isOnUnmountedTriggered = ref(false)
 
-  onMounted(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 1)
-    console.log('component for lifecycle test mounted')
-  })
+const emit = defineEmits<{
+  (e : 'updateIsScroll', val : boolean) : void
+}>()
 
-  onBeforeUpdate(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 1)
-    console.log('component for lifecycle test beforeUpdate')
-  })
+onLoad((_ : OnLoadOptions) => {
+  isOnloadTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 100)
+})
+onPageShow(() => {
+  isOnShowTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 10)
+})
+onReady(() => {
+  isOnReadyTriggered.value = true
+  // 自动化测试
+  // TODO: onReady 未触发
+  setLifeCycleNum(state.lifeCycleNum + 10)
+})
 
-  onUpdated(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum + 1)
-    console.log('component for lifecycle test updated')
-  })
+onPullDownRefresh(() => {
+  isOnPullDownRefreshTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 10)
+})
+onPageScroll((_) => {
+  isOnPageScrollTriggered.value = true
+  // 自动化测试
+  emit('updateIsScroll', true)
+})
+onReachBottom(() => {
+  isOnReachBottomTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 10)
+})
+onBackPress((_ : OnBackPressOptions) : boolean | null => {
+  isOnBackPressTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum - 10)
+  return null
+})
+onPageHide(() => {
+  isOnHideTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum - 10)
+})
+onUnload(() => {
+  isOnHideTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum - 100)
+})
 
-  onBeforeUnmount(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum - 1)
-    console.log('component for lifecycle test beforeUnmount')
-  })
+onBeforeMount(() => {
+  isOnBeforeMountTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 1)
+  console.log('component for lifecycle test mounted')
+})
 
-  onUnmounted(() => {
-    // 自动化测试
-    setLifeCycleNum(state.lifeCycleNum - 1)
-    console.log('component for lifecycle test unmounted')
-  })
+onMounted(() => {
+  isOnMountedTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 1)
+  console.log('component for lifecycle test mounted')
+})
 
-  // TODO: app-android 不触发
-  onActivated(() => { })
-  // TODO: app-android 不触发
-  onDeactivated(() => { })
+onBeforeUpdate(() => {
+  isOnBeforeUpdateTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 1)
+  console.log('component for lifecycle test beforeUpdate')
+})
 
-  const updateTitle = () => {
-    title.value = 'component for lifecycle test updated'
-  }
+onUpdated(() => {
+  isOnUpdatedTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 1)
+  console.log('component for lifecycle test updated')
+})
+
+onBeforeUnmount(() => {
+  isOnBeforeUnmountTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum - 1)
+  console.log('component for lifecycle test beforeUnmount')
+})
+
+onUnmounted(() => {
+  isOnUnmountedTriggered.value = true
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum - 1)
+  console.log('component for lifecycle test unmounted')
+})
+
+// TODO: app-android 不触发
+onActivated(() => { })
+// TODO: app-android 不触发
+onDeactivated(() => { })
+
+const updateTitle = () => {
+  title.value = 'component for lifecycle test updated'
+}
 </script>
+
+<style>
+.item-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+</style>

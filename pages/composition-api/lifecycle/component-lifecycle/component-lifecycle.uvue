@@ -2,17 +2,17 @@
   <!-- #ifdef APP -->
   <scroll-view style="flex:1">
   <!-- #endif -->
-    <view class="pag container">
-      <text class="uni-common-mb">component lifecycle</text>
+    <view class="page container">
       <component-lifecycle class="component-lifecycle" @updateIsScroll="updateIsScroll" />
       <button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
+      <button class="uni-common-mt" @click="pullDownRefresh">trigger pullDownRefresh</button>
     </view>
   <!-- #ifdef APP -->
   </scroll-view>
   <!-- #endif -->
 </template>
 
-<script setup>
+<script setup lang='uts'>
   import ComponentLifecycle from '@/components/CompositionAPILifecycle.uvue'
   import { state, setLifeCycleNum } from '@/store/index.uts'
 

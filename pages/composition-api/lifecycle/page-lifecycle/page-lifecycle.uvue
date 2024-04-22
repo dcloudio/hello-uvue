@@ -3,49 +3,100 @@
   <scroll-view style="flex:1" :bounces="false">
   <!-- #endif -->
     <view class="page container">
-      <text>page lifecycle</text>
+      <view class="item-container">
+        <text>onLoad 触发：</text>
+        <text>{{ isOnloadTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onShow 触发：</text>
+        <text>{{ isOnShowTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onReady 触发：</text>
+        <text>{{ isOnReadyTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onPullDownRefresh 触发：</text>
+        <text>{{ isOnPullDownRefreshTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onReachBottom 触发：</text>
+        <text>{{ isOnReachBottomTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onBackPress 触发：</text>
+        <text>{{ isOnBackPressTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onHide 触发：</text>
+        <text>{{ isOnHideTriggered }}</text>
+      </view>
+      <view class="item-container">
+        <text>onResize 触发：</text>
+        <text>{{ isOnResizeTriggered }}</text>
+      </view>
       <button class="uni-common-mt" @click="scrollToBottom">scrollToBottom</button>
+      <button class="uni-common-mt" @click="pullDownRefresh">
+        trigger pullDownRefresh
+      </button>
     </view>
   <!-- #ifdef APP -->
   </scroll-view>
   <!-- #endif -->
 </template>
 
-<script setup>
+<script setup lang='uts'>
   import { state, setLifeCycleNum } from '@/store/index.uts'
   
   const isScrolled = ref(false)
+  const isOnloadTriggered = ref(false)
+  const isOnShowTriggered = ref(false)
+  const isOnReadyTriggered = ref(false)
+  const isOnPullDownRefreshTriggered = ref(false)
+  const isOnPageScrollTriggered = ref(false)
+  const isOnReachBottomTriggered = ref(false)
+  const isOnBackPressTriggered = ref(false)
+  const isOnHideTriggered = ref(false)
+  const isOnResizeTriggered = ref(false)
   
   onLoad((_: OnLoadOptions) => {
+    isOnloadTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 100)
   })
   onPageShow(() => {
+    isOnShowTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   })
   onReady(() => {
+    isOnReadyTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   })
   onPullDownRefresh(() => {
+    isOnPullDownRefreshTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   })
   onPageScroll((_) => {
+    isOnPageScrollTriggered.value = true
     // 自动化测试
     isScrolled.value = true
   })
   onReachBottom(() => {
+    isOnReachBottomTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   })
   onBackPress((_: OnBackPressOptions): boolean | null => {
+    isOnBackPressTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 10)
     return null
   })
   onPageHide(() => {
+    isOnPageHideTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum - 10)
   })
@@ -54,6 +105,7 @@
     setLifeCycleNum(state.lifeCycleNum - 100)
   })
   onResize((_) => {
+    isOnResizeTriggered.value = true
     // 自动化测试
     setLifeCycleNum(state.lifeCycleNum + 10)
   })
@@ -101,5 +153,11 @@
 <style>
   .container {
     height: 1200px;
+  }
+  .item-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
   }
 </style>

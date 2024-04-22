@@ -1,63 +1,122 @@
 <template>
   title: {{ title }}
+  <view class="uni-common-mt item-container">
+    <text>beforeCreate 触发：</text>
+    <text>{{ isBeforeCreateTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>created 触发：</text>
+    <text>{{ isCreatedTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>beforeMount 触发：</text>
+    <text>{{ isBeforeMountTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>mounted 触发：</text>
+    <text>{{ isMountedTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>beforeUpdate 触发：</text>
+    <text>{{ isBeforeUpdateTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>updated 触发：</text>
+    <text>{{ isUpdatedTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>beforeUnmount 触发：</text>
+    <text>{{ isBeforeUnmountTriggered }}</text>
+  </view>
+  <view class="item-container">
+    <text>unmounted 触发：</text>
+    <text>{{ isUnmountedTriggered }}</text>
+  </view>
   <button class="component-lifecycle-btn uni-common-mt" @click="updateTitle">
     updateTitle
   </button>
 </template>
 
-<script>
-  import { state, setLifeCycleNum } from '../store/index.uts';
-  export default {
-    name: 'OptionsAPIComponentLifecycle',
-    data() {
-      return {
-        title: 'component for options API lifecycle test',
-      };
+<script lang="uts">
+import { state, setLifeCycleNum } from '../store/index.uts';
+export default {
+  name: 'OptionsAPIComponentLifecycle',
+  data() {
+    return {
+      title: 'component for options API lifecycle test',
+      isBeforeCreateTriggered: false,
+      isCreatedTriggered: false,
+      isBeforeMountTriggered: false,
+      isMountedTriggered: false,
+      isBeforeUpdateTriggered: false,
+      isUpdatedTriggered: false,
+      isBeforeUnmountTriggered: false,
+      isUnmountedTriggered: false,
+    };
+  },
+  beforeCreate() {
+    setTimeout(() => {
+      this.isBeforeCreateTriggered = true
+    }, 0);
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1);
+    console.log('component for lifecycle test beforeCreate');
+  },
+  created() {
+    this.isCreatedTriggered = true
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1);
+    console.log('component for lifecycle test created');
+  },
+  beforeMount() {
+    this.isBeforeMountTriggered = true
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1);
+    console.log('component for lifecycle test beforeMount');
+  },
+  mounted() {
+    this.isMountedTriggered = true
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1);
+    console.log('component for lifecycle test mounted');
+  },
+  beforeUpdate() {
+    this.isBeforeUpdateTriggered = true
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1);
+    console.log('component for lifecycle test beforeUpdate');
+  },
+  updated() {
+    this.isUpdatedTriggered = true
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum + 1);
+    console.log('component for lifecycle test updated');
+  },
+  beforeUnmount() {
+    this.isBeforeUnmountTriggered = true
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 1);
+    console.log('component for lifecycle test beforeUnmount');
+  },
+  unmounted() {
+    this.isUnmountedTriggered = true
+    // 自动化测试
+    setLifeCycleNum(state.lifeCycleNum - 1);
+    console.log('component for lifecycle test unmounted');
+  },
+  methods: {
+    updateTitle() {
+      this.title = 'component for lifecycle test updated';
     },
-    beforeCreate() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum + 1);
-      console.log('component for lifecycle test beforeCreate');
-    },
-    created() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum + 1);
-      console.log('component for lifecycle test created');
-    },
-    beforeMount() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum + 1);
-      console.log('component for lifecycle test beforeMount');
-    },
-    mounted() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum + 1);
-      console.log('component for lifecycle test mounted');
-    },
-    beforeUpdate() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum + 1);
-      console.log('component for lifecycle test beforeUpdate');
-    },
-    updated() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum + 1);
-      console.log('component for lifecycle test updated');
-    },
-    beforeUnmount() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum - 1);
-      console.log('component for lifecycle test beforeUnmount');
-    },
-    unmounted() {
-      // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum - 1);
-      console.log('component for lifecycle test unmounted');
-    },
-    methods: {
-      updateTitle() {
-        this.title = 'component for lifecycle test updated';
-      },
-    },
-  };
+  },
+};
 </script>
+
+<style>
+.item-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+</style>
