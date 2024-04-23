@@ -553,18 +553,22 @@ export default {
                   name: 'toRef',
                   url: 'to-ref/to-ref'
                 },
-                // #ifdef APP
                 {
                   id: 'to-refs',
                   name: 'toRefs',
-                  url: 'to-refs/to-refs'
+                  url: 'to-refs/to-refs',
+                // #ifdef WEB
+                  enable: false
+                // #endif
                 },
                 {
                   id: 'to-value',
                   name: 'toValue',
-                  url: 'to-value/to-value'
-                },
+                  url: 'to-value/to-value',
+                // #ifdef WEB
+                  enable: false
                 // #endif
+                },
                 {
                   id: 'un-ref',
                   name: 'unRef',
@@ -720,7 +724,6 @@ export default {
               name: 'v-pre',
               url: 'v-pre/v-pre'
             },
-            // #ifdef APP
             {
               id: 'v-once',
               name: 'v-once',
@@ -728,16 +731,43 @@ export default {
                 {
                   id: 'v-once-options',
                   name: 'v-once 选项式 API',
-                  url: 'v-once-options'
+                  url: 'v-once-options',
+                  // #ifdef WEB
+                  enable: false
+                  // #endif
                 },
                 {
                   id: 'v-once-composition',
                   name: 'v-once 组合式 API',
-                  url: 'v-once-composition'
+                  url: 'v-once-composition',
+                  // #ifdef WEB
+                  enable: false
+                  // #endif
                 },
               ]
             },
-            // #endif
+            {
+              id: 'v-memo',
+              name: 'v-memo',
+              children: [
+                {
+                  id: 'v-memo-options',
+                  name: 'v-memo 选项式 API',
+                  url: 'v-memo-options',
+                  // #ifdef WEB
+                  enable: false
+                  // #endif
+                },
+                {
+                  id: 'v-memo-composition',
+                  name: 'v-memo 组合式 API',
+                  url: 'v-memo-composition',
+                  // #ifdef WEB
+                  enable: false
+                  // #endif
+                },
+              ]
+            },
           ]
         },
         {

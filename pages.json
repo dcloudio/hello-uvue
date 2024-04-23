@@ -214,6 +214,18 @@
         "navigationBarTitleText": "v-once 组合式 API"
       }
     },
+    {
+      "path": "pages/directive/v-memo/v-memo-options",
+      "style": {
+        "navigationBarTitleText": "v-memo 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-memo/v-memo-composition",
+      "style": {
+        "navigationBarTitleText": "v-memo 组合式 API"
+      }
+    },
     // #endif
 
 
@@ -277,12 +289,6 @@
       "path": "pages/directive/v-model/v-model",
       "style": {
         "navigationBarTitleText": "v-model"
-      }
-    },
-    {
-      "path": "pages/directive/v-memo/v-memo",
-      "style": {
-        "navigationBarTitleText": "v-memo"
       }
     },
     {

@@ -163,8 +163,8 @@ function transform(fileInfo, api) {
 - [ ] v-slot
 - [x] v-pre
 - [x] v-once
-- [ ] v-memo
-- [ ] v-text
+- [x] v-memo
+- [ ] v-text  暂不支持
 - [ ] v-cloak 暂不支持
 
 ## lifecycle
