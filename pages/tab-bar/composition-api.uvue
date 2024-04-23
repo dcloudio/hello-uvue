@@ -256,7 +256,19 @@
           enable: true,
         }
       ]
-    }
+    },
+    {
+      id: 'error',
+      name: '异常示例',
+      open: false,
+      pages: [
+        {
+          name: '运行时异常',
+          url: 'runtime-error/runtime-error-composition',
+          enable: true,
+        }
+      ] as PageItem[],
+    },
   ] as PageList[]
 
   const goDetailPage = (id : string, e : PageItem) => {
@@ -268,7 +280,14 @@
       return
     }
 
-    const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
+    if(id == 'error'){
+      uni.navigateTo({
+        url: `/pages/error/${e.url}`,
+      })
+      return
+    }    
+
+    const url =  e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
     uni.navigateTo({
       url: `/pages/composition-api/${id}/${url}`,
     })

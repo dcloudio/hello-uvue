@@ -670,6 +670,18 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/error/runtime-error/runtime-error-options",
+      "style": {
+        "navigationBarTitleText": "runtime error 选项式 API"
+      }
+    },
+    {
+      "path": "pages/error/runtime-error/runtime-error-composition",
+      "style": {
+        "navigationBarTitleText": "runtime error 组合式 API"
+      }
     }
   ],
   "tabBar": {

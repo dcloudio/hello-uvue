@@ -467,6 +467,18 @@
               }
             ] as PageItem[],
           },
+          {
+            id: 'error',
+            name: '异常示例',
+            open: false,
+            pages: [
+              {
+                name: '运行时异常',
+                url: 'runtime-error/runtime-error-options',
+                enable: true,
+              }
+            ] as PageItem[],
+          },
         ] as PageList[],
       }
     },
@@ -480,7 +492,7 @@
           return
         }
 
-        const url = e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
+        const url = id == 'error' ? e.url : e.url!.includes('/') ? e.url : `${e.url}/${e.url}`
         uni.navigateTo({
           url: `/pages/${id}/${url}`,
         })
