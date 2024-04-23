@@ -884,6 +884,28 @@ export default {
               ]
             }
           ] as Page[]
+        },
+        {
+          id: 'error',
+          name: '异常示例',
+          pages: [
+            {
+              id: 'runtime-error',
+              name: '运行时异常',
+              children: [
+                {
+                  id: 'runtime-error-options',
+                  name: '运行时异常 选项式 API',
+                  url: 'runtime-error-options'
+                },
+                {
+                  id: 'runtime-error-composition',
+                  name: '运行时异常 组合式 API',
+                  url: 'runtime-error-composition'
+                },
+              ]
+            }
+          ]
         }
       ] as Menu[]
     }
