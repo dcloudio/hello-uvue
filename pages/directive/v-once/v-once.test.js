@@ -1,4 +1,5 @@
-const PAGE_PATH = '/pages/directive/v-once/v-once'
+const OPTIONS_PAGE_PATH = '/pages/directive/v-once/v-once-options'
+const COMPOSITION_PAGE_PATH = '/pages/directive/v-once/v-once-composition'
 
 describe('v-once', () => {
   if (process.env.uniTestPlatformInfo.startsWith('web')) {
@@ -9,22 +10,29 @@ describe('v-once', () => {
     return
   }
 	let page
-	beforeAll(async () => {
-		page = await program.reLaunch(PAGE_PATH)
+	
+	const test = async (pagePath) => {
+		page = await program.reLaunch(pagePath)
 		await page.waitFor('view')
-	})
-	it('basic', async () => {
-		const vOnceTextEl = await page.$('.v-once-text')
-		let vOnceTextText = await vOnceTextEl.text()
-		expect(vOnceTextText).toBe('This will never change: hello world')
+		
+		const vOnceMsg = await page.$('#v-once-msg')
+		expect(await vOnceMsg.text()).toBe('hello world')
+		
+		const msg = await page.$('#msg')
+		expect(await msg.text()).toBe('hello world')
 
-		const btn = await page.$('.btn')
+		const btn = await page.$('#btn')
 		await btn.tap()
 
-		const msg = await page.data('msg')
-		expect(msg).toBe('msg changed')
-
-		vOnceTextText = await vOnceTextEl.text()
-		expect(vOnceTextText).toBe('This will never change: hello world')
+		expect(await vOnceMsg.text()).toBe('hello world')
+		expect(await msg.text()).toBe('msg changed')
+	}
+	
+	it('v-once options API', async () => {
+		await test(OPTIONS_PAGE_PATH)
+	})
+	
+	it('v-once composition API', async () => {
+		await test(COMPOSITION_PAGE_PATH)
 	})
 })

@@ -201,6 +201,20 @@
         "navigationBarTitleText": "v-pre"
       }
     },
+    // #ifdef APP
+    {
+      "path": "pages/directive/v-once/v-once-options",
+      "style": {
+        "navigationBarTitleText": "v-once 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-once/v-once-composition",
+      "style": {
+        "navigationBarTitleText": "v-once 组合式 API"
+      }
+    },
+    // #endif
 
 
     {
@@ -265,14 +279,6 @@
         "navigationBarTitleText": "v-model"
       }
     },
-    // #ifdef APP
-    {
-      "path": "pages/directive/v-once/v-once",
-      "style": {
-        "navigationBarTitleText": "v-once"
-      }
-    },
-    // #endif
     {
       "path": "pages/directive/v-memo/v-memo",
       "style": {

@@ -719,7 +719,25 @@ export default {
               id: 'v-pre',
               name: 'v-pre',
               url: 'v-pre/v-pre'
-            }
+            },
+            // #ifdef APP
+            {
+              id: 'v-once',
+              name: 'v-once',
+              children: [
+                {
+                  id: 'v-once-options',
+                  name: 'v-once 选项式 API',
+                  url: 'v-once-options'
+                },
+                {
+                  id: 'v-once-composition',
+                  name: 'v-once 组合式 API',
+                  url: 'v-once-composition'
+                },
+              ]
+            },
+            // #endif
           ]
         },
         {

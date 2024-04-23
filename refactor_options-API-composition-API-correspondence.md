@@ -161,11 +161,11 @@ function transform(fileInfo, api) {
 - [ ] v-bind
 - [ ] v-model
 - [ ] v-slot
-- [ ] v-pre
-- [ ] v-once
+- [x] v-pre
+- [x] v-once
 - [ ] v-memo
 - [ ] v-text
-- [ ] -cloak
+- [ ] v-cloak 暂不支持
 
 ## lifecycle
 
