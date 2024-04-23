@@ -195,6 +195,12 @@
         "navigationBarTitleText": "v-on 组合式 API"
       }
     },
+    {
+      "path": "pages/directive/v-pre/v-pre",
+      "style": {
+        "navigationBarTitleText": "v-pre"
+      }
+    },
 
 
     {
@@ -271,12 +277,6 @@
       "path": "pages/directive/v-memo/v-memo",
       "style": {
         "navigationBarTitleText": "v-memo"
-      }
-    },
-    {
-      "path": "pages/directive/v-pre/v-pre",
-      "style": {
-        "navigationBarTitleText": "v-pre"
       }
     },
     {
