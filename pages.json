@@ -227,6 +227,20 @@
       }
     },
     // #endif
+    // #ifdef WEB
+    {
+      "path": "pages/directive/v-text/v-text-options",
+      "style": {
+        "navigationBarTitleText": "v-text 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-text/v-text-composition",
+      "style": {
+        "navigationBarTitleText": "v-text 组合式 API"
+      }
+    },
+    // #endif
 
 
     {

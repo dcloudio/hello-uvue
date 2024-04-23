@@ -768,6 +768,28 @@ export default {
                 },
               ]
             },
+            {
+              id: 'v-text',
+              name: 'v-text',
+              children: [
+                {
+                  id: 'v-text-options',
+                  name: 'v-text 选项式 API',
+                  url: 'v-text-options',
+                  // #ifdef APP
+                  enable: false
+                  // #endif
+                },
+                {
+                  id: 'v-text-composition',
+                  name: 'v-text 组合式 API',
+                  url: 'v-text-composition',
+                  // #ifdef APP
+                  enable: false
+                  // #endif
+                },
+              ]
+            },
           ]
         },
         {

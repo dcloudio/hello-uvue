@@ -164,7 +164,7 @@ function transform(fileInfo, api) {
 - [x] v-pre
 - [x] v-once
 - [x] v-memo
-- [ ] v-text  暂不支持
+- [x] v-text
 - [ ] v-cloak 暂不支持
 
 ## lifecycle
