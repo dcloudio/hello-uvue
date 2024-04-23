@@ -698,6 +698,22 @@ export default {
                   url: 'v-for-composition'
                 },
               ]
+            },
+            {
+              id: 'v-on',
+              name: 'v-on',
+              children: [
+                {
+                  id: 'v-on-options',
+                  name: 'v-on 选项式 API',
+                  url: 'v-on-options'
+                },
+                {
+                  id: 'v-on-composition',
+                  name: 'v-on 组合式 API',
+                  url: 'v-on-composition'
+                },
+              ]
             }
           ]
         },

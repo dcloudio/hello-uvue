@@ -183,6 +183,19 @@
         "navigationBarTitleText": "v-for 组合式 API"
       }
     },
+    {
+      "path": "pages/directive/v-on/v-on-options",
+      "style": {
+        "navigationBarTitleText": "v-on 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-on/v-on-composition",
+      "style": {
+        "navigationBarTitleText": "v-on 组合式 API"
+      }
+    },
+
 
     {
       "path": "pages/directive/v-bind/v-bind",
@@ -244,12 +257,6 @@
       "path": "pages/directive/v-model/v-model",
       "style": {
         "navigationBarTitleText": "v-model"
-      }
-    },
-    {
-      "path": "pages/directive/v-on/v-on",
-      "style": {
-        "navigationBarTitleText": "v-on"
       }
     },
     // #ifdef APP

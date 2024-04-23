@@ -1,0 +1,41 @@
+<template>
+  <view class="page">
+    <text class="bold mb-10">下方按钮点击累加 count</text>
+    <view class="flex justify-between flex-row mb-10">
+      <text>count:</text>
+      <text id="count">{{ count }}</text>
+    </view>
+    <button class="mb-10 btn" @click="handleClick">
+      @click="handleClick" 缩写
+    </button>
+    <button class="mb-10 btn" v-on:click="handleClick">
+      v-on:click="handleClick" 方法处理函数
+    </button>
+    <button class="mb-10 btn" v-on:click="count++">
+      v-on:click="count++" 内联事件
+    </button>
+    <button class="mb-10 btn" v-on:click="handleClick($event as MouseEvent)">
+      v-on:click="handleClick($event as MouseEvent)"
+      内联声明，注意要显式声明$event的类型
+    </button>
+    <button class="mb-10 btn" v-on:[event]="handleClick">
+      v-on:[event]="handleClick" 动态事件
+    </button>
+    <button class="mb-10 btn" v-on="{ click: handleClick }">
+      v-on="{ click: handleClick }" 对象语法
+    </button>
+    <!-- TODO 不支持修饰符 -->
+    <!-- <view class="mb-10 btn" v-on:click.once="handleClick">v-on:click.once="handleClick" 点击事件将最多触发一次</view> -->
+  </view>
+</template>
+
+<script setup lang="uts">
+const count = ref(0)
+
+const event = ref('click')
+
+const handleClick = (e : MouseEvent) => {
+  count.value++
+  console.log('handleClick', e)
+}
+</script>
