@@ -2,7 +2,7 @@
   <view class="content">
     <child>
       <template v-slot:header="slotProps">
-        <view class="header">{{ slotProps['msg'] }}</view>
+        <view class="header">{{ slotProps.msg }}</view>
       </template>
       <template v-slot:default="{ msg }">
         <view class="main">{{ msg }}</view>

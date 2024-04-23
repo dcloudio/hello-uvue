@@ -682,6 +682,22 @@ export default {
                   url: 'v-if-composition'
                 },
               ]
+            },
+            {
+              id: 'v-for',
+              name: 'v-for',
+              children: [
+                {
+                  id: 'v-for-options',
+                  name: 'v-for 选项式 API',
+                  url: 'v-for-options'
+                },
+                {
+                  id: 'v-for-composition',
+                  name: 'v-for 组合式 API',
+                  url: 'v-for-composition'
+                },
+              ]
             }
           ]
         },

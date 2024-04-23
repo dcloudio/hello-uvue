@@ -171,6 +171,18 @@
         "navigationBarTitleText": "v-if 组合式 API"
       }
     },
+    {
+      "path": "pages/directive/v-for/v-for-options",
+      "style": {
+        "navigationBarTitleText": "v-for 选项式 API"
+      }
+    },
+    {
+      "path": "pages/directive/v-for/v-for-composition",
+      "style": {
+        "navigationBarTitleText": "v-for 组合式 API"
+      }
+    },
 
     {
       "path": "pages/directive/v-bind/v-bind",
@@ -228,36 +240,6 @@
       }
     },
     // #endif
-    {
-      "path": "pages/directive/v-for/v-for",
-      "style": {
-        "navigationBarTitleText": "v-for"
-      }
-    },
-    {
-      "path": "pages/directive/v-for/v-for-item-click",
-      "style": {
-        "navigationBarTitleText": "v-for-item-click"
-      }
-    },
-    {
-      "path": "pages/directive/v-for/v-for-item-v-if",
-      "style": {
-        "navigationBarTitleText": "v-for-item-v-if"
-      }
-    },
-    {
-      "path": "pages/directive/v-for/v-for-item-v-show",
-      "style": {
-        "navigationBarTitleText": "v-for-item-v-show"
-      }
-    },
-    {
-      "path": "pages/directive/v-for/v-for-v-for",
-      "style": {
-        "navigationBarTitleText": "v-for-v-for"
-      }
-    },
     {
       "path": "pages/directive/v-model/v-model",
       "style": {
