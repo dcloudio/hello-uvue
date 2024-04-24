@@ -790,6 +790,22 @@ export default {
                 },
               ]
             },
+            {
+              id: 'v-bind',
+              name: 'v-bind',
+              children: [
+                {
+                  id: 'v-bind-options',
+                  name: 'v-bind 选项式 API',
+                  url: 'v-bind-options',
+                },
+                {
+                  id: 'v-bind-composition',
+                  name: 'v-bind 组合式 API',
+                  url: 'v-bind-composition',
+                },
+              ]
+            },
           ]
         },
         {

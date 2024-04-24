@@ -158,7 +158,7 @@ function transform(fileInfo, api) {
 - [x] v-if v-else-if v-else
 - [x] v-for
 - [x] v-on
-- [ ] v-bind
+- [x] v-bind
 - [ ] v-model
 - [ ] v-slot
 - [x] v-pre
