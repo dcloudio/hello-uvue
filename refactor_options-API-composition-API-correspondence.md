@@ -159,7 +159,7 @@ function transform(fileInfo, api) {
 - [x] v-for
 - [x] v-on
 - [x] v-bind
-- [ ] v-model
+- [x] v-model
 - [ ] v-slot
 - [x] v-pre
 - [x] v-once

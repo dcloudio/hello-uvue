@@ -806,6 +806,22 @@ export default {
                 },
               ]
             },
+            {
+              id: 'v-model',
+              name: 'v-model',
+              children: [
+                {
+                  id: 'v-model-options',
+                  name: 'v-model',
+                  url: 'v-model-options',
+                },
+                {
+                  id: 'v-model-composition',
+                  name: 'defineModel',
+                  url: 'v-model-composition',
+                },
+              ]
+            },
           ]
         },
         {

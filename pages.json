@@ -253,13 +253,20 @@
         "navigationBarTitleText": "v-bind 组合式 API"
       }
     },
-
     {
-      "path": "pages/directive/v-model/v-model",
+      "path": "pages/directive/v-model/v-model-options",
       "style": {
         "navigationBarTitleText": "v-model"
       }
     },
+    {
+      "path": "pages/directive/v-model/v-model-composition",
+      "style": {
+        "navigationBarTitleText": "defineModel"
+      }
+    },
+
+
     {
       "path": "pages/directive/v-slot/v-slot",
       "style": {
