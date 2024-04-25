@@ -66,6 +66,18 @@
           }}</text>
         </view>
       </view>
+
+      <view
+        class="mb-10 flex justify-between flex-row"
+        v-for="item in mapList"
+        :key="item[0]">
+        <text>{{ item[0] }}</text>
+        <text :id="item[0]">{{ item[1] }}</text>
+      </view>
+
+      <view class="mb-10" v-for="(item, index) in setList" :key="index">
+        <text :id="`set-value-${index + 1}`">{{ item }}</text>
+      </view>
     </view>
     <!-- #ifdef APP -->
   </scroll-view>
@@ -86,6 +98,7 @@ type ListItem = {
   items?: ListItem[]
 }
 
+// TODO: v-for map set deep array 动态增加删除
 export default {
   data() {
     return {
@@ -116,6 +129,12 @@ export default {
           ]
         },
       ] as ListItem[],
+      mapList: new Map<string, string>([
+        ['map-key-1', 'map value 1'],
+        ['map-key-2', 'map value 2'],
+        ['map-key-3', 'map value 3'],
+      ]),
+      setList: new Set<string>(['set value 1', 'set value 2', 'set value 3']),
     }
   }
 }

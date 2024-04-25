@@ -33,6 +33,20 @@ describe('v-for', () => {
     await vShow1Count.tap()
     expect(await vShow1Count.text()).toBe('2')
     
+    const mapValue1 = await page.$('#map-key-1')
+    expect(await mapValue1.text()).toBe('map value 1')
+    const mapValue2 = await page.$('#map-key-2')
+    expect(await mapValue2.text()).toBe('map value 2')
+    const mapValue3 = await page.$('#map-key-3')
+    expect(await mapValue3.text()).toBe('map value 3')
+    
+    const setValue1 = await page.$('#set-value-1')
+    expect(await setValue1.text()).toBe('set value 1')
+    const setValue2 = await page.$('#set-value-2')
+    expect(await setValue2.text()).toBe('set value 2')
+    const setValue3 = await page.$('#set-value-3')
+    expect(await setValue3.text()).toBe('set value 3')
+    
     await page.waitFor(500)
     
     const image = await program.screenshot({

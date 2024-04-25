@@ -18,7 +18,10 @@
       </view>
 
       <view class="bold mb-10">v-for & v-if list items</view>
-      <view id="v-for-v-if-list-items" v-for="item in listItems" :key="item.name">
+      <view
+        id="v-for-v-if-list-items"
+        v-for="item in listItems"
+        :key="item.name">
         <template v-if="item.show">
           <view class="mb-10 flex justify-between flex-row">
             <text :id="item.name">{{ item.name }}</text>
@@ -62,6 +65,18 @@
             child.count
           }}</text>
         </view>
+      </view>
+
+      <view
+        class="mb-10 flex justify-between flex-row"
+        v-for="item in mapList"
+        :key="item[0]">
+        <text>{{ item[0] }}</text>
+        <text :id="item[0]">{{ item[1] }}</text>
+      </view>
+
+      <view class="mb-10" v-for="(item, index) in setList" :key="index">
+        <text :id="`set-value-${index + 1}`">{{ item }}</text>
       </view>
     </view>
     <!-- #ifdef APP -->
@@ -111,4 +126,12 @@ const listItems = ref([
     ]
   },
 ] as ListItem[])
+
+const mapList = new Map<string, string>([
+  ['map-key-1', 'map value 1'],
+  ['map-key-2', 'map value 2'],
+  ['map-key-3', 'map value 3'],
+])
+
+const setList = new Set<string>(['set value 1', 'set value 2', 'set value 3'])
 </script>
