@@ -822,6 +822,22 @@ export default {
                 },
               ]
             },
+            {
+              id: 'v-slot',
+              name: 'v-slot',
+              children: [
+                {
+                  id: 'v-model-options',
+                  name: 'v-slot',
+                  url: 'v-slot-options',
+                },
+                {
+                  id: 'v-slot-composition',
+                  name: 'defineSlots',
+                  url: 'v-slot-composition',
+                },
+              ]
+            },
           ]
         },
         {

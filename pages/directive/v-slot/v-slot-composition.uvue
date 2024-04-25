@@ -1,0 +1,28 @@
+<template>
+  <view class="page">
+    <Foo>
+      <template #header="{ msg }">
+        <view class="mb-10 flex justify-between flex-row">
+          <text>header slot msg:</text>
+          <text id="slot-header">{{ msg }}</text>
+        </view>
+      </template>
+      <template #default="{ num }">
+        <view class="mb-10 flex justify-between flex-row">
+          <text>default slot num:</text>
+          <text id="slot-default">{{ num }}</text>
+        </view>
+      </template>
+      <template #footer="{ arr }">
+        <view class="mb-10 flex justify-between flex-row">
+          <text>footer slot arr:</text>
+          <text id="slot-footer">{{ JSON.stringify(arr) }}</text>
+        </view>
+      </template>
+    </Foo>
+  </view>
+</template>
+
+<script setup lang="uts">
+import Foo from './Foo-composition.uvue'
+</script>

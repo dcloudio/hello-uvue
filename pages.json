@@ -265,12 +265,16 @@
         "navigationBarTitleText": "defineModel"
       }
     },
-
-
     {
-      "path": "pages/directive/v-slot/v-slot",
+      "path": "pages/directive/v-slot/v-slot-options",
       "style": {
         "navigationBarTitleText": "v-slot"
+      }
+    },
+    {
+      "path": "pages/directive/v-slot/v-slot-composition",
+      "style": {
+        "navigationBarTitleText": "defineSlots"
       }
     },
     {
