@@ -30,6 +30,8 @@ describe('keep-alive', () => {
     expect(await activatedNum.text()).toBe('activated num: 1')
     const deactivatedNum = await page.$('#deactivated-num')
     expect(await deactivatedNum.text()).toBe('deactivated num: 0')
+    const shouldExcludeBtns2 = await page.$$('.should-exclude-btn')
+    expect(shouldExcludeBtns2.length).toBe(0)
 
     const counterBtns = await page.$$('.counter-btn')
     for (let i = 0; i < counterBtns.length; i++) {
