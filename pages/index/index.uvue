@@ -557,17 +557,11 @@ export default {
                   id: 'to-refs',
                   name: 'toRefs',
                   url: 'to-refs/to-refs',
-                // #ifdef WEB
-                  enable: false
-                // #endif
                 },
                 {
                   id: 'to-value',
                   name: 'toValue',
                   url: 'to-value/to-value',
-                // #ifdef WEB
-                  enable: false
-                // #endif
                 },
                 {
                   id: 'un-ref',

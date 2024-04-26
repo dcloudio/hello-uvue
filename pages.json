@@ -557,7 +557,6 @@
         "navigationBarTitleText": "toRef"
       }
     },
-    // #ifdef APP
     {
       "path": "pages/reactivity/utilities/to-refs/to-refs",
       "style": {
@@ -570,7 +569,6 @@
         "navigationBarTitleText": "toValue"
       }
     },
-    // #endif
     {
       "path": "pages/reactivity/advanced/shallow-ref/shallow-ref",
       "style": {

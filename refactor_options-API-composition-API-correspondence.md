@@ -160,7 +160,7 @@ function transform(fileInfo, api) {
 - [x] v-on
 - [x] v-bind
 - [x] v-model
-- [ ] v-slot
+- [x] v-slot
 - [x] v-pre
 - [x] v-once
 - [x] v-memo
