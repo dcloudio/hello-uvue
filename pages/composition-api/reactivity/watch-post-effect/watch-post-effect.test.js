@@ -106,16 +106,21 @@ describe('watchPostEffect', () => {
     expect(await objArr.text()).toBe('obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
-    // TODO web端和安卓端JSON.stringify对属性的排序不一致
-    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
-      expect(await watchObjRes.text()).toBe(
-        'watch obj result: obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}'
-      )
-    } else {
-      expect(await watchObjRes.text()).toBe(
-        'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
-      )
-    }
+    // web端和安卓端JSON.stringify对属性的排序不一致
+    // 该用字符串特征判断和字符串 JSON 解析
+    const watchObjRestRaw = await watchObjRes.text()
+
+    expect(watchObjRestRaw.startsWith('watch obj result: obj:')).toBe(true)
+    const stringJSON = watchObjRestRaw.split('watch obj result: obj:')
+    expect(Array.isArray(stringJSON)).toBe(true)
+    expect(stringJSON.length).toBe(2)
+    expect(JSON.parse(stringJSON[1])).toEqual({
+      "num": 0,
+      "str": "num: 0",
+      "bool": false,
+      "arr": [0]
+    })
+
     const watchObjStrRes = await page.$('#watch-obj-str-res')
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 0, obj.str ref text: obj.str: num: 0')
@@ -135,15 +140,19 @@ describe('watchPostEffect', () => {
     expect(await objBool.text()).toBe('obj.bool: true')
     expect(await objArr.text()).toBe('obj.arr: [0,1]')
 
-    if (process.env.uniTestPlatformInfo.startsWith('web') || process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
-      expect(await watchObjRes.text()).toBe(
-        'watch obj result: obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}'
-      )
-    } else {
-      expect(await watchObjRes.text()).toBe(
-        'watch obj result: obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}'
-      )
-    }
+    const watchObjRestRaw2 = await watchObjRes.text()
+    expect(watchObjRestRaw2.startsWith('watch obj result: obj:')).toBe(true)
+    const stringJSON2 = watchObjRestRaw2.split('watch obj result: obj:')
+    expect(Array.isArray(stringJSON2)).toBe(true)
+    expect(stringJSON2.length).toBe(2)
+    expect(JSON.parse(stringJSON2[1])).toEqual({
+      "num": 1,
+      "str": "num: 1",
+      "bool": true,
+      "arr": [0, 1]
+    })
+
+
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 1, obj.str ref text: obj.str: num: 1')
 
