@@ -18,6 +18,7 @@ describe('keep-alive', () => {
 
     const showCounterBtn = await page.$('.show-counter')
     await showCounterBtn.tap()
+    await page.waitFor(300)
 		
 		const activatedNum = await page.$('#activated-num')
     expect(await activatedNum.text()).toBe('activated num: 1')
@@ -44,6 +45,7 @@ describe('keep-alive', () => {
     }
 
     await showCounterBtn.tap()
+    await page.waitFor(300)
 
     expect(await activatedNum.text()).toBe('activated num: 2')
     expect(await deactivatedNum.text()).toBe('deactivated num: 1')
@@ -67,6 +69,7 @@ describe('keep-alive', () => {
     }
 
     await showCounterBtn.tap()
+    await page.waitFor(300)
 
     expect(await activatedNum.text()).toBe('activated num: 3')
     expect(await deactivatedNum.text()).toBe('deactivated num: 2')
@@ -77,6 +80,7 @@ describe('keep-alive', () => {
     }
 
     await showMessageBtn.tap()
+    await page.waitFor(300)
 
     messageTexts = await page.$$('.message-text')
     for (let i = 0; i < messageTexts.length; i++) {
@@ -84,6 +88,7 @@ describe('keep-alive', () => {
     }
 
     await showShouldExcludeBtn.tap()
+    await page.waitFor(300)
     shouldExcludeTexts = await page.$$('.should-exclude-text')
     for (let i = 0; i < shouldExcludeTexts.length; i++) {
       expect(await shouldExcludeTexts[i].text()).toBe('count: 0')
