@@ -1,7 +1,10 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/effect-scope/effect-scope'
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIos = platformInfo.startsWith('ios')
 
 describe('effectScope', () => {
-  const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
+  const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+  const isWeb = platformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -19,6 +22,9 @@ describe('effectScope', () => {
 
     const incrementCounterBtn = await page.$('#increment-counter-btn')
     await incrementCounterBtn.tap()
+    if(isIos){
+      await page.waitFor(200)
+    }
 
     expect(await counter.text()).toBe('counter: 1')
     expect(await watchCounterRes.text()).toBe('watch counter result: newVal: 1, oldVal: 0')
@@ -28,6 +34,9 @@ describe('effectScope', () => {
     await stopEffectScopeBtn.tap()
 
     await incrementCounterBtn.tap()
+    if(isIos){
+      await page.waitFor(200)
+    }
 
     expect(await counter.text()).toBe('counter: 2')
     expect(await watchCounterRes.text()).toBe('watch counter result: newVal: 1, oldVal: 0')

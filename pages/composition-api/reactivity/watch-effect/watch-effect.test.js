@@ -1,4 +1,6 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch-effect/watch-effect'
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIos = platformInfo.startsWith('ios')
 
 describe('watchEffect', () => {
   let page = null
@@ -18,7 +20,7 @@ describe('watchEffect', () => {
     const watchCountTrackNum = await page.$('#watch-count-track-num')
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
+    } else if (isIos) {
       // TODO: 确认 IOS 的差异是否正常
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 11')
     } else {
@@ -34,6 +36,9 @@ describe('watchEffect', () => {
 
     const incrementBtn = await page.$('.increment-btn')
     await incrementBtn.tap()
+    if(isIos){
+      await page.waitFor(200)
+    }
 
     expect(await count.text()).toBe('count: 1')
     expect(await watchCountRes.text()).toBe(
@@ -41,7 +46,7 @@ describe('watchEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
+    } else if (isIos) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 19')
     } else {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 9')
@@ -52,6 +57,9 @@ describe('watchEffect', () => {
     expect(await watchCountAndObjNumRes.text()).toBe('watch count and obj.num result: count: 1, obj.num: 0')
 
     await incrementBtn.tap()
+    if(isIos){
+      await page.waitFor(200)
+    }
 
     expect(await count.text()).toBe('count: 2')
     expect(await watchCountRes.text()).toBe(
@@ -59,7 +67,7 @@ describe('watchEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
+    } else if (isIos) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 27')
     }  else {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 12')
@@ -73,6 +81,9 @@ describe('watchEffect', () => {
     await stopWatchCountBtn.tap()
 
     await incrementBtn.tap()
+    if(isIos){
+      await page.waitFor(200)
+    }
 
     expect(await count.text()).toBe('count: 3')
     expect(await watchCountRes.text()).toBe(
@@ -80,7 +91,7 @@ describe('watchEffect', () => {
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 3')
-    } else if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
+    } else if (isIos) {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 27')
     }  else {
       expect(await watchCountTrackNum.text()).toBe('watch count track number: 12')
