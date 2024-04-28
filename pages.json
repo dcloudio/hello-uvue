@@ -545,7 +545,6 @@
         "navigationBarTitleText": "toRef"
       }
     },
-    // #ifdef APP
     {
       "path": "pages/composition-api/reactivity/to-value/to-value",
       "style": {
@@ -558,7 +557,6 @@
         "navigationBarTitleText": "toRefs"
       }
     },
-    // #endif
     {
       "path": "pages/composition-api/reactivity/is-proxy/is-proxy",
       "style": {

@@ -1,13 +1,8 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/to-value/to-value'
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isWeb = platformInfo.startsWith('web')
 
 describe('toValue', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: web 端暂不支持
-    it('web', async () => {
-      expect(1).toBe(1)
-    })
-    return
-  }
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -32,6 +27,8 @@ describe('toValue', () => {
     await incrementBtn.tap()
 
     expect(await objNum.text()).toBe('obj.num: 1')
-    expect(await toValueObjNum.text()).toBe('toValue(() => obj.num): 1')
+    if (!isWeb) {
+      expect(await toValueObjNum.text()).toBe('toValue(() => obj.num): 1')
+    }
   })
 })
