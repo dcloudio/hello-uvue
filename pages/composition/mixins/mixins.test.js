@@ -1,8 +1,11 @@
 const PAGE_PATH = '/pages/composition/mixins/mixins'
 let page
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isWeb = platformInfo.startsWith('web')
+const isIos = platformInfo.startsWith('ios')
 
 describe('mixins', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
+  if (isWeb) {
     // TODO: web 端暂不支持
     it('web', async () => {
       expect(1).toBe(1)
@@ -154,6 +157,9 @@ describe('mixins', () => {
 
     const globaMixinEmit1Btn = await page.$('.global-mixin-emit-1')
     await globaMixinEmit1Btn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
 
     handleMixinEmitterMsgEl = await page.$('.handle-mixin-emitter-msg')
 
@@ -166,6 +172,9 @@ describe('mixins', () => {
       '.global-child-mixin-emit-1'
     )
     await globalChildMixinEmit1Btn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
     handleMixinEmitterMsgText = await handleMixinEmitterMsgEl.text()
     expect(handleMixinEmitterMsgText).toBe(
       'handleMixinEmitterMsg: 触发 globalChildMixinEmit1, 参数为 globalChildMixinEmit1'
@@ -173,6 +182,9 @@ describe('mixins', () => {
 
     const globalMixinEmit2Btn = await page.$('.global-mixin-emit-2')
     await globalMixinEmit2Btn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
     handleMixinEmitterMsgText = await handleMixinEmitterMsgEl.text()
     expect(handleMixinEmitterMsgText).toBe(
       'handleMixinEmitterMsg: 触发 globalMixinEmit2, 参数为 globalMixinEmit2'
@@ -182,6 +194,9 @@ describe('mixins', () => {
       '.global-child-mixin-emit-2'
     )
     await globalChildMixinEmit2Btn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
     handleMixinEmitterMsgText = await handleMixinEmitterMsgEl.text()
     expect(handleMixinEmitterMsgText).toBe(
       'handleMixinEmitterMsg: 触发 globalChildMixinEmit2, 参数为 globalChildMixinEmit2'
@@ -189,6 +204,9 @@ describe('mixins', () => {
 
     const mixinEmitBtn = await page.$('.mixin-emit')
     await mixinEmitBtn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
     handleMixinEmitterMsgText = await handleMixinEmitterMsgEl.text()
     expect(handleMixinEmitterMsgText).toBe(
       'handleMixinEmitterMsg: 触发 mixinEmit, 参数为 mixinEmit'
