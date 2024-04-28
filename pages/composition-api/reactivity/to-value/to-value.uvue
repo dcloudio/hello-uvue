@@ -24,7 +24,7 @@
     num: 0
   } as Obj)
 
-  let toValueObjNum = toValue(() : number => 1)
+  let toValueObjNum = toValue(() : number => 0)
 
   const increment = () => {
     obj.num++;

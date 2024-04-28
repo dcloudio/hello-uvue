@@ -146,12 +146,7 @@
         {
           name: 'toValue',
           url: 'to-value',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'toRefs',
