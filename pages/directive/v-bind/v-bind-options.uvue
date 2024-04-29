@@ -1,12 +1,8 @@
 <template>
   <view class="page">
     <!-- v-bind attribute -->
-    <button id="disabled-btn" class="mb-10" :disabled="true">
-      :disabled true
-    </button>
-    <button id="v-bind-disabled-btn" class="mb-10" v-bind:disabled="false">
-      v-bind:disabled false
-    </button>
+    <button id="disabled-btn" class="mb-10" :disabled="true">:disabled true</button>
+    <button id="v-bind-disabled-btn" class="mb-10" v-bind:disabled="false">v-bind:disabled false</button>
 
     <!-- v-bind style -->
     <view class="flex justify-between flex-row mb-10">
@@ -22,7 +18,7 @@
     </view>
 
     <!-- v-bind props -->
-    <Foo :title="dataInfo.fooProps.title" :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
+    <Foo :title :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
 
     <!-- v-bind in style -->
     <!-- #ifdef WEB -->
@@ -32,51 +28,52 @@
 </template>
 
 <script lang="uts">
-  import Foo from './Foo-options.uvue'
+import Foo from './Foo-options.uvue'
 
-  type FooPropsObj = {
-    name : string
-  }
-  type FooProps = {
-    title : string
-    num : number
-    obj : FooPropsObj
-  }
-  type DataInfo = {
-    fontSize : string
-    backgroundColor : string
-    border : string
-    fooProps : FooProps
-    vBindClassBackgroundColor : string,
-  }
+type FooPropsObj = {
+  name: string
+}
+type FooProps = {
+  title: string
+  num: number
+  obj: FooPropsObj
+}
+type DataInfo = {
+  fontSize: string
+  backgroundColor: string
+  border: string
+  fooProps: FooProps
+  vBindClassBackgroundColor: string
+}
 
-  export default {
-    components: { Foo },
-    data() {
-      return {
-        dataInfo: {
-          fontSize: '20px',
-          backgroundColor: 'background-color: green',
-          border: 'border: 2px solid red',
-          fooProps: {
-            title: 'foo title',
-            num: 1,
-            obj: {
-              name: 'foo obj name',
-            }
-          },
-          vBindClassBackgroundColor: 'red',
-        } as DataInfo
-      }
-    },
+export default {
+  components: { Foo },
+  data() {
+    return {
+      title: 'foo title',
+      dataInfo: {
+        fontSize: '20px',
+        backgroundColor: 'background-color: green',
+        border: 'border: 2px solid red',
+        fooProps: {
+          title: '',
+          num: 1,
+          obj: {
+            name: 'foo obj name'
+          }
+        },
+        vBindClassBackgroundColor: 'red'
+      } as DataInfo
+    }
   }
+}
 </script>
 
 <style>
-  /* #ifdef WEB */
-  .v-bind-css {
-    background-color: v-bind(dataInfo.vBindClassBackgroundColor);
-    height: 20px;
-  }
-  /* #endif */
+/* #ifdef WEB */
+.v-bind-css {
+  background-color: v-bind(dataInfo.vBindClassBackgroundColor);
+  height: 20px;
+}
+/* #endif */
 </style>

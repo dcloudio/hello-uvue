@@ -25,5 +25,11 @@
 </template>
 
 <script setup lang="uts">
-defineProps(['str', 'num', 'bool', 'obj', 'arr'])
+const props = defineProps(['str', 'num', 'bool', 'obj', 'arr'])
+
+console.log('props.str: ',props.str);
+console.log('props.num: ',props.num);
+console.log('props.obj: ',props.obj);
+console.log('props.bool: ',props.bool);
+console.log('props.arr: ',props.arr);
 </script>

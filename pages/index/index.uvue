@@ -725,18 +725,12 @@ export default {
                 {
                   id: 'v-once-options',
                   name: 'v-once 选项式 API',
-                  url: 'v-once-options',
-                  // #ifdef WEB
-                  enable: false
-                  // #endif
+                  url: 'v-once-options'
                 },
                 {
                   id: 'v-once-composition',
                   name: 'v-once 组合式 API',
-                  url: 'v-once-composition',
-                  // #ifdef WEB
-                  enable: false
-                  // #endif
+                  url: 'v-once-composition'
                 },
               ]
             },
@@ -747,18 +741,12 @@ export default {
                 {
                   id: 'v-memo-options',
                   name: 'v-memo 选项式 API',
-                  url: 'v-memo-options',
-                  // #ifdef WEB
-                  enable: false
-                  // #endif
+                  url: 'v-memo-options'
                 },
                 {
                   id: 'v-memo-composition',
                   name: 'v-memo 组合式 API',
-                  url: 'v-memo-composition',
-                  // #ifdef WEB
-                  enable: false
-                  // #endif
+                  url: 'v-memo-composition'
                 },
               ]
             },

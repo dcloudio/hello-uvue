@@ -1,10 +1,11 @@
 <template>
   <view class="mt-10" ref="mixin-comp-root">
-    <text class="bold">Comp1:</text>
-    <text class="mt-10"
-      >inheritAttrs: false, rootElementTitle should be null</text
+    <text class="bold">Comp1: inheritAttrs: false</text>
+    <text class="mt-10" style="color:#ccc;"
+      >rootElementTitle should be null</text
     >
     <text class="mt-10 root-element-title-1">rootElementTitle: {{ rootElementTitle }}</text>
+    <!-- #ifdef APP -->
     <text class="mt-10 bold">trigger emitter:</text>
     <button class="mt-10 global-mixin-emit-1" @click="triggerEmitter('globalMixinEmit1')">
       trigger globalMixinEmit1
@@ -29,6 +30,7 @@
       trigger childMixinEmit
     </button>
     <MixinComp />
+    <!-- #endif -->
   </view>
 </template>
 
@@ -48,7 +50,7 @@ export default {
   },
   mounted(){
     const rootElement = this.$refs['mixin-comp-root'] as UniElement
-    this.rootElementTitle = rootElement.getAttribute('title')
+    this.rootElementTitle = JSON.stringify(rootElement.getAttribute('title'))
   },
   methods: {
     triggerEmitter(emit: string){

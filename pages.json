@@ -201,7 +201,6 @@
         "navigationBarTitleText": "v-pre"
       }
     },
-    // #ifdef APP
     {
       "path": "pages/directive/v-once/v-once-options",
       "style": {
@@ -226,7 +225,6 @@
         "navigationBarTitleText": "v-memo 组合式 API"
       }
     },
-    // #endif
     // #ifdef WEB
     {
       "path": "pages/directive/v-text/v-text-options",

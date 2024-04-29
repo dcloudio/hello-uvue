@@ -1,9 +1,7 @@
 <template>
   <view class="mt-10" ref="mixin-comp-root">
-    <text class="bold">Comp2:</text>
-    <text class="mt-10"
-      >inheritAttrs: true, rootElementTitle should not be null</text
-    >
+    <text class="bold">Comp2: inheritAttrs: true</text>
+    <text class="mt-10" style="color:#ccc;">rootElementTitle should not be null</text >
     <text class="mt-10 root-element-title-2"
       >rootElementTitle: {{ rootElementTitle }}</text
     >
@@ -49,7 +47,7 @@ export default {
   },
   mounted(){
     const rootElement = this.$refs['mixin-comp-root'] as UniElement
-    this.rootElementTitle = rootElement.getAttribute('title')
+    this.rootElementTitle = JSON.stringify(rootElement.getAttribute('title'))
   },
   watch: {
     globalMixinOnloadMsg1(newVal: string) {
