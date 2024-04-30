@@ -18,17 +18,5 @@
   import child from './child.uvue';
   export default {
     components: { child },
-    data() {
-      return {}
-    },
-    onLoad() {
-
-    },
-    methods: {
-
-    }
   }
 </script>
-
-<style>
-</style>

@@ -54,12 +54,38 @@
         "navigationBarTitleText": "v-bind-props"
       }
     },
-    // {
-    //   "path": "pages/directive/v-bind/v-bind-attribute",
-    //   "style": {
-    //     "navigationBarTitleText": "v-bind-attribute"
-    //   }
-    // },
+    {
+      "path": "pages/directive/v-bind/v-bind-attribute",
+      "style": {
+        "navigationBarTitleText": "v-bind-attribute"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-array-deep",
+      "style": {
+        "navigationBarTitleText": "v-bind-array-deep"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-map",
+      "style": {
+        "navigationBarTitleText": "v-bind-map"
+      }
+    },
+    {
+      "path": "pages/directive/v-bind/v-bind-set",
+      "style": {
+        "navigationBarTitleText": "v-bind-set"
+      }
+    },
+    // #ifdef WEB
+    {
+      "path": "pages/directive/v-bind/v-bind-css",
+      "style": {
+        "navigationBarTitleText": "v-bind-css"
+      }
+    },
+    // #endif
     {
       "path": "pages/directive/v-for/v-for",
       "style": {
@@ -264,6 +290,12 @@
       }
     },
     {
+      "path": "pages/component-instance/methods/call-method-define-expose",
+      "style": {
+        "navigationBarTitleText": "call-method-define-expose"
+      }
+    },
+    {
       "path": "pages/component-instance/methods/call-method-other",
       "style": {
         "navigationBarTitleText": "call-method-other"
@@ -417,7 +449,6 @@
         "navigationBarTitleText": "defineExpose"
       }
     },
-		// #ifdef APP
     {
       "path": "pages/composition-api/basic/define-model/define-model",
       "style": {
@@ -430,7 +461,6 @@
         "navigationBarTitleText": "defineOptions"
       }
     },
-		// #endif
     {
       "path": "pages/composition-api/basic/define-slots/define-slots",
       "style": {
@@ -515,7 +545,6 @@
         "navigationBarTitleText": "toRef"
       }
     },
-    // #ifdef APP
     {
       "path": "pages/composition-api/reactivity/to-value/to-value",
       "style": {
@@ -528,7 +557,6 @@
         "navigationBarTitleText": "toRefs"
       }
     },
-    // #endif
     {
       "path": "pages/composition-api/reactivity/is-proxy/is-proxy",
       "style": {
@@ -608,58 +636,39 @@
       }
     },
     {
-      "path" : "pages/composition-api/lifecycle/page-lifecycle/page-lifecycle",
-      "style" : 
-      {
-        "navigationBarTitleText" : "页面生命周期",
+      "path": "pages/composition-api/lifecycle/page-lifecycle/page-lifecycle",
+      "style": {
+        "navigationBarTitleText": "页面生命周期",
         "enablePullDownRefresh": true
       }
     },
     {
-      "path" : "pages/composition-api/lifecycle/component-lifecycle/component-lifecycle",
-      "style" : 
-      {
+      "path": "pages/composition-api/lifecycle/component-lifecycle/component-lifecycle",
+      "style": {
         "navigationBarTitleText": "组件生命周期",
         "enablePullDownRefresh": true
       }
     },
     {
-      "path" : "pages/composition-api/dependency-injection/provide/provide",
-      "style" : 
-      {
-        "navigationBarTitleText" : "依赖注入"
+      "path": "pages/composition-api/dependency-injection/provide/provide",
+      "style": {
+        "navigationBarTitleText": "依赖注入"
       }
     },
     {
-    	"path" : "pages/built-in-component/teleport/teleport",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "teleport",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/built-in-component/teleport/teleport",
+      "style": {
+        "navigationBarTitleText": "teleport",
+        "enablePullDownRefresh": false
+      }
     },
-		{
-		  "path": "pages/webview-screenshot-comparison/webview-screenshot-comparison",
-		  "style": {
-		    "navigationBarTitleText": "截图对比测试",
-		    "navigationStyle": "custom"
-		  }
-		},
-		{
-		  "path": "pages/webview-screenshot/webview-screenshot",
-		  "style": {
-		    "navigationBarTitleText": "webview 截图测试",
-		    "navigationStyle": "custom"
-		  }
-		},
-		{
-			"path" : "pages/type/type",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
-			}
-		}
+    {
+      "path": "pages/type/type",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    }
   ],
   "tabBar": {
     "color": "#7A7E83",

@@ -59,13 +59,8 @@
         },
         {
           name: 'defineOptions',
-          url: 'define-options',
-					// #ifdef APP 
+          url: 'define-options', 
           enable: true,
-					// #endif
-					// #ifdef WEB
-					enable: false,
-					// #endif
         },
         {
           name: 'defineSlots',
@@ -74,13 +69,8 @@
         },
         {
           name: 'defineModel',
-          url: 'define-model',
-					// #ifdef APP 
+          url: 'define-model', 
           enable: true,
-					// #endif
-					// #ifdef WEB
-					enable: false,
-					// #endif
         },
         {
           name: 'useSlots',
@@ -156,12 +146,7 @@
         {
           name: 'toValue',
           url: 'to-value',
-          // #ifdef APP
           enable: true,
-          // #endif
-          // #ifdef WEB
-          enable: false,
-          // #endif
         },
         {
           name: 'toRefs',

@@ -21,13 +21,5 @@
       default : { msg : string },
       footer : { msg : string }
     }>,
-    data() {
-      return {}
-    },
-    methods: {}
   }
 </script>
-
-<style>
-
-</style>

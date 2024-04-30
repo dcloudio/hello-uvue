@@ -1,13 +1,6 @@
 const PAGE_PATH = '/pages/composition-api/basic/define-options/define-options'
 
 describe('defineOptions', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: web 端暂不支持
-    it('web', async () => {
-      expect(1).toBe(1)
-    })
-    return
-  }
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

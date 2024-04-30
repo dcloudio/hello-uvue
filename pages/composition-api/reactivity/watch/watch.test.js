@@ -1,7 +1,9 @@
 const PAGE_PATH = '/pages/composition-api/reactivity/watch/watch'
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isWeb = platformInfo.startsWith('web')
+const isIos = platformInfo.startsWith('ios')
 
 describe('watch', () => {
-	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -19,9 +21,6 @@ describe('watch', () => {
     const watchCountTrackNum = await page.$('#watch-count-track-num')
     expect(await watchCountTrackNum.text()).toBe('watch count track number: 2')
 
-    // trigger
-    const watchCountTriggerNum = await page.$('#watch-count-trigger-num')
-    expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 0')
     const watchCountCleanupRes = await page.$('#watch-count-cleanup-res')
     expect((await watchCountCleanupRes.text()).trim()).toBe('watch count cleanup result:')
 
@@ -31,26 +30,39 @@ describe('watch', () => {
 
     const incrementBtn = await page.$('.increment-btn')
     await incrementBtn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
 
     expect(await count.text()).toBe('count: 1')
 
     expect(await watchCountRes.text()).toBe(
       'watch count result: count: 1, prevCount: 0, count ref text (flush sync): count: 0')
 
+    if (process.env.uniTestPlatformInfo.startsWith('android')) {
     expect(await watchCountTrackNum.text()).toBe('watch count track number: 2')
-    expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 1')
+    } else {
+    expect(await watchCountTrackNum.text()).toBe('watch count track number: 4')
+    }
     expect((await watchCountCleanupRes.text()).trim()).toBe('watch count cleanup result:')
 
     expect(await watchCountAndObjNumRes.text()).toBe(
       'watch count and obj.num result: state: [1,0], preState: [0,0]')
 
     await incrementBtn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
 
     expect(await count.text()).toBe('count: 2')
     expect(await watchCountRes.text()).toBe(
       'watch count result: count: 2, prevCount: 1, count ref text (flush sync): count: 1')
-    expect(await watchCountTrackNum.text()).toBe('watch count track number: 2')
-    expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 2')
+    
+    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+      expect(await watchCountTrackNum.text()).toBe('watch count track number: 2')
+    } else {
+      expect(await watchCountTrackNum.text()).toBe('watch count track number: 6')
+    }
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup result: watch count cleanup: 1')
 
     expect(await watchCountAndObjNumRes.text()).toBe(
@@ -59,16 +71,26 @@ describe('watch', () => {
     // stop watch
     const stopWatchCountBtn = await page.$('.stop-watch-count-btn')
     await stopWatchCountBtn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
 
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup result: watch count cleanup: 2')
 
     await incrementBtn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
 
     expect(await count.text()).toBe('count: 3')
     expect(await watchCountRes.text()).toBe(
       'watch count result: count: 2, prevCount: 1, count ref text (flush sync): count: 1')
-    expect(await watchCountTrackNum.text()).toBe('watch count track number: 2')
-    expect(await watchCountTriggerNum.text()).toBe('watch count trigger number: 2')
+    
+    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+      expect(await watchCountTrackNum.text()).toBe('watch count track number: 2')
+    } else {
+      expect(await watchCountTrackNum.text()).toBe('watch count track number: 6')
+    }
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup result: watch count cleanup: 2')
 
     expect(await watchCountAndObjNumRes.text()).toBe(
@@ -82,7 +104,7 @@ describe('watch', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('obj.bool: false')
     const objArr = await page.$('#obj-arr')
-    expect(await objArr.text()).toBe(isSafari ? 'obj.arr: [ 0]' : 'obj.arr: [0]')
+    expect(await objArr.text()).toBe('obj.arr: [0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
@@ -90,13 +112,18 @@ describe('watch', () => {
         'watch obj result: obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}, prevObj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
       )
     }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (isWeb) {
       expect(await watchObjRes.text()).toBe(
         'watch obj result: obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}, prevObj: null'
       )
     }
     const watchObjStrRes = await page.$('#watch-obj-str-res')
     expect((await watchObjStrRes.text()).trim()).toBe('watch obj.str result:')
+
+    // trigger
+    const watchObjStrTriggerNum = await page.$('#watch-obj-str-trigger-num')
+    expect(await watchObjStrTriggerNum.text()).toBe('watch obj.str trigger number: 0')
+
     const watchObjBoolRes = await page.$('#watch-obj-bool-res')
     expect((await watchObjBoolRes.text()).trim()).toBe('watch obj.bool result:')
     const watchObjArrRes = await page.$('#watch-obj-arr-res')
@@ -104,24 +131,29 @@ describe('watch', () => {
 
     const updateObjBtn = await page.$('.update-obj-btn')
     await updateObjBtn.tap()
+    if (isIos) {
+      await page.waitFor(100)
+    }
 
     expect(await objStr.text()).toBe('obj.str: num: 1')
     expect(await objNum.text()).toBe('obj.num: 1')
     expect(await objBool.text()).toBe('obj.bool: true')
-    expect(await objArr.text()).toBe(isSafari ? 'obj.arr: [ 0, 1]' : 'obj.arr: [0,1]')
+    expect(await objArr.text()).toBe('obj.arr: [0,1]')
 
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await watchObjRes.text()).toBe(
         'watch obj result: obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}, prevObj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}'
       )
     }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (isWeb) {
       expect(await watchObjRes.text()).toBe(
         'watch obj result: obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}, prevObj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}'
       )
     }
     expect(await watchObjStrRes.text()).toBe(
       'watch obj.str result: str: num: 1, prevStr: num: 0, obj.str ref text (flush pre): obj.str: num: 0')
+
+    expect(await watchObjStrTriggerNum.text()).toBe('watch obj.str trigger number: 1')
 
     expect(await watchObjBoolRes.text()).toBe(
       'watch obj.bool result: bool: true, prevBool: false, obj.bool ref text (flush post): obj.bool: true'

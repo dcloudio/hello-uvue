@@ -1,8 +1,6 @@
 const PAGE_PATH = '/pages/composition-api/dependency-injection/provide/provide'
 
 describe('provide-inject-hasInjectionContext', () => {
-	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
-  const isWeb = process.env.uniTestPlatformInfo.startsWith('web')
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -16,11 +14,11 @@ describe('provide-inject-hasInjectionContext', () => {
     expect(await num.text()).toBe('num: 0')
 
     const obj = await page.$('.obj')
-    expect(await obj.text()).toBe(isWeb ? (isSafari ? 'obj: { "a": 1}' : 'obj: {"a": 1}') : 'obj: {"a":1}')
+    expect(await obj.text()).toBe('obj: {"a":1}')
 
     const arr = await page.$('.arr')
 
-    expect(await arr.text()).toBe(isSafari ? 'arr: [ 1, 2, 3]' : 'arr: [1,2,3]')
+    expect(await arr.text()).toBe('arr: [1,2,3]')
 
     const fn = await page.$('.fn')
     expect(await fn.text()).toBe('fn: hello')

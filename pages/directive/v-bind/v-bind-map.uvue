@@ -1,0 +1,21 @@
+<template>
+  <view class="page">
+    <view v-for="(item, index) in numberBool" :key="index">
+      <text class="numberBool-item">{{item[0]}}:{{item[1]}}</text>
+    </view>
+    <view v-for="(item, index) in stringBool" :key="index">
+      <text class="stringBool-item">{{item[0]}}:{{item[1]}}</text>
+    </view>
+  </view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        numberBool: new Map<number, boolean>([[0, true], [1, true], [2, true]]),
+        stringBool: new Map<string, boolean>([['0', true], ['1', true], ['2', true]])
+      }
+    }
+  }
+</script>

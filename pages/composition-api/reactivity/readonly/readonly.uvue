@@ -2,11 +2,11 @@
   <view class="page">
     <text id="data-str" class="uni-common-mb">data.str: {{ data.str }}</text>
     <text id="data-num" class="uni-common-mb">data.num: {{ data.num }}</text>
-    <text id="data-arr" class="uni-common-mb">data.arr: {{ data.arr}}</text>
+    <text id="data-arr" class="uni-common-mb">data.arr: {{ JSON.stringify(data.arr) }}</text>
 
     <text id="readonly-data-str" class="uni-common-mb">readonly data.str: {{ readonlyData.str }}</text>
     <text id="readonly-data-num" class="uni-common-mb">readonly data.num: {{ readonlyData.num }}</text>
-    <text id="readonly-data-arr" class="uni-common-mb">readonly data.arr: {{ readonlyData.arr}}</text>
+    <text id="readonly-data-arr" class="uni-common-mb">readonly data.arr: {{ JSON.stringify(readonlyData.arr) }}</text>
 
     <button id="update-data-btn" class="uni-common-mb" @click="updateData">update data</button>
     <button id="update-readonly-data-btn" @click="updateReadonlyData">update readonly data</button>

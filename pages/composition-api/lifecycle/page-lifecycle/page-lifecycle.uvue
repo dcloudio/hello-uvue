@@ -1,6 +1,6 @@
 <template>
   <!-- #ifdef APP -->
-  <scroll-view style="flex:1">
+  <scroll-view style="flex:1" :bounces="false">
   <!-- #endif -->
     <view class="page container">
       <text>page lifecycle</text>
@@ -73,7 +73,7 @@
       success() {
         setTimeout(() => {
           uni.stopPullDownRefresh()
-        }, 1000)
+        }, 1500)
       },
     })
   }

@@ -1,7 +1,6 @@
 const PAGE_PATH = '/pages/composition-api/basic/use-slots/use-slots'
 
 describe('useSlots', () => {
-	const isSafari = process.env.uniTestPlatformInfo.toLowerCase().indexOf('safari') > -1
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -15,7 +14,7 @@ describe('useSlots', () => {
     expect(await slotContent.text()).toBe('default slot msg: default msg')
 
     const slotFooter = await page.$('#slot-footer')
-    expect(await slotFooter.text()).toBe(isSafari ? 'footer slot arr: [ "a", "b", "c"]' : 'footer slot arr: ["a","b","c"]')
+    expect(await slotFooter.text()).toBe('footer slot arr: ["a","b","c"]')
 
     const checkUseSlotsRes = await page.$('#check-use-slots-res')
     expect(await checkUseSlotsRes.text()).toBe('check useSlots result: false')

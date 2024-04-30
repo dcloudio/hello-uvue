@@ -1,6 +1,6 @@
 <template>
 	<view class="component">
-		<text id="foo-arr">arr: {{arr}}</text>
+		<text id="foo-arr">arr: {{JSON.stringify(arr)}}</text>
 	</view>
 </template>
 

@@ -10,10 +10,10 @@
   const msg = ref('foo msg')
   const num = ref<number>(0)
   const arr = ref<string[]>(['a', 'b', 'c'])
-  
+
   defineSlots<{
-    default(props : { msg : string }) : any,
-    header(props : { num : string }) : any,
+    header(props : { msg : string }) : any,
+    default(props : { num : number }) : any,
     footer(props : { arr : string[] }) : any
   }>()
 </script>
