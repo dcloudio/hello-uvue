@@ -56,7 +56,7 @@
     },
     methods: {
       checkLaunchPath() : boolean {
-        const HOME_PATH = 'pages/tab-bar/options-api'
+        const HOME_PATH = 'pages/index/index'
         if (state.appLaunchPath != HOME_PATH) {
           return false
         }
@@ -70,22 +70,22 @@
 </script>
 
 <style>
-  @import "./styles/common.css";
+@import './styles/common.css';
 
-  .list-item-text {
-    line-height: 36px;
-  }
+.list-item-text {
+  line-height: 36px;
+}
 
-  .split-title {
-    margin: 20px 0 5px;
-    padding: 5px 0;
-    border-bottom: 1px solid #dfdfdf;
-  }
+.split-title {
+  margin: 20px 0 5px;
+  padding: 5px 0;
+  border-bottom: 1px solid #dfdfdf;
+}
 
-  .btn-view {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #dfdfdf;
-    border-radius: 3px;
-  }
+.btn-view {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px;
+}
 </style>
