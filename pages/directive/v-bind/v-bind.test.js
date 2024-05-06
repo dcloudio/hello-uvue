@@ -4,6 +4,7 @@ const COMPOSITION_PAGE_PATH = '/pages/directive/v-bind/v-bind-composition'
 describe('v-bind', () => {
   let page
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isIos = platformInfo.startsWith('ios')
   const isWeb = platformInfo.startsWith('web')
   const isFirefox = platformInfo.indexOf('firefox') > -1
 

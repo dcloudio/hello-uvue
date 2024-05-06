@@ -1,5 +1,5 @@
-const PAGE_PATH_OPTIONS = '/pages/built-in-component/teleport/teleport-options'
-const PAGE_PATH_COMPONSITION = '/pages/built-in-component/teleport/teleport-composition'
+const PAGE_PATH_OPTIONS = '/pages/built-in/component/teleport/teleport-options'
+const PAGE_PATH_COMPONSITION = '/pages/built-in/component/teleport/teleport-composition'
 
 describe('teleport', () => {
   if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
@@ -14,7 +14,7 @@ describe('teleport', () => {
     await page.waitFor('view')
     await page.waitFor(500)
     const image = await program.screenshot();
-    expect(image).toMatchImageSnapshot();
+    expect(image).toSaveImageSnapshot();
   }
   it('teleport Options API', async () => {
     page = await program.reLaunch(PAGE_PATH_OPTIONS)

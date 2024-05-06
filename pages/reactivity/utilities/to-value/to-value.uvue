@@ -43,7 +43,7 @@ const obj = reactive({
   num: 0
 } as Obj)
 
-let toValueObjNum = toValue(() : number => obj.num)
+let toValueObjNum = toValue(() : number => 0)
 
 const increment = () => {
   obj.num++;

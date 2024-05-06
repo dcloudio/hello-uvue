@@ -47,7 +47,7 @@ export default {
   },
   mounted(){
     const rootElement = this.$refs['mixin-comp-root'] as UniElement
-    this.rootElementTitle = JSON.stringify(rootElement.getAttribute('title'))
+    this.rootElementTitle = rootElement.getAttribute('title')
   },
   watch: {
     globalMixinOnloadMsg1(newVal: string) {

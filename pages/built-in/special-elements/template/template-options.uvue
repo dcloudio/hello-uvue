@@ -1,9 +1,9 @@
 <template>
   <view class="page">
-    <template v-if="isShow">
+    <template v-if="dataInfo.isShow">
       <view class="title">{{ title }}</view>
     </template>
-    <view class="show-botton" @click="handleShow">{{ isShow ? '点击隐藏' : '点击显示' }}</view>
+    <view class="show-botton" @click="handleShow">{{ dataInfo.isShow ? '点击隐藏' : '点击显示' }}</view>
     <template v-for="(item, index) in list" :key="index">
       <view class="item">{{ index + 1 }}.{{ item.name }}</view>
     </template>
@@ -11,7 +11,10 @@
   </view>
 </template>
 
-<script>
+<script lang='uts'>
+type DataInfo = {
+  isShow: boolean
+}
 type objType = {
   name : string
 }
@@ -19,7 +22,9 @@ export default {
   data() {
     return {
       title: "hello",
-      isShow: false,
+      dataInfo: {
+        isShow: false,
+      } as DataInfo,
       list: [{
         name: 'foo1'
       },
@@ -31,7 +36,7 @@ export default {
   },
   methods: {
     handleShow() {
-      this.isShow = !this.isShow
+      this.dataInfo.isShow = !this.dataInfo.isShow
     },
     goMapStyle() {
       uni.navigateTo({ url: '/pages/built-in/component/template/template-map-style-options' })

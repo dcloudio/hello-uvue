@@ -1,8 +1,7 @@
-// uni-app自动化测试教程: uni-app自动化测试教程: https://uniapp.dcloud.net.cn/worktile/auto/hbuilderx-extension/
-const PAGE_OPTIONS = '/pages/built-in/component/slots/slots-options'
-const PAGE_COMPOSITION = '/pages/built-in/component/slots/slots-composition'
+const PAGE_OPTIONS = '/pages/built-in/special-elements/slots/slots-options'
+const PAGE_COMPOSITION = '/pages/built-in/special-elements/slots/slots-composition'
 
-describe('built-in/component/slots', () => {
+describe('built-in/special-elements/slots', () => {
   let page;
 
   const test = async () => {

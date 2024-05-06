@@ -18,7 +18,7 @@
     </view>
 
     <!-- v-bind props -->
-    <Foo :title :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
+    <Foo :title="dataInfo.fooProps.title" :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
 
     <!-- v-bind in style -->
     <!-- #ifdef WEB -->
@@ -50,13 +50,12 @@ export default {
   components: { Foo },
   data() {
     return {
-      title: 'foo title',
       dataInfo: {
         fontSize: '20px',
         backgroundColor: 'background-color: green',
         border: 'border: 2px solid red',
         fooProps: {
-          title: '',
+          title: 'foo title',
           num: 1,
           obj: {
             name: 'foo obj name'

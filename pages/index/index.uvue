@@ -863,93 +863,105 @@ export default {
         },
         {
           id: 'built-in',
-          name: '内置组件',
+          name: '内置',
           pages: [
             {
-              id: 'component/keep-alive',
-              name: 'keep-alive',
+              id:'component',
+              name: '组件',
               children: [
                 {
-                  id: 'keep-alive-options',
-                  name: 'keep-alive 选项式 API',
-                  url: 'keep-alive-options'
-                },
+                  id: 'keep-alive',
+                  name: 'keepAlive',
+                  children: [
+                    {
+                      id: 'keep-alive-options',
+                      name: 'keepAlive 选项式 API',
+                      url: 'keep-alive-options'
+                    },
 
+                    {
+                      id: 'keep-alive-composition',
+                      name: 'keepAlive 组合式 API',
+                      url: 'keep-alive-composition'
+                    }
+                  ]
+                },
                 {
-                  id: 'keep-alive-composition',
-                  name: 'keep-alive 组合式 API',
-                  url: 'keep-alive-composition'
-                }
+                  id: 'teleport',
+                  name: 'Teleport',
+                  children: [
+                    {
+                      id: 'teleport-options',
+                      name: 'Teleport 选项式 API',
+                      url: 'teleport-options'
+                    },
+
+                    {
+                      id: 'teleport-composition',
+                      name: 'Teleport 组合式 API',
+                      url: 'teleport-composition'
+                    }
+                  ]
+                },
               ]
             },
             {
-              id: 'component/teleport',
-              name: 'teleport',
+              id:'special-elements',
+              name: '特殊元素',
               children: [
                 {
-                  id: 'teleport-options',
-                  name: 'teleport 选项式 API',
-                  url: 'teleport-options'
-                },
+                  id: 'component',
+                  name: 'component',
+                  children: [
+                    {
+                      id: 'component-options',
+                      name: 'component 选项式 API',
+                      url: 'component-options'
+                    },
 
+                    {
+                      id: 'component-composition',
+                      name: 'component 组合式 API',
+                      url: 'component-composition'
+                    }
+                  ]
+                },
                 {
-                  id: 'teleport-composition',
-                  name: 'teleport 组合式 API',
-                  url: 'teleport-composition'
+                  id: 'slots',
+                  name: 'slot',
+                  children: [
+                    {
+                      id: 'slots-options',
+                      name: 'slots 选项式 API',
+                      url: 'slots-options'
+                    },
+
+                    {
+                      id: 'slots-composition',
+                      name: 'slots 组合式 API',
+                      url: 'slots-composition'
+                    }
+                  ]
+                },
+                {
+                  id: 'template',
+                  name: 'template',
+                  children: [
+                    {
+                      id: 'template-options',
+                      name: 'template 选项式 API',
+                      url: 'template-options'
+                    },
+
+                    {
+                      id: 'template-composition',
+                      name: 'template 组合式 API',
+                      url: 'template-composition'
+                    }
+                  ]
                 }
               ]
             },
-            {
-              id: 'component/component',
-              name: 'component',
-              children: [
-                {
-                  id: 'component-options',
-                  name: 'component 选项式 API',
-                  url: 'component-options'
-                },
-
-                {
-                  id: 'component-composition',
-                  name: 'component 组合式 API',
-                  url: 'component-composition'
-                }
-              ]
-            },
-            {
-              id: 'component/slots',
-              name: 'slot',
-              children: [
-                {
-                  id: 'slots-options',
-                  name: 'slots 选项式 API',
-                  url: 'slots-options'
-                },
-
-                {
-                  id: 'slots-composition',
-                  name: 'slots 组合式 API',
-                  url: 'slots-composition'
-                }
-              ]
-            },
-            {
-              id: 'component/template',
-              name: 'template',
-              children: [
-                {
-                  id: 'template-options',
-                  name: 'template 选项式 API',
-                  url: 'template-options'
-                },
-
-                {
-                  id: 'template-composition',
-                  name: 'template 组合式 API',
-                  url: 'template-composition'
-                }
-              ]
-            }
           ] as Page[]
         },
         {

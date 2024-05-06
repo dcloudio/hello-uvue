@@ -1,5 +1,5 @@
-const PAGE_PATH_OPTIONS = '/pages/built-in-component/keep-alive/keep-alive-options'
-const PAGE_PATH_COMPOSITION = '/pages/built-in-component/keep-alive/keep-alive-composition'
+const PAGE_PATH_OPTIONS = '/pages/built-in/component/keep-alive/keep-alive-options'
+const PAGE_PATH_COMPOSITION = '/pages/built-in/component/keep-alive/keep-alive-composition'
 
 describe('keep-alive', () => {
   if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {

@@ -28,7 +28,6 @@
 export default {
   props: ['str', 'num', 'bool', 'obj', 'arr'],
   mounted() {
-    console.log('this.$props is Map', this.$props, this.$props instanceof Map);
     console.log('this.$props.str: ',this.$props['str']);
     console.log('this.$props.num: ',this.$props['num']);
     console.log('this.$props.bool: ',this.$props['bool']);

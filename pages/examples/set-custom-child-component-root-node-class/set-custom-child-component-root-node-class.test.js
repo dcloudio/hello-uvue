@@ -8,13 +8,13 @@ describe('自定义组件中使用 class 定制另一个自定义组件根节点
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor('view')
     const image = await program.screenshot()
-    expect(image).toMatchImageSnapshot()
+    expect(image).toSaveImageSnapshot()
   })
 
   it('set-custom-child-component-root-node-class-options Screenshot', async () => {
     page = await program.reLaunch(PAGE_PATH_COMPOSITION)
     await page.waitFor('view')
     const image = await program.screenshot()
-    expect(image).toMatchImageSnapshot()
+    expect(image).toSaveImageSnapshot()
   })
 })

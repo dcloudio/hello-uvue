@@ -17,7 +17,7 @@ describe('mixins', () => {
   it('inheritAttrs', async () => {
     const comp1RootElementTitleEl = await page.$('.root-element-title-1')
     const comp1RootElementTitleText = await comp1RootElementTitleEl.text()
-    expect(comp1RootElementTitleText).toBe('rootElementTitle: ')
+    expect(comp1RootElementTitleText).toBe('rootElementTitle: null')
     const comp2RootElementTitleEl = await page.$('.root-element-title-2')
     const comp2RootElementTitleText = await comp2RootElementTitleEl.text()
     expect(comp2RootElementTitleText).toBe('rootElementTitle: title')

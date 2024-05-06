@@ -1,5 +1,5 @@
-const PAGE_OPTIONS = '/pages/built-in/component/component/component-options'
-const PAGE_COMPOSITION = '/pages/built-in/component/component/component-composition'
+const PAGE_OPTIONS = '/pages/built-in/special-elements/component/component-options'
+const PAGE_COMPOSITION = '/pages/built-in/special-elements/component/component-composition'
 
 describe('built-in/component', () => {
   let page

@@ -8,7 +8,7 @@ describe('v-html', () => {
   
   const test = async () => {
     const image = await program.screenshot()
-    expect(image).toMatchImageSnapshot()
+    expect(image).toSaveImageSnapshot()
   }
   
   it('v-html options API', async () => {

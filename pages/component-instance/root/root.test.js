@@ -10,7 +10,10 @@ describe('$root', () => {
     return
   }
   let page
-  const test = async (page) => {
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
+    await page.waitFor('view')
+    
     const rootStrParent = await page.$('#root-str-parent')
     expect(await rootStrParent.text()).toBe('root component str')
     
@@ -19,16 +22,10 @@ describe('$root', () => {
   }
 
   it('$root 选项式 API', async () => {
-    page = await program.reLaunch(OPTIONS_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(OPTIONS_PAGE_PATH)
   });
   
   it('$root 组合式 API', async () => {
-    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(COMPOSITION_PAGE_PATH)
   })
 })

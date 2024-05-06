@@ -122,19 +122,6 @@
       }
     },
     // #endif
-
-    {
-      "path": "pages/built-in/component/keep-alive/keep-alive-options",
-      "style": {
-        "navigationBarTitleText": "keep-alive 选项式 API"
-      }
-    },
-    {
-      "path": "pages/built-in/component/keep-alive/keep-alive-composition",
-      "style": {
-        "navigationBarTitleText": "keep-alive 组合式 API"
-      }
-    },
     {
       "path": "pages/directive/v-html/v-html-options",
       "style": {
@@ -655,58 +642,84 @@
         "enablePullDownRefresh": true
       }
     },
+{
+      "path": "pages/built-in/component/keep-alive/keep-alive-options",
+      "style": {
+        "navigationBarTitleText": "keep-alive 选项式 API"
+      }
+    },
     {
-      "path": "pages/built-in/component/slots/slots-composition",
+      "path": "pages/built-in/component/keep-alive/keep-alive-composition",
+      "style": {
+        "navigationBarTitleText": "keep-alive 组合式 API"
+      }
+    },
+{
+      "path": "pages/built-in/component/teleport/teleport-options",
+      "style": {
+        "navigationBarTitleText": "teleport 选项式 API",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/built-in/component/teleport/teleport-composition",
+      "style": {
+        "navigationBarTitleText": "teleport 组合式 API",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/built-in/special-elements/slots/slots-composition",
       "style": {
         "navigationBarTitleText": "slots 组合式 API"
       }
     },
     {
-      "path": "pages/built-in/component/slots/slots-options",
+      "path": "pages/built-in/special-elements/slots/slots-options",
       "style": {
         "navigationBarTitleText": "slots 选项式 API"
       }
     },
     {
-      "path": "pages/built-in/component/template/template-options",
+      "path": "pages/built-in/special-elements/template/template-options",
       "style": {
         "navigationBarTitleText": "template 选项式 API"
       }
     },
     {
-      "path": "pages/built-in/component/template/template-composition",
+      "path": "pages/built-in/special-elements/template/template-composition",
       "style": {
         "navigationBarTitleText": "template 组合式 API"
       }
     },
     {
-      "path": "pages/built-in/component/template/template-map-style-options",
+      "path": "pages/built-in/special-elements/template/template-map-style-options",
       "style": {
         "navigationBarTitleText": "template-map-style 选项式 API"
       }
     },
     {
-      "path": "pages/built-in/component/template/template-map-style-composition",
+      "path": "pages/built-in/special-elements/template/template-map-style-composition",
       "style": {
         "navigationBarTitleText": "template-map-style 组合式 API"
+      }
+    },
+    {
+      "path": "pages/built-in/special-elements/component/component-options",
+      "style": {
+        "navigationBarTitleText": "component 选项式 API"
+      }
+    },
+    {
+      "path": "pages/built-in/special-elements/component/component-composition",
+      "style": {
+        "navigationBarTitleText": "component 组合式 API"
       }
     },
     {
       "path": "pages/rendering/unrecognized-component/unrecognized-component",
       "style": {
         "navigationBarTitleText": "unrecognized-component"
-      }
-    },
-    {
-      "path": "pages/built-in/component/component/component-options",
-      "style": {
-        "navigationBarTitleText": "component 选项式 API"
-      }
-    },
-    {
-      "path": "pages/built-in/component/component/component-composition",
-      "style": {
-        "navigationBarTitleText": "component 组合式 API"
       }
     },
     {
@@ -737,20 +750,6 @@
       "path": "pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class-composition",
       "style": {
         "navigationBarTitleText": "自定义组件中使用 class 定制另一个自定义组件根节点样式 组合式 API"
-      }
-    },
-    {
-      "path": "pages/built-in/component/teleport/teleport-options",
-      "style": {
-        "navigationBarTitleText": "teleport 选项式 API",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
-      "path": "pages/built-in/component/teleport/teleport-composition",
-      "style": {
-        "navigationBarTitleText": "teleport 组合式 API",
-        "enablePullDownRefresh": false
       }
     },
     {

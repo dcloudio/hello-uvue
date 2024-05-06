@@ -1,14 +1,16 @@
-const PAGE_PATH_OPTIONS = '/pages/built-in/component/template/template-options'
-const PAGE_PATH_COMPONSITION = '/pages/built-in/component/template/template-composition'
+const PAGE_PATH_OPTIONS = '/pages/built-in/special-elements/template/template-options'
+const PAGE_PATH_COMPOSITION = '/pages/built-in/special-elements/template/template-composition'
 
-describe('built-in/component', () => {
+describe('built-in/special-elements/component', () => {
   let page
   const test = async () => {
     await page.waitFor('view')
     expect.assertions(4);
     const showBtn = await page.$('.show-botton')
     await showBtn.tap()
-    expect((await page.data()).isShow).toBeTruthy()
+    
+    const dataInfo = await page.data('dataInfo')
+    expect(dataInfo.isShow).toBeTruthy()
     const getTitle = await page.$('.title')
     expect(await getTitle.text()).toBe("hello")
     const getShow = await page.$('.show-botton')
@@ -20,7 +22,7 @@ describe('built-in/component', () => {
     await test()
   })
   it('template Composition API', async () => {
-    page = await program.reLaunch(PAGE_PATH_COMPONSITION)
+    page = await program.reLaunch(PAGE_PATH_COMPOSITION)
     await test()
   })
 });
