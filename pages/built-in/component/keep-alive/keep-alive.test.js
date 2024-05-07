@@ -2,18 +2,12 @@ const PAGE_PATH_OPTIONS = '/pages/built-in/component/keep-alive/keep-alive-optio
 const PAGE_PATH_COMPOSITION = '/pages/built-in/component/keep-alive/keep-alive-composition'
 
 describe('keep-alive', () => {
-  if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
-    it("IOS platform not support", async () => {
-      expect(1).toBe(1);
-    });
-    return
-  }
   let page = null
   const testKeepAlive = async () => {
     await page.waitFor('view')
-    const shouldExcludeBtns = await page.$$('.should-exclude-btn')
-    for (let i = 0; i < shouldExcludeBtns.length; i++) {
-      await shouldExcludeBtns[i].tap()
+    let shouldExcludeBtnList = await page.$$('.should-exclude-btn')
+    for (let i = 0; i < shouldExcludeBtnList.length; i++) {
+      await shouldExcludeBtnList[i].tap()
     }
     let shouldExcludeTexts = await page.$$('.should-exclude-text')
     for (let i = 0; i < shouldExcludeTexts.length; i++) {
@@ -27,21 +21,24 @@ describe('keep-alive', () => {
     expect(await activatedNum.text()).toBe('activated num: 1')
     const deactivatedNum = await page.$('#deactivated-num')
     expect(await deactivatedNum.text()).toBe('deactivated num: 0')
+    shouldExcludeBtnList = await page.$$('.should-exclude-btn')
+    expect(shouldExcludeBtnList.length).toBe(0)
 
-    const counterBtns = await page.$$('.counter-btn')
-    for (let i = 0; i < counterBtns.length; i++) {
-      await counterBtns[i].tap()
+    const counterBtnList = await page.$$('.counter-btn')
+    for (const i = 0; i < counterBtnList.length; i++) {
+      await counterBtnList[i].tap()
     }
 
     const showShouldExcludeBtn = await page.$('.show-should-exclude')
     await showShouldExcludeBtn.tap()
 
     shouldExcludeTexts = await page.$$('.should-exclude-text')
-    for (let i = 0; i < shouldExcludeTexts.length; i++) {
-      if (i < shouldExcludeBtns.length - 1) {
-        expect(await shouldExcludeTexts[i].text()).toBe('count: 0')
+    for (const i = 0;i < shouldExcludeTexts.length;i++) {
+      const text = await shouldExcludeTexts[i].text()
+      if (i < shouldExcludeBtnList.length - 1) {
+        expect(text).toBe('count: 0')
       } else {
-        expect(await shouldExcludeTexts[i].text()).toBe('count: 1')
+        expect(text).toBe('count: 1')
       }
     }
 
@@ -51,20 +48,20 @@ describe('keep-alive', () => {
     expect(await deactivatedNum.text()).toBe('deactivated num: 1')
 
     let counterTexts = await page.$$('.counter-text')
-    for (let i = 0; i < counterTexts.length; i++) {
+    for (const i = 0; i < counterTexts.length; i++) {
       expect(await counterTexts[i].text()).toBe('count: 1')
     }
 
     const showMessageBtn = await page.$('.show-message')
     await showMessageBtn.tap()
 
-    const chnageMessageBtns = await page.$$('.change-message')
-    for (let i = 0; i < chnageMessageBtns.length; i++) {
-      await chnageMessageBtns[i].tap()
+    const changeMessageBtnList = await page.$$('.change-message')
+    for (let i = 0; i < changeMessageBtnList.length; i++) {
+      await changeMessageBtnList[i].tap()
     }
 
     let messageTexts = await page.$$('.message-text')
-    for (let i = 0; i < messageTexts.length; i++) {
+    for (const i = 0; i < messageTexts.length; i++) {
       expect(await messageTexts[i].text()).toBe('msg: message changed')
     }
 
@@ -74,20 +71,21 @@ describe('keep-alive', () => {
     expect(await deactivatedNum.text()).toBe('deactivated num: 2')
 
     counterTexts = await page.$$('.counter-text')
-    for (let i = 0; i < counterTexts.length; i++) {
+    for (const i = 0; i < counterTexts.length; i++) {
       expect(await counterTexts[i].text()).toBe('count: 1')
     }
 
     await showMessageBtn.tap()
 
     messageTexts = await page.$$('.message-text')
-    for (let i = 0; i < messageTexts.length; i++) {
+    for (const i = 0; i < messageTexts.length; i++) {
       expect(await messageTexts[i].text()).toBe('msg: message changed')
     }
 
     await showShouldExcludeBtn.tap()
+    
     shouldExcludeTexts = await page.$$('.should-exclude-text')
-    for (let i = 0; i < shouldExcludeTexts.length; i++) {
+    for (const i = 0; i < shouldExcludeTexts.length; i++) {
       expect(await shouldExcludeTexts[i].text()).toBe('count: 0')
     }
   }
