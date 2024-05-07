@@ -383,6 +383,12 @@
       }
     },
     {
+      "path": "pages/component-instance/methods/call-method-define-expose",
+      "style": {
+        "navigationBarTitleText": "call-method-define-expose"
+      }
+    },
+    {
       "path": "pages/component-instance/provide/provide-options-1",
       "style": {
         "navigationBarTitleText": "provide 选项式 API 字面量"
@@ -642,7 +648,7 @@
         "enablePullDownRefresh": true
       }
     },
-{
+    {
       "path": "pages/built-in/component/keep-alive/keep-alive-options",
       "style": {
         "navigationBarTitleText": "keep-alive 选项式 API"
@@ -654,7 +660,7 @@
         "navigationBarTitleText": "keep-alive 组合式 API"
       }
     },
-{
+    {
       "path": "pages/built-in/component/teleport/teleport-options",
       "style": {
         "navigationBarTitleText": "teleport 选项式 API",
@@ -788,13 +794,12 @@
   },
   "uniIdRouter": {},
   "condition": {
-    //模式配置，仅开发期间生效
-    "current": 0, //当前激活的模式(list 的索引项)
+    "current": 0,
     "list": [
       {
-        "name": "", //模式名称
-        "path": "", //启动页面，必选
-        "query": "" //启动参数，在页面的onLoad函数里面得到
+        "name": "",
+        "path": "",
+        "query": ""
       }
     ]
   }

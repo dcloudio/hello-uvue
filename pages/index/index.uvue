@@ -359,6 +359,11 @@ export default {
                   id: 'call-method-other-composition',
                   name: '调用自定义组件方法 组合式 API',
                   url: 'call-method-other-composition'
+                },
+                {
+                  id: 'call-method-define-expose',
+                  name: '调用 defineExpose 暴露的方法',
+                  url: 'call-method-define-expose'
                 }
               ]
             },
