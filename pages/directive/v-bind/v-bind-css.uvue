@@ -8,7 +8,8 @@
   export default {
     data() {
       return {
-        classBindColor: "#008000"
+        classBindColor: "#008000",
+        classBindHeight: "300rpx",
       }
     }
   }
@@ -16,7 +17,7 @@
 
 <style scoped>
   .rect-bind {
+    height: v-bind(classBindHeight);
     background-color: v-bind(classBindColor);
-    padding: 100px;
   }
 </style>
