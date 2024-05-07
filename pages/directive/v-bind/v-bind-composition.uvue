@@ -54,6 +54,7 @@ type DataInfo = {
   border : string
   fooProps : FooProps
   vBindClassBackgroundColor : string,
+  vBindClassRpxHeight : string,
 }
 
 const dataInfo = reactive({
@@ -68,6 +69,7 @@ const dataInfo = reactive({
     }
   },
   vBindClassBackgroundColor: 'red',
+  vBindClassRpxHeight: '300rpx'
 } as DataInfo)
 
 defineExpose({
@@ -79,7 +81,7 @@ defineExpose({
 /* #ifdef WEB */
 .v-bind-css {
   background-color: v-bind(dataInfo.vBindClassBackgroundColor);
-  height: 20px;
+  height: v-bind(dataInfo.vBindClassRpxHeight);
 }
 /* #endif */
 </style>

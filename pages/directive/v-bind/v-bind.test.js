@@ -4,7 +4,6 @@ const COMPOSITION_PAGE_PATH = '/pages/directive/v-bind/v-bind-composition'
 describe('v-bind', () => {
   let page
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isIos = platformInfo.startsWith('ios')
   const isWeb = platformInfo.startsWith('web')
   const isFirefox = platformInfo.indexOf('firefox') > -1
 
@@ -50,6 +49,7 @@ describe('v-bind', () => {
     if (isWeb) {
       const vBindCss = await page.$('.v-bind-css')
       expect(await vBindCss.style('backgroundColor')).toBe('rgb(255, 0, 0)')
+      expect(await vBindCss.style('height')).toBe('150px')
     }
   }
 

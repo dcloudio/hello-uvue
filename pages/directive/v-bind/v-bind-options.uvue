@@ -44,6 +44,7 @@ type DataInfo = {
   border: string
   fooProps: FooProps
   vBindClassBackgroundColor: string
+  vBindClassRpxHeight: string
 }
 
 export default {
@@ -61,7 +62,8 @@ export default {
             name: 'foo obj name'
           }
         },
-        vBindClassBackgroundColor: 'red'
+        vBindClassBackgroundColor: 'red',
+        vBindClassRpxHeight: '300rpx'
       } as DataInfo
     }
   }
@@ -72,7 +74,7 @@ export default {
 /* #ifdef WEB */
 .v-bind-css {
   background-color: v-bind(dataInfo.vBindClassBackgroundColor);
-  height: 20px;
+  height: v-bind(dataInfo.vBindClassRpxHeight);
 }
 /* #endif */
 </style>
