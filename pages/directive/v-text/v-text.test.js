@@ -4,7 +4,7 @@ const COMPOSITION_PAGE_PATH = '/pages/directive/v-text/v-text-composition'
 describe('v-text', () => {
   if (!process.env.uniTestPlatformInfo.startsWith('web')) {
     // TODO: 仅 web 支持
-    it('web', async () => {
+    it('not web', async () => {
       expect(1).toBe(1)
     })
     return

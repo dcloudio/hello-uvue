@@ -60,7 +60,7 @@
 			openCollapse(open: boolean) {
 				if (this.disabled) return
 				// 关闭其他已打开
-				$dispatch(this, 'UniCollapse', 'cloceAll')
+				$dispatch(this, 'UniCollapse', 'closeAll')
 				this.is_open = open
 				this.openOrClose(open)
 			},

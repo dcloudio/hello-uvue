@@ -27,6 +27,7 @@ defineProps({
   },
   obj: {
     // #ifdef APP-ANDROID
+    // TODO: 确认类型是否合理
     type: FooPropsObj1ReactiveObject,
     // #endif
     // #ifdef APP-IOS || WEB
