@@ -82,19 +82,19 @@
 import { setLifeCycleNum, state } from '@/store/index.uts'
 
 type Page = {
-  id: string
-  name: string
-  enable?: boolean
-  url?: string
-  children?: Page[]
+  id : string
+  name : string
+  enable ?: boolean
+  url ?: string
+  children ?: Page[]
 }
 
 type Menu = {
-  id: string
-  name: string
-  pages: Page[]
-  url?: string
-  enable?: boolean
+  id : string
+  name : string
+  pages : Page[]
+  url ?: string
+  enable ?: boolean
 }
 
 export default {
@@ -634,7 +634,7 @@ export default {
             }
           ] as Page[]
         },
-         {
+        {
           id: 'directive',
           name: '指令',
           pages: [
@@ -871,7 +871,7 @@ export default {
           name: '内置',
           pages: [
             {
-              id:'component',
+              id: 'component',
               name: '组件',
               children: [
                 {
@@ -911,7 +911,7 @@ export default {
               ]
             },
             {
-              id:'special-elements',
+              id: 'special-elements',
               name: '特殊元素',
               children: [
                 {
@@ -977,6 +977,22 @@ export default {
               id: 'render',
               name: 'render & h()',
               url: 'render/render'
+            },
+            {
+              id: 'mergeProps',
+              name: 'mergeProps',
+              children: [
+                {
+                  id: 'mergeProps-options',
+                  name: 'mergeProps 选项式 API',
+                  url: 'mergeProps-options'
+                },
+                {
+                  id: 'mergeProps-composition',
+                  name: 'mergeProps 组合式 API',
+                  url: 'mergeProps-composition'
+                },
+              ]
             }
           ] as Page[]
         },
@@ -1049,7 +1065,7 @@ export default {
     }
   },
   methods: {
-    goDetailPage(parentUrl: string, page: Page) {
+    goDetailPage(parentUrl : string, page : Page) {
       if (page.enable == false) {
         uni.showToast({
           icon: 'none',
@@ -1062,15 +1078,15 @@ export default {
       })
     },
     // 自动化测试
-    setLifeCycleNum(num: number) {
+    setLifeCycleNum(num : number) {
       setLifeCycleNum(num)
     },
     // 自动化测试
-    getLifeCycleNum(): number {
+    getLifeCycleNum() : number {
       return state.lifeCycleNum
     },
     // 自动化测试
-    checkLaunchPath(): boolean {
+    checkLaunchPath() : boolean {
       const app = getApp()
       return app.checkLaunchPath()
     }

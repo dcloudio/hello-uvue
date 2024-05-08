@@ -1,0 +1,53 @@
+<template>
+  <view class="page">
+    <view class="mb-10 flex flex-row justify-between">
+      <text>merged class</text>
+      <text id="merged-class">{{mergedProps['class']}}</text>
+    </view>
+    <button class="mb-10" id="trigger-merged-click" @click="triggerMergedClick">trigger merged onClick</button>
+    <view>
+      <text class="mb-10">prop function result list</text>
+      <text class="click-res" v-for="(item, index) in propFnResList" :key="index">{{item}}</text>
+    </view>
+  </view>
+</template>
+
+<script lang="uts">
+  // TODO: 确认 android 与 web & ios 差异
+  // #ifndef APP-ANDROID
+  import { mergeProps } from 'vue'
+  // #endif
+
+  type PropFn = () => string
+  export default {
+    data() {
+      return {
+        // #ifdef APP-ANDROID
+        propA: new Map<string, any | null>([['class', 'foo'], ['onClick', () : string => 'propA click res']]),
+        propB: new Map<string, any | null>([['class', { bar: true }], ['onClick', () : string => 'propB click res']]),
+        mergedProps: new Map<string, any | null>(),
+        // #endif
+        // #ifndef APP-ANDROID
+        propA: {
+          class: 'foo',
+          onClick: () : string => 'propA click res'
+        },
+        propB: {
+          class: { bar: true },
+          onClick: () : string => 'propB click res'
+        },
+        mergedProps: {},
+        // #endif
+        propFnResList: [] as string[],
+      }
+    },
+    onLoad() {
+      this.mergedProps = mergeProps(this.propA, this.propB)
+    },
+    methods: {
+      triggerMergedClick() {
+        (this.mergedProps['onClick'] as PropFn[]).forEach(fn => { this.propFnResList.push(fn()) })
+      }
+    }
+  }
+</script>

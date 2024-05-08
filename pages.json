@@ -717,6 +717,18 @@
       }
     },
     {
+      "path": "pages/render-function/mergeProps/mergeProps-options",
+      "style": {
+        "navigationBarTitleText": "mergeProps 选项式 API"
+      }
+    },
+    {
+      "path": "pages/render-function/mergeProps/mergeProps-composition",
+      "style": {
+        "navigationBarTitleText": "mergeProps 组合式 API"
+      }
+    },
+    {
       "path": "pages/examples/unrecognized-component/unrecognized-component",
       "style": {
         "navigationBarTitleText": "unrecognized-component"
