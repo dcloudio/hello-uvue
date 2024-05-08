@@ -970,18 +970,13 @@ export default {
           ] as Page[]
         },
         {
-          id: 'rendering',
-          name: '渲染',
+          id: 'render-function',
+          name: '渲染函数',
           pages: [
             {
               id: 'render',
-              name: 'render Function 选项式 API',
+              name: 'render & h()',
               url: 'render/render'
-            },
-            {
-              id: 'unrecognized-component',
-              name: 'unrecognized-component',
-              url: 'unrecognized-component/unrecognized-component'
             }
           ] as Page[]
         },
@@ -1020,6 +1015,11 @@ export default {
                   url: 'set-custom-child-component-root-node-class-composition'
                 }
               ]
+            },
+            {
+              id: 'unrecognized-component',
+              name: 'unrecognized-component',
+              url: 'unrecognized-component/unrecognized-component'
             }
           ] as Page[]
         },

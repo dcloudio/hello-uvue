@@ -1,7 +1,7 @@
-describe('/pages/rendering/unrecognized-component/unrecognized-component', () => {
+describe('/pages/examples/unrecognized-component/unrecognized-component', () => {
 	let page
 	beforeAll(async () => {
-		page = await program.reLaunch('/pages/rendering/unrecognized-component/unrecognized-component')
+		page = await program.reLaunch('/pages/examples/unrecognized-component/unrecognized-component')
 		await page.waitFor('text')
 	})
 	it('unrecognized-component should be created as "view"', async () => {

@@ -44,6 +44,7 @@ describe('keep-alive', () => {
 
     await showCounterBtn.tap()
 
+
     expect(await activatedNum.text()).toBe('activated num: 2')
     expect(await deactivatedNum.text()).toBe('deactivated num: 1')
 

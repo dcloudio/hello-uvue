@@ -711,15 +711,15 @@
       }
     },
     {
-      "path": "pages/rendering/unrecognized-component/unrecognized-component",
+      "path": "pages/render-function/render/render",
       "style": {
-        "navigationBarTitleText": "unrecognized-component"
+        "navigationBarTitleText": "render function"
       }
     },
     {
-      "path": "pages/rendering/render/render",
+      "path": "pages/examples/unrecognized-component/unrecognized-component",
       "style": {
-        "navigationBarTitleText": "render function"
+        "navigationBarTitleText": "unrecognized-component"
       }
     },
     {

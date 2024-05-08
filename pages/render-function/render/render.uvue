@@ -1,5 +1,5 @@
 <script lang="uts">
-import CompForRenderFunction from '@/components/CompForRenderFunction.uvue'
+import CompForHFunction from '@/components/CompForHFunction.uvue'
 export default {
   data() {
     return {
@@ -8,7 +8,7 @@ export default {
   },
   render(): VNode {
     return h('view', { class: 'page' }, [
-      h(CompForRenderFunction, {}, (): VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
+      h(CompForHFunction, {}, (): VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
       h('text', { class: 'uni-common-mt msg', style: { color: 'blue' } }, this.msg),
       h(
         'button',
