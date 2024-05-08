@@ -3,6 +3,7 @@
     <array-literal :str="str" :num="num" :bool="bool" :obj="obj" :arr="arr" />
     <object-type str="str" :num="num" :bool="bool" :obj="obj" :arr="arr" />
     <same-name-prop-default-value />
+    <props-with-defaults />
   </view>
 </template>
 
@@ -10,12 +11,14 @@
 import ArrayLiteral from './array-literal-options.uvue'
 import ObjectType from "./object-type-options.uvue";
 import SameNamePropDefaultValue from "./same-name-prop-default-value-options.uvue";
+import PropsWithDefaults from "./props-with-defaults.uvue";
 
 export default {
   components: {
     ArrayLiteral,
     ObjectType,
-    SameNamePropDefaultValue
+    SameNamePropDefaultValue,
+    PropsWithDefaults
   },
   data() {
     return {
