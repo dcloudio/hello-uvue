@@ -287,18 +287,6 @@
       }
     },
     {
-      "path": "pages/component-instance/watch-function/watch-function",
-      "style": {
-        "navigationBarTitleText": "$watch()"
-      }
-    },
-    {
-      "path": "pages/component-instance/watch-function/watch-array",
-      "style": {
-        "navigationBarTitleText": "watch-array"
-      }
-    },
-    {
       "path": "pages/component-instance/emit-function/emit-function-options",
       "style": {
         "navigationBarTitleText": "$emit() 选项式 API"
