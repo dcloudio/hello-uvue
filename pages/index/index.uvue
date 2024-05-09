@@ -1009,6 +1009,22 @@ export default {
                   url: 'cloneVNode-composition'
                 },
               ]
+            },
+            {
+              id: 'isVNode',
+              name: 'isVNode',
+              children: [
+                {
+                  id: 'isVNode-options',
+                  name: 'isVNode 选项式 API',
+                  url: 'isVNode-options'
+                },
+                {
+                  id: 'isVNode-composition',
+                  name: 'isVNode 组合式 API',
+                  url: 'isVNode-composition'
+                },
+              ]
             }
           ] as Page[]
         },

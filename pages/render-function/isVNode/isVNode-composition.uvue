@@ -1,0 +1,27 @@
+<template>
+  <view class="page">
+    <view class="mb-10 flex flex-row justify-between">
+      <text>isVNode VNode:</text>
+      <text id="is-vnode-vnode">{{ isVNodeVNode }}</text>
+    </view>
+    <view class="mb-10 flex flex-row justify-between">
+      <text>isVNode string:</text>
+      <text id="is-vnode-string">{{ isVNodeString }}</text>
+    </view>
+  </view>
+</template>
+
+<script setup lang="uts">
+  import {isVNode} from 'vue'
+
+  const isVNodeVNode = ref(false)
+  const isVNodeString = ref(false)
+  // #ifdef APP-ANDROID
+  const vnode = h('text', new Map<string, any | null>(), 'Hello World')
+  // #endif
+  // #ifndef APP-ANDROID
+  const vnode = h('text', {}, 'Hello World')
+  // #endif
+  isVNodeVNode.value = isVNode(vnode)
+  isVNodeString.value = isVNode('abc')
+</script>

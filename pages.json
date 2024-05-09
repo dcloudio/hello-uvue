@@ -741,6 +741,18 @@
       }
     },
     {
+      "path": "pages/render-function/isVNode/isVNode-options",
+      "style": {
+        "navigationBarTitleText": "isVNode 选项式 API"
+      }
+    },
+    {
+      "path": "pages/render-function/isVNode/isVNode-composition",
+      "style": {
+        "navigationBarTitleText": "isVNode 组合式 API"
+      }
+    },
+    {
       "path": "pages/examples/unrecognized-component/unrecognized-component",
       "style": {
         "navigationBarTitleText": "unrecognized-component"
