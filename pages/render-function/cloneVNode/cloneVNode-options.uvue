@@ -1,0 +1,29 @@
+<script lang="uts">
+  import { cloneVNode } from 'vue'
+
+  export default {
+    render() : VNode {
+      const originalVNode = h('view', { class: 'original' }, [
+        h('text', {}, 'Hello World'),
+      ])
+      // #ifdef APP
+      const clonedVNode = cloneVNode(originalVNode, new Map<string, any | null>([['class', 'cloned']]))
+      // #endif
+      // #ifdef WEB
+      const clonedVNode = cloneVNode(originalVNode, { class: 'cloned'})
+      // #endif
+
+      return h('view', { class: 'flex flex-col' }, [originalVNode, clonedVNode])
+    }
+  }
+</script>
+
+<style>
+  .original {
+    background-color: #ff0000;
+  }
+
+  .cloned {
+    background-color: #00ff00;
+  }
+</style>

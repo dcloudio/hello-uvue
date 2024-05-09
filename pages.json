@@ -729,6 +729,18 @@
       }
     },
     {
+      "path": "pages/render-function/cloneVNode/cloneVNode-options",
+      "style": {
+        "navigationBarTitleText": "cloneVNode 选项式 API"
+      }
+    },
+    {
+      "path": "pages/render-function/cloneVNode/cloneVNode-composition",
+      "style": {
+        "navigationBarTitleText": "cloneVNode 组合式 API"
+      }
+    },
+    {
       "path": "pages/examples/unrecognized-component/unrecognized-component",
       "style": {
         "navigationBarTitleText": "unrecognized-component"

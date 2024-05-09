@@ -13,15 +13,13 @@
 </template>
 
 <script lang="uts">
-  // TODO: 确认 android 与 web & ios 差异
-  // #ifndef APP-ANDROID
   import { mergeProps } from 'vue'
-  // #endif
 
   type PropFn = () => string
   export default {
     data() {
       return {
+        // TODO: 确认 android 与 web & ios 差异
         // #ifdef APP-ANDROID
         propA: new Map<string, any | null>([['class', 'foo'], ['onClick', () : string => 'propA click res']]),
         propB: new Map<string, any | null>([['class', { bar: true }], ['onClick', () : string => 'propB click res']]),

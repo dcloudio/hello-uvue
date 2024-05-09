@@ -993,6 +993,22 @@ export default {
                   url: 'mergeProps-composition'
                 },
               ]
+            },
+            {
+              id: 'cloneVNode',
+              name: 'cloneVNode',
+              children: [
+                {
+                  id: 'cloneVNode-options',
+                  name: 'cloneVNode 选项式 API',
+                  url: 'cloneVNode-options'
+                },
+                {
+                  id: 'cloneVNode-composition',
+                  name: 'cloneVNode 组合式 API',
+                  url: 'cloneVNode-composition'
+                },
+              ]
             }
           ] as Page[]
         },
