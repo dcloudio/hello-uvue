@@ -1041,7 +1041,25 @@ export default {
                   url: 'resolveComponent-composition'
                 },
               ]
+            },
+            // #ifndef APP-ANDROID
+            {
+              id: 'withDirectives',
+              name: 'withDirectives',
+              children: [
+                {
+                  id: 'withDirectives-options',
+                  name: 'withDirectives 选项式 API',
+                  url: 'withDirectives-options'
+                },
+                {
+                  id: 'withDirectives-composition',
+                  name: 'withDirectives 组合式 API',
+                  url: 'withDirectives-composition'
+                },
+              ]
             }
+            // #endif
           ] as Page[]
         },
         {

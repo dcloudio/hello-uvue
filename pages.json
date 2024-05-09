@@ -764,6 +764,20 @@
         "navigationBarTitleText": "resolveComponent 组合式 API"
       }
     },
+    // #ifndef APP-ANDROID
+    {
+      "path": "pages/render-function/withDirectives/withDirectives-options",
+      "style": {
+        "navigationBarTitleText": "withDirectives 选项式 API"
+      }
+    },
+    {
+      "path": "pages/render-function/withDirectives/withDirectives-composition",
+      "style": {
+        "navigationBarTitleText": "resolveComponent 组合式 API"
+      }
+    },
+    // #endif 
     {
       "path": "pages/examples/unrecognized-component/unrecognized-component",
       "style": {

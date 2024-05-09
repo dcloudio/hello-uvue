@@ -1,0 +1,26 @@
+<script setup lang="ts">
+  import { withDirectives } from 'vue'
+  import type { DirectiveBinding } from 'vue'
+
+  defineOptions({
+    data() {
+      return {
+        isMounted: false
+      }
+    },
+    render(instance : ComponentPublicInstance) : VNode {
+      const customDirective = {
+        mounted(el : UniElement, binding : DirectiveBinding, vnode : VNode, prevVNode: VNode | null) {
+          instance.$data['isMounted'] = true
+        }
+      } as Directive
+      return h('view', { class: 'page' }, [
+        withDirectives(h('text', 'Hello World'), [[customDirective]]),
+        h('view', { class: 'mt-10 flex flex-row justify-between' }, [
+          h('text', {}, `isMounted:`),
+          h('text', {}, `${instance.$data['isMounted']}`),
+        ])
+      ])
+    }
+  })
+</script>
