@@ -2,8 +2,7 @@
   <view class="content">
     <child>
       <template v-slot:header="slotProps">
-        <!-- TODO: composition API 方式时未获取正确类型信息，只能通过索引方式获取 -->
-        <view class="header">{{ slotProps['msg'] }}</view>
+        <view class="header">{{ slotProps.msg }}</view>
       </template>
       <template v-slot:default="{ msg }">
         <view class="main">{{ msg }}</view>
