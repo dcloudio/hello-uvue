@@ -1,0 +1,10 @@
+<script setup lang="uts">
+  import { resolveComponent } from 'vue'
+
+  defineOptions({
+    render() : VNode {
+      const CompForAppComponent = resolveComponent('CompForAppComponent')
+      return h(CompForAppComponent)
+    }
+  })
+</script>

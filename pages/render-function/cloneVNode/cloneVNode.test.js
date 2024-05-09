@@ -3,7 +3,7 @@ const COMPOSITION_PAGE_PATH = '/pages/render-function/cloneVNode/cloneVNode-comp
 
 describe('cloneVNode', () => {
   if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
-    // TODO: ios options API 合并属性无效, composition API 页面空白
+    // TODO: ios options API 合并属性无效, composition API 页面空白(defineOptions + render)
     it("IOS platform not support", async () => {
       expect(1).toBe(1);
     });

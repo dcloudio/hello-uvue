@@ -1025,6 +1025,22 @@ export default {
                   url: 'isVNode-composition'
                 },
               ]
+            },
+            {
+              id: 'resolveComponent',
+              name: 'resolveComponent',
+              children: [
+                {
+                  id: 'resolveComponent-options',
+                  name: 'resolveComponent 选项式 API',
+                  url: 'resolveComponent-options'
+                },
+                {
+                  id: 'resolveComponent-composition',
+                  name: 'resolveComponent 组合式 API',
+                  url: 'resolveComponent-composition'
+                },
+              ]
             }
           ] as Page[]
         },
