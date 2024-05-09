@@ -22,8 +22,13 @@
     <button class="mb-10 btn" v-on="{ click: handleClick }">
       v-on="{ click: handleClick }" 对象语法
     </button>
-    <!-- TODO 不支持修饰符 -->
-    <!-- <view class="mb-10 btn" v-on:click.once="handleClick">v-on:click.once="handleClick" 点击事件将最多触发一次</view> -->
+    <!-- TODO: ios 不支持 -->
+    <!-- #ifndef APP-IOS -->
+    <button class="mb-10 btn" id="btn-once" @click.once="handleClick">@click once</button>
+    <!-- #endif -->
+    <view @click="handleClick">
+      <button class="mb-10 btn" id="btn-stop" @click.stop="handleClick">@click stop</button>
+    </view>
   </view>
 </template>
 
