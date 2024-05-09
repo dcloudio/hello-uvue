@@ -1,4 +1,6 @@
 const PAGE_PATH = '/pages/reactivity/advanced/shallow-reactive/shallow-reactive'
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isWeb = platformInfo.startsWith('web')
 
 describe('shallowReactive', () => {
   let page = null
@@ -21,8 +23,14 @@ describe('shallowReactive', () => {
     const incrementStateCountBtn = await page.$('.increment-state-count-btn')
     await incrementStateCountBtn.tap()
 
-    expect(await stateCount.text()).toBe('1')
-    // TODO: web 失败，获取到的还是 0
-    expect(await stateNestedCount.text()).toBe('1')
+    if (isWeb) {
+      //   web 端 view text 为组件，无法动态更新 shallowReactive nested 数据
+      state = await page.data('state')
+      expect(state.count).toBe(1)
+      expect(state.nested.count).toBe(1)
+    } else {
+      expect(await stateCount.text()).toBe('1')
+      expect(await stateNestedCount.text()).toBe('1')
+    }
   })
 })
