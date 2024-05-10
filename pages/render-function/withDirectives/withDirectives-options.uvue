@@ -1,28 +1,29 @@
 <script lang="uts">
-import {withDirectives } from 'vue'
-import type { DirectiveBinding } from 'vue'
+  import { withDirectives } from 'vue'
+  import type { DirectiveBinding } from 'vue'
 
-export default {
-  data(){
-    return {
-      isMounted: false
-    }
-  },
-  // android 端暂不支持
-  // render 写入 instance 参数编译报错 error: '$render' overrides nothing‌
-  render(instance: ComponentPublicInstance):VNode {
-    const customDirective = {
-      mounted(el : UniElement, binding : DirectiveBinding, vnode : VNode, prevVNode: VNode | null) {
-        instance.$data['isMounted'] = true
+  export default {
+    data() {
+      return {
+        isMounted: false
       }
-    } as Directive
-    return h('view', { class: 'page' }, [
-      withDirectives(h('text', 'Hello World'), [[customDirective]]),
-      h('view', { class: 'mt-10 flex flex-row justify-between' }, [
-        h('text', {}, `isMounted:`),
-        h('text', {}, `${instance.$data['isMounted']}`),
+    },
+    render() : VNode {
+      const instance = this
+
+      const customDirective = {
+        mounted(el : UniElement, binding : DirectiveBinding, vnode : VNode, prevVNode : VNode | null) {
+          console.log(el, binding, vnode, prevVNode)
+          instance.$data['isMounted'] = true
+        }
+      } as Directive
+      return h('view', { class: 'page' }, [
+        withDirectives(h('text', 'Hello World'), [[customDirective]]),
+        h('view', { class: 'mt-10 flex flex-row justify-between' }, [
+          h('text', {}, `isMounted:`),
+          h('text', { id: 'is-mounted' }, `${instance.$data['isMounted']}`),
+        ])
       ])
-    ])
+    }
   }
-}
 </script>
