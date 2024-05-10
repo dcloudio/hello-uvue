@@ -1042,7 +1042,6 @@ export default {
                 },
               ]
             },
-            // #ifndef APP-ANDROID
             {
               id: 'withDirectives',
               name: 'withDirectives',
@@ -1058,8 +1057,23 @@ export default {
                   url: 'withDirectives-composition'
                 },
               ]
+            },
+            {
+              id: 'withModifiers',
+              name: 'withModifiers',
+              children: [
+                {
+                  id: 'withModifiers-options',
+                  name: 'withModifiers 选项式 API',
+                  url: 'withModifiers-options'
+                },
+                {
+                  id: 'withModifiers-composition',
+                  name: 'withModifiers 组合式 API',
+                  url: 'withModifiers-composition'
+                },
+              ]
             }
-            // #endif
           ] as Page[]
         },
         {
