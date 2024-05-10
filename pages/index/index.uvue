@@ -985,6 +985,9 @@ export default {
                 {
                   id: 'render-composition',
                   name: 'render 组合式 API',
+                  // #ifdef APP-IOS
+                  enable: false,
+                  // #endif
                   url: 'render-composition'
                 },
               ]
@@ -1017,6 +1020,9 @@ export default {
                 {
                   id: 'cloneVNode-composition',
                   name: 'cloneVNode 组合式 API',
+                  // #ifdef APP-IOS
+                  enable: false,
+                  // #endif
                   url: 'cloneVNode-composition'
                 },
               ]
@@ -1049,6 +1055,9 @@ export default {
                 {
                   id: 'resolveComponent-composition',
                   name: 'resolveComponent 组合式 API',
+                  // #ifdef APP-IOS
+                  enable: false,
+                  // #endif
                   url: 'resolveComponent-composition'
                 },
               ]
@@ -1065,6 +1074,9 @@ export default {
                 {
                   id: 'withDirectives-composition',
                   name: 'withDirectives 组合式 API',
+                  // #ifdef APP-IOS
+                  enable: false,
+                  // #endif
                   url: 'withDirectives-composition'
                 },
               ]
@@ -1081,6 +1093,9 @@ export default {
                 {
                   id: 'withModifiers-composition',
                   name: 'withModifiers 组合式 API',
+                  // #ifdef APP-IOS
+                  enable: false,
+                  // #endif
                   url: 'withModifiers-composition'
                 },
               ]
