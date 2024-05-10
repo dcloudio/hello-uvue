@@ -711,9 +711,15 @@
       }
     },
     {
-      "path": "pages/render-function/render/render",
+      "path": "pages/render-function/render/render-options",
       "style": {
-        "navigationBarTitleText": "render function"
+        "navigationBarTitleText": "render 选项式 API"
+      }
+    },
+    {
+      "path": "pages/render-function/render/render-composition",
+      "style": {
+        "navigationBarTitleText": "render 组合式 API"
       }
     },
     {

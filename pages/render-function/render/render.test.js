@@ -1,35 +1,48 @@
-const PAGE_PATH = '/pages/render-function/render/render'
+const OPTIONS_PAGE_PATH = '/pages/render-function/render/render-options'
+const COMPOSITION_PAGE_PATH = '/pages/render-function/render/render-composition'
 
-describe('/pages/render-function/render/render', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: web 端测试未获取到元素
-    it('web', async () => {
-      expect(1).toBe(1)
-    })
+describe('render-function render', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isWeb = platformInfo.startsWith('web')
+  const isIos = platformInfo.startsWith('ios')
+  if (isWeb) {
+    it("web platform test cannot get render dom", async () => {
+      expect(1).toBe(1);
+    });
     return
   }
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
     await page.waitFor('view')
-  })
-  it('component', async () => {
+    
     const ComForRenderFunction = await page.$('.component-for-h-function')
     expect(await ComForRenderFunction.text()).toEqual(
       'component for h()'
     )
     const compSlot = await page.$('.comp-slot')
     expect(await compSlot.text()).toEqual('component slot')
-  })
-  it('text', async () => {
-    const msgEl = await page.$('.msg')
+    
+    let msgEl = await page.$('.msg')
     expect(await msgEl.text()).toEqual('default msg')
-  })
-  it('button', async () => {
+    
     const btnEl = await page.$('.btn')
     expect(await btnEl.property('type')).toBe('primary')
     await btnEl.tap()
-    const msgEl = await page.$('.msg')
+    msgEl = await page.$('.msg')
     expect(await msgEl.text()).toEqual('new msg')
+  }
+  
+  it('render options API', async () => {
+    await test(OPTIONS_PAGE_PATH)
+  })
+
+  it('render composition API', async () => {
+    if (!isIos) {
+      await test(COMPOSITION_PAGE_PATH)
+    } else {
+      // TODO: ios 端 defineOptions + render 页面空白
+      expect(1).toBe(1);
+    }
   })
 })

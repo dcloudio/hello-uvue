@@ -976,7 +976,18 @@ export default {
             {
               id: 'render',
               name: 'render & h()',
-              url: 'render/render'
+              children: [
+                {
+                  id: 'render-options',
+                  name: 'render 选项式 API',
+                  url: 'render-options'
+                },
+                {
+                  id: 'render-composition',
+                  name: 'render 组合式 API',
+                  url: 'render-composition'
+                },
+              ]
             },
             {
               id: 'mergeProps',
