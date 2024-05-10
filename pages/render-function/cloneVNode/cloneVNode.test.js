@@ -2,9 +2,11 @@ const OPTIONS_PAGE_PATH = '/pages/render-function/cloneVNode/cloneVNode-options'
 const COMPOSITION_PAGE_PATH = '/pages/render-function/cloneVNode/cloneVNode-composition'
 
 describe('cloneVNode', () => {
-  if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
-    // TODO: ios options API 合并属性无效, composition API 页面空白(defineOptions + render)
-    it("IOS platform not support", async () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isWeb = platformInfo.startsWith('web')
+  const isIos = platformInfo.startsWith('ios')
+  if (isWeb) {
+    it("web platform test cannot get render dom", async () => {
       expect(1).toBe(1);
     });
     return
@@ -13,11 +15,16 @@ describe('cloneVNode', () => {
   let page = null
   const test = async (pagePath) => {
     page = await program.reLaunch(pagePath)
-    // 因为 web 端无法获取, 未使用 waitFor view
-    await page.waitFor(1000)
+    await page.waitFor('view')
 
-    const image = await program.screenshot();
-    expect(image).toSaveImageSnapshot();
+    const original = await page.$('.original')
+    expect(await original.style('backgroundColor')).toBe('#ff0000')
+
+    if (!isIos) {
+      // ios options API 合并属性无效
+      const cloned = await page.$('.cloned')
+      expect(await cloned.style('backgroundColor')).toBe('#00ff00')
+    }
   }
 
   it('cloneVNode options API', async () => {
@@ -25,6 +32,11 @@ describe('cloneVNode', () => {
   })
 
   it('cloneVNode composition API', async () => {
-    await test(COMPOSITION_PAGE_PATH)
+    if (!isIos) {
+      await test(COMPOSITION_PAGE_PATH)
+    } else {
+      // TODO: ios 端 defineOptions + render 页面空白
+      expect(1).toBe(1);
+    }
   })
 })
