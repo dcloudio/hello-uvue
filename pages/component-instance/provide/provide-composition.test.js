@@ -20,6 +20,10 @@ describe('组合式 API provide', () => {
 
     expect(await arr.text()).toBe('arr: [1,2,3]')
 
+    const arr0 = await page.$('.arr-0')
+
+    expect(await arr0.text()).toBe('arr[0]: 1')
+
     const fn = await page.$('.fn')
     expect(await fn.text()).toBe('fn: hello')
 
