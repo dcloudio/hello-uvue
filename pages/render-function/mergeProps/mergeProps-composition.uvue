@@ -13,8 +13,6 @@
 </template>
 
 <script setup lang="uts">
-  import { mergeProps } from 'vue'
-
   type PropFn = () => string
 
   // TODO: 确认 android 与 web & ios 差异

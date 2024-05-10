@@ -1,7 +1,4 @@
 <script setup lang="ts">
-  import { withDirectives } from 'vue'
-  import type { DirectiveBinding } from 'vue'
-
   defineOptions({
     data() {
       return {

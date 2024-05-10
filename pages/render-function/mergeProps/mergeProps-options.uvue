@@ -13,8 +13,6 @@
 </template>
 
 <script lang="uts">
-  import { mergeProps } from 'vue'
-
   type PropFn = () => string
   export default {
     data() {

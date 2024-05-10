@@ -1,6 +1,4 @@
 <script setup lang="uts">
-  import { cloneVNode } from 'vue'
-
   defineOptions({
     render() : VNode {
       const originalVNode = h('view', { class: 'original' }, [

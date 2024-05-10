@@ -12,8 +12,6 @@
 </template>
 
 <script setup lang="uts">
-  import {isVNode} from 'vue'
-
   const isVNodeVNode = ref(false)
   const isVNodeString = ref(false)
   // #ifdef APP-ANDROID

@@ -1,7 +1,4 @@
 <script lang="uts">
-  import { withDirectives } from 'vue'
-  import type { DirectiveBinding } from 'vue'
-
   export default {
     data() {
       return {
