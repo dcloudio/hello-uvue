@@ -46,9 +46,19 @@ describe('v-for', () => {
     expect(await setValue2.text()).toBe('set value 2')
     const setValue3 = await page.$('#set-value-3')
     expect(await setValue3.text()).toBe('set value 3')
-    
+
+    // v-for UTSJSONObject
+    for (let i = 1; i <= 3; i++) {
+      /// key
+      let utsKey = await page.$('#utsKey' + i)
+      expect(await utsKey.text()).toBe('utsKey' + i)
+      /// value
+      let utsValue = await page.$('#UTSJSONObject-value' + i)
+      expect(await utsValue.text()).toBe('UTSJSONObject-value' + i)
+    }
+
     await page.waitFor(500)
-    
+
     const image = await program.screenshot({
 			fullPage: true
 		});
