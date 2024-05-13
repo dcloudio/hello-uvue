@@ -8,12 +8,14 @@
 </template>
 
 <script setup lang='uts'>
+  // 基础数据类型可自动推导类型
   const count1 = ref(0)
   const count2 = ref(count1)
 
   type Counter = {
     count : number
   }
+  // TODO: Android 待编译器支持通过泛型指定类型
   const counter = ref({
     count: 0
   } as Counter)
