@@ -15,7 +15,7 @@
   type Counter = {
     count : number
   }
-  // TODO: Android 待编译器支持通过泛型指定类型
+  // TODO: Android 端暂不支持通过泛型指定类型，可通过 as 方式指定类型
   const counter = ref({
     count: 0
   } as Counter)
