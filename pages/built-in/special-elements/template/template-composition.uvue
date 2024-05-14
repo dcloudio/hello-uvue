@@ -3,9 +3,12 @@
     <template v-if="dataInfo.isShow">
       <text id="title">{{ title }}</text>
     </template>
+    <template v-else>
+      <text>隐藏标题时显示</text>
+    </template>
     <button id="show-botton" @click="handleShow">{{ dataInfo.isShow ? '点击隐藏' : '点击显示' }}</button>
     <template v-for="(item, index) in list" :key="index">
-      <view class="item">{{ index + 1 }}.{{ item.name }}</view>
+      <text :class="'item'">{{ index + 1 }}.{{ item.name }}</text>
     </template>
     <button @click="goMapStyle">跳转绑定 Map 类型 style 页面</button>
   </view>
@@ -49,9 +52,8 @@ defineExpose({
 
 <style>
 .item {
-  display: flex;
-  flex-direction: row;
   margin: 15px;
+  padding: 4px 8px;
   border: #eee solid 1px;
 }
 </style>
