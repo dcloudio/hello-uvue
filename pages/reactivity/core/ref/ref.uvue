@@ -3,7 +3,7 @@
     <text id="count1" class="mb-10">count1: {{ count1 }}</text>
     <text id="count2" class="mb-10">count2: {{ count2 }}</text>
     <text id="counter-count" class="mb-10">counter.count: {{ counter.count }}</text>
-    <button class="increment-btn" @click="increment">increment</button>
+    <button id="increment-btn" @click="increment">increment</button>
   </view>
 </template>
 
@@ -15,10 +15,10 @@
   type Counter = {
     count : number
   }
-  // TODO: Android 端暂不支持通过泛型指定类型，可通过 as 方式指定类型
-  const counter = ref({
+  // 可通过泛型指定类型
+  const counter = ref<Counter>({
     count: 0
-  } as Counter)
+  })
 
   const increment = () => {
     count1.value++

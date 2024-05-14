@@ -15,12 +15,12 @@ describe('shallowReactive', () => {
     const stateNestedCount = await page.$('#state-nested-count')
     expect(await stateNestedCount.text()).toBe('0')
 
-    const incrementStateNestedCountBtn = await page.$('.increment-state-nested-count-btn')
+    const incrementStateNestedCountBtn = await page.$('#increment-state-nested-count-btn')
     await incrementStateNestedCountBtn.tap()
 
     expect(await stateNestedCount.text()).toBe('0')
 
-    const incrementStateCountBtn = await page.$('.increment-state-count-btn')
+    const incrementStateCountBtn = await page.$('#increment-state-count-btn')
     await incrementStateCountBtn.tap()
 
     if (isWeb) {

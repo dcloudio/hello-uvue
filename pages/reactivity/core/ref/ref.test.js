@@ -14,7 +14,7 @@ describe('ref', () => {
     const counterCount = await page.$('#counter-count')
     expect(await counterCount.text()).toBe('counter.count: 0')
 
-    const incrementBtn = await page.$('.increment-btn')
+    const incrementBtn = await page.$('#increment-btn')
     await incrementBtn.tap()
 
     expect(await count1.text()).toBe('count1: 2')

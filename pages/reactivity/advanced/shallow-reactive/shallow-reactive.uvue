@@ -9,12 +9,13 @@
       <text id="state-nested-count">{{ state.nested.count }}</text>
     </view>
     <button
-      class="increment-state-count-btn mb-10"
+      id="increment-state-count-btn"
+      class="mb-10"
       @click="incrementStateCount">
       increment state.count
     </button>
     <button
-      class="increment-state-nested-count-btn"
+      id="increment-state-nested-count-btn"
       @click="incrementStateNestedCount">
       increment state.nested.count
     </button>
@@ -29,12 +30,13 @@ type State = {
   count : number,
   nested : StateNested
 }
-const state = shallowReactive({
+// 可通过泛型指定类型
+const state = shallowReactive<State>({
   count: 0,
   nested: {
     count: 0
-  } as StateNested
-} as State)
+  }
+})
 
 const incrementStateCount = () => {
   state.count++

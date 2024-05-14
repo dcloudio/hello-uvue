@@ -16,7 +16,7 @@
       <text>obj.arr:</text>
       <text id="obj-arr">{{ JSON.stringify(obj['arr']) }}</text>
     </view>
-    <button class="update-btn" @click="update">update</button>
+    <button id="update-btn" @click="update">update</button>
   </view>
 </template>
 

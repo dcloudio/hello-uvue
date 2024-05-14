@@ -1,9 +1,9 @@
 <template>
   <view class="page">
     <template v-if="dataInfo.isShow">
-      <view class="title">{{ title }}</view>
+      <text id="title">{{ title }}</text>
     </template>
-    <view class="show-botton" @click="handleShow">{{ dataInfo.isShow ? '点击隐藏' : '点击显示' }}</view>
+    <button id="show-botton" @click="handleShow">{{ dataInfo.isShow ? '点击隐藏' : '点击显示' }}</button>
     <template v-for="(item, index) in list" :key="index">
       <view class="item">{{ index + 1 }}.{{ item.name }}</view>
     </template>
@@ -39,7 +39,7 @@ export default {
       this.dataInfo.isShow = !this.dataInfo.isShow
     },
     goMapStyle() {
-      uni.navigateTo({ url: '/pages/built-in/component/template/template-map-style-options' })
+      uni.navigateTo({ url: '/pages/built-in/special-elements/template/template-map-style-options' })
     }
   }
 }

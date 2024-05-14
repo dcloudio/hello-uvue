@@ -19,7 +19,7 @@ describe('reactive', () => {
     const objArr = await page.$('#obj-arr')
     expect(await objArr.text()).toBe('["a","b","c"]')
 
-    const updateBtn = await page.$('.update-btn')
+    const updateBtn = await page.$('#update-btn')
     await updateBtn.tap()
 
     expect(await count.text()).toBe('2')
