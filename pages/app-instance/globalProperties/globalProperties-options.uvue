@@ -3,46 +3,46 @@
   <scroll-view style="flex: 1; padding-bottom: 20px">
     <!-- #endif -->
     <view class="uni-padding-wrap">
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties string: {{ globalPropertiesStr }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties number: {{ globalPropertiesNum }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties boolean: {{ globalPropertiesBool }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties object: {{ globalPropertiesObj }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties null: {{ globalPropertiesNull }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties array: {{ globalPropertiesArr }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties set: {{ globalPropertiesSet }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties map: {{ globalPropertiesMap }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties reactiveObj.str:
         {{ globalPropertiesReactiveObj['str'] }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties reactiveObj.num:
         {{ globalPropertiesReactiveObj['num'] }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties reactiveObj.boolean:
         {{ globalPropertiesReactiveObj['bool'] }}</text
       >
-      <text class="uni-common-mt"
+      <text class="mt-10"
         >globalProperties fun 返回值: {{ globalPropertiesFn() }}</text
       >
-      <button @click="updateGlobalProperties" class="uni-common-mt">
+      <button @click="updateGlobalProperties" class="mt-10">
         update globalProperties
       </button>
     </view>

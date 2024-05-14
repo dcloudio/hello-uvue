@@ -8,7 +8,7 @@ describe('v-show', () => {
     let dataInfo = await page.data('dataInfo')
     expect(dataInfo.show).toBe(true)
     
-    const vShowElement = await page.$('.v-show-element')
+    const vShowElement = await page.$('#v-show-element')
     expect(await vShowElement.style('display')).toBe('flex')
     
 
