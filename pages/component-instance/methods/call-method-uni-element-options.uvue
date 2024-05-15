@@ -21,8 +21,8 @@ export default {
       this.slider1!.value = 80
     },
     callMethodTest(text: string): string | null {
-      this.slider1!.setAttribute('str', text);
-      const result = this.slider1!.getAttribute('str') as string;
+      this.slider1?.setAttribute('str', text);
+      const result = this.slider1?.getAttribute('str') as string;
       return result;
     },
   }
