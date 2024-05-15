@@ -27,7 +27,7 @@ export default {
     this.call()
   },
   methods: {
-    call: async (): Promise<void> => {
+    async call(): Promise<void> {
       this.callMethod1()
       await delay()
       this.callMethod2()
@@ -40,29 +40,29 @@ export default {
     },
     callMethod1() {
       // 调用组件的 foo1 方法
-      this.callEasyMethod1!.foo1()
+      this.callEasyMethod1?.foo1?.()
     },
     callMethod2() {
       // 调用组件的 foo2 方法并传递 1个参数
-      this.callEasyMethod1!.foo2(Date.now())
+      this.callEasyMethod1?.foo2?.(Date.now())
     },
     callMethod3() {
       // 调用组件的 foo3 方法并传递 2个参数
-      this.callEasyMethod1!.foo3(Date.now(), Date.now())
+      this.callEasyMethod1?.foo3?.(Date.now(), Date.now())
     },
     callMethod4() {
       // 调用组件的 foo4 方法并传递 callback
-      this.callEasyMethod1!.foo4(() => {
+      this.callEasyMethod1?.foo4?.(() => {
         console.log('callback')
       })
     },
     callMethod5() {
       // 注意： 返回值可能为 null，当前例子一定不为空，所以加了 !
-      const result = this.callEasyMethod1!.foo5('string5') as string
+      const result = this.callEasyMethod1?.foo5?.('string5') as string
       console.log(result) // string1
     },
     callMethodTest(text: string): string | null {
-      const result = this.callEasyMethod1!.foo5(text) as string
+      const result = this.callEasyMethod1?.foo5?.(text) as string
       return result
     },
     callMethodInOtherFile(text: string): string {

@@ -16,7 +16,7 @@ const component = ref<ComponentPublicInstance | null>(null)
 const callMethodRes = ref('')
 
 const callMethod = () : string => {
-  callMethodRes.value = component.value!.$callMethod('test', 'call defineExpose method res') as string
+  callMethodRes.value = component.value?.$callMethod('test', 'call defineExpose method res') as string
   return callMethodRes.value
 }
 
