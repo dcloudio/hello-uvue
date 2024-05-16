@@ -30,7 +30,7 @@ export default {
     this.call()
   },
   methods: {
-    call: async (): Promise<void> => {
+    async call(): Promise<void> {
       this.callMethod1()
       await delay()
       this.callMethod2()
