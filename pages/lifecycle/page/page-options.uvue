@@ -36,6 +36,7 @@
         <text>onResize 触发：</text>
         <text>{{ isOnResizeTriggered }}</text>
       </view>
+			<MonitorPageLifecycleOptions />
       <button class="mt-10" @click="scrollToBottom">scrollToBottom</button>
       <button class="mt-10" @click="pullDownRefresh">
         trigger pullDownRefresh
@@ -48,10 +49,12 @@
 
 <script lang="uts">
 import { state, setLifeCycleNum } from '@/store/index.uts'
+import MonitorPageLifecycleOptions from './monitor-page-lifecycle-options.uvue'
  type DataInfo = {
  	isScrolled: boolean
  }
 export default {
+	components: { MonitorPageLifecycleOptions },
 	data() {
 		return {
 			isOnloadTriggered: false,

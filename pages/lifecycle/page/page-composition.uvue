@@ -36,6 +36,9 @@
         <text>onResize 触发：</text>
         <text>{{ isOnResizeTriggered }}</text>
       </view>
+			<view class="flex flex-row justify-between mt-10">
+				<MonitorPageLifecycleComposition />
+      </view>
       <button class="mt-10" @click="scrollToBottom">scrollToBottom</button>
       <button class="mt-10" @click="pullDownRefresh">
         trigger pullDownRefresh
@@ -48,6 +51,7 @@
 
 <script setup lang="uts">
 import { state, setLifeCycleNum } from '@/store/index.uts'
+import MonitorPageLifecycleComposition from './monitor-page-lifecycle-composition.uvue'
 
 const isOnloadTriggered = ref(false)
 const isOnPageShowTriggered = ref(false)
