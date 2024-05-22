@@ -1,28 +1,50 @@
 <template>
   <view class="page">
-    <text id="count1" class="mb-10">count1: {{ count1 }}</text>
-    <text id="count2" class="mb-10">count2: {{ count2 }}</text>
-    <text id="counter-count" class="mb-10">counter.count: {{ counter.count }}</text>
-    <button id="increment-btn" @click="increment">increment</button>
+    <view class="flex justify-between flex-row mb-10">
+      <text>count:</text>
+      <text id="count">{{ count }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>str:</text>
+      <text id="str">{{ str }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>bool:</text>
+      <text id="bool">{{ bool }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>arr:</text>
+      <text id="arr">{{ JSON.stringify(arr) }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>counter.count:</text>
+      <text id="counter-count">{{ counter.count }}</text>
+    </view>
+    <button id="change-data-btn" @click="changeData">change data</button>
   </view>
 </template>
 
-<script setup lang='uts'>
-  // 基础数据类型可自动推导类型
-  const count1 = ref(0)
-  const count2 = ref(count1)
+<script setup lang="uts">
+// 基础数据类型可自动推导类型
+const count = ref(0)
+const str = ref('default str')
+const bool = ref(false)
 
-  type Counter = {
-    count : number
-  }
-  // 可通过泛型指定类型
-  const counter = ref<Counter>({
-    count: 0
-  })
+// 可通过泛型指定类型
+const arr = ref<number[]>([1, 2, 3])
+type Counter = {
+  count : number
+}
+// 可通过泛型指定类型
+const counter = ref<Counter>({
+  count: 0
+})
 
-  const increment = () => {
-    count1.value++
-    count2.value++
-    counter.value.count++
-  }
+const changeData = () => {
+  count.value++
+  str.value = 'new str'
+  bool.value = !bool.value
+  arr.value.push(arr.value.length + 1)
+  counter.value.count++
+}
 </script>
