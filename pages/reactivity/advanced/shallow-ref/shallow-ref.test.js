@@ -10,12 +10,12 @@ describe('shallowRef', () => {
     const stateCount = await page.$('#state-count')
     expect(await stateCount.text()).toBe('0')
 
-    const incrementStateCountBtn = await page.$('.increment-state-count-btn')
+    const incrementStateCountBtn = await page.$('#increment-state-count-btn')
     await incrementStateCountBtn.tap()
 
     expect(await stateCount.text()).toBe('0')
 
-    const updateStateBtn = await page.$('.update-state-btn')
+    const updateStateBtn = await page.$('#update-state-btn')
     await updateStateBtn.tap()
 
     expect(await stateCount.text()).toBe('1')

@@ -40,14 +40,14 @@ type Data = {
   num : number,
   arr : string[]
 }
-
-const data = reactive({
+// 可通过泛型指定类型
+const data = reactive<Data>({
   str: 'default str',
   num: 0,
   arr: ['a', 'b', 'c']
-} as Data)
-
-const readonlyData = readonly(data)
+})
+// 可通过泛型指定类型
+const readonlyData = readonly<Data>(data)
 
 const updateData = () => {
   data.str = 'new str'

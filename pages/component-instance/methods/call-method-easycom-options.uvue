@@ -23,7 +23,7 @@ export default {
     this.callEasyMethod1 = this.$refs['callEasyMethod1'] as CallEasyMethodComponentPublicInstance
   },
   methods: {
-    call: async (): Promise<void> => {
+    async call(): Promise<void> {
       this.callMethod1()
       await delay()
       this.callMethod2()

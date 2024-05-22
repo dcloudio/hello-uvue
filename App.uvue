@@ -50,10 +50,10 @@
         uni.exit()
       }
     },
-    // #endif
     onExit() {
       console.log('App Exit')
     },
+    // #endif
     methods: {
       checkLaunchPath() : boolean {
         const HOME_PATH = 'pages/index/index'

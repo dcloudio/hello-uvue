@@ -5,16 +5,15 @@ describe('built-in/special-elements/component', () => {
   let page
   const test = async () => {
     await page.waitFor('view')
-    expect.assertions(4);
-    const showBtn = await page.$('.show-botton')
+    const showBtn = await page.$('#show-botton')
+    expect(await showBtn.text()).toBe("点击显示")
     await showBtn.tap()
     
     const dataInfo = await page.data('dataInfo')
     expect(dataInfo.isShow).toBeTruthy()
-    const getTitle = await page.$('.title')
+    const getTitle = await page.$('#title')
     expect(await getTitle.text()).toBe("hello")
-    const getShow = await page.$('.show-botton')
-    expect(await getShow.text()).toBe("点击隐藏")
+    expect(await showBtn.text()).toBe("点击隐藏")
     expect((await page.$$('.item')).length).toBe(2)
   }
   it('template Options API', async () => {

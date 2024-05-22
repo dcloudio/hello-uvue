@@ -109,7 +109,7 @@
       const self = this
       // #ifdef APP
       this.$watch('count',
-        function (count : number, prevCount : number, onCleanup : OnCleanup) {
+        (count : number, prevCount : number, onCleanup : OnCleanup) => {
           this.watchCountRes = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${(this.$refs['countRef'] as UniTextElement).value}`
           const cancel = () => {
             this.watchCountCleanupRes = `watch count cleanup: ${count}`
@@ -132,8 +132,8 @@
       // #ifdef WEB
       this.stopWatchCount = this.$watch(
         'count',
-        function (count : number, prevCount : number, onCleanup : OnCleanup) {
-          this.watchCountRes = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${this.$refs['countRef'].childNodes[0].innerText}`
+        (count : number, prevCount : number, onCleanup : OnCleanup) => {
+          this.watchCountRes = `count: ${count}, prevCount: ${prevCount}, count ref text (flush sync): ${(this.$refs['countRef'] as UniTextElement).childNodes[0].getAttribute('value')}`
           const cancel = () => {
             this.watchCountCleanupRes = `watch count cleanup: ${count}`
           }
@@ -167,7 +167,7 @@
         this.watchObjStrRes = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${(this.$refs['objStrRef'] as UniTextElement).value}`
         // #endif
         // #ifdef WEB
-        this.watchObjStrRes = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${this.$refs.objStrRef.childNodes[0].innerText}`
+        this.watchObjStrRes = `str: ${str}, prevStr: ${prevStr}, obj.str ref text (flush pre): ${(this.$refs.objStrRef as UniTextElement).childNodes[0].getAttribute('value')}`
         // #endif
       },
       'obj.bool': {
@@ -176,7 +176,7 @@
           this.watchObjBoolRes = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${(this.$refs['objBoolRef'] as UniTextElement).value}`
           // #endif
           // #ifdef WEB
-          this.watchObjBoolRes = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${this.$refs.objBoolRef.childNodes[0].innerText}`
+          this.watchObjBoolRes = `bool: ${bool}, prevBool: ${prevBool}, obj.bool ref text (flush post): ${(this.$refs.objBoolRef as UniTextElement).childNodes[0].getAttribute('value')}`
           // #endif
         },
         // 侦听器延迟到组件渲染之后触发

@@ -5,11 +5,12 @@
       <text id="state-count">{{ state.count }}</text>
     </view>
     <button
-      class="increment-state-count-btn mb-10"
+      id="increment-state-count-btn"
+      class="mb-10"
       @click="incrementStateCount">
       increment state.count
     </button>
-    <button class="update-state-btn" @click="updateState">update state</button>
+    <button id="update-state-btn" @click="updateState">update state</button>
   </view>
 </template>
 
@@ -17,10 +18,10 @@
 type State = {
   count: number
 }
-
-const state = shallowRef({
+// 可通过泛型指定类型
+const state = shallowRef<State>({
   count: 0
-} as State)
+})
 
 const incrementStateCount = () => {
   state.value.count++

@@ -16,13 +16,14 @@
       <text>obj.arr:</text>
       <text id="obj-arr">{{ JSON.stringify(obj['arr']) }}</text>
     </view>
-    <button class="update-btn" @click="update">update</button>
+    <button id="update-btn" @click="update">update</button>
   </view>
 </template>
 
 <script setup lang="uts">
 const count = ref(0)
 
+// TODO: 待支持后补充泛型示例
 const obj = reactive({
   str: 'default str',
   num: count,

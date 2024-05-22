@@ -107,9 +107,9 @@ type ListItem = {
   items?: ListItem[]
 }
 
-
-const object = reactive({ key1: 'value1', key2: 'value2', key3: 'value3' } as VForObject)
-const listItems = ref([
+// 可通过泛型指定类型
+const object = reactive<VForObject>({ key1: 'value1', key2: 'value2', key3: 'value3' })
+const listItems = ref<ListItem[]>([
   { name: '1',
     count: 0,
     show: true,
@@ -134,7 +134,7 @@ const listItems = ref([
       { name: '3-2', count: 0, show: true },
     ]
   },
-] as ListItem[])
+])
 
 const mapList = new Map<string, string>([
   ['map-key-1', 'map value 1'],

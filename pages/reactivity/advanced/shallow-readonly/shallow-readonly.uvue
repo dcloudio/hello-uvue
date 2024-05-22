@@ -36,12 +36,13 @@ type State = {
   count : number,
   nested : StateNested
 }
-const state = shallowReadonly({
+// 可通过泛型指定类型
+const state = shallowReadonly<State>({
   count: 0,
   nested: {
     count: 0
-  } as StateNested
-} as State)
+  }
+})
 
 // #ifdef APP
 const incrementStateCount = () => {
