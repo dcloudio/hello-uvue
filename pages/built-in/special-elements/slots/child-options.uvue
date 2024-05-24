@@ -13,7 +13,6 @@
 </template>
 
 <script lang="uts">
-import { SlotsType } from 'vue'
 export default {
   name: 'child',
   slots: Object as SlotsType<{
