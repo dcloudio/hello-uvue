@@ -4,25 +4,21 @@ const PAGE_COMPOSITION_PATH = '/pages/component-instance/refs/refs-composition'
 describe('$refs', () => {
   let page
 
-  it('$refs 选项式 API 属性生效', async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
+  const test = async (path) => {
+    page = await program.reLaunch(path)
+    await page.waitFor('view')
 
-    expect.assertions(2)
-    const data = await page.data()
+    const dataInfo = await page.data('dataInfo')
+    expect(dataInfo.existRef).toBe(true)
+    expect(dataInfo.existChildRef).toBe(true)
+    expect(dataInfo.existTextItems).toBe(true)
+  }
 
-    expect(data.existRef).toBe(true)
-    expect(data.exisChildRef).toBe(true)
+  it('$refs 选项式 API', async () => {
+    await test(PAGE_PATH)
   })
 
-  it('$refs 组合式 API 属性生效', async () => {
-    page = await program.reLaunch(PAGE_COMPOSITION_PATH)
-    await page.waitFor(500)
-
-    expect.assertions(2)
-    const data = await page.data()
-    console.log('data: ',data);
-    expect(data.refObject.existRef).toBe(true)
-    expect(data.refObject.exisChildRef).toBe(true)
+  it('$refs 组合式 API', async () => {
+    await test(PAGE_COMPOSITION_PATH)
   })
 })
