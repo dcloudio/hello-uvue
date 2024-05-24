@@ -9,5 +9,5 @@ export default {
 </script>
 
 <template>
-  {{ value }}
+  <text>{{ value }}</text>
 </template>

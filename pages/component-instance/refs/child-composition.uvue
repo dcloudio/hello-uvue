@@ -3,5 +3,5 @@ const value = ref<string>('child value')
 </script>
 
 <template>
-  {{ value }}
+  <text>{{ value }}</text>
 </template>
