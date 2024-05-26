@@ -156,7 +156,11 @@
     watch: {
       obj: {
         handler(obj : Obj, prevObj ?: Obj) {
-          this.watchObjRes = `obj: ${JSON.stringify(obj)}, prevObj: ${JSON.stringify(prevObj)}`
+          if (prevObj === null) {
+            this.watchObjRes = `obj: {"num":${obj.num},"str":"${obj.str}","bool":${obj.bool},"arr":${JSON.stringify(obj.arr)}}, prevObj: ${JSON.stringify(prevObj)}`
+          } else {
+            this.watchObjRes = `obj: {"num":${obj.num},"str":"${obj.str}","bool":${obj.bool},"arr":${JSON.stringify(obj.arr)}}, prevObj: {"num":${prevObj?.num},"str":"${prevObj?.str}","bool":${prevObj?.bool},"arr":${JSON.stringify(prevObj?.arr)}}`
+          }
         },
         // immediate: true 第一次触发, 旧值应该是 undefined, 现在 app 是初始值
         immediate: true,

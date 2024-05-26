@@ -127,7 +127,7 @@
 
   const watchObjRes = ref('')
   watchPostEffect(() => {
-    watchObjRes.value = `obj: ${JSON.stringify(obj)}`
+    watchObjRes.value = `obj: {"num":${obj.num},"str":"${obj.str}","bool":${obj.bool},"arr":${JSON.stringify(obj.arr)}}`
   })
 
   const objStrRef = ref<UniTextElement | null>(null)

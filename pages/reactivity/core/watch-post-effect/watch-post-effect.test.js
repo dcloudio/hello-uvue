@@ -6,7 +6,7 @@ describe('watchPostEffect', () => {
   const isAndroid = platformInfo.startsWith('android')
   const isIos = platformInfo.startsWith('ios')
   const isWeb = platformInfo.startsWith('web')
-  
+
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor('view')
@@ -113,16 +113,8 @@ describe('watchPostEffect', () => {
     expect(await objArr.text()).toBe('[0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
-    // TODO web端和安卓端JSON.stringify对属性的排序不一致
-    if (process.env.uniTestPlatformInfo.startsWith('web') || isIos) {
-      expect(await watchObjRes.text()).toBe(
-        'obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}'
-      )
-    } else {
-      expect(await watchObjRes.text()).toBe(
-        'obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
-      )
-    }
+    expect(await watchObjRes.text()).toBe('obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}')
+
     const watchObjStrRes = await page.$('#watch-obj-str-res')
     expect(await watchObjStrRes.text()).toBe(
       'str: num: 0, obj.str ref text: num: 0')
@@ -142,15 +134,7 @@ describe('watchPostEffect', () => {
     expect(await objBool.text()).toBe('true')
     expect(await objArr.text()).toBe('[0,1]')
 
-    if (process.env.uniTestPlatformInfo.startsWith('web') || isIos) {
-      expect(await watchObjRes.text()).toBe(
-        'obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}'
-      )
-    } else {
-      expect(await watchObjRes.text()).toBe(
-        'obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}'
-      )
-    }
+    expect(await watchObjRes.text()).toBe('obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}')
     expect(await watchObjStrRes.text()).toBe(
       'str: num: 1, obj.str ref text: num: 1')
 

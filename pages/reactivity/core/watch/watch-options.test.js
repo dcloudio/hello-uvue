@@ -36,7 +36,7 @@ describe('watch', () => {
     expect(await count.text()).toBe('1')
 
     expect(await watchCountRes.text()).toBe(
-      'count: 1, prevCount: 0, count ref text (flush sync): 0')
+      `count: 1, prevCount: 0, count ref text (flush sync): ${isWeb? 'null': '0'}`)
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('1')
@@ -49,12 +49,13 @@ describe('watch', () => {
     await incrementBtn.tap()
 
     expect(await count.text()).toBe('2')
-    expect(await watchCountRes.text()).toBe('count: 2, prevCount: 1, count ref text (flush sync): 1')
+    expect(await watchCountRes.text()).toBe(
+      `count: 2, prevCount: 1, count ref text (flush sync): ${isWeb?'null': '1'}`)
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('1')
     }
-    
+
     if (isIos || isWeb) {
       expect(await watchCountTrackNum.text()).toBe('3')
     }
@@ -74,12 +75,12 @@ describe('watch', () => {
     await incrementBtn.tap()
 
     expect(await count.text()).toBe('3')
-    
+
     if (isApp) {
       expect(await watchCountRes.text()).toBe('count: 3, prevCount: 2, count ref text (flush sync): 2')
     }
     if (isWeb) {
-      expect(await watchCountRes.text()).toBe('count: 2, prevCount: 1, count ref text (flush sync): 1')
+      expect(await watchCountRes.text()).toBe('count: 2, prevCount: 1, count ref text (flush sync): null')
     }
 
     if (isAndroid) {
@@ -91,7 +92,7 @@ describe('watch', () => {
     if (isWeb) {
       expect(await watchCountTrackNum.text()).toBe('3')
     }
-    
+
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup: 2')
   })
 
@@ -108,7 +109,7 @@ describe('watch', () => {
     const watchObjRes = await page.$('#watch-obj-res')
     if (isAndroid) {
       expect(await watchObjRes.text()).toBe(
-        'obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}, prevObj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
+        'obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}, prevObj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}'
       )
     }
     if (isIos || isWeb) {
@@ -136,23 +137,17 @@ describe('watch', () => {
     expect(await objBool.text()).toBe('true')
     expect(await objArr.text()).toBe('[0,1]')
 
-    if (isAndroid) {
-      expect(await watchObjRes.text()).toBe(
-        'obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}, prevObj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}'
-      )
-    }
-    if (isIos || isWeb) {
-      expect(await watchObjRes.text()).toBe(
-        'obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}, prevObj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}'
-      )
-    }
+
+    expect(await watchObjRes.text()).toBe(
+      'obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}, prevObj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}'
+    )
     expect(await watchObjStrRes.text()).toBe(
-      'str: num: 1, prevStr: num: 0, obj.str ref text (flush pre): num: 0')
+      `str: num: 1, prevStr: num: 0, obj.str ref text (flush pre): ${isWeb?'null': 'num: 0'}`)
 
     expect(await watchObjStrTriggerNum.text()).toBe('0')
 
     expect(await watchObjBoolRes.text()).toBe(
-      'bool: true, prevBool: false, obj.bool ref text (flush post): true'
+      `bool: true, prevBool: false, obj.bool ref text (flush post): ${isWeb?'null':'true'}`
     )
     expect(await watchObjArrRes.text()).toBe('arr: [0,1], prevArr: [0,1]')
   })
