@@ -1,6 +1,9 @@
 const COMPOSITION_PAGE_PATH = '/pages/reactivity/core/watch/watch-composition'
 
 describe('watch', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isAndroid = platformInfo.includes('android')
+  const isWeb = platformInfo.includes('web')
   let page = null
 
   beforeAll(async () => {
@@ -35,7 +38,7 @@ describe('watch', () => {
     expect(await watchCountRes.text()).toBe(
       'count: 1, prevCount: 0, count ref text (flush sync): 0')
 
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+    if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('2')
     } else {
       expect(await watchCountTrackNum.text()).toBe('4')
@@ -49,7 +52,7 @@ describe('watch', () => {
     expect(await count.text()).toBe('2')
     expect(await watchCountRes.text()).toBe('count: 2, prevCount: 1, count ref text (flush sync): 1')
 
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+    if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('2')
     } else {
       expect(await watchCountTrackNum.text()).toBe('6')
@@ -69,7 +72,7 @@ describe('watch', () => {
     expect(await count.text()).toBe('3')
     expect(await watchCountRes.text()).toBe('count: 2, prevCount: 1, count ref text (flush sync): 1')
 
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+    if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('2')
     } else {
       expect(await watchCountTrackNum.text()).toBe('6')
@@ -90,12 +93,12 @@ describe('watch', () => {
     expect(await objArr.text()).toBe('[0]')
 
     const watchObjRes = await page.$('#watch-obj-res')
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+    if (isAndroid) {
       expect(await watchObjRes.text()).toBe(
         'obj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}, prevObj: {"arr":[0],"bool":false,"num":0,"str":"num: 0"}'
       )
     }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (isWeb) {
       expect(await watchObjRes.text()).toBe(
         'obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}, prevObj: null'
       )
@@ -120,12 +123,12 @@ describe('watch', () => {
     expect(await objBool.text()).toBe('true')
     expect(await objArr.text()).toBe('[0,1]')
 
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
+    if (isAndroid) {
       expect(await watchObjRes.text()).toBe(
         'obj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}, prevObj: {"arr":[0,1],"bool":true,"num":1,"str":"num: 1"}'
       )
     }
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (isWeb) {
       expect(await watchObjRes.text()).toBe(
         'obj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}, prevObj: {"num":1,"str":"num: 1","bool":true,"arr":[0,1]}'
       )
