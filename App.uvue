@@ -3,6 +3,16 @@
 
   let firstBackTime = 0
   export default {
+    // #ifndef APP-ANDROID
+    mixins: [
+      {
+        data() {
+          return {
+            appMixinDataMsg: 'App.uvue mixin data msg'
+          }
+        }
+      }],
+    // #endif
     onLaunch: function (options) {
       console.log(options)
       // 自动化测试
@@ -64,28 +74,39 @@
           return false
         }
         return true
+      },
+      // #ifndef APP-ANDROID
+      checkAppMixin() : boolean {
+        if(this.globalMixinDataMsg1 != '通过 defineMixin 定义全局 mixin data') {
+          return false
+        }
+        if(this.appMixinDataMsg != 'App.uvue mixin data msg') {
+          return false
+        }
+        return true
       }
+      // #endif
     }
   }
 </script>
 
 <style>
-@import './styles/common.css';
+  @import './styles/common.css';
 
-.list-item-text {
-  line-height: 36px;
-}
+  .list-item-text {
+    line-height: 36px;
+  }
 
-.split-title {
-  margin: 20px 0 5px;
-  padding: 5px 0;
-  border-bottom: 1px solid #dfdfdf;
-}
+  .split-title {
+    margin: 20px 0 5px;
+    padding: 5px 0;
+    border-bottom: 1px solid #dfdfdf;
+  }
 
-.btn-view {
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #dfdfdf;
-  border-radius: 3px;
-}
+  .btn-view {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+  }
 </style>
