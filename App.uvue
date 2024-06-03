@@ -64,6 +64,9 @@
       console.log('App Exit')
     },
     // #endif
+    onError: function(error: any) {
+      console.log('App Error', error)
+    },
     methods: {
       checkLaunchPath() : boolean {
         const HOME_PATH = 'pages/index/index'

@@ -1,0 +1,18 @@
+<template>
+  <view class="page">
+    <button @click="triggerError">trigger error</button>
+  </view>
+</template>
+
+<script lang="uts">
+export default {
+  onReady(){
+    throw Error('error in error options page onReady')
+  },
+  methods: {
+    triggerError(){
+      throw Error('trigger error in throw error options page')
+    }
+  },
+}
+</script>

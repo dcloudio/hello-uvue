@@ -1,0 +1,14 @@
+<template>
+  <view class="page">
+    <button @click="triggerError">trigger error</button>
+  </view>
+</template>
+
+<script setup lang="uts">
+  onReady(() => {
+    throw Error('error in error composition page onReady')
+  })
+  const triggerError = () => {
+    throw Error('trigger error in throw error composition page')
+  }
+</script>

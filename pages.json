@@ -842,6 +842,18 @@
       "style": {
         "navigationBarTitleText": "runtime error 组合式 API"
       }
+    },
+    {
+      "path": "pages/error/throw-error/throw-error-options",
+      "style": {
+        "navigationBarTitleText": "throw error 选项式 API"
+      }
+    },
+    {
+      "path": "pages/error/throw-error/throw-error-composition",
+      "style": {
+        "navigationBarTitleText": "throw error 组合式 API"
+      }
     }
   ],
   "globalStyle": {
