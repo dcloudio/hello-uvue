@@ -825,6 +825,12 @@
       }
     },
     {
+      "path": "pages/examples/multiple-style-script/multiple-style-script",
+      "style": {
+        "navigationBarTitleText": "多个 style 和 script"
+      }
+    },
+    {
       "path": "pages/type/type",
       "style": {
         "navigationBarTitleText": "",

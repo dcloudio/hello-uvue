@@ -1142,6 +1142,11 @@ export default {
               id: 'unrecognized-component',
               name: 'unrecognized-component',
               url: 'unrecognized-component/unrecognized-component'
+            },
+            {
+              id: 'multiple-style-script',
+              name: '多个 style 和 script',
+              url: 'multiple-style-script/multiple-style-script'
             }
           ] as Page[]
         },
