@@ -25,6 +25,10 @@ defineProps({
     type: Number,
     default: 0
   },
+  checked: {
+    type: Boolean,
+    default: false
+  },
   obj: {
     // #ifdef APP-ANDROID
     // TODO: 确认类型是否合理

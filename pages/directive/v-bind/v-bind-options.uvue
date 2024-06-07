@@ -20,6 +20,9 @@
     <!-- v-bind props -->
     <Foo :title="dataInfo.fooProps.title" :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
 
+    <!-- v-bind props -->
+    <Foo checked />
+
     <!-- v-bind in style -->
     <!-- #ifdef WEB -->
     <view class="mb-10 v-bind-css"></view>
