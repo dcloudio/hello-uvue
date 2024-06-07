@@ -1,94 +1,94 @@
 {
-  "id": "hello-uvue",
-  "name": "hello-uvue",
-  "displayName": "hello-uvue",
-  "version": "0.0.2",
-  "description": "uvue的vue语法示例工程",
-  "main": "env.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": "",
-  "keywords": [
-    "uvue",
-    "uni-app2.0"
-  ],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {},
-  "engines": {
-    "HBuilderX": "^3.96"
-  },
-  "dcloudext": {
-    "category": [
-      "前端页面模板",
-      "uni-app前端项目模板"
+    "id": "hello-uvue-alpha",
+    "name": "hello-uvue-alpha",
+    "displayName": "hello-uvue-alpha",
+    "version": "1.0.14",
+    "description": "uvue的vue语法示例工程",
+    "main": "env.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": "",
+    "keywords": [
+        "uvue",
+        "uni-app2.0"
     ],
-    "sale": {
-      "regular": {
-        "price": "0.00"
-      },
-      "sourcecode": {
-        "price": "0.00"
-      }
+    "author": "",
+    "license": "MIT",
+    "dependencies": {},
+    "engines": {
+        "HBuilderX": "^3.96"
     },
-    "contact": {
-      "qq": ""
+    "dcloudext": {
+        "category": [
+            "前端页面模板",
+            "uni-app前端项目模板"
+        ],
+        "sale": {
+            "regular": {
+                "price": "0.00"
+            },
+            "sourcecode": {
+                "price": "0.00"
+            }
+        },
+        "contact": {
+            "qq": ""
+        },
+        "declaration": {
+            "ads": "无",
+            "data": "无",
+            "permissions": "无"
+        },
+        "npmurl": ""
     },
-    "declaration": {
-      "ads": "无",
-      "data": "无",
-      "permissions": "无"
-    },
-    "npmurl": ""
-  },
-  "uni_modules": {
-    "dependencies": [],
-    "encrypt": [],
-    "platforms": {
-      "cloud": {
-        "tcb": "y",
-        "aliyun": "y"
-      },
-      "client": {
-        "App": {
-          "app-vue": "n",
-          "app-nvue": "n",
-          "app-uvue": "y"
-        },
-        "H5-mobile": {
-          "Safari": "n",
-          "Android Browser": "u",
-          "微信浏览器(Android)": "u",
-          "QQ浏览器(Android)": "u"
-        },
-        "H5-pc": {
-          "Chrome": "u",
-          "IE": "u",
-          "Edge": "u",
-          "Firefox": "u",
-          "Safari": "u"
-        },
-        "小程序": {
-          "微信": "u",
-          "阿里": "u",
-          "百度": "u",
-          "字节跳动": "u",
-          "QQ": "u",
-          "京东": "u",
-          "钉钉": "u",
-          "快手": "u",
-          "飞书": "u"
-        },
-        "快应用": {
-          "华为": "u",
-          "联盟": "u"
-        },
-        "Vue": {
-          "vue2": "n",
-          "vue3": "y"
+    "uni_modules": {
+        "dependencies": [],
+        "encrypt": [],
+        "platforms": {
+            "cloud": {
+                "tcb": "y",
+                "aliyun": "y"
+            },
+            "client": {
+                "App": {
+                    "app-vue": "n",
+                    "app-nvue": "n",
+                    "app-uvue": "y"
+                },
+                "H5-mobile": {
+                    "Safari": "n",
+                    "Android Browser": "u",
+                    "微信浏览器(Android)": "u",
+                    "QQ浏览器(Android)": "u"
+                },
+                "H5-pc": {
+                    "Chrome": "u",
+                    "IE": "u",
+                    "Edge": "u",
+                    "Firefox": "u",
+                    "Safari": "u"
+                },
+                "小程序": {
+                    "微信": "u",
+                    "阿里": "u",
+                    "百度": "u",
+                    "字节跳动": "u",
+                    "QQ": "u",
+                    "京东": "u",
+                    "钉钉": "u",
+                    "快手": "u",
+                    "飞书": "u"
+                },
+                "快应用": {
+                    "华为": "u",
+                    "联盟": "u"
+                },
+                "Vue": {
+                    "vue2": "n",
+                    "vue3": "y"
+                }
+            }
         }
-      }
     }
-  }
 }
