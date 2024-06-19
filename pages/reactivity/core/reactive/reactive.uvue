@@ -16,24 +16,36 @@
       <text>obj.arr:</text>
       <text id="obj-arr">{{ JSON.stringify(obj['arr']) }}</text>
     </view>
-    <button id="update-btn" @click="update">update</button>
+    <button class='mb-10' id="update-count-btn" @click="updateCount">update count</button>
+    <button class='mb-10' id="update-obj-str-btn" @click="updateObjStr">update obj.str</button>
+    <button class='mb-10' id="update-obj-num-btn" @click="updateObjNum">update obj.num</button>
+    <button class='mb-10' id="update-obj-arr-btn" @click="updateObjArr">update obj.arr</button>
   </view>
 </template>
 
 <script setup lang="uts">
-const count = ref(0)
+  const count = ref(0)
 
-// TODO: 待支持后补充泛型示例
-const obj = reactive({
-  str: 'default str',
-  num: count,
-  arr: ['a', 'b', 'c']
-})
+  // TODO: 待支持后补充泛型示例
+  const obj = reactive({
+    str: 'default str',
+    num: count,
+    arr: ['a', 'b', 'c']
+  })
 
-const update = () => {
-  obj['str'] = 'new str';
-  obj['num'] = (obj['num'] as number) + 1
-  count.value++
-  (obj['arr'] as string[]).push('d')
-}
+  const updateObjStr = () => {
+    obj['str'] = 'new str';
+  }
+
+  const updateObjNum = () => {
+    obj['num'] = (obj['num'] as number) + 1
+  }
+
+  const updateCount = () => {
+    count.value++
+  }
+
+  const updateObjArr = () => {
+    (obj['arr'] as string[]).push('d')
+  }
 </script>

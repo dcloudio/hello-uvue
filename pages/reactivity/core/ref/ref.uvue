@@ -20,31 +20,43 @@
       <text>counter.count:</text>
       <text id="counter-count">{{ counter.count }}</text>
     </view>
-    <button id="change-data-btn" @click="changeData">change data</button>
+    <button class='mb-10' id="change-count-btn" @click="changeCount">change count</button>
+    <button class='mb-10' id='change-str-btn' @click='changeStr'>change str</button>
+    <button class='mb-10' id='change-bool-btn' @click='changeBool'>change bool</button>
+    <button class='mb-10' id='change-arr-btn' @click='changeArr'>change arr</button>
+    <button class='mb-10' id='change-counter-btn' @click='changeCounter'>change counter</button>
   </view>
 </template>
 
 <script setup lang="uts">
-// 基础数据类型可自动推导类型
-const count = ref(0)
-const str = ref('default str')
-const bool = ref(false)
+  // 基础数据类型可自动推导类型
+  const count = ref(0)
+  const str = ref('default str')
+  const bool = ref(false)
 
-// 可通过泛型指定类型
-const arr = ref<number[]>([1, 2, 3])
-type Counter = {
-  count : number
-}
-// 可通过泛型指定类型
-const counter = ref<Counter>({
-  count: 0
-})
+  // 可通过泛型指定类型
+  const arr = ref<number[]>([1, 2, 3])
+  type Counter = {
+    count : number
+  }
+  // 可通过泛型指定类型
+  const counter = ref<Counter>({
+    count: 0
+  })
 
-const changeData = () => {
-  count.value++
-  str.value = 'new str'
-  bool.value = !bool.value
-  arr.value.push(arr.value.length + 1)
-  counter.value.count++
-}
+  const changeCount = () => {
+    count.value++
+  }
+  const changeStr = () => {
+    str.value = 'new str'
+  }
+  const changeBool = () => {
+    bool.value = !bool.value
+  }
+  const changeArr = () => {
+    arr.value.push(arr.value.length + 1)
+  }
+  const changeCounter = () => {
+    counter.value.count++
+  }
 </script>

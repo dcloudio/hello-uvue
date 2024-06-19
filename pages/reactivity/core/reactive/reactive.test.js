@@ -19,12 +19,21 @@ describe('reactive', () => {
     const objArr = await page.$('#obj-arr')
     expect(await objArr.text()).toBe('["a","b","c"]')
 
-    const updateBtn = await page.$('#update-btn')
-    await updateBtn.tap()
+    const updateCountBtn = await page.$('#update-count-btn')
+    await updateCountBtn.tap()
+    expect(await count.text()).toBe('1')
 
-    expect(await count.text()).toBe('2')
+    const updateObjStrBtn = await page.$('#update-obj-str-btn')
+    await updateObjStrBtn.tap()
     expect(await objStr.text()).toBe('new str')
+
+    const updateObjNumBtn = await page.$('#update-obj-num-btn')
+    await updateObjNumBtn.tap()
+    expect(await count.text()).toBe('2')
     expect(await objNum.text()).toBe('2')
+
+    const updateObjArrBtn = await page.$('#update-obj-arr-btn')
+    await updateObjArrBtn.tap()
     expect(await objArr.text()).toBe('["a","b","c","d"]')
   })
 })

@@ -18,13 +18,24 @@ describe('ref', () => {
     const counterCount = await page.$('#counter-count')
     expect(await counterCount.text()).toBe('0')
 
-    const changeDataBtn = await page.$('#change-data-btn')
-    await changeDataBtn.tap()
-
+    const changeCountBtn = await page.$('#change-count-btn')
+    await changeCountBtn.tap()
     expect(await count.text()).toBe('1')
+
+    const changeStrBtn = await page.$('#change-str-btn')
+    await changeStrBtn.tap()
     expect(await str.text()).toBe('new str')
+
+    const changeBoolBtn = await page.$('#change-bool-btn')
+    await changeBoolBtn.tap()
     expect(await bool.text()).toBe('true')
+
+    const changeArrBtn = await page.$('#change-arr-btn')
+    await changeArrBtn.tap()
     expect(await arr.text()).toBe('[1,2,3,4]')
+
+    const changeCounterBtn = await page.$('#change-counter-btn')
+    await changeCounterBtn.tap()
     expect(await counterCount.text()).toBe('1')
   })
 
