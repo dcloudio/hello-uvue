@@ -1,10 +1,12 @@
 <template>
   <view class="page">
-    <button @click="triggerError">trigger error</button>
+    <button id="trigger-error" @click="triggerError">trigger error</button>
   </view>
 </template>
 
 <script lang="uts">
+import { state } from '@/store/index.uts'
+
 export default {
   onReady(){
     throw Error('error in error options page onReady')
@@ -12,6 +14,10 @@ export default {
   methods: {
     triggerError(){
       throw Error('trigger error in throw error options page')
+    },
+    // 自动化测试
+    getLifeCycleNum() : number {
+    	return state.lifeCycleNum
     }
   },
 }

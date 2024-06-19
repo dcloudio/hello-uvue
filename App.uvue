@@ -66,6 +66,7 @@
     // #endif
     onError: function(error: any) {
       console.log('App Error', error)
+      setLifeCycleNum(state.lifeCycleNum + 100)
     },
     methods: {
       checkLaunchPath() : boolean {

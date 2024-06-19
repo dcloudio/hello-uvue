@@ -1,14 +1,24 @@
 <template>
   <view class="page">
-    <button @click="triggerError">trigger error</button>
+    <button id="trigger-error" @click="triggerError">trigger error</button>
   </view>
 </template>
 
 <script setup lang="uts">
+  import { state } from '@/store/index.uts'
+  
   onReady(() => {
     throw Error('error in error composition page onReady')
   })
   const triggerError = () => {
     throw Error('trigger error in throw error composition page')
   }
+
+  // 自动化测试
+  const getLifeCycleNum = () : number => {
+    return state.lifeCycleNum
+  }
+  defineExpose({
+    getLifeCycleNum
+  })
 </script>
