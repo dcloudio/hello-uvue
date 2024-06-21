@@ -1,4 +1,5 @@
-const PAGE_PATH = '/pages/directive/v-memo/v-memo'
+const OPTIONS_PAGE_PATH = '/pages/directive/v-memo/v-memo-options'
+const COMPOSITION_PAGE_PATH = '/pages/directive/v-memo/v-memo-composition'
 
 describe('v-memo', () => {
   if (process.env.uniTestPlatformInfo.startsWith('web')) {
@@ -9,44 +10,39 @@ describe('v-memo', () => {
     return
   }
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
     await page.waitFor('view')
-  })
-  it('basic', async () => {
-    const equivalentVOnceTextEl = await page.$('.equivalent-v-once-text')
-    let equivalentVOnceTextText = await equivalentVOnceTextEl.text()
-    expect(equivalentVOnceTextText).toBe(
-      'This will never change: hello world'
-    )
+    
+    const neverChangeMsg = await page.$('#v-memo-never-change-msg')
+    expect(await neverChangeMsg.text()).toBe('hello world')
 
-    const vMemoTextEl = await page.$('.v-memo-text')
-    let vMemoTextText = await vMemoTextEl.text()
-    expect(vMemoTextText).toBe(
-      'This will change when num change, msg: hello world, num: 0'
-    )
+    const msg = await page.$('#msg')
+    expect(await msg.text()).toBe('hello world')
+    
+    const numChangeMsg = await page.$('#v-memo-num-change-msg')
+    expect(await numChangeMsg.text()).toBe('hello world')
 
-    const changeMessageBtn = await page.$('.change-message-btn')
+    const changeMessageBtn = await page.$('#change-message-btn')
     await changeMessageBtn.tap()
 
-    const msg = await page.data('msg')
-    expect(msg).toBe('msg changed')
+    expect(await neverChangeMsg.text()).toBe('hello world')
+    expect(await msg.text()).toBe('msg changed')
+    expect(await numChangeMsg.text()).toBe('hello world')
 
-    equivalentVOnceTextText = await equivalentVOnceTextEl.text()
-    expect(equivalentVOnceTextText).toBe(
-      'This will never change: hello world'
-    )
-    vMemoTextText = await vMemoTextEl.text()
-    expect(vMemoTextText).toBe(
-      'This will change when num change, msg: hello world, num: 0'
-    )
+    const incrementNumBtn = await page.$('#increment-num-btn')
+    await incrementNumBtn.tap()
 
-    const plusNumBtn = await page.$('.plus-num-btn')
-    await plusNumBtn.tap()
-
-    vMemoTextText = await vMemoTextEl.text()
-    expect(vMemoTextText).toBe(
-      'This will change when num change, msg: msg changed, num: 1'
-    )
-  })
+    expect(await neverChangeMsg.text()).toBe('hello world')
+    expect(await msg.text()).toBe('msg changed')
+    expect(await numChangeMsg.text()).toBe('msg changed')
+  }
+  
+  it('v-memo options API', async () => {
+		await test(OPTIONS_PAGE_PATH)
+	})
+	
+	it('v-memo composition API', async () => {
+		await test(COMPOSITION_PAGE_PATH)
+	})
 })

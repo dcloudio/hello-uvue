@@ -1,0 +1,26 @@
+<template>
+  <view class="page">
+    <button id="toggle-btn" @click="toggleShow">toggle show/hide</button>
+    <view class="mt-10" id="v-show-element" v-show="dataInfo.show">
+      点击上方按钮，切换显示/隐藏
+    </view>
+  </view>
+</template>
+
+<script setup lang="uts">
+type DataInfo = {
+  show: boolean
+}
+
+const dataInfo = reactive({
+  show: true
+} as DataInfo)
+
+const toggleShow = () => {
+  dataInfo.show = !dataInfo.show
+}
+
+defineExpose({
+  dataInfo
+})
+</script>

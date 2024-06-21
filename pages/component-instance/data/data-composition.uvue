@@ -1,0 +1,61 @@
+<template>
+  <view class="page">
+    <view class="flex justify-between flex-row mb-10">
+      <text>str: </text>
+      <text id="str">{{ str }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>num: </text>
+      <text id="num">{{ num }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>arr: </text>
+      <text id="arr">{{ arr.join(',') }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>obj.str: </text>
+      <text id="obj-str">{{ obj.str }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>obj.num: </text>
+      <text id="obj-num">{{ obj.num }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
+      <text>obj.arr: </text>
+      <text id="obj-arr">{{ obj.arr.join(',') }}</text>
+    </view>
+    <button @click="updateData">update data</button>
+  </view>
+</template>
+
+<script setup lang="uts">
+  type Obj = {
+    str : string,
+    num : number,
+    arr : number[]
+  }
+  
+  const str = ref('default str')
+  const num = ref(0)
+  // 可通过泛型指定类型
+  const arr = ref<number[]>([1, 2, 3])
+  const obj = ref<Obj>({
+    str: 'default obj.str',
+    num: 10,
+    arr: [4, 5, 6]
+  })
+
+  const updateData = () => {
+    str.value = 'new str'
+    num.value = 1
+    arr.value = [4, 5, 6]
+    
+    obj.value.str = 'new obj.str'
+    obj.value.num = 100
+    obj.value.arr = [7, 8, 9]
+  }
+
+  defineExpose({
+    updateData
+  })
+</script>

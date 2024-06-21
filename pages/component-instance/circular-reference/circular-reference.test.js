@@ -1,20 +1,35 @@
-const PAGE_PATH = '/pages/component-instance/circular-reference/circular-reference'
+const OPTIONS_PAGE_PATH = '/pages/component-instance/circular-reference/circular-reference-options'
+const COMPOSITION_PAGE_PATH = '/pages/component-instance/circular-reference/circular-reference-composition'
 
-describe('circular-reference', () => {
+describe('', () => {
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
+
+  const test = async (page) => {
+    if (process.env.uniTestPlatformInfo.toLowerCase().includes('android')) {
+      // cross reference
+      const childA = await page.$$('.child-a')
+      expect(childA.length).toBe(3)
+
+      const childB = await page.$$('.child-b')
+      expect(childB.length).toBe(2)
+    }
+
+    // reference self
+    const childC = await page.$$('.child-c')
+    expect(childC.length).toBe(5)
+  }
+
+  it('circular-reference options API', async () => {
+    page = await program.reLaunch(OPTIONS_PAGE_PATH)
+    await page.waitFor('view')
+
+    await test(page)
   })
 
-  it('render', async () => {
-    // const child_a = await page.$$('.child-a-child-b')
-    // expect(child_a.length).toBe(5)
+  it('circular-reference composition API', async () => {
+    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
+    await page.waitFor('view')
 
-    // const child_b = await page.$$('.child-b-child-a')
-    // expect(child_b.length).toBe(5)
-
-    const child_c = await page.$$('.child-c-child-c')
-    expect(child_c.length).toBe(10)
+    await test(page)
   })
 })

@@ -1,0 +1,33 @@
+<script lang="uts">
+import CompForHFunction from '@/components/CompForHFunction.uvue'
+export default {
+  data() {
+    return {
+      msg: 'default msg'
+    }
+  },
+  render(): VNode {
+    return h('view', { class: 'page' }, [
+      h(CompForHFunction, {}, (): VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
+      h('text', { class: 'uni-common-mt msg', style: { color: 'blue' } }, this.msg),
+      h(
+        'button',
+        {
+          class: 'uni-common-mt btn',
+          type: 'primary',
+          onClick: () => {
+            this.msg = 'new msg'
+          }
+        },
+        'click'
+      )
+    ])
+  }
+}
+</script>
+
+<style>
+.btn {
+  color: red;
+}
+</style>

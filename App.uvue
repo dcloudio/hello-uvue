@@ -3,6 +3,16 @@
 
   let firstBackTime = 0
   export default {
+    // #ifndef APP-ANDROID
+    mixins: [
+      {
+        data() {
+          return {
+            appMixinDataMsg: 'App.uvue mixin data msg'
+          }
+        }
+      }],
+    // #endif
     onLaunch: function (options) {
       console.log(options)
       // 自动化测试
@@ -50,13 +60,13 @@
         uni.exit()
       }
     },
-    // #endif
     onExit() {
       console.log('App Exit')
     },
+    // #endif
     methods: {
       checkLaunchPath() : boolean {
-        const HOME_PATH = 'pages/tab-bar/options-api'
+        const HOME_PATH = 'pages/index/index'
         if (state.appLaunchPath != HOME_PATH) {
           return false
         }
@@ -64,80 +74,24 @@
           return false
         }
         return true
+      },
+      // #ifndef APP-ANDROID
+      checkAppMixin() : boolean {
+        if(this.globalMixinDataMsg1 != '通过 defineMixin 定义全局 mixin data') {
+          return false
+        }
+        if(this.appMixinDataMsg != 'App.uvue mixin data msg') {
+          return false
+        }
+        return true
       }
+      // #endif
     }
   }
 </script>
 
 <style>
-  @import "./common/uni.css";
-  /* @font-face {
-    font-family: uniicons;
-    font-weight: normal;
-    font-style: normal;
-    src: url('./static/fonts/uni.ttf') format('truetype');
-  } */
-
-  .page {
-    padding: 15px;
-  }
-
-  .uni-panel {
-    margin-bottom: 12px;
-  }
-
-  .uni-panel-h {
-    background-color: #ffffff;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px;
-  }
-
-  .uni-panel-h-on {
-    background-color: #f0f0f0;
-  }
-
-  .uni-panel-text {
-    color: #000000;
-    font-size: 14px;
-    font-weight: normal;
-  }
-
-  .uni-panel-icon-on {
-    transform: rotate(180deg);
-  }
-
-  .uni-navigate-item {
-    flex-direction: row;
-    align-items: center;
-    background-color: #ffffff;
-    border-top-style: solid;
-    border-top-color: #f0f0f0;
-    border-top-width: 1px;
-    padding: 12px;
-    justify-content: space-between;
-  }
-
-  .uni-navigate-item:active {
-    background-color: #f8f8f8;
-  }
-
-  .uni-navigate-text {
-    color: #000000;
-    font-size: 12px;
-    opacity: 0.8;
-  }
-
-  .uni-navigate-icon {
-    margin-left: 15px;
-    color: #999999;
-    font-size: 14px;
-    font-weight: normal;
-  }
-
-  .text-disabled {
-    color: #a0a0a0;
-  }
+  @import './styles/common.css';
 
   .list-item-text {
     line-height: 36px;

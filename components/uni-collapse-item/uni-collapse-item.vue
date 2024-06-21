@@ -1,5 +1,5 @@
 <template>
-	<view class="uni-collapse-item">
+	<view class="uni-collapse-item" :class="{ 'open': is_open }">
 		<view class="uni-collapse-item__title" @click="openCollapse(!is_open)">
 			<text class="uni-collapse-item__title-text" :class="{'is-disabled':disabled,'open--active':is_open}">{{title}}</text>
 			<view class="down_arrow" :class="{'down_arrow--active': is_open}"></view>
@@ -60,7 +60,7 @@
 			openCollapse(open: boolean) {
 				if (this.disabled) return
 				// 关闭其他已打开
-				$dispatch(this, 'UniCollapse', 'cloceAll')
+				$dispatch(this, 'UniCollapse', 'closeAll')
 				this.is_open = open
 				this.openOrClose(open)
 			},
@@ -109,7 +109,7 @@
 
 	.uni-collapse-item__title-text {
 		flex: 1;
-		color: #000;
+		color: #333;
 		font-size: 14px;
 		font-weight: 400;
 	}

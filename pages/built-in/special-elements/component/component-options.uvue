@@ -1,0 +1,44 @@
+<template>
+  <view class="container">
+    <component :is="currentComponentStr" />
+    <component :is="currentComponentInstance" />
+    <button @click="changeCurrentComponent">change current component</button>
+  </view>
+</template>
+
+<script lang="uts">
+import Foo from '../../../../components/Foo.uvue'
+import Bar from '../../../../components/Bar.uvue'
+export default {
+  components: {
+    Foo,
+    Bar
+  },
+  data() {
+    return {
+      currentComponentStr: 'Foo',
+      currentComponentInstance: Foo
+    }
+  },
+  methods: {
+    changeCurrentComponent() {
+      if (this.currentComponentStr === 'Foo') {
+        this.currentComponentStr = 'Bar'
+        this.currentComponentInstance = Bar
+      } else {
+        this.currentComponentStr = 'Foo'
+        this.currentComponentInstance = Foo
+      }
+    }
+  }
+}
+</script>
+
+<style>
+.item {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  border: #eee solid 1px;
+}
+</style>

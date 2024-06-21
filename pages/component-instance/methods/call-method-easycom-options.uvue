@@ -1,0 +1,66 @@
+<template>
+  <view>
+    <call-easy-method ref="callEasyMethod1"></call-easy-method>
+  </view>
+</template>
+
+<script lang="uts">
+const delay = (): Promise<string> =>
+  new Promise((resolve, _) => {
+    setTimeout(() => {
+      resolve('')
+    }, 1000)
+  })
+
+export default {
+  data() {
+    return {
+      callEasyMethod1: null as CallEasyMethodComponentPublicInstance | null
+    }
+  },
+  onReady() {
+    // 通过组件 ref 属性获取组件实例, 组件标签名首字母大写，驼峰+ComponentPublicInstance
+    this.callEasyMethod1 = this.$refs['callEasyMethod1'] as CallEasyMethodComponentPublicInstance
+  },
+  methods: {
+    async call(): Promise<void> {
+      this.callMethod1()
+      await delay()
+      this.callMethod2()
+      await delay()
+      this.callMethod3()
+      await delay()
+      this.callMethod4()
+      await delay()
+      this.callMethod5()
+    },
+    callMethod1() {
+      // 调用组件的 foo1 方法
+      this.callEasyMethod1?.foo1?.()
+    },
+    callMethod2() {
+      // 调用组件的 foo2 方法并传递 1个参数
+      this.callEasyMethod1?.foo2?.(Date.now())
+    },
+    callMethod3() {
+      // 调用组件的 foo3 方法并传递 2个参数
+      this.callEasyMethod1?.foo3?.(Date.now(), Date.now())
+    },
+    callMethod4() {
+      // 调用组件的 foo4 方法并传递 callback
+      this.callEasyMethod1?.foo4?.(() => {
+        console.log('callback')
+      })
+    },
+    callMethod5() {
+      // 注意： 返回值可能为 null，当前例子一定不为空，所以加了 !
+      const result = this.callEasyMethod1?.foo5?.('string1') as string
+      console.log(result) // string1
+    },
+    callMethodTest(text: string): string | null {
+      const result = this.callEasyMethod1?.foo5?.(text) as string
+      return result
+    }
+  }
+}
+</script>

@@ -1,0 +1,24 @@
+<template>
+  <view>
+    <slot name="header" :msg="msg"></slot>
+    <slot :num="num"></slot>
+    <slot name="footer" :arr="arr"></slot>
+  </view>
+</template>
+
+<script lang="uts">
+  export default {
+    slots: Object as SlotsType<{
+      header: { msg: string }
+      default: { num: number }
+      footer: { arr: string[] }
+    }>,
+    data(){
+      return {
+        msg: 'foo msg',
+        num: 0,
+        arr: ['a','b', 'c']
+      }
+    }
+  }
+</script>

@@ -2,12 +2,12 @@ import App from './App.uvue'
 import { createSSRApp } from 'vue'
 import CompForAppComponent from '@/components/CompForAppComponent.uvue'
 
-import GlobalMixinComp1 from '@/pages/composition/mixins/components/GlobalMixinComp1.uvue'
-import GlobalChildMixinComp1 from '@/pages/composition/mixins/components/GlobalChildMixinComp1.uvue'
-import GlobalMixinComp2 from '@/pages/composition/mixins/components/GlobalMixinComp2.uvue'
-import GlobalChildMixinComp2 from '@/pages/composition/mixins/components/GlobalChildMixinComp2.uvue'
-import MixinCompForGlobalMixin from '@/pages/composition/mixins/components/MixinCompForGlobalMixin.uvue'
-import MixinCompForGlobalChildMixin from '@/pages/composition/mixins/components/MixinCompForGlobalChildMixin.uvue'
+import GlobalMixinComp1 from '@/pages/component-instance/mixins/components/GlobalMixinComp1.uvue';
+import GlobalChildMixinComp1 from '@/pages/component-instance/mixins/components/GlobalChildMixinComp1.uvue';
+import GlobalMixinComp2 from '@/pages/component-instance/mixins/components/GlobalMixinComp2.uvue';
+import GlobalChildMixinComp2 from '@/pages/component-instance/mixins/components/GlobalChildMixinComp2.uvue';
+import MixinCompForGlobalMixin from '@/pages/component-instance/mixins/components/MixinCompForGlobalMixin.uvue';
+import MixinCompForGlobalChildMixin from '@/pages/component-instance/mixins/components/MixinCompForGlobalChildMixin.uvue';
 
 import plugin1 from '@/plugins/plugin1.uts'
 import plugin2 from '@/plugins/plugin2.uts'
@@ -23,7 +23,6 @@ export function createApp() {
 
   app.provide('globalProvideMsg', 'global provide message')
 
-  // #ifdef APP-ANDROID || APP-IOS
   const globalChildMixin = defineMixin({
     components: { GlobalChildMixinComp1, MixinComp: MixinCompForGlobalChildMixin },
     props: {
@@ -263,7 +262,6 @@ export function createApp() {
     }
   })
   app.mixin(globalMixin)
-  // #endif
 
   app.use(plugin1)
   app.use(plugin2)

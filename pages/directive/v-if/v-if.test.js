@@ -1,57 +1,73 @@
-const PAGE_PATH = '/pages/directive/v-if/v-if'
+const OPTIONS_PAGE_PATH = '/pages/directive/v-if/v-if-options'
+const COMPOSITION_PAGE_PATH = '/pages/directive/v-if/v-if-composition'
 
 describe('v-if', () => {
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
+  const test = async (page) => {
+    let vIfShow = await page.$('#v-if-show')
+    expect(await vIfShow.text()).toBe('show')
+    
+    const switchVIfBtn = await page.$('#switch-v-if-btn')
+    await switchVIfBtn.tap()
+    vIfShow = await page.$('#v-if-show')
+    expect(vIfShow).toBeNull()
+    
+    await switchVIfBtn.tap()
+    vIfShow = await page.$('#v-if-show')
+    expect(await vIfShow.text()).toBe('show')
+    
+    const num = await page.$('#num')
+    expect(await num.text()).toBe('1')
+    let numVIf = await page.$('#num-v-if')
+    expect(await numVIf.text()).toBe('v-if num = 1')
+    let numVElseIf = await page.$('#num-v-else-if')
+    expect(numVElseIf).toBeNull()
+    let numVElse = await page.$('#num-v-else')
+    expect(numVElse).toBeNull()
+    
+    const changeNumBtn = await page.$('#change-num-btn')
+    await changeNumBtn.tap()
+    
+    expect(await num.text()).toBe('2')
+    numVIf = await page.$('#num-v-if')
+    expect(numVIf).toBeNull()
+    numVElseIf = await page.$('#num-v-else-if')
+    expect(await numVElseIf.text()).toBe('v-else-if num = 2')
+    numVElse = await page.$('#num-v-else')
+    expect(numVElse).toBeNull()
+    
+    await changeNumBtn.tap()
+    
+    expect(await num.text()).toBe('3')
+    numVIf = await page.$('#num-v-if')
+    expect(numVIf).toBeNull()
+    numVElseIf = await page.$('#num-v-else-if')
+    expect(numVElseIf).toBeNull()
+    numVElse = await page.$('#num-v-else')
+    expect(await numVElse.text()).toBe('v-else')
+    
+    await changeNumBtn.tap()
+    
+    expect(await num.text()).toBe('1')
+    numVIf = await page.$('#num-v-if')
+    expect(await numVIf.text()).toBe('v-if num = 1')
+    numVElseIf = await page.$('#num-v-else-if')
+    expect(numVElseIf).toBeNull()
+    numVElse = await page.$('#num-v-else')
+    expect(numVElse).toBeNull()
+  }
+  
+  it('v-if options API', async () => {
+    page = await program.reLaunch(OPTIONS_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
   })
-  it('switch-v-if', async () => {
-    const btn_view = await page.$('.view-click')
-
-    const element1 = await page.$$('.v-if-show-value')
-    expect(element1.length).toBe(1)
-
-    await btn_view.tap()
-    await page.waitFor(50)
-    const element2 = await page.$$('.v-if-show-value')
-    expect(element2.length).toBe(0)
-
-    await btn_view.tap()
-    await page.waitFor(50)
-    const element3 = await page.$$('.v-if-show-value')
-    expect(element3.length).toBe(1)
-  })
-  it('switch-v-if-v-else-if-v-else', async () => {
-    const btn_view = await page.$('.view-click-abc')
-
-    const element_a = await page.$('.text-a')
-    expect(await element_a.text()).toBe('A')
-
-    await btn_view.tap()
-    await page.waitFor(50)
-    const element_b = await page.$('.text-b')
-    expect(await element_b.text()).toBe('B')
-
-    await btn_view.tap()
-    await page.waitFor(50)
-    const element_c = await page.$('.text-c')
-    expect(await element_c.text()).toBe('C')
-
-    await btn_view.tap()
-    await page.waitFor(50)
-    const element_not_abc = await page.$('.text-not-a-b-c')
-    expect(await element_not_abc.text()).toBe('Not A/B/C')
-  })
-  it('remove-children', async () => {
-    const child_a = await page.$('.child-a')
-    expect(await child_a.text()).toBe('child-a')
-
-    const btn_view = await page.$('.btn-remove-chilren')
-    await btn_view.tap()
-    await page.waitFor(50)
-
-    const child_a2 = await page.$('.child-a')
-    expect(child_a2).toBe(null)
+  
+  it('v-if composition API', async () => {
+    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
+    await page.waitFor('view')
+    
+    await test(page)
   })
 })

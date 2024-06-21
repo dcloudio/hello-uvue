@@ -26,7 +26,7 @@
 				this.child_nodes.push(child)
 			},
 			// 关闭所有
-			cloceAll() {
+			closeAll() {
 				// 开启手风琴效果才回关闭其他
 				if (this.accordion && this.child_nodes.length > 0) {
 					this.child_nodes.forEach((item) => {
@@ -42,7 +42,3 @@
 		}
 	}
 </script>
-
-<style>
-
-</style>

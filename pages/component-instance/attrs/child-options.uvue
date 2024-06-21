@@ -1,0 +1,54 @@
+<template>
+  <view>
+    <view class="mb-10 flex flex-row justify-between">
+      <text>hasPropsAttr</text>
+      <text id="has-props-attr">{{ hasPropsAttr }}</text>
+    </view>
+    <view class="mb-10 flex flex-row justify-between">
+      <text>hasEmitsAttr</text>
+      <text id="has-emits-attr">{{ hasEmitsAttr }}</text>
+    </view>
+    <view class="mb-10 flex flex-row justify-between">
+      <text>hasClassAttr</text>
+      <text id="has-class-attr">{{ hasClassAttr }}</text>
+    </view>
+  </view>
+</template>
+
+<script lang="uts">
+export default {
+  emits: ['childClick'],
+  props: {
+    str: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    hasPropsAttr(): boolean {
+      // #ifdef APP-ANDROID
+      return this.$attrs.has('val')
+      // #endif
+      // #ifndef APP-ANDROID
+      return !!this.$attrs['val']
+      // #endif
+    },
+    hasEmitsAttr(): boolean {
+      // #ifdef APP-ANDROID
+      return this.$attrs.has('childClick')
+      // #endif
+      // #ifndef APP-ANDROID
+      return !!this.$attrs['childClick']
+      // #endif
+    },
+    hasClassAttr(): boolean {
+      // #ifdef APP-ANDROID
+      return this.$attrs.has('class')
+      // #endif
+      // #ifndef APP-ANDROID
+      return !!this.$attrs['class']
+      // #endif
+    }
+  }
+}
+</script>

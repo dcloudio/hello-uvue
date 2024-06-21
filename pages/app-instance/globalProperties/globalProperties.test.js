@@ -1,13 +1,13 @@
-const PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties'
+
+
+const OPTIONS_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-options'
+const COMPOSITION_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-composition'
 
 describe('globalProperties', () => {
 	let page = null
-	beforeAll(async () => {
-		page = await program.navigateTo(PAGE_PATH)
-		await page.waitFor(500)
-	})
-	it('globalProperties', async () => {
+	const testGlobalProperties = async (page) => {
 		let data = await page.data()
+    await page.waitFor(1000)
 		expect(data.myGlobalProperties.str).toBe('default string')
 		expect(data.myGlobalProperties.num).toBe(0)
 		expect(data.myGlobalProperties.bool).toBe(false)
@@ -24,7 +24,7 @@ describe('globalProperties', () => {
 			num: 0,
 			bool: false
 		})
-		expect(data.globalPropertiesFnRes).toBe('globalPropertiesStr: default string, globalPropertiesNum: 0')
+		expect(data.myGlobalProperties.globalPropertiesFnRes).toBe('globalPropertiesStr: default string, globalPropertiesNum: 0')
 		await page.callMethod('updateGlobalProperties')
 		data = await page.data()
 		expect(data.myGlobalProperties.str).toBe('new string')
@@ -47,13 +47,34 @@ describe('globalProperties', () => {
 			num: 200,
 			bool: true
 		})
-		expect(data.globalPropertiesFnRes).toBe('globalPropertiesStr: new string, globalPropertiesNum: 100')
-	})
-	it('screenshot', async () => {
+		expect(data.myGlobalProperties.globalPropertiesFnRes).toBe('globalPropertiesStr: new string, globalPropertiesNum: 100')
+	}
+	const testScreenShot = async (page) => {
 		await page.waitFor(500)
 		const image = await program.screenshot({
 			fullPage: true
 		});
 		expect(image).toSaveImageSnapshot();
+	}
+	
+	it('globalProperties options API', async () => {
+		page = await program.navigateTo(OPTIONS_PAGE_PATH)
+		await page.waitFor('view')
+		
+		await testGlobalProperties(page)
+	})
+	it('screenshot options API', async () => {
+		await testScreenShot(page)
+	})
+	
+	it('globalProperties composition API', async () => {
+		page = await program.reLaunch(COMPOSITION_PAGE_PATH)
+    // 等待 globalProperties-options resetGlobalProperties 完成
+		await page.waitFor(1500)
+		
+		await testGlobalProperties(page)
+	})
+	it('screenshot composition API', async () => {
+		await testScreenShot(page)
 	})
 })

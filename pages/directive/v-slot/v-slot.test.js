@@ -1,13 +1,28 @@
-const PAGE_PATH = '/pages/directive/v-slot/v-slot'
+const OPTIONS_PAGE_PATH = '/pages/directive/v-slot/v-slot-options'
+const COMPOSITION_PAGE_PATH = '/pages/directive/v-slot/v-slot-composition'
 
 describe('v-slot', () => {
   let page
-  beforeAll(async () => {
-    page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
+  
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
+    await page.waitFor('view')
+    
+    const slotHeader = await page.$('#slot-header')
+    expect(await slotHeader.text()).toBe('foo msg')
+
+    const slotContent = await page.$('#slot-default')
+    expect(await slotContent.text()).toBe('0')
+
+    const slotFooter = await page.$('#slot-footer')
+    expect(await slotFooter.text()).toBe('["a","b","c"]')
+  }
+  
+  it('v-slot', async () => {
+    await test(OPTIONS_PAGE_PATH)
   })
-  it('default', async () => {
-    const defaultText = await page.$('.default')
-    expect(await defaultText.text()).toBe('loading')
+  
+  it('defineSlots', async () => {
+    await test(COMPOSITION_PAGE_PATH)
   })
 })

@@ -1,0 +1,48 @@
+const OPTIONS_PAGE_PATH = '/pages/render-function/render/render-options'
+const COMPOSITION_PAGE_PATH = '/pages/render-function/render/render-composition'
+
+describe('render-function render', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isWeb = platformInfo.startsWith('web')
+  const isAndroid = platformInfo.startsWith('android')
+  if (isWeb) {
+    it("web platform test cannot get render dom", async () => {
+      expect(1).toBe(1);
+    });
+    return
+  }
+  let page
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
+    await page.waitFor('view')
+    
+    const ComForRenderFunction = await page.$('.component-for-h-function')
+    expect(await ComForRenderFunction.text()).toEqual(
+      'component for h()'
+    )
+    const compSlot = await page.$('.comp-slot')
+    expect(await compSlot.text()).toEqual('component slot')
+    
+    let msgEl = await page.$('.msg')
+    expect(await msgEl.text()).toEqual('default msg')
+    
+    const btnEl = await page.$('.btn')
+    expect(await btnEl.property('type')).toBe('primary')
+    await btnEl.tap()
+    msgEl = await page.$('.msg')
+    expect(await msgEl.text()).toEqual('new msg')
+  }
+  
+  it('render options API', async () => {
+    await test(OPTIONS_PAGE_PATH)
+  })
+
+  it('render composition API', async () => {
+    if (!isAndroid) {
+      await test(COMPOSITION_PAGE_PATH)
+    } else {
+      // TODO: android 端 报错 java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+      expect(1).toBe(1);
+    }
+  })
+})

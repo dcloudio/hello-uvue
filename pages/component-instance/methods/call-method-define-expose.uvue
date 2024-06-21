@@ -1,29 +1,26 @@
 <template>
   <view>
-    <component-define-expose ref="comp"></component-define-expose>
+    <component-define-expose ref="component"></component-define-expose>
+    <button @click='callMethod'>callMethod</button>
+    <view class="mt-10 flex">
+      <text>调用子组件 difineExpose 暴露方法结果: </text>
+      <text class='mt-10'>{{ callMethodRes }}</text>
+    </view>
   </view>
 </template>
 
-<script>
-  // 非easycom组件需import引用组件 component1.uvue
-  import ComponentDefineExpose from './component-define-expose.uvue'
+<script setup lang="uts">
+import ComponentDefineExpose from './component-define-expose.uvue'
 
-  export default {
-    components: {
-      ComponentDefineExpose
-    },
-    data() {
-      return {
-        component: null as ComponentPublicInstance | null
-      }
-    },
-    onReady() {
-      this.component = this.$refs['comp'] as ComponentPublicInstance;
-    },
-    methods: {
-      callMethod() : string {
-        return this.component!.$callMethod('test', 'call-method-define-expose') as string
-      }
-    }
-  }
+const component = ref<ComponentPublicInstance | null>(null)
+const callMethodRes = ref('')
+
+const callMethod = () : string => {
+  callMethodRes.value = component.value?.$callMethod('test', 'call defineExpose method res') as string
+  return callMethodRes.value
+}
+
+defineExpose({
+  callMethod
+})
 </script>

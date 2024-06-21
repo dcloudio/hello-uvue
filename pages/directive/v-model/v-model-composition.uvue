@@ -1,0 +1,43 @@
+<template>
+  <view class="page">
+    <Foo
+      v-model="str"
+      v-model:msg="msg"
+      @update:modelValue="handleModelValueUpdate"
+      @update:msg="handleModelMsgUpdate" />
+    <input class="mb-10 input" id="model-value-input" v-model="str" />
+    <input class="mb-10 input" id="model-msg-input" v-model="msg" />
+    <view class="mb-10 flex justify-between flex-row">
+      <text>handle modelValue update res:</text>
+      <text id="handle-model-value-update-res">{{ handleModelValueUpdateRes }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>handle model msg update res:</text>
+      <text id="handle-model-msg-update-res">{{ handleModelMsgUpdateRes }}</text>
+    </view>
+  </view>
+</template>
+
+<script setup lang="uts">
+import Foo from './Foo-composition.uvue'
+
+const str = ref('str')
+const msg = ref('msg')
+
+const handleModelValueUpdateRes = ref('')
+const handleModelValueUpdate = (val : string) => {
+  handleModelValueUpdateRes.value = val
+}
+const handleModelMsgUpdateRes = ref('')
+const handleModelMsgUpdate = (val : string) => {
+  handleModelMsgUpdateRes.value = val
+}
+</script>
+
+<style>
+.input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+</style>

@@ -1,0 +1,36 @@
+<template>
+  <view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>v-model in Foo:</text>
+      <text id="model-value-text">{{ modelValue }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>v-model:msg in Foo:</text>
+      <text id="model-msg-text">{{ msg }}</text>
+    </view>
+
+    <view class="mb-10 flex justify-between flex-row">
+      <text>defineModel num:</text>
+      <text id="model-num-text">{{ num }}</text>
+    </view>
+    <button class="mb-10" id="update-value-btn" @click="updateValue">
+      update value
+    </button>
+  </view>
+</template>
+
+<script setup lang="uts">
+// 在被修改时，触发 "update:modelValue" 事件
+const modelValue = defineModel({ type: String })
+
+// 在被修改时，触发 "update:msg" 事件
+const msg = defineModel('msg', { type: String, default: 'default msg' })
+
+const num = defineModel('num', { type: Number, default: 1 })
+
+const updateValue = () => {
+  modelValue.value += '1'
+  msg.value += '2'
+  num.value++
+}
+</script>

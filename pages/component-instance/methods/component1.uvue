@@ -22,7 +22,8 @@
       foo4(callback : (() => void)) {
         callback()
       },
-      foo5(text1 : string) : any | null {
+      foo5(text1 : string) : string | null {
+        this.result = text1
         return text1
       }
     }

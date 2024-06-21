@@ -2,9 +2,9 @@
   <view></view>
 </template>
 
-<script setup>
+<script setup lang='uts'>
   function test(name : string) : string {
-    return `hello ${name}`
+    return name
   }
   defineExpose({
     test
