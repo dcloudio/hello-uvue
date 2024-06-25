@@ -30,10 +30,10 @@
   })
 
   const triggerParentFn = () => {
-    // #ifdef APP-ANDROID
+    // #ifdef APP-ANDROID || WEB
     parentNum.value = instance.$parent!.$callMethod('callMethodByChild') as number
     // #endif
-    // #ifndef APP-ANDROID
+    // #ifndef APP-ANDROID || WEB
     parentNum.value = instance.$parent!['callMethodByChild']()
     // #endif
   }

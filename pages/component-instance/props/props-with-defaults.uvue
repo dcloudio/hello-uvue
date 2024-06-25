@@ -3,11 +3,11 @@
     <text class="mb-10 bold">withDefaults</text>
     <view class="mb-10 flex flex-row justify-between">
       <text>msg</text>
-      <text>{{ props.msg }}</text>
+      <text id="prop-msg">{{ props.msg }}</text>
     </view>
     <view class="mb-10 flex flex-row justify-between">
       <text>labels</text>
-      <text>{{ JSON.stringify(props.labels) }}</text>
+      <text id="prop-labels">{{ JSON.stringify(props.labels) }}</text>
     </view>
   </view>
 </template>

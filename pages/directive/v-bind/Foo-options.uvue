@@ -26,6 +26,10 @@
         type: Number,
         default: 0
       },
+      checked: {
+        type: Boolean,
+        default: false
+      },
       obj: {
         // #ifdef APP-ANDROID
         type: FooPropsObjReactiveObject,
