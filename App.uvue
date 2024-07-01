@@ -114,3 +114,8 @@ export default {
   border-radius: 3px;
 }
 </style>
+<style>
+.text-red{
+  color: red;
+}
+</style>
