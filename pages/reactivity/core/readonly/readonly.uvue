@@ -56,8 +56,10 @@ const updateData = () => {
 }
 
 const updateReadonlyData = () => {
+  // #ifndef WEB
   readonlyData.str = 'new readonly str'
   readonlyData.num++
   readonlyData.arr.push('e')
+  // #endif
 }
 </script>

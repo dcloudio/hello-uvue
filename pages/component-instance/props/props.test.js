@@ -36,6 +36,11 @@ describe('props', () => {
     
     const sameNamePropDefaultValueArr = await page.$('#same-name-prop-default-value-arr')
     expect(await sameNamePropDefaultValueArr.text()).toBe('[1,2,3]')
+
+    const propMsg = await page.$('#prop-msg')
+    expect(await propMsg.text()).toBe('hello')
+    const propLabels = await page.$('#prop-labels')
+    expect(await propLabels.text()).toBe('["a","b"]')
   }
 
   it('props 选项式 API', async () => {

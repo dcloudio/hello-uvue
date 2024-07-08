@@ -2,7 +2,7 @@
     "id": "hello-uvue-alpha",
     "name": "hello-uvue-alpha",
     "displayName": "hello-uvue-alpha",
-    "version": "1.0.15",
+    "version": "1.0.18",
     "description": "uvue的vue语法示例工程",
     "main": "env.js",
     "scripts": {
@@ -20,10 +20,6 @@
         "HBuilderX": "^3.96"
     },
     "dcloudext": {
-        "category": [
-            "前端页面模板",
-            "uni-app前端项目模板"
-        ],
         "sale": {
             "regular": {
                 "price": "0.00"
@@ -40,7 +36,8 @@
             "data": "无",
             "permissions": "无"
         },
-        "npmurl": ""
+        "npmurl": "",
+        "type": "uniapp-template-project"
     },
     "uni_modules": {
         "dependencies": [],
@@ -48,7 +45,8 @@
         "platforms": {
             "cloud": {
                 "tcb": "y",
-                "aliyun": "y"
+                "aliyun": "y",
+                "alipay": "n"
             },
             "client": {
                 "App": {

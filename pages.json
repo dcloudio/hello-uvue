@@ -825,6 +825,12 @@
       }
     },
     {
+      "path": "pages/examples/multiple-style-script/multiple-style-script",
+      "style": {
+        "navigationBarTitleText": "多个 style 和 script"
+      }
+    },
+    {
       "path": "pages/type/type",
       "style": {
         "navigationBarTitleText": "",
@@ -841,6 +847,18 @@
       "path": "pages/error/runtime-error/runtime-error-composition",
       "style": {
         "navigationBarTitleText": "runtime error 组合式 API"
+      }
+    },
+    {
+      "path": "pages/error/throw-error/throw-error-options",
+      "style": {
+        "navigationBarTitleText": "throw error 选项式 API"
+      }
+    },
+    {
+      "path": "pages/error/throw-error/throw-error-composition",
+      "style": {
+        "navigationBarTitleText": "throw error 组合式 API"
       }
     }
   ],

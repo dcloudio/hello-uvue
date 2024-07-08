@@ -1142,6 +1142,11 @@ export default {
               id: 'unrecognized-component',
               name: 'unrecognized-component',
               url: 'unrecognized-component/unrecognized-component'
+            },
+            {
+              id: 'multiple-style-script',
+              name: '多个 style 和 script',
+              url: 'multiple-style-script/multiple-style-script'
             }
           ] as Page[]
         },
@@ -1162,6 +1167,22 @@ export default {
                   id: 'runtime-error-composition',
                   name: '运行时异常 组合式 API',
                   url: 'runtime-error-composition'
+                },
+              ]
+            },
+            {
+              id: 'throw-error',
+              name: 'throw error',
+              children: [
+                {
+                  id: 'throw-error-options',
+                  name: 'throw error 选项式 API',
+                  url: 'throw-error-options'
+                },
+                {
+                  id: 'throw-error-composition',
+                  name: 'throw error 组合式 API',
+                  url: 'throw-error-composition'
                 },
               ]
             }
@@ -1196,13 +1217,13 @@ export default {
       const app = getApp()
       return app.checkLaunchPath()
     },
-      // #ifndef APP-ANDROID
+    // #ifndef APP-ANDROID
     // 自动化测试
     checkAppMixin() : boolean {
       const app = getApp()
       return app.checkAppMixin()
     }
-      // #endif
+    // #endif
   }
 }
 </script>
