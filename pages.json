@@ -625,6 +625,30 @@
       }
     },
     {
+      "path": "pages/lifecycle/page/onBackPress/on-back-press-options",
+      "style": {
+        "navigationBarTitleText": "onBackPress 选项式 API"
+      }
+    },
+    {
+      "path": "pages/lifecycle/page/onBackPress/on-back-press-child-options",
+      "style": {
+        "navigationBarTitleText": "onBackPress 选项式 API"
+      }
+    },
+    {
+      "path": "pages/lifecycle/page/onBackPress/on-back-press-composition",
+      "style": {
+        "navigationBarTitleText": "onBackPress 组合式 API"
+      }
+    },
+    {
+      "path": "pages/lifecycle/page/onBackPress/on-back-press-child-composition",
+      "style": {
+        "navigationBarTitleText": "onBackPress 组合式 API"
+      }
+    },
+    {
       "path": "pages/lifecycle/component/component-options",
       "style": {
         "navigationBarTitleText": "component-lifecycle 选项式 API",
