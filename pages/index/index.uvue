@@ -638,6 +638,7 @@ export default {
           id: 'directive',
           name: '指令',
           pages: [
+            // #ifndef APP-IOS
             {
               id: 'v-html',
               name: 'v-html',
@@ -654,6 +655,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'v-show',
               name: 'v-show',

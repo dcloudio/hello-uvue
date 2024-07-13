@@ -36,12 +36,15 @@
         <text>onResize 触发：</text>
         <text>{{ isOnResizeTriggered }}</text>
       </view>
-			<view class="flex flex-row justify-between mt-10">
-				<MonitorPageLifecycleComposition />
+      <view class="flex flex-row justify-between mt-10">
+        <MonitorPageLifecycleComposition />
       </view>
       <button class="mt-10" @click="scrollToBottom">scrollToBottom</button>
       <button class="mt-10" @click="pullDownRefresh">
         trigger pullDownRefresh
+      </button>
+      <button class="mt-10" @click="goOnBackPress">
+        跳转 onBackPress 示例
       </button>
     </view>
     <!-- #ifdef APP -->
@@ -149,6 +152,10 @@ const scrollToBottom = () => {
   uni.pageScrollTo({
     scrollTop: 2000,
   })
+}
+
+const goOnBackPress = () => {
+  uni.navigateTo({url: '/pages/lifecycle/page/onBackPress/on-back-press-composition'})
 }
 
 defineExpose({
