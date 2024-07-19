@@ -4,10 +4,10 @@
       const originalVNode = h('view', { class: 'original' }, [
         h('text', {}, 'Hello World'),
       ])
-      // #ifdef APP
+      // #ifdef APP-ANDROID
       const clonedVNode = cloneVNode(originalVNode, new Map<string, any | null>([['class', 'cloned']]))
       // #endif
-      // #ifdef WEB
+      // #ifdef WEB || APP-IOS
       const clonedVNode = cloneVNode(originalVNode, { class: 'cloned'})
       // #endif
 
