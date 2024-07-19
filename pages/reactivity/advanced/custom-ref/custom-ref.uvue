@@ -16,7 +16,7 @@
 <script setup lang="uts">
 const useCustomRef = (value : UTSJSONObject) : Ref<UTSJSONObject> => {
   // @ts-ignore
-  return customRef<UTSJSONObject>((track, trigger) : UTSJSONObject => {
+  return customRef<UTSJSONObject>((track, trigger) => {
     return {
       get() : UTSJSONObject {
         track()
@@ -26,14 +26,15 @@ const useCustomRef = (value : UTSJSONObject) : Ref<UTSJSONObject> => {
         value = newValue
         trigger()
       }
-    } as UTSJSONObject
+    }
   })
 }
 
-const state = useCustomRef({ count: 0 } as UTSJSONObject)
+const state = useCustomRef({ count: 0 })
+
 
 const increment = () => {
-  (state.value as UTSJSONObject)['count'] = ((state.value as UTSJSONObject)['count'] as number) + 1
+  state.value['count'] = (state.value['count'] as number) + 1
 }
 const triggerRefState = () => {
   triggerRef(state)
