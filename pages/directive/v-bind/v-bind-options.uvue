@@ -32,10 +32,8 @@
 
 <script lang="uts">
 import Foo from './Foo-options.uvue'
+import {type FooPropsObj} from './Foo-options.uvue'
 
-type FooPropsObj = {
-  name: string
-}
 type FooProps = {
   title: string
   num: number
@@ -63,7 +61,7 @@ export default {
           num: 1,
           obj: {
             name: 'foo obj name'
-          }
+          } as FooPropsObj
         },
         vBindClassBackgroundColor: 'red',
         vBindClassRpxHeight: '300rpx'

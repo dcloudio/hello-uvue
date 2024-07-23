@@ -16,6 +16,10 @@
 </template>
 
 <script lang="uts">
+  export type FooPropsObj = {
+    name : string
+  }
+  
   export default {
     props: {
       title: {
@@ -31,12 +35,7 @@
         default: false
       },
       obj: {
-        // #ifdef APP-ANDROID
-        type: FooPropsObjReactiveObject,
-        // #endif
-        // #ifdef APP-IOS || WEB
-        type: Object,
-        // #endif
+        type: FooPropsObj,
         required: true
       }
     }

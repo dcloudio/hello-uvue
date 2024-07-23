@@ -16,28 +16,26 @@
 </template>
 
 <script setup lang="uts">
-defineProps({
-  title: {
-    type: String,
-    default: ''
-  },
-  num: {
-    type: Number,
-    default: 0
-  },
-  checked: {
-    type: Boolean,
-    default: false
-  },
-  obj: {
-    // #ifdef APP-ANDROID
-    // TODO: 确认类型是否合理
-    type: FooPropsObj1ReactiveObject,
-    // #endif
-    // #ifdef APP-IOS || WEB
-    type: Object,
-    // #endif
-    required: true
+  export type FooPropsObj = {
+    name : string
   }
-})
+
+  defineProps({
+    title: {
+      type: String,
+      default: ''
+    },
+    num: {
+      type: Number,
+      default: 0
+    },
+    checked: {
+      type: Boolean,
+      default: false
+    },
+    obj: {
+      type: FooPropsObj,
+      required: true
+    }
+  })
 </script>

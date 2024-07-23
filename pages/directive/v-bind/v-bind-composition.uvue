@@ -42,10 +42,8 @@
 
 <script setup lang="uts">
 import Foo from './Foo-composition.uvue'
+import {type FooPropsObj} from './Foo-composition.uvue'
 
-type FooPropsObj = {
-  name : string
-}
 type FooProps = {
   title : string
   num : number
@@ -69,7 +67,7 @@ const dataInfo = reactive({
     num: 1,
     obj: {
       name: 'foo obj name',
-    }
+    } as FooPropsObj
   },
   vBindClassBackgroundColor: 'red',
   vBindClassRpxHeight: '300rpx'
