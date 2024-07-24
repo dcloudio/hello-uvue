@@ -31,51 +31,47 @@
 </template>
 
 <script lang="uts">
-import Foo from './Foo-options.uvue'
-import {type FooPropsObj} from './Foo-options.uvue'
+  import Foo from './Foo-options.uvue'
+  import { FooProps, FooPropsObj } from './type.uts'
 
-type FooProps = {
-  title: string
-  num: number
-  obj: FooPropsObj
-}
-type DataInfo = {
-  fontSize: string
-  backgroundColor: string
-  border: string
-  fooProps: FooProps
-  vBindClassBackgroundColor: string
-  vBindClassRpxHeight: string
-}
+  type DataInfo = {
+    fontSize : string
+    backgroundColor : string
+    border : string
+    fooProps : FooProps
+    vBindClassBackgroundColor : string
+    vBindClassRpxHeight : string
+  }
 
-export default {
-  components: { Foo },
-  data() {
-    return {
-      dataInfo: {
-        fontSize: '20px',
-        backgroundColor: 'background-color: green',
-        border: 'border: 2px solid red',
-        fooProps: {
-          title: 'foo title',
-          num: 1,
-          obj: {
-            name: 'foo obj name'
-          } as FooPropsObj
-        },
-        vBindClassBackgroundColor: 'red',
-        vBindClassRpxHeight: '300rpx'
-      } as DataInfo
+  export default {
+    components: { Foo },
+    data() {
+      return {
+        dataInfo: {
+          fontSize: '20px',
+          backgroundColor: 'background-color: green',
+          border: 'border: 2px solid red',
+          fooProps: {
+            title: 'foo title',
+            num: 1,
+            obj: {
+              name: 'foo obj name'
+            } as FooPropsObj
+          },
+          vBindClassBackgroundColor: 'red',
+          vBindClassRpxHeight: '300rpx'
+        } as DataInfo
+      }
     }
   }
-}
 </script>
 
 <style>
-/* #ifdef WEB */
-.v-bind-css {
-  background-color: v-bind(dataInfo.vBindClassBackgroundColor);
-  height: v-bind(dataInfo.vBindClassRpxHeight);
-}
-/* #endif */
+  /* #ifdef WEB */
+  .v-bind-css {
+    background-color: v-bind(dataInfo.vBindClassBackgroundColor);
+    height: v-bind(dataInfo.vBindClassRpxHeight);
+  }
+
+  /* #endif */
 </style>

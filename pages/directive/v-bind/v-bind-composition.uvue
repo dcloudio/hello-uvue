@@ -15,20 +15,14 @@
         {{ dataInfo.fontSize }}
       </text>
     </view>
-    <view
-      id="bind-array-style"
-      class="mb-10 p-10"
-      :style="[dataInfo.backgroundColor, dataInfo.border]">
+    <view id="bind-array-style" class="mb-10 p-10" :style="[dataInfo.backgroundColor, dataInfo.border]">
       <view>bind arr style</view>
       <view class="my-10">{{ dataInfo.backgroundColor }}</view>
       <view>{{ dataInfo.border }}</view>
     </view>
 
     <!-- v-bind props -->
-    <Foo
-      :title="dataInfo.fooProps.title"
-      :num="dataInfo.fooProps.num"
-      :obj="dataInfo.fooProps.obj" />
+    <Foo :title="dataInfo.fooProps.title" :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
 
     <!-- v-bind props -->
     <Foo checked />
@@ -41,48 +35,44 @@
 </template>
 
 <script setup lang="uts">
-import Foo from './Foo-composition.uvue'
-import {type FooPropsObj} from './Foo-composition.uvue'
+  import Foo from './Foo-composition.uvue'
+  import { FooProps, FooPropsObj } from './type.uts'
 
-type FooProps = {
-  title : string
-  num : number
-  obj : FooPropsObj
-}
-type DataInfo = {
-  fontSize : string
-  backgroundColor : string
-  border : string
-  fooProps : FooProps
-  vBindClassBackgroundColor : string,
-  vBindClassRpxHeight : string,
-}
+  type DataInfo = {
+    fontSize : string
+    backgroundColor : string
+    border : string
+    fooProps : FooProps
+    vBindClassBackgroundColor : string,
+    vBindClassRpxHeight : string,
+  }
 
-const dataInfo = reactive({
-  fontSize: '20px',
-  backgroundColor: 'background-color: green',
-  border: 'border: 2px solid red',
-  fooProps: {
-    title: 'foo title',
-    num: 1,
-    obj: {
-      name: 'foo obj name',
-    } as FooPropsObj
-  },
-  vBindClassBackgroundColor: 'red',
-  vBindClassRpxHeight: '300rpx'
-} as DataInfo)
+  const dataInfo = reactive({
+    fontSize: '20px',
+    backgroundColor: 'background-color: green',
+    border: 'border: 2px solid red',
+    fooProps: {
+      title: 'foo title',
+      num: 1,
+      obj: {
+        name: 'foo obj name',
+      } as FooPropsObj
+    },
+    vBindClassBackgroundColor: 'red',
+    vBindClassRpxHeight: '300rpx'
+  } as DataInfo)
 
-defineExpose({
-  dataInfo
-})
+  defineExpose({
+    dataInfo
+  })
 </script>
 
 <style>
-/* #ifdef WEB */
-.v-bind-css {
-  background-color: v-bind(dataInfo.vBindClassBackgroundColor);
-  height: v-bind(dataInfo.vBindClassRpxHeight);
-}
-/* #endif */
+  /* #ifdef WEB */
+  .v-bind-css {
+    background-color: v-bind(dataInfo.vBindClassBackgroundColor);
+    height: v-bind(dataInfo.vBindClassRpxHeight);
+  }
+
+  /* #endif */
 </style>

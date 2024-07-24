@@ -10,15 +10,13 @@
     </view>
     <view class="flex justify-between flex-row mb-10">
       <text>props obj['name']:</text>
-      <text id="foo-props-obj-name">{{ obj['name'] }}</text>
+      <text id="foo-props-obj-name">{{ obj.name }}</text>
     </view>
   </view>
 </template>
 
 <script setup lang="uts">
-  export type FooPropsObj = {
-    name : string
-  }
+  import { FooPropsObj } from './type.uts'
 
   defineProps({
     title: {
@@ -34,8 +32,8 @@
       default: false
     },
     obj: {
-      type: FooPropsObj,
-      required: true
+      type: Object as PropType<FooPropsObj>,
+      default: {name: 'default name'} as FooPropsObj
     }
   })
 </script>
