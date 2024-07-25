@@ -24,9 +24,6 @@ describe('watchSyncEffect', () => {
     const watchCountTrackNum = await page.$('#watch-count-track-num')
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      // TODO: 确认 IOS 的差异是否正常
-      expect(await watchCountTrackNum.text()).toBe('11')
     } else {
       expect(await watchCountTrackNum.text()).toBe('6')
     }
@@ -47,9 +44,6 @@ describe('watchSyncEffect', () => {
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      // TODO: 确认 IOS 的差异是否正常
-      expect(await watchCountTrackNum.text()).toBe('19')
     } else {
       expect(await watchCountTrackNum.text()).toBe('9')
     }
@@ -66,9 +60,6 @@ describe('watchSyncEffect', () => {
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      // TODO: 确认 IOS 的差异是否正常
-      expect(await watchCountTrackNum.text()).toBe('27')
     } else {
       expect(await watchCountTrackNum.text()).toBe('12')
     }
@@ -89,9 +80,6 @@ describe('watchSyncEffect', () => {
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      // TODO: 确认 IOS 的差异是否正常
-      expect(await watchCountTrackNum.text()).toBe('27')
     } else {
       expect(await watchCountTrackNum.text()).toBe('12')
     }

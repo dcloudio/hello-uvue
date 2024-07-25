@@ -24,9 +24,6 @@ describe('watchPostEffect', () => {
     const watchCountTrackNum = await page.$('#watch-count-track-num')
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      // TODO: 确认 IOS 的差异是否正常
-      expect(await watchCountTrackNum.text()).toBe('8')
     } else {
       expect(await watchCountTrackNum.text()).toBe('3')
     }
@@ -52,8 +49,6 @@ describe('watchPostEffect', () => {
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      expect(await watchCountTrackNum.text()).toBe('16')
     } else {
       expect(await watchCountTrackNum.text()).toBe('6')
     }
@@ -70,8 +65,6 @@ describe('watchPostEffect', () => {
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      expect(await watchCountTrackNum.text()).toBe('24')
     } else {
       expect(await watchCountTrackNum.text()).toBe('9')
     }
@@ -92,8 +85,6 @@ describe('watchPostEffect', () => {
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')
-    } else if (isIos) {
-      expect(await watchCountTrackNum.text()).toBe('24')
     } else {
       expect(await watchCountTrackNum.text()).toBe('9')
     }
