@@ -269,7 +269,13 @@ export function createApp() {
   app.use(plugin4)
   app.use(function (app: VueApp, componentName: string, componentInstance: CreateVueComponent) {
     app.component(componentName, componentInstance)
-  }, 'CompForPlugin', CompForPlugin)
+  }, 'CompForPlugin1', CompForPlugin)
+
+  app.use({
+    install(app: VueApp, a: string | null, b: string | null) {
+      app.component('CompForPlugin2', CompForPlugin as CreateVueComponent)
+    }
+  }, null, null)
 
   app.config.globalProperties.globalPropertiesStr = 'default string'
   app.config.globalProperties.globalPropertiesNum = 0

@@ -24,9 +24,11 @@ describe('app-instance', () => {
       'plugin4: 通过 definePlugin + 函数方式创建的 plugin'
     )
 
-    const compForPluginEl = await page.$('.component-for-plugin')
-    const compForPluginText = await compForPluginEl.text()
-    expect(compForPluginText).toBe('component for plugin')
+    const compForPluginEls = await page.$$('.component-for-plugin')
+    const compForPlugin1Text = await compForPluginEls[0].text()
+    expect(compForPlugin1Text).toBe('component for plugin')
+    const compForPlugin2Text = await compForPluginEls[1].text()
+    expect(compForPlugin2Text).toBe('component for plugin')
   }
   
   it('app.use options API', async () => {
