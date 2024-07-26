@@ -12,6 +12,14 @@ describe('v-for', () => {
     expect(await num2.text()).toBe('2')
     const num3 = await page.$('#number-3')
     expect(await num3.text()).toBe('3')
+    
+    // v-for uts-number
+    const utsNum1 = await page.$('#uts-number-1')
+    expect(await utsNum1.text()).toBe('1')
+    const utsNum2 = await page.$('#uts-number-2')
+    expect(await utsNum2.text()).toBe('2')
+    const utsNum3 = await page.$('#uts-number-3')
+    expect(await utsNum3.text()).toBe('3')
 
     // v-for object
     const value1 = await page.$('#value1')
