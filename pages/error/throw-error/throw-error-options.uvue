@@ -9,11 +9,11 @@ import { state } from '@/store/index.uts'
 
 export default {
   onReady(){
-    throw Error('error in error options page onReady')
+    throw new Error('error in error options page onReady')
   },
   methods: {
     triggerError(){
-      throw Error('trigger error in throw error options page')
+      throw new Error('trigger error in throw error options page')
     },
     // 自动化测试
     getLifeCycleNum() : number {

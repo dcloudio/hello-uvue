@@ -8,10 +8,10 @@
   import { state } from '@/store/index.uts'
   
   onReady(() => {
-    throw Error('error in error composition page onReady')
+    throw new Error('error in error composition page onReady')
   })
   const triggerError = () => {
-    throw Error('trigger error in throw error composition page')
+    throw new Error('trigger error in throw error composition page')
   }
 
   // 自动化测试

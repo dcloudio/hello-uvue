@@ -10,12 +10,14 @@
     </view>
     <view class="flex justify-between flex-row mb-10">
       <text>props obj['name']:</text>
-      <text id='foo-props-obj-name'>{{ obj['name'] }}</text>
+      <text id='foo-props-obj-name'>{{ obj.name }}</text>
     </view>
   </view>
 </template>
 
 <script lang="uts">
+  import { FooPropsObj } from './type.uts'
+
   export default {
     props: {
       title: {
@@ -31,13 +33,8 @@
         default: false
       },
       obj: {
-        // #ifdef APP-ANDROID
-        type: FooPropsObjReactiveObject,
-        // #endif
-        // #ifdef APP-IOS || WEB
-        type: Object,
-        // #endif
-        required: true
+        type: Object as PropType<FooPropsObj>,
+        default: {name: 'default name'} as FooPropsObj
       }
     }
   }
