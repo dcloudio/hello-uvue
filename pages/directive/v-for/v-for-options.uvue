@@ -7,6 +7,10 @@
       <view class="mb-10" v-for="item in 3" :key="item">
         <text :id="`number-${item}`">{{ item }}</text>
       </view>
+      
+      <view class="mb-10" v-for="item in utsNumber" :key="item">
+        <text :id="`uts-number-${item}`">{{ item }}</text>
+      </view>
 
       <view class="bold mb-10">v-for object</view>
       <view
@@ -144,7 +148,8 @@ export default {
         ['map-key-3', 'map value 3'],
       ]),
       setList: new Set<string>(['set value 1', 'set value 2', 'set value 3']),
-      utsJSONObject: { utsKey1: 'UTSJSONObject-value1', utsKey2: 'UTSJSONObject-value2', utsKey3: 'UTSJSONObject-value3' }
+      utsJSONObject: { utsKey1: 'UTSJSONObject-value1', utsKey2: 'UTSJSONObject-value2', utsKey3: 'UTSJSONObject-value3' },
+      utsNumber: JSON.parse("3") as number
     }
   }
 }
