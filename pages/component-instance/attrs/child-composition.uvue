@@ -28,29 +28,14 @@ defineProps({
 const attrs = useAttrs()
 
 const hasPropsAttr = computed(():boolean => {
-  // #ifdef APP-ANDROID
-  return attrs.has('val')
-  // #endif
-  // #ifndef APP-ANDROID
-  return !!attrs['val']
-  // #endif
+  return attrs['val'] != null
 })
 
 const hasEmitsAttr = computed(():boolean => {
-  // #ifdef APP-ANDROID
-  return attrs.has('childClick')
-  // #endif
-  // #ifndef APP-ANDROID
-  return !!attrs['childClick']
-  // #endif
+  return attrs['childClick'] != null
 })
 
 const hasClassAttr = computed(():boolean => {
-  // #ifdef APP-ANDROID
-  return attrs.has('class')
-  // #endif
-  // #ifndef APP-ANDROID
-  return !!attrs['class']
-  // #endif
+  return attrs['class'] != null
 })
 </script>
