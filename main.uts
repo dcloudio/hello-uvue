@@ -267,13 +267,13 @@ export function createApp() {
   app.use(plugin2)
   app.use(plugin3)
   app.use(plugin4)
-  app.use(function (app: VueApp, componentName: string, componentInstance: CreateVueComponent) {
-    app.component(componentName, componentInstance)
-  }, 'CompForPlugin1', CompForPlugin)
+  app.use(function (app: VueApp, componentName: string) {
+    app.component(componentName, CompForPlugin)
+  }, 'CompForPlugin1')
 
   app.use({
     install(app: VueApp, a: string | null, b: string | null) {
-      app.component('CompForPlugin2', CompForPlugin as CreateVueComponent)
+      app.component('CompForPlugin2', CompForPlugin)
     }
   }, null, null)
 
