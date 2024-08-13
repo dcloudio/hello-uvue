@@ -26,28 +26,13 @@ export default {
   },
   computed: {
     hasPropsAttr(): boolean {
-      // #ifdef APP-ANDROID
-      return this.$attrs.has('val')
-      // #endif
-      // #ifndef APP-ANDROID
-      return !!this.$attrs['val']
-      // #endif
+      return this.$attrs['val'] != null
     },
     hasEmitsAttr(): boolean {
-      // #ifdef APP-ANDROID
-      return this.$attrs.has('childClick')
-      // #endif
-      // #ifndef APP-ANDROID
-      return !!this.$attrs['childClick']
-      // #endif
+      return this.$attrs['childClick'] != null
     },
     hasClassAttr(): boolean {
-      // #ifdef APP-ANDROID
-      return this.$attrs.has('class')
-      // #endif
-      // #ifndef APP-ANDROID
-      return !!this.$attrs['class']
-      // #endif
+      return this.$attrs['class'] != null
     }
   }
 }

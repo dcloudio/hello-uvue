@@ -27,12 +27,7 @@
     },
     methods: {
       triggerParentFn() {
-        // #ifdef APP-ANDROID || WEB
         this.parentNum = this.$parent!.$callMethod('callMethodByChild') as number
-        // #endif
-        // #ifndef APP-ANDROID || WEB
-        this.parentNum = this.$parent!['callMethodByChild']()
-        // #endif
       }
     }
   }

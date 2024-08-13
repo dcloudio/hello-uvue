@@ -23,12 +23,7 @@ export default {
     },
     callMethodByChild(): number {
       const child = this.$refs['child'] as ComponentPublicInstance
-      // #ifdef APP-ANDROID
       return child.$parent!.$callMethod('getNum') as number
-      // #endif
-      // #ifndef APP-ANDROID
-      return child.$parent!['getNum']()
-      // #endif
     }
   }
 }
