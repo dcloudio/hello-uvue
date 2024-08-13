@@ -14,12 +14,7 @@
 <script setup lang="uts">
   const isVNodeVNode = ref(false)
   const isVNodeString = ref(false)
-  // #ifdef APP-ANDROID
-  const vnode = h('text', new Map<string, any | null>(), 'Hello World')
-  // #endif
-  // #ifndef APP-ANDROID
   const vnode = h('text', {}, 'Hello World')
-  // #endif
   isVNodeVNode.value = isVNode(vnode)
   isVNodeString.value = isVNode('abc')
 </script>

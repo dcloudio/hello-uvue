@@ -12,23 +12,17 @@
 </template>
 
 <script lang="uts">
-export default {
-  data(){
-    return {
-      isVNodeVNode: false,
-      isVNodeString: false
+  export default {
+    data() {
+      return {
+        isVNodeVNode: false,
+        isVNodeString: false
+      }
+    },
+    onLoad() {
+      const vnode = h('text', {}, 'Hello World')
+      this.isVNodeVNode = isVNode(vnode)
+      this.isVNodeString = isVNode('abc')
     }
-  },
-  onLoad(){
-    // TODO: 确认 android 端与其他端差异
-    // #ifdef APP-ANDROID
-    const vnode = h('text', new Map<string, any | null>(), 'Hello World')
-    // #endif
-    // #ifndef APP-ANDROID
-    const vnode = h('text', {}, 'Hello World')
-    // #endif
-    this.isVNodeVNode = isVNode(vnode)
-    this.isVNodeString = isVNode('abc')
   }
-}
 </script>
