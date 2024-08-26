@@ -1,7 +1,10 @@
 <template>
   <view class="page">
     <text class="mb-10">component lifecycle 选项式 API</text>
-    <child-component />
+    <keep-alive>
+      <component :is="aliveComponent" />
+    </keep-alive>
+    <button id="toggle-alive-component-btn" class="mt-10" @click="toggleAliveComponent">toggle alive component</button>
   </view>
 </template>
 
@@ -11,11 +14,19 @@ import { state } from '@/store/index.uts'
 
 export default {
   components: { ChildComponent },
+  data(){
+    return {
+      aliveComponent: ChildComponent as any | null,
+    }
+  },
   methods: {
     // 自动化测试
     getLifeCycleNum(): number {
       return state.lifeCycleNum
     },
+    toggleAliveComponent(){
+      this.aliveComponent = this.aliveComponent == null ? ChildComponent : null
+    }
   },
 }
 </script>
