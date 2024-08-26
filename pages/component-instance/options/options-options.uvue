@@ -40,11 +40,8 @@ export default {
     }
   },
   mounted() {
-    // #ifdef APP-ANDROID
-    this.dataInfo.name = this.$options.name
-    // #endif
-    // #ifndef APP-ANDROID
     this.dataInfo.name = this.$options.name!
+    // #ifndef APP-ANDROID
     this.dataInfo.customKey = this.$options._customKey
     // @ts-ignore
     this.dataInfo.mixinDataStr = this.$options.data({})['str']
