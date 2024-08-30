@@ -1220,7 +1220,7 @@ export default {
     // #ifndef APP-ANDROID
       return app.vm.checkLaunchPath()
     // #endif
-    // #ifndef APP-ANDROID
+    // #ifdef APP-ANDROID
       return app.checkLaunchPath()
     // #endif
     },
