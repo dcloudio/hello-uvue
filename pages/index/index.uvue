@@ -1217,12 +1217,7 @@ export default {
     // 自动化测试
     checkLaunchPath() : boolean {
       const app = getApp()
-    // #ifndef APP-ANDROID
-      return app.vm.checkLaunchPath()
-    // #endif
-    // #ifdef APP-ANDROID
-      return app.checkLaunchPath()
-    // #endif
+      return app.vm!.checkLaunchPath()
     },
     // #ifndef APP-ANDROID
     // 自动化测试
