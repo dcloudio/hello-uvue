@@ -25,6 +25,8 @@ describe('defineModel', () => {
 
     const updateValueBtn = await page.$('#update-value-btn')
     await updateValueBtn.tap()
+    
+    expect(await modelNumText.text()).toBe('2')
 
     expect(await modelValueText.text()).toBe('str1')
     expect(await modelValueInput.value()).toBe('str1')
