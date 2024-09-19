@@ -9,6 +9,7 @@
       </keep-alive>
       <button class="mt-10" @click="scrollToBottom">scrollToBottom</button>
       <button id="toggle-alive-component-btn" class="mt-10" @click="toggleAliveComponent">toggle alive component</button>
+      <button class="mt-10" @click="navigateToHome">navigateTo home</button>
     </view>
   <!-- #ifdef APP -->
   </scroll-view>
@@ -61,6 +62,12 @@
   // 自动化测试
   const getIsScrolled = () : boolean => {
     return isScrolled.value
+  }
+  
+  const navigateToHome = () => {
+    uni.navigateTo({
+      url: '/pages/index/index'
+    })
   }
 
   defineExpose({

@@ -4,8 +4,6 @@ const HOME_PATH = '/pages/index/index'
 describe('component-lifecycle', () => {
   let page
   let lifeCycleNum
-  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isAndroid = platformInfo.includes('android')
   beforeAll(async () => {
     page = await program.reLaunch(HOME_PATH)
     await page.waitFor(700)
@@ -33,20 +31,19 @@ describe('component-lifecycle', () => {
     await toggleAliveComponentBtn.tap()
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(4)
-    // TODO: android 端 keep-alive 组件切换时，不仅触发 activated, 之前还会触发 beforeUpdate updated
     await toggleAliveComponentBtn.tap()
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(isAndroid ? 7 : 5)
+    expect(lifeCycleNum).toBe(5)
   })
   it('beforeUpdate updated', async () => {
     const updateTitleBtn = await page.$('.component-lifecycle-btn')
     await updateTitleBtn.tap()
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(isAndroid ? 9 : 7)
+    expect(lifeCycleNum).toBe(7)
   })
   it('deactivated beforeUnmount unmounted', async () => {
     page = await program.navigateBack()
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(isAndroid ? 6 : 4)
+    expect(lifeCycleNum).toBe(4)
   })
 })

@@ -5,6 +5,7 @@
       <component :is="aliveComponent" />
     </keep-alive>
     <button id="toggle-alive-component-btn" class="mt-10" @click="toggleAliveComponent">toggle alive component</button>
+    <button class="mt-10" @click="navigateToHome">navigateTo home</button>
   </view>
 </template>
 
@@ -26,6 +27,11 @@ export default {
     },
     toggleAliveComponent(){
       this.aliveComponent = this.aliveComponent == null ? ChildComponent : null
+    },
+    navigateToHome() {
+      uni.navigateTo({
+        url: '/pages/index/index'
+      })
     }
   },
 }

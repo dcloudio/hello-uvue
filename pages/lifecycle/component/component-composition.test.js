@@ -40,8 +40,8 @@ describe('component-lifecycle', () => {
 
     await toggleAliveComponentBtn.tap()
     lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
-    // TODO: android 端 keep-alive 组件切换时，不触发 activated, 会触发 beforeUpdate updated
-    expect(lifeCycleNum).toBe(isAndroid ? 114 : 113)
+    // TODO: android 端 组合式 API 不触发 activated
+    expect(lifeCycleNum).toBe(isAndroid ? 112 : 113)
     await page.callMethod('pageSetLifeCycleNum', 0)
   })
   it('onBeforeUpdate onUpdated', async () => {
