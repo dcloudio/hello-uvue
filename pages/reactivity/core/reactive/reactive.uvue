@@ -24,11 +24,17 @@
             <text>obj1.a.b.c:</text>
             <text id="obj1-a-b-c">{{ obj1.getString('a.b.c') }}</text>
         </view>
+        <view class="flex justify-between flex-row mb-10">
+            <text>arr1(spread):</text>
+            <text id="arr1">{{ arr1 }}</text>
+        </view>
         <button class='mb-10' id="update-count-btn" @click="updateCount">update count</button>
         <button class='mb-10' id="update-obj-str-btn" @click="updateObjStr">update obj.str</button>
         <button class='mb-10' id="update-obj-num-btn" @click="updateObjNum">update obj.num</button>
         <button class='mb-10' id="update-obj-arr-btn" @click="updateObjArr">update obj.arr</button>
         <button class='mb-10' id="update-obj1-a-b-c-btn" @click="updateObj1_A_B_C">update obj1.a.b.c</button>
+        <button class='mb-10' id="update-arr1-btn" @click="updateArr1(false)">update arr1 without reactive</button>
+        <button class='mb-10' id="update-arr1-reactive-btn" @click="updateArr1(true)">update arr1 with reactive</button>
     </view>
 </template>
 
@@ -70,5 +76,16 @@
     })
     function updateObj1_A_B_C() {
         ((obj1["a"] as UTSJSONObject)["b"] as UTSJSONObject)["c"] = "c1-" + Date.now()
+    }
+    const arr1 = ref<number[]>([])
+    function test(...args : number[]) {
+        arr1.value = args
+    }
+    function updateArr1(isReactive : boolean) {
+        if (isReactive) {
+            test(...reactive([4, 5, 6]))
+        } else {
+            test(...[1, 2, 3])
+        }
     }
 </script>
