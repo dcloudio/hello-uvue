@@ -73,8 +73,7 @@ describe('component-lifecycle', () => {
     page = await program.navigateTo(HOME_PATH)
     await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    // TODO: ios 跳转页面, 未触发 keep-alive 组件 onDeactivated,返回未触发 onActivated
-    // TODO: android 跳转页面, 未触发 keep-alive 组件 onDeactivated,返回未触发 onActivated
+    // App 端页面离开返回不触发 keepAlive 组件 activated deactivated, 详见 https://issues.dcloud.net.cn/pages/issues/detail?id=7419
     expect(lifeCycleNum).toBe(isIos || isAndroid ? -10 : -11)
     page = await program.navigateBack()
     await page.waitFor('view')
