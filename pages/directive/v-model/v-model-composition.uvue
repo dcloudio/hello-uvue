@@ -3,8 +3,11 @@
     <Foo
       v-model="str"
       v-model:msg="msg"
+      v-model:strArr="strArr"
+      v-model:numArr="numArr"
       @update:modelValue="handleModelValueUpdate"
-      @update:msg="handleModelMsgUpdate" />
+      @update:msg="handleModelMsgUpdate"
+       />
     <input class="mb-10 input" id="model-value-input" v-model="str" />
     <input class="mb-10 input" id="model-msg-input" v-model="msg" />
     <view class="mb-10 flex justify-between flex-row">
@@ -23,6 +26,8 @@ import Foo from './Foo-composition.uvue'
 
 const str = ref('str')
 const msg = ref('msg')
+const strArr = ref<string[]>(['0'])
+const numArr = ref<number[]>([0])
 
 const handleModelValueUpdateRes = ref('')
 const handleModelValueUpdate = (val : string) => {

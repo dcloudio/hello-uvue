@@ -8,10 +8,17 @@
       <text>v-model:msg in Foo:</text>
       <text id="model-msg-text">{{ msg }}</text>
     </view>
-
     <view class="mb-10 flex justify-between flex-row">
       <text>defineModel num:</text>
       <text id="model-num-text">{{ num }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>defineModel strArr:</text>
+      <text id="model-str-arr-text">{{ JSON.stringify(strArr) }}</text>
+    </view>
+    <view class="mb-10 flex justify-between flex-row">
+      <text>defineModel numArr:</text>
+      <text id="model-num-arr-text">{{ JSON.stringify(numArr) }}</text>
     </view>
     <button class="mb-10" id="update-value-btn" @click="updateValue">
       update value
@@ -28,9 +35,14 @@ const msg = defineModel('msg', { type: String, default: 'default msg' })
 
 const num = defineModel('num', { type: Number, default: 1 })
 
+const strArr = defineModel<string[]>('strArr', { default: () => [] as string[] })
+const numArr = defineModel('numArr', {type: Array as PropType<number[]>, required: true })
+
 const updateValue = () => {
   modelValue.value += '1'
   msg.value += '2'
   num.value++
+  strArr.value.push(`${strArr.value.length}`)
+  numArr.value.push(numArr.value.length)
 }
 </script>
