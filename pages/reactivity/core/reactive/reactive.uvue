@@ -26,7 +26,7 @@
         </view>
         <view class="flex justify-between flex-row mb-10">
             <text>arr1(spread):</text>
-            <text id="arr1">{{ arr1 }}</text>
+            <text id="arr1">{{ JSON.stringify(arr1) }}</text>
         </view>
         <button class='mb-10' id="update-count-btn" @click="updateCount">update count</button>
         <button class='mb-10' id="update-obj-str-btn" @click="updateObjStr">update obj.str</button>
@@ -66,7 +66,7 @@
 
     const obj1 = reactive({
         a: { b: { c: 'c' } }
-    })
+    } as UTSJSONObject)
 
     const count1 = ref(0)
     watchEffect(() => {
