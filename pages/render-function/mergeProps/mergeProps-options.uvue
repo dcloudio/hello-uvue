@@ -17,13 +17,6 @@
   export default {
     data() {
       return {
-        // TODO: 确认 android 与 web & ios 差异
-        // #ifdef APP-ANDROID
-        propA: new Map<string, any | null>([['class', 'foo'], ['onClick', () : string => 'propA click res']]),
-        propB: new Map<string, any | null>([['class', { bar: true }], ['onClick', () : string => 'propB click res']]),
-        mergedProps: new Map<string, any | null>(),
-        // #endif
-        // #ifndef APP-ANDROID
         propA: {
           class: 'foo',
           onClick: () : string => 'propA click res'
@@ -33,7 +26,6 @@
           onClick: () : string => 'propB click res'
         },
         mergedProps: {},
-        // #endif
         propFnResList: [] as string[],
       }
     },

@@ -13,6 +13,24 @@
           <text id="slot-default">{{ num }}</text>
         </view>
       </template>
+      <template v-for="item in 2" #[`num${item}`]="{ num }">
+        <view class="mb-10 flex justify-between flex-row">
+          <text>num{{ item }} slot:</text>
+          <text :id="`slot-num${item}`">{{ num }}</text>
+        </view>
+      </template>
+      <template v-if="msgTrue['isShow']" #[msgTrue['name']]="{ msg }">
+        <view class="mb-10 flex justify-between flex-row">
+          <text>{{ msgTrue['name'] }} slot msg:</text>
+          <text id="slot-msg-true">{{ msg }}</text>
+        </view>
+      </template>
+      <template v-if="msgFalse['isShow']" #[msgFalse['name']]="{ msg }">
+        <view class="mb-10 flex justify-between flex-row">
+          <text>{{ msgFalse['name'] }} slot msg:</text>
+          <text id="slot-msg-false">{{ msg }}</text>
+        </view>
+      </template>
       <template #footer="{ arr }">
         <view class="mb-10 flex justify-between flex-row">
           <text>footer slot arr:</text>
@@ -24,5 +42,14 @@
 </template>
 
 <script setup lang="uts">
-import Foo from './Foo-composition.uvue'
+  import Foo from './Foo-composition.uvue'
+
+  const msgTrue = ref({
+    isShow: true,
+    name: 'msgTrue'
+  })
+  const msgFalse = ref({
+    isShow: false,
+    name: 'msgFalse'
+  })
 </script>

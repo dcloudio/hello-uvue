@@ -5,7 +5,8 @@
     <text class="uni-common-mt plugin2">plugin2: {{ plugin2 }}</text>
     <text class="uni-common-mt plugin3">plugin3: {{ plugin3 }}</text>
     <text class="uni-common-mt plugin4">plugin4: {{ plugin4 }}</text>
-    <CompForPlugin />
+    <CompForPlugin1 />
+    <CompForPlugin2 />
   </view>
 </template>
 

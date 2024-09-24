@@ -41,6 +41,9 @@
       <button class="mt-10" @click="pullDownRefresh">
         trigger pullDownRefresh
       </button>
+			<button class="mt-10" @click="goOnBackPress">
+        跳转 onBackPress 示例
+      </button>
     </view>
     <!-- #ifdef APP -->
   </scroll-view>
@@ -150,6 +153,9 @@ export default {
 				scrollTop: 2000,
 			})
 		},
+		goOnBackPress() {
+			uni.navigateTo({url: '/pages/lifecycle/page/onBackPress/on-back-press-options'})
+		}
 	},
 }
 </script>

@@ -10,34 +10,30 @@
     </view>
     <view class="flex justify-between flex-row mb-10">
       <text>props obj['name']:</text>
-      <text id="foo-props-obj-name">{{ obj['name'] }}</text>
+      <text id="foo-props-obj-name">{{ obj.name }}</text>
     </view>
   </view>
 </template>
 
 <script setup lang="uts">
-defineProps({
-  title: {
-    type: String,
-    default: ''
-  },
-  num: {
-    type: Number,
-    default: 0
-  },
-  checked: {
-    type: Boolean,
-    default: false
-  },
-  obj: {
-    // #ifdef APP-ANDROID
-    // TODO: 确认类型是否合理
-    type: FooPropsObj1ReactiveObject,
-    // #endif
-    // #ifdef APP-IOS || WEB
-    type: Object,
-    // #endif
-    required: true
-  }
-})
+  import { FooPropsObj } from './type.uts'
+
+  defineProps({
+    title: {
+      type: String,
+      default: ''
+    },
+    num: {
+      type: Number,
+      default: 0
+    },
+    checked: {
+      type: Boolean,
+      default: false
+    },
+    obj: {
+      type: Object as PropType<FooPropsObj>,
+      default: {name: 'default name'} as FooPropsObj
+    }
+  })
 </script>

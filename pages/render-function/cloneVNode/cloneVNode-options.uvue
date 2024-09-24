@@ -4,12 +4,7 @@
       const originalVNode = h('view', { class: 'original' }, [
         h('text', {}, 'Hello World'),
       ])
-      // #ifdef APP
-      const clonedVNode = cloneVNode(originalVNode, new Map<string, any | null>([['class', 'cloned']]))
-      // #endif
-      // #ifdef WEB
-      const clonedVNode = cloneVNode(originalVNode, { class: 'cloned'})
-      // #endif
+      const clonedVNode = cloneVNode(originalVNode, { class: 'cloned' })
 
       return h('view', { class: 'flex flex-col' }, [originalVNode, clonedVNode])
     }
