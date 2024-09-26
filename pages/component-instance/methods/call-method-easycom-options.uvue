@@ -1,6 +1,7 @@
 <template>
   <view>
     <call-easy-method ref="callEasyMethod1"></call-easy-method>
+    <custom-call-easy-method ref="customCallEasyMethod1"></custom-call-easy-method>
   </view>
 </template>
 
@@ -15,16 +16,19 @@ const delay = (): Promise<string> =>
 export default {
   data() {
     return {
-      callEasyMethod1: null as CallEasyMethodComponentPublicInstance | null
+      callEasyMethod1: null as CallEasyMethodComponentPublicInstance | null,
+      customCallEasyMethod1: null as CustomCallEasyMethodComponentPublicInstance | null,
     }
   },
   onReady() {
     // 通过组件 ref 属性获取组件实例, 组件标签名首字母大写，驼峰+ComponentPublicInstance
     this.callEasyMethod1 = this.$refs['callEasyMethod1'] as CallEasyMethodComponentPublicInstance
+    this.customCallEasyMethod1 = this.$refs['customCallEasyMethod1'] as CustomCallEasyMethodComponentPublicInstance
     this.call()
   },
   methods: {
     async call(): Promise<void> {
+      this.callCustomMethod()
       this.callMethod1()
       await delay()
       this.callMethod2()
@@ -61,7 +65,15 @@ export default {
     callMethodTest(text: string): string | null {
       const result = this.callEasyMethod1?.foo5?.(text) as string
       return result
-    }
+    },
+    callCustomMethod() {
+      // 调用组件的 foo 方法
+      this.customCallEasyMethod1?.foo?.()
+    },
+    callCustomMethodTest(): string | null {
+      const result = this.customCallEasyMethod1?.foo?.() as string
+      return result
+    },
   }
 }
 </script>
