@@ -21,6 +21,7 @@ export default {
   onReady() {
     // 通过组件 ref 属性获取组件实例, 组件标签名首字母大写，驼峰+ComponentPublicInstance
     this.callEasyMethod1 = this.$refs['callEasyMethod1'] as CallEasyMethodComponentPublicInstance
+    this.call()
   },
   methods: {
     async call(): Promise<void> {
