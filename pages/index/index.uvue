@@ -341,6 +341,16 @@ export default {
                   url: 'call-method-easycom-uni-modules-composition'
                 },
                 {
+                  id: 'call-method-easycom-options',
+                  name: '调用 easycom 组件方法 选项式 API',
+                  url: 'call-method-easycom-options'
+                },
+                {
+                  id: 'call-method-easycom-composition',
+                  name: '调用  easycom 组件方法 组合式 API',
+                  url: 'call-method-easycom-composition'
+                },
+                {
                   id: 'call-method-uni-element-options',
                   name: '调用内置组件方法 选项式 API',
                   url: 'call-method-uni-element-options'
