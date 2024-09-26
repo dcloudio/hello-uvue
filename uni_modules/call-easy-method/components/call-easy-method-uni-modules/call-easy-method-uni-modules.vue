@@ -4,9 +4,25 @@
 
 <script>
   export default {
+    props: {
+      list: {
+        type: Array as PropType < number[] > ,
+        default: () => [] as number[]
+      }
+    },
     data() {
       return {
         result: ''
+      }
+    },
+    emits:['propsChanged'],
+    watch: {
+      list: {
+        handler(newVal, oldVal) {
+          console.log('isProxy',isProxy(newVal),'isReactive',isReactive(newVal),'isRef',isRef(newVal))
+          this.$emit('propsChanged', newVal)
+        },
+        immediate: true
       }
     },
     methods: {
