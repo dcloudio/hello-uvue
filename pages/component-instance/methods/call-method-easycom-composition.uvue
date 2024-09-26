@@ -1,11 +1,18 @@
 <template>
   <view>
     <call-easy-method ref="callEasyMethod1"></call-easy-method>
+    <custom-call-easy-method ref="customCallEasyMethod1"></custom-call-easy-method>
   </view>
 </template>
 
 <script setup lang="uts">
 const callEasyMethod1 = ref<CallEasyMethodComponentPublicInstance | null>(null)
+const customCallEasyMethod1 = ref<CustomCallEasyMethodComponentPublicInstance | null>(null)
+
+const callMethod = () => {
+  // 调用组件的 foo 方法
+  customCallEasyMethod1.value?.foo?.()
+}
 
 const callMethod1 = () => {
   // 调用组件的 foo1 方法
@@ -40,6 +47,11 @@ const callMethodTest = (text: string): string | null => {
   return result
 }
 
+const callCustomMethodTest = (): string | null => {
+  const result = customCallEasyMethod1.value?.foo?.() as string
+  return result
+}
+
 const delay = (): Promise<string> =>
   new Promise((resolve, _) => {
     setTimeout(() => {
@@ -48,6 +60,7 @@ const delay = (): Promise<string> =>
   })
 
 const call = async (): Promise<void> => {
+  callMethod()
   callMethod1()
   await delay()
   callMethod2()
@@ -64,6 +77,7 @@ onReady(() => {
 })
 
 defineExpose({
-  callMethodTest
+  callMethodTest,
+  callCustomMethodTest
 })
 </script>

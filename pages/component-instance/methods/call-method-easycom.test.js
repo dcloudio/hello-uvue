@@ -10,6 +10,8 @@ describe('call-method-easycom', () => {
     const title = Date.now() + ''
     const result = await page.callMethod('callMethodTest', title)
     expect(result).toBe(title)
+    const customResult = await page.callMethod('callCustomMethodTest')
+    expect(customResult).toBe('custom foo')
   })
 
   it('callMethodTest Composition API', async () => {
@@ -18,5 +20,7 @@ describe('call-method-easycom', () => {
     const title = Date.now() + ''
     const result = await page.callMethod('callMethodTest', title)
     expect(result).toBe(title)
+    const customResult = await page.callMethod('callCustomMethodTest')
+    expect(customResult).toBe('custom foo')
   })
 })
