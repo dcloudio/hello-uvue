@@ -902,6 +902,11 @@
       "navigationBarBackgroundColor": "#007AFF"
     }
   },
+  "easycom": {
+      "custom": {
+          "custom-(.*)": "@/components/custom-$1.uvue"
+      }
+  },
   "uniIdRouter": {},
   "condition": {
     "current": 0,
