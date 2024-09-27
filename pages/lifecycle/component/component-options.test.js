@@ -16,7 +16,7 @@ describe('component-lifecycle', () => {
     await page.waitFor(700)
   })
   afterAll(async () => {
-    const resetLifecycleNum = 1100
+    const resetLifecycleNum = 1110
     await page.callMethod('setLifeCycleNum', resetLifecycleNum)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(resetLifecycleNum)

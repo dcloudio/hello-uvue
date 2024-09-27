@@ -34,6 +34,9 @@
       // 自动化测试
       setLifeCycleNum(state.lifeCycleNum + 100)
       setAppShowPath(options.path)
+      if(this.globalPropertiesStr === 'default string'){
+        setLifeCycleNum(state.lifeCycleNum + 10)
+      }
       console.log('App Show')
     },
     onHide: function () {

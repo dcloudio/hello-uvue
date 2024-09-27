@@ -72,7 +72,7 @@ describe('app-lifecycle', () => {
     page = await program.reLaunch(HOME_PATH)
     await page.waitFor(700)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(1100)
+    expect(lifeCycleNum).toBe(1110)
   })
   it('onLastPageBackPress', async () => {
     if (process.env.uniTestPlatformInfo.startsWith('android')) {
@@ -96,7 +96,7 @@ describe('page-lifecycle', () => {
   })
 
   afterAll(async () => {
-    const resetLifecycleNum = 1100
+    const resetLifecycleNum = 1110
     await page.callMethod('setLifeCycleNum', resetLifecycleNum)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(resetLifecycleNum)
