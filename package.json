@@ -2,7 +2,7 @@
     "id": "hello-uvue",
     "name": "hello-uvue",
     "displayName": "hello-uvue",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "uvue的vue语法示例工程",
     "main": "env.js",
     "scripts": {
