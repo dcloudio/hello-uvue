@@ -1,7 +1,17 @@
 <template>
   <view>
-    <call-easy-method-uni-modules ref="callEasyMethod1" :list="propsList"
-      @propsChanged="onPropsChanged"></call-easy-method-uni-modules>
+    <call-easy-method-uni-modules ref="callEasyMethod1"></call-easy-method-uni-modules>
+    <view>---</view>
+    <test-props :numList="numList" :objList='objList' @buttonclick='onButtonClick' @numListChange='numListChange'
+      @objListChange='objListChange' style="width: 80px;height: 30px;background-color: lightblue"></test-props>
+    <view style="flex-direction: row ;">
+      <text>isNumListValid: </text>
+      <text id='isNumListValid'>{{isNumListValid}}</text>
+    </view>
+    <view style="flex-direction: row ;">
+      <text>isObjListValid: </text>
+      <text id='isObjListValid'>{{isObjListValid}}</text>
+    </view>
   </view>
 </template>
 
@@ -21,6 +31,12 @@
   const isWatched = ref(false)
   const changeTimes = ref(0)
   const propsList = ref<number[]>([])
+
+  const numList = ref<number[]>([1])   // 传递 props
+  const objList = ref<Array<{ id : string }>>([])
+  const isNumListValid = ref(false)
+  const isObjListValid = ref(false)
+
 
   const callMethod1 = () => {
     // 调用组件的 foo1 方法
@@ -53,11 +69,15 @@
     return testInOtherFile(callEasyMethod1.value!, text)
   }
 
-  const onPropsChanged = (val : number[]) => {
-    changeTimes.value = changeTimes.value + 1
-    isWatched.value = isReactive(val) || isProxy(val) || isRef(val)
-    console.log(55, isReactive(val), isProxy(val), isRef(val))
+  const numListChange = (res : any) => {
+    isNumListValid.value = res.detail as boolean
   }
+  const objListChange = (res : any) => {
+    isObjListValid.value = res.detail as boolean
+  }
+  const onButtonClick = () => {
+  }
+
 
   const call = async () : Promise<void> => {
     callMethod1()
@@ -70,8 +90,9 @@
     await delay()
     callMethod5()
     await delay()
-    // 改变  props 观察 props 返回值为非响应式值
-    propsList.value = [3, 2, 1]
+    // 改变 props: 观察 props 返回值为非响应式值
+    numList.value = [3, 2, 1]
+    objList.value = [{ id: '3' }, { id: '4' }]
   }
 
   onReady(() => {
@@ -80,6 +101,8 @@
 
   defineExpose({
     callMethodTest,
-    callMethodInOtherFile
+    callMethodInOtherFile,
+    isNumListValid,
+    isObjListValid
   })
 </script>

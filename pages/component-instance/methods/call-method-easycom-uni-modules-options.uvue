@@ -1,7 +1,17 @@
 <template>
   <view>
-    <call-easy-method-uni-modules ref="callEasyMethod1" :list="propsList"
-      @propsChanged="onPropsChanged"></call-easy-method-uni-modules>
+    <call-easy-method-uni-modules ref="callEasyMethod1"></call-easy-method-uni-modules>
+    <view>---</view>
+    <test-props :numList="numList" :objList='objList' @buttonclick='onButtonClick' @numListChange='numListChange'
+      @objListChange='objListChange' style="width: 80px;height: 30px;background-color: lightblue"></test-props>
+    <view style="flex-direction: row ;">
+      <text>isNumListValid: </text>
+      <text id='isNumListValid'>{{isNumListValid}}</text>
+    </view>
+    <view style="flex-direction: row ;">
+      <text>isObjListValid: </text>
+      <text id='isObjListValid'>{{isObjListValid}}</text>
+    </view>
   </view>
 </template>
 
@@ -22,7 +32,10 @@
         callEasyMethod1: null as CallEasyMethodUniModulesComponentPublicInstance | null,
         isWatched: false,
         changeTimes: 0,
-        propsList: [] as number[]
+        numList: [1] as number[], // 传递 props
+        objList: [] as Array<{ id : string }>,
+        isNumListValid: false,
+        isObjListValid: false
       }
     },
     onReady() {
@@ -43,8 +56,9 @@
         await delay()
         this.callMethod5()
         await delay()
-        // 改变  props 观察 props 返回值为非响应式值
-        this.propsList = [3, 2, 1]
+        // 改变 props: 观察 props 返回值为非响应式值
+        this.numList = [3, 2, 1]
+        this.objList = [{ id: '3' }, { id: '4' }]
       },
       callMethod1() {
         // 调用组件的 foo1 方法
@@ -76,12 +90,14 @@
       callMethodInOtherFile(text : string) : string {
         return testInOtherFile(this.callEasyMethod1!, text)
       },
-      onPropsChanged(val : number[]) {
 
-        this.changeTimes = this.changeTimes + 1
-
-        this.isWatched = isReactive(val) || isProxy(val) || isRef(val)
-        console.log(55, isReactive(val), isProxy(val), isRef(val))
+      numListChange(res) {
+        this.isNumListValid = res.detail
+      },
+      objListChange(res) {
+        this.isObjListValid = res.detail
+      },
+      onButtonClick() {
       }
     }
   }
