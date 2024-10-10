@@ -21,7 +21,10 @@
 <script setup lang="uts">
   import { testInOtherFile } from './call-method-easycom-uni-modules'
   import { ref, isProxy, isRef } from 'vue'
+
+  // #ifdef APP
   import { PropsChangeEvent } from '@/uni_modules/test-props'
+  // #endif
 
   const delay = () : Promise<string> =>
     new Promise((resolve, _) => {

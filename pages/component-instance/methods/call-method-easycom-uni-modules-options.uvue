@@ -21,7 +21,6 @@
 
 <script lang="uts">
   import { testInOtherFile } from './call-method-easycom-uni-modules'
-  import { isProxy, isRef, isReactive } from 'vue'
 
   const delay = () : Promise<string> =>
     new Promise((resolve, _) => {
