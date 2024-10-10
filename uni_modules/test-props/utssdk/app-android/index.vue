@@ -11,7 +11,8 @@
   import TextUtils from 'android.text.TextUtils';
   import Button from 'android.widget.Button';
   import View from 'android.view.View';
-
+  import { IObjItem ,IPropsChangeEvent} from '../interface.uts'
+import {PropChangeEventImpl} from './event.uts'
   /**
    * 引入三方库
    * [可选实现，按需引入]
@@ -33,11 +34,11 @@
     /**
      * 组件名称，也就是开发者使用的标签
      */
-    name: "uts-button",
+    name: "test-props",
     /**
      * 组件涉及的事件声明，只有声明过的事件，才能被正常发送
      */
-    emits: ['buttonclick'],
+    emits: ['buttonclick', 'numListChange', 'objListChange'],
     /**
      * 属性声明，组件的使用者会传递这些属性值到组件
      */
@@ -45,6 +46,14 @@
       "buttontext": {
         type: String,
         default: "点击触发"
+      },
+      numList: {
+        type: Array as PropType<number[]>,
+        default: () => [] as number[]
+      },
+      objList: {
+        type: Array as PropType<IObjItem[]>,
+        default: () => [] as IObjItem[]
       }
     },
     /**
@@ -68,6 +77,30 @@
         },
         immediate: false // 创建时是否通过此方法更新属性，默认值为false
       },
+      numList: {
+        handler(newVal : number[], oldVal : number[]) {
+          let detail = new Map<string, number[]>()
+          detail.set("value", newVal)
+          let data = new Map<string, any>()
+          data.set("detail", detail)
+
+          // const event = new PropChangeEventImpl(newVal)
+
+          this.$emit('numListChange', data)
+
+        },
+        immediate: true
+      },
+      objList: {
+        handler(newVal : any[], oldVal : any[]) {
+          let detail = new Map<string, any>()
+          detail.set("value", newVal)
+          let data = new Map<string, any>()
+          data.set("detail", detail)
+          this.$emit('objListChange', data)
+        },
+        immediate: true
+      }
     },
     /**
      * 规则：如果没有配置expose，则methods中的方法均对外暴露，如果配置了expose，则以expose的配置为准向外暴露

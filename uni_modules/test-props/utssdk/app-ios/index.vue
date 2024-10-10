@@ -86,25 +86,20 @@
       },
       numList: {
         handler(newVal : number[], oldVal : number[]) {
-          const isNumber = (val : number) : boolean => typeof val == 'number'
-          const isEveryNumber = (newVal as number[]).every(isNumber)
-          const isRawType = Array.isArray(newVal) && isEveryNumber
+          let detail = new Map<string, any>()
+          detail.set("value", newVal)
           let data = new Map<string, any>()
-          data.set("detail", isRawType)
+          data.set("detail", detail)
           this.$emit('numListChange', data)
-
         },
         immediate: true
       },
       objList: {
-        handler(newVal:any[], oldVal:any[]) {
-
-          const isObj = (item:any):boolean => item instanceof UTSJSONObject
-          const isEveryObj = (newVal as any[]).every(isObj)
-          const isRawType = Array.isArray(newVal) && isEveryObj
+        handler(newVal : any[], oldVal : any[]) {
+          let detail = new Map<string, any>()
+          detail.set("value", newVal)
           let data = new Map<string, any>()
-          data.set("detail", isRawType)
-          console.log(111,newVal,isEveryObj,isRawType)
+          data.set("detail", detail)
           this.$emit('objListChange', data)
         },
         immediate: true
