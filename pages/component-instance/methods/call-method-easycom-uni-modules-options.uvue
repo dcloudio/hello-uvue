@@ -1,9 +1,12 @@
 <template>
   <view>
     <call-easy-method-uni-modules ref="callEasyMethod1"></call-easy-method-uni-modules>
+
+    <!-- #ifdef APP -->
     <view>---</view>
-    <test-props :numList="numList" :objList='objList' @buttonclick='onButtonClick' @numListChange='numListChange'
-      @objListChange='objListChange' style="width: 80px;height: 30px;background-color: lightblue"></test-props>
+    <test-props id="btn1" :numList="numList" :objList='objList' @buttonclick='onButtonClick'
+      @numListChange='numListChange' @objListChange='objListChange'
+      style="width: 80px;height: 30px;background-color: lightblue"></test-props>
     <view style="flex-direction: row ;">
       <text>isNumListValid: </text>
       <text id='isNumListValid'>{{isNumListValid}}</text>
@@ -12,6 +15,7 @@
       <text>isObjListValid: </text>
       <text id='isObjListValid'>{{isObjListValid}}</text>
     </view>
+    <!-- #endif -->
   </view>
 </template>
 
@@ -33,7 +37,7 @@
         isWatched: false,
         changeTimes: 0,
         numList: [1] as number[], // 传递 props
-        objList: [] as Array<{ id : string }>,
+        objList: [] as any[],
         isNumListValid: false,
         isObjListValid: false
       }
@@ -55,10 +59,7 @@
         this.callMethod4()
         await delay()
         this.callMethod5()
-        await delay()
-        // 改变 props: 观察 props 返回值为非响应式值
-        this.numList = [3, 2, 1]
-        this.objList = [{ id: '3' }, { id: '4' }]
+
       },
       callMethod1() {
         // 调用组件的 foo1 方法
@@ -91,14 +92,45 @@
         return testInOtherFile(this.callEasyMethod1!, text)
       },
 
-      numListChange(res) {
-        this.isNumListValid = res.detail
-      },
-      objListChange(res) {
-        this.isObjListValid = res.detail
-      },
-      onButtonClick() {
-      }
+      // #ifdef APP-ANDROID
+      numListChange(res : Map<string, Map<string, any>>) {
+    const value = res['detail']!['value'] as number[]
+    const isArray = Array.isArray(value)
+    const isLengthGt0 = value.length > 0
+    this.isNumListValid = isArray && isLengthGt0
+  },
+  // #endif
+  // #ifdef APP-IOS
+  numListChange(res : any) {
+    const value = res['detail']!['value'] as number[]
+    const isArray = Array.isArray(value)
+    const isLengthGt0 = value.length > 0
+    this.isNumListValid = isArray && isLengthGt0
+  },
+  // #endif
+
+  // #ifdef APP-ANDROID
+  objListChange(res : Map<string, Map<string, any>>) {
+    const value = res['detail']!['value'] as number[]
+    const isArray = Array.isArray(value)
+    const isLengthGt0 = value.length > 0
+    this.isObjListValid = isArray && isLengthGt0
+  },
+  // #endif
+  // #ifdef APP-IOS
+  objListChange(res : any) {
+    const value = res['detail']!['value'] as number[]
+    const isArray = Array.isArray(value)
+    const isLengthGt0 = value.length > 0
+    this.isObjListValid = isArray && isLengthGt0
+  },
+  // #endif
+  onButtonClick() {
+    // 改变 props: 观察 props 返回值为非响应式值
+    console.log('button click');
+    this.numList = [3, 2, 1]
+    this.objList = [{ id: '3' }, { id: '4' }]
+  }
     }
   }
 </script>
