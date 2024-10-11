@@ -86,6 +86,7 @@
     const value = res['detail']!['value'] as number[]
     const isArray = Array.isArray(value)
     const isLengthGt0 = value.length > 0
+    console.log('is array',isArray,'is length>0',isLengthGt0,'res',isArray && isLengthGt0);
     isNumListValid.value = isArray && isLengthGt0
   }
   // #endif
@@ -105,6 +106,7 @@
     const value = res['detail']!['value'] as any[]
     const isArray = Array.isArray(value)
     const isLengthGt0 = value.length > 0
+    console.log('is array',isArray,'is length>0',isLengthGt0,'res',isArray && isLengthGt0);
     isObjListValid.value = isArray && isLengthGt0
   }
   // #endif
