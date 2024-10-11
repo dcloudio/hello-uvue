@@ -1227,13 +1227,13 @@ export default {
     // 自动化测试
     checkLaunchPath() : boolean {
       const app = getApp()
-      return app.checkLaunchPath()
+      return app.vm!.checkLaunchPath()
     },
     // #ifndef APP-ANDROID
     // 自动化测试
     checkAppMixin() : boolean {
       const app = getApp()
-      return app.checkAppMixin()
+      return app.vm.checkAppMixin()
     }
     // #endif
   }

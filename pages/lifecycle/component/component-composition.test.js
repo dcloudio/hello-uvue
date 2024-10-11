@@ -4,6 +4,9 @@ const HOME_PATH = '/pages/index/index'
 describe('component-lifecycle', () => {
   let page
   let lifeCycleNum
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isAndroid = platformInfo.includes('android')
+  const isIos = platformInfo.includes('ios')
   beforeAll(async () => {
     page = await program.reLaunch(HOME_PATH)
     await page.waitFor(700)
@@ -16,15 +19,29 @@ describe('component-lifecycle', () => {
     await page.waitFor(700)
   })
   afterAll(async () => {
-    const resetLifecycleNum = 1100
+    const resetLifecycleNum = 1110
     await page.callMethod('setLifeCycleNum', resetLifecycleNum)
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(resetLifecycleNum)
   })
 
-  it('onLoad onPageShow onReady onBeforeMount onMounted', async () => {
+  it('onLoad onPageShow onReady onBeforeMount onMounted onActivated', async () => {
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
+    // TODO: android 组合式 API 不触发 onActivated
+    expect(lifeCycleNum).toBe(isAndroid ? 112 : 113)
+  })
+  it('onDeactivated', async () => {
+    // TODO: android 组合式 API 不触发 onActivated onDeactivated
+    const toggleAliveComponentBtn = await page.$('#toggle-alive-component-btn')
+
+    await toggleAliveComponentBtn.tap()
     lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
     expect(lifeCycleNum).toBe(112)
+
+    await toggleAliveComponentBtn.tap()
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
+    // TODO: android 端 组合式 API 不触发 activated
+    expect(lifeCycleNum).toBe(isAndroid ? 112 : 113)
     await page.callMethod('pageSetLifeCycleNum', 0)
   })
   it('onBeforeUpdate onUpdated', async () => {
@@ -56,17 +73,18 @@ describe('component-lifecycle', () => {
     page = await program.navigateTo(HOME_PATH)
     await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(-10)
+    // App 端页面离开返回不触发 keepAlive 组件 activated deactivated, 详见 https://issues.dcloud.net.cn/pages/issues/detail?id=7419
+    expect(lifeCycleNum).toBe(isIos || isAndroid ? -10 : -11)
     page = await program.navigateBack()
     await page.waitFor('view')
     lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
     expect(lifeCycleNum).toBe(0)
-    await page.callMethod('pageSetLifeCycleNum', 0)
   })
-  it('beforeUnmount unmounted onUnload onBackPress', async () => {
+  it('onDeactivated beforeUnmount unmounted onUnload onBackPress', async () => {
     page = await program.navigateBack()
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
-    expect(lifeCycleNum).toBe(-112)
+    // TODO: android 组合式 API 不触发 onDeactivated
+    expect(lifeCycleNum).toBe(isAndroid ? -112 : -113)
     await page.callMethod('setLifeCycleNum', 0)
   })
 })

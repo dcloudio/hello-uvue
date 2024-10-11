@@ -4,10 +4,17 @@
 
 <script>
   export default {
+    props: {
+
+    },
     data() {
       return {
         result: ''
       }
+    },
+    emits:['propsChanged'],
+    watch: {
+
     },
     methods: {
       foo1() {

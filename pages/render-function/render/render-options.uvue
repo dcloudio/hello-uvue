@@ -1,5 +1,7 @@
 <script lang="uts">
 import CompForHFunction from '@/components/CompForHFunction.uvue'
+// 故意外部声明为UTSJSONObject
+const msgProps = { class: 'uni-common-mt msg', style: { color: 'blue' } }
 export default {
   data() {
     return {
@@ -9,7 +11,7 @@ export default {
   render(): VNode {
     return h('view', { class: 'page' }, [
       h(CompForHFunction, {}, (): VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
-      h('text', { class: 'uni-common-mt msg', style: { color: 'blue' } }, this.msg),
+      h('text', msgProps, this.msg),
       h(
         'button',
         {

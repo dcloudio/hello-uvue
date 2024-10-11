@@ -72,6 +72,5 @@
     background-color: v-bind(dataInfo.vBindClassBackgroundColor);
     height: v-bind(dataInfo.vBindClassRpxHeight);
   }
-
   /* #endif */
 </style>

@@ -57,7 +57,7 @@ onUnload(() => {
 onBeforeMount(() => {
   // 自动化测试
   setLifeCycleNum(state.lifeCycleNum + 1)
-  console.log('component for lifecycle test mounted')
+  console.log('component for lifecycle test onBeforeMount')
 })
 
 onMounted(() => {
@@ -90,10 +90,16 @@ onUnmounted(() => {
   console.log('component for lifecycle test unmounted')
 })
 
-// TODO: app-android 不触发
-onActivated(() => { })
-// TODO: app-android 不触发
-onDeactivated(() => { })
+onActivated(() => {
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum + 1)
+  console.log('component for lifecycle test onActivated')
+})
+onDeactivated(() => {
+  // 自动化测试
+  setLifeCycleNum(state.lifeCycleNum - 1)
+  console.log('component for lifecycle test onDeactivated')
+})
 
 const updateTitle = () => {
   title.value = 'component for lifecycle test updated'

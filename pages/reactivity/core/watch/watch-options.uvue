@@ -156,7 +156,7 @@
     watch: {
       obj: {
         handler(obj : Obj, prevObj ?: Obj) {
-          if (prevObj === null) {
+          if (prevObj == null) {
             this.watchObjRes = `obj: {"num":${obj.num},"str":"${obj.str}","bool":${obj.bool},"arr":${JSON.stringify(obj.arr)}}, prevObj: ${JSON.stringify(prevObj)}`
           } else {
             // #ifdef WEB
