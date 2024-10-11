@@ -18,7 +18,7 @@ it('callMethodTest', async () => {
     new Promise((resolve, _) => {
       setTimeout(() => {
         resolve('')
-      }, 1000)
+      }, 1500)
     })
 
   await page.callMethod('onButtonClick')
