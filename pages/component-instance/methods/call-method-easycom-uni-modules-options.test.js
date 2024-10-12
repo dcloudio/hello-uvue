@@ -17,6 +17,7 @@ it('callMethodTest', async () => {
   // ios_simulator ios 17.0
   // xcodoe 15 以下的版本环境不满足
 
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isIOS = process.env.uniTestPlatformInfo.toLowerCase().startsWith('ios')
 
   if (
