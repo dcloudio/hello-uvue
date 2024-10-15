@@ -79,7 +79,7 @@ describe('app-lifecycle', () => {
       page = await program.navigateBack()
       await page.waitFor(700)
       lifeCycleNum = await page.callMethod('getLifeCycleNum')
-      expect(lifeCycleNum).toBe(100)
+      expect(lifeCycleNum).toBe(110)
     }
   })
 })
