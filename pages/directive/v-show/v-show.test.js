@@ -6,23 +6,29 @@ describe('v-show', () => {
   
   const test = async (page) => {
     let dataInfo = await page.data('dataInfo')
-    expect(dataInfo.show).toBe(true)
+    expect(dataInfo.showDefaultTrue).toBe(true)
+    expect(dataInfo.showDefaultFalse).toBe(false)
     
-    const vShowElement = await page.$('#v-show-element')
-    expect(await vShowElement.style('display')).toBe('flex')
-    
+    const vShowElementDefaultTrue = await page.$('#v-show-element-default-true')
+    expect(await vShowElementDefaultTrue.style('display')).toBe('flex')
+    const vShowElementDefaultFalse = await page.$('#v-show-element-default-false')
+    expect(await vShowElementDefaultFalse.style('display')).toBe('none')
 
     const toggle = await page.$('#toggle-btn')
     await toggle.tap()
     
     dataInfo = await page.data('dataInfo')
-    expect(dataInfo.show).toBe(false)
-    expect(await vShowElement.style('display')).toBe('none')
+    expect(dataInfo.showDefaultTrue).toBe(false)
+    expect(dataInfo.showDefaultFalse).toBe(true)
+    expect(await vShowElementDefaultTrue.style('display')).toBe('none')
+    expect(await vShowElementDefaultFalse.style('display')).toBe('flex')
     
     await toggle.tap()
     dataInfo = await page.data('dataInfo')
-    expect(dataInfo.show).toBe(true)
-    expect(await vShowElement.style('display')).toBe('flex')
+    expect(dataInfo.showDefaultTrue).toBe(true)
+    expect(dataInfo.showDefaultFalse).toBe(false)
+    expect(await vShowElementDefaultTrue.style('display')).toBe('flex')
+    expect(await vShowElementDefaultFalse.style('display')).toBe('none')
   }
   
   it('v-show options API', async () => {
