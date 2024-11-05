@@ -25,12 +25,16 @@ describe('render-function render', () => {
     
     let msgEl = await page.$('.msg')
     expect(await msgEl.text()).toEqual('default msg')
+    compForHFunctionMsg = await page.$('#comp-for-h-function-msg')
+    expect(await compForHFunctionMsg.text()).toEqual('default msg')
     
     const btnEl = await page.$('.btn')
     expect(await btnEl.property('type')).toBe('primary')
     await btnEl.tap()
     msgEl = await page.$('.msg')
     expect(await msgEl.text()).toEqual('new msg')
+    compForHFunctionMsg = await page.$('#comp-for-h-function-msg')
+    expect(await compForHFunctionMsg.text()).toEqual('new msg')
   }
   
   it('render options API', async () => {

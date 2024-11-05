@@ -8,9 +8,9 @@ export default {
       msg: 'default msg'
     }
   },
-  render(): VNode {
+  render() : VNode {
     return h('view', { class: 'page' }, [
-      h(CompForHFunction, {}, (): VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
+      h(CompForHFunction, { msg: this.msg }, () : VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
       h('text', msgProps, this.msg),
       h(
         'button',

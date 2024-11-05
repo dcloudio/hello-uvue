@@ -5,7 +5,7 @@ const msg = ref('default msg')
 // 故意外部声明为UTSJSONObject
 const msgProps = { class: 'uni-common-mt msg', style: { color: 'blue' } }
 const render = ():VNode => h('view', { class: 'page' }, [
-  h(CompForHFunction, {}, (): VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
+  h(CompForHFunction, { msg: msg.value }, (): VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
   h('text', msgProps, msg.value),
   h(
     'button',
