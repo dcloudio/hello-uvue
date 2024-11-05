@@ -39,7 +39,7 @@ export default {
       default: false
     },
     providePageObject: {
-      type: Object as PropType<UTSJSONObject>,
+      type: UTSJSONObject,
       default: (): UTSJSONObject => {
         return {
           title: 'default provide page object title',
