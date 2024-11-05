@@ -14,7 +14,7 @@
 				type: Number,
 			},
 			obj: {
-				type: Object as PropType<UTSJSONObject>,
+				type: UTSJSONObject,
 			}
 		},
 		emits: ['compUpdateObj'],

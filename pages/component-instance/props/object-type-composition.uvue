@@ -39,7 +39,7 @@ defineProps({
 		default: false
 	},
 	obj: {
-		type: Object as PropType<UTSJSONObject>,
+		type: UTSJSONObject,
 		default: (): UTSJSONObject => ({})
 	},
 	arr: {
