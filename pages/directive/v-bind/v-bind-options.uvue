@@ -1,4 +1,7 @@
 <template>
+<!-- #ifdef APP -->
+<scroll-view style="flex: 1">
+  <!-- #endif -->
   <view class="page">
     <!-- v-bind attribute -->
     <button id="disabled-btn" class="mb-10" :disabled="true">:disabled true</button>
@@ -22,12 +25,28 @@
 
     <!-- v-bind props -->
     <Foo checked />
-
+    
+    <!-- 绑定对象 -->
+    <Foo v-bind="{ title: dataInfo.fooProps.title,num: dataInfo.fooProps.num,obj: dataInfo.fooProps.obj }" />
+    <Foo v-bind="fooProps"/>
+    <Foo id="bindObj1" v-bind="{ title: dataInfo.fooProps.title,num: dataInfo.fooProps.num,obj: dataInfo.fooProps.obj }" />
+    <!-- 绑定对象合并 v-bind 在前 -->
+    <Foo v-bind="{ title: dataInfo.fooProps.title,num: dataInfo.fooProps.num,obj: dataInfo.fooProps.obj }" id="bindObj2" :title="dataInfo.fooProps.title + ' override'" />
+    <!-- 绑定对象合并 v-bind 在后 -->
+    <Foo id="bindObj3" title="foo" v-bind="{ title: dataInfo.fooProps.title,num: dataInfo.fooProps.num,obj: dataInfo.fooProps.obj }" />
+    <!-- 绑定对象合并 v-bind 在中间（UTSJSONObject）-->
+    <Foo id="bindObj4" v-bind="fooProps" title="foo title(json) override" />
+    <!-- 绑定对象合并（UTSJSONObject）-->
+    <Foo id="bindObj5" title="foo" v-bind="fooProps" />
+    
     <!-- v-bind in style -->
     <!-- #ifdef WEB -->
     <view class="mb-10 v-bind-css"></view>
     <!-- #endif -->
   </view>
+<!-- #ifdef APP -->
+</scroll-view>
+<!-- #endif -->
 </template>
 
 <script lang="uts">
@@ -60,7 +79,11 @@
           },
           vBindClassBackgroundColor: 'red',
           vBindClassRpxHeight: '300rpx'
-        } as DataInfo
+        } as DataInfo,
+        fooProps:{
+            title: 'foo title(json)',
+            num: 2,
+        }
       }
     }
   }
