@@ -35,6 +35,9 @@ describe('render-function render', () => {
     expect(await msgEl.text()).toEqual('new msg')
     compForHFunctionMsg = await page.$('#comp-for-h-function-msg')
     expect(await compForHFunctionMsg.text()).toEqual('new msg')
+    
+    expect(await (await page.$('#header')).text()).toEqual('header')
+    expect(await (await page.$('#footer')).text()).toEqual('footer')
   }
   
   it('render options API', async () => {
