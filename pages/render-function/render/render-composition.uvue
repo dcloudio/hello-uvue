@@ -1,7 +1,7 @@
 <script setup lang="uts">
 import CompForHFunction from '@/components/CompForHFunction.uvue'
 import CompForHFunctionWithSlot from '@/components/CompForHFunctionWithSlot.uvue'
-
+import Foo from './Foo.uvue'
 const msg = ref('default msg')
 // 故意外部声明为UTSJSONObject
 const msgProps = { class: 'uni-common-mt msg', style: { color: 'blue' } }
@@ -9,6 +9,10 @@ const render = ():VNode => h('view', { class: 'page' }, [
   h(CompForHFunctionWithSlot, {}, () : VNode[] => [h('text', { class: 'comp-slot' }, 'component slot')]),
   h(CompForHFunction, { msg: msg.value }),
   h('text', msgProps, msg.value),
+  h(Foo, null, {
+      header: (): VNode[] => [h('text', { id: "header" }, 'header')],
+      footer: (): VNode[] => [h('text', { id: "footer" }, 'footer')]
+  }),
   h(
     'button',
     {
