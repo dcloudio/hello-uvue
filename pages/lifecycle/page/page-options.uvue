@@ -78,7 +78,7 @@ export default {
 		console.log('onLoad', options)
 		this.isOnloadTriggered = true
 		// 自动化测试
-		setLifeCycleNum(state.lifeCycleNum + 100)
+		setLifeCycleNum(state.lifeCycleNum + 104)
 	},
 	onShow() {
 		this.isOnShowTriggered = true

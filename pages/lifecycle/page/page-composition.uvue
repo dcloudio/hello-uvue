@@ -77,7 +77,7 @@ onLoad((options : OnLoadOptions) => {
   console.log('onLoad', options)
   isOnloadTriggered.value = true
   // 自动化测试
-  setLifeCycleNum(state.lifeCycleNum + 100)
+  setLifeCycleNum(state.lifeCycleNum + 103)
 })
 onPageShow(() => {
   isOnPageShowTriggered.value = true

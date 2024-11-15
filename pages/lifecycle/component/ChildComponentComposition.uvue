@@ -16,7 +16,7 @@ const emit = defineEmits<{
 
 onLoad((_ : OnLoadOptions) => {
   // 自动化测试
-  setLifeCycleNum(state.lifeCycleNum + 100)
+  setLifeCycleNum(state.lifeCycleNum + 102)
 })
 onPageShow(() => {
   // 自动化测试
