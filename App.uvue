@@ -32,7 +32,7 @@
     },
     onShow: function (options) {
       // 自动化测试
-      setLifeCycleNum(state.lifeCycleNum + 100)
+      setLifeCycleNum(state.lifeCycleNum + 106)
       setAppShowPath(options.path)
       if(this.globalPropertiesStr === 'default string'){
         setLifeCycleNum(state.lifeCycleNum + 10)
@@ -69,7 +69,7 @@
     // #endif
     onError: function(error: any) {
       console.log('App Error', error)
-      setLifeCycleNum(state.lifeCycleNum + 100)
+      setLifeCycleNum(state.lifeCycleNum + 101)
     },
     methods: {
       checkLaunchPath() : boolean {
