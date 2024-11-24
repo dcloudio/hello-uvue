@@ -13,6 +13,8 @@ describe('v-show', () => {
     expect(await vShowElementDefaultTrue.style('display')).toBe('flex')
     const vShowElementDefaultFalse = await page.$('#v-show-element-default-false')
     expect(await vShowElementDefaultFalse.style('display')).toBe('none')
+    const foo = await page.$('#foo')
+    expect(await foo.style('display')).toBe('none')
 
     const toggle = await page.$('#toggle-btn')
     await toggle.tap()
@@ -22,6 +24,7 @@ describe('v-show', () => {
     expect(dataInfo.showDefaultFalse).toBe(true)
     expect(await vShowElementDefaultTrue.style('display')).toBe('none')
     expect(await vShowElementDefaultFalse.style('display')).toBe('flex')
+    expect(await foo.style('display')).toBe('flex')
     
     await toggle.tap()
     dataInfo = await page.data('dataInfo')
@@ -29,6 +32,7 @@ describe('v-show', () => {
     expect(dataInfo.showDefaultFalse).toBe(false)
     expect(await vShowElementDefaultTrue.style('display')).toBe('flex')
     expect(await vShowElementDefaultFalse.style('display')).toBe('none')
+    expect(await foo.style('display')).toBe('none')
   }
   
   it('v-show options API', async () => {
