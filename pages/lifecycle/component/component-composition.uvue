@@ -4,8 +4,12 @@
   <!-- #endif -->
     <view class="page container">
       <text class="mb-10">component lifecycle 组合式 API</text>
-      <child-component @updateIsScroll="updateIsScroll" />
+      <keep-alive>
+        <component :is="aliveComponent"  @updateIsScroll="updateIsScroll" />
+      </keep-alive>
       <button class="mt-10" @click="scrollToBottom">scrollToBottom</button>
+      <button id="toggle-alive-component-btn" class="mt-10" @click="toggleAliveComponent">toggle alive component</button>
+      <button class="mt-10" @click="navigateToHome">navigateTo home</button>
     </view>
   <!-- #ifdef APP -->
   </scroll-view>
@@ -15,6 +19,8 @@
 <script setup lang='uts'>
   import ChildComponent from './ChildComponentComposition.uvue'
   import { state, setLifeCycleNum } from '@/store/index.uts'
+
+  const aliveComponent = shallowRef<any | null>(ChildComponent)
 
   const isScrolled = ref(false)
 
@@ -44,6 +50,10 @@
       scrollTop: 3000,
     })
   }
+  
+  const toggleAliveComponent = () => {
+    aliveComponent.value = aliveComponent.value == null ? ChildComponent : null
+  }
 
   const updateIsScroll = (val : boolean) => {
     isScrolled.value = val
@@ -52,6 +62,12 @@
   // 自动化测试
   const getIsScrolled = () : boolean => {
     return isScrolled.value
+  }
+  
+  const navigateToHome = () => {
+    uni.navigateTo({
+      url: '/pages/index/index'
+    })
   }
 
   defineExpose({

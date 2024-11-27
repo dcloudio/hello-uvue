@@ -18,19 +18,26 @@ describe('render-function render', () => {
     
     const ComForRenderFunction = await page.$('.component-for-h-function')
     expect(await ComForRenderFunction.text()).toEqual(
-      'component for h()'
+      'component for h() with slot'
     )
     const compSlot = await page.$('.comp-slot')
     expect(await compSlot.text()).toEqual('component slot')
     
     let msgEl = await page.$('.msg')
     expect(await msgEl.text()).toEqual('default msg')
+    compForHFunctionMsg = await page.$('#comp-for-h-function-msg')
+    expect(await compForHFunctionMsg.text()).toEqual('default msg')
     
     const btnEl = await page.$('.btn')
     expect(await btnEl.property('type')).toBe('primary')
     await btnEl.tap()
     msgEl = await page.$('.msg')
     expect(await msgEl.text()).toEqual('new msg')
+    compForHFunctionMsg = await page.$('#comp-for-h-function-msg')
+    expect(await compForHFunctionMsg.text()).toEqual('new msg')
+    
+    expect(await (await page.$('#header')).text()).toEqual('header')
+    expect(await (await page.$('#footer')).text()).toEqual('footer')
   }
   
   it('render options API', async () => {

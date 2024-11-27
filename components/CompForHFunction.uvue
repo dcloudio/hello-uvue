@@ -1,6 +1,16 @@
 <template>
   <view>
     <text class="uni-common-mt bold component-for-h-function">component for h()</text>
-    <slot />
+    <text id="comp-for-h-function-msg">{{msg}}</text>
   </view>
 </template>
+
+<script>
+  export default {
+    props: {
+      msg: {
+        type: String
+      }
+    }
+  }
+</script>

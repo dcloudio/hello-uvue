@@ -54,6 +54,16 @@
       setLifeCycleNum(state.lifeCycleNum - 1);
       console.log('component for lifecycle test unmounted');
     },
+    activated() {
+      // 自动化测试
+      setLifeCycleNum(state.lifeCycleNum + 1);
+      console.log('component for lifecycle test activated');
+    },
+    deactivated() {
+      // 自动化测试
+      setLifeCycleNum(state.lifeCycleNum - 1);
+      console.log('component for lifecycle test deactivated');
+    },
     methods: {
       updateTitle() {
         this.title = 'component for lifecycle test updated';

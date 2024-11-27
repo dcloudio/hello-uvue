@@ -40,11 +40,8 @@ const dataInfo = reactive({
 
 onMounted(() => {
   const instance = getCurrentInstance()!.proxy!
-  // #ifdef APP-ANDROID
-  dataInfo.name = instance.$options.name
-  // #endif
-  // #ifndef APP-ANDROID
   dataInfo.name = instance.$options.name!
+  // #ifndef APP-ANDROID
   dataInfo.customKey = instance.$options._customKey
   dataInfo.mixinDataStr = instance.$options.data!({})!['str']
   // #endif

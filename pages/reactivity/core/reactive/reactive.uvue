@@ -1,51 +1,91 @@
 <template>
-  <view class="page">
-    <view class="flex justify-between flex-row mb-10">
-      <text>count:</text>
-      <text id="count">{{ count }}</text>
+    <view class="page">
+        <view class="flex justify-between flex-row mb-10">
+            <text>count:</text>
+            <text id="count">{{ count }}</text>
+        </view>
+        <view class="flex justify-between flex-row mb-10">
+            <text>obj.str:</text>
+            <text id="obj-str">{{ obj['str'] }}</text>
+        </view>
+        <view class="flex justify-between flex-row mb-10">
+            <text>obj.num:</text>
+            <text id="obj-num">{{ obj['num'] }}</text>
+        </view>
+        <view class="flex justify-between flex-row mb-10">
+            <text>obj.arr:</text>
+            <text id="obj-arr">{{ JSON.stringify(obj['arr']) }}</text>
+        </view>
+        <view class="flex justify-between flex-row mb-10">
+            <text>count1:</text>
+            <text id="count1">{{ count1 }}</text>
+        </view>
+        <view class="flex justify-between flex-row mb-10">
+            <text>obj1.a.b.c:</text>
+            <text id="obj1-a-b-c">{{ obj1.getString('a.b.c') }}</text>
+        </view>
+        <view class="flex justify-between flex-row mb-10">
+            <text>arr1(spread):</text>
+            <text id="arr1">{{ JSON.stringify(arr1) }}</text>
+        </view>
+        <button class='mb-10' id="update-count-btn" @click="updateCount">update count</button>
+        <button class='mb-10' id="update-obj-str-btn" @click="updateObjStr">update obj.str</button>
+        <button class='mb-10' id="update-obj-num-btn" @click="updateObjNum">update obj.num</button>
+        <button class='mb-10' id="update-obj-arr-btn" @click="updateObjArr">update obj.arr</button>
+        <button class='mb-10' id="update-obj1-a-b-c-btn" @click="updateObj1_A_B_C">update obj1.a.b.c</button>
+        <button class='mb-10' id="update-arr1-btn" @click="updateArr1(false)">update arr1 without reactive</button>
+        <button class='mb-10' id="update-arr1-reactive-btn" @click="updateArr1(true)">update arr1 with reactive</button>
     </view>
-    <view class="flex justify-between flex-row mb-10">
-      <text>obj.str:</text>
-      <text id="obj-str">{{ obj['str'] }}</text>
-    </view>
-    <view class="flex justify-between flex-row mb-10">
-      <text>obj.num:</text>
-      <text id="obj-num">{{ obj['num'] }}</text>
-    </view>
-    <view class="flex justify-between flex-row mb-10">
-      <text>obj.arr:</text>
-      <text id="obj-arr">{{ JSON.stringify(obj['arr']) }}</text>
-    </view>
-    <button class='mb-10' id="update-count-btn" @click="updateCount">update count</button>
-    <button class='mb-10' id="update-obj-str-btn" @click="updateObjStr">update obj.str</button>
-    <button class='mb-10' id="update-obj-num-btn" @click="updateObjNum">update obj.num</button>
-    <button class='mb-10' id="update-obj-arr-btn" @click="updateObjArr">update obj.arr</button>
-  </view>
 </template>
 
 <script setup lang="uts">
-  const count = ref(0)
+    const count = ref(0)
 
-  // TODO: 待支持后补充泛型示例
-  const obj = reactive({
-    str: 'default str',
-    num: count,
-    arr: ['a', 'b', 'c']
-  })
+    // TODO: 待支持后补充泛型示例
+    const obj = reactive({
+        str: 'default str',
+        num: count,
+        arr: ['a', 'b', 'c']
+    })
 
-  const updateObjStr = () => {
-    obj['str'] = 'new str';
-  }
+    const updateObjStr = () => {
+        obj['str'] = 'new str';
+    }
 
-  const updateObjNum = () => {
-    obj['num'] = (obj['num'] as number) + 1
-  }
+    const updateObjNum = () => {
+        obj['num'] = (obj['num'] as number) + 1
+    }
 
-  const updateCount = () => {
-    count.value++
-  }
+    const updateCount = () => {
+        count.value++
+    }
 
-  const updateObjArr = () => {
-    (obj['arr'] as string[]).push('d')
-  }
+    const updateObjArr = () => {
+        (obj['arr'] as string[]).push('d')
+    }
+
+    const obj1 = reactive({
+        a: { b: { c: 'c' } }
+    })
+
+    const count1 = ref(0)
+    watchEffect(() => {
+        count1.value++
+        // 测试getString等keyPath触发依赖收集
+        obj1.getString("a.b.c")
+    })
+    function updateObj1_A_B_C() {
+        ((obj1["a"] as UTSJSONObject)["b"] as UTSJSONObject)["c"] = "c1-" + Date.now()
+    }
+    const arr1 = ref<number[]>([])
+    function test(...args : number[]) {
+        arr1.value = args
+    }
+    function updateArr1(isReactive : boolean) {
+        if (isReactive) {
+            test(...reactive([4, 5, 6]))
+        } else {
+            test(...[1, 2, 3])
+        }
+    }
 </script>

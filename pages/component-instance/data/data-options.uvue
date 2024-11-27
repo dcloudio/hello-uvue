@@ -51,7 +51,7 @@
           num: 10,
           arr: [4, 5, 6]
         } as Obj,
-        refElement: null,
+        refElement: null as UniElement | null,
         refElementIsSame: false
       }
     },

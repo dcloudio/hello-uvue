@@ -8,5 +8,8 @@ describe("app launch & show options", () => {
     if (!process.env.uniTestPlatformInfo.startsWith('android')) {
       expect(await page.callMethod("checkAppMixin")).toBe(true)
     }
+
+    const lifeCycleNum = await page.callMethod('getLifeCycleNum')
+    expect(lifeCycleNum).toBe(1110)
   })
 })

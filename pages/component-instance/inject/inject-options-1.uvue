@@ -63,7 +63,7 @@ export default {
       default: false
     },
     providePageObject: {
-      type: Object as PropType<UTSJSONObject>,
+      type: UTSJSONObject,
       default: (): UTSJSONObject => {
         return {
           title: 'default provide page object title',
@@ -94,7 +94,7 @@ export default {
       default: 'test inject string default value'
     },
     testInjectObjectDefaultValue: {
-      type: Object as PropType<UTSJSONObject>,
+      type: UTSJSONObject,
       default(): UTSJSONObject {
         return {
           title: 'test inject object default value title',

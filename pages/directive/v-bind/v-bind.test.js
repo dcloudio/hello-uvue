@@ -45,7 +45,18 @@ describe('v-bind', () => {
     expect(await fooPropsNum.text()).toBe(dataInfo.fooProps.num.toString())
     const fooPropsObjName = await page.$('#foo-props-obj-name')
     expect(await fooPropsObjName.text()).toBe(dataInfo.fooProps.obj.name)
-
+    
+    const bindObj1 = await page.$('#bindObj1')
+    expect(await (await bindObj1.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title)
+    const bindObj2 = await page.$('#bindObj2')
+    expect(await (await bindObj2.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title+' override')
+    const bindObj3 = await page.$('#bindObj3')
+    expect(await (await bindObj3.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title)
+    const bindObj4 = await page.$('#bindObj4')
+    expect(await (await bindObj4.$('#foo-props-title')).text()).toBe(`foo title(json) override`)
+    const bindObj5 = await page.$('#bindObj5')
+    expect(await (await bindObj5.$('#foo-props-title')).text()).toBe(`foo title(json)`)
+    
     if (isWeb) {
       const vBindCss = await page.$('.v-bind-css')
       expect(await vBindCss.style('backgroundColor')).toBe('rgb(255, 0, 0)')
