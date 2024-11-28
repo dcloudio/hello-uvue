@@ -18,12 +18,14 @@
       v-on:click="handleClick($event as MouseEvent)"
       内联声明，注意要显式声明$event的类型
     </button>
+    <!-- #ifndef MP -->
     <button class="mb-10 btn" v-on:[event]="handleClick">
       v-on:[event]="handleClick" 动态事件
     </button>
     <button class="mb-10 btn" v-on="{ click: handleClick }">
       v-on="{ click: handleClick }" 对象语法
     </button>
+    <!-- #endif -->
     <!-- TODO: ios 不支持 -->
     <!-- #ifndef APP-IOS -->
     <button class="mb-10 btn" id="btn-once" @click.once="handleClick">@click once</button>

@@ -2,9 +2,10 @@ const OPTIONS_PAGE_PATH = '/pages/directive/v-on/v-on-options'
 const COMPOSITION_PAGE_PATH = '/pages/directive/v-on/v-on-composition'
 
 describe('v-on', () => {
-  let page
   const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
-  const isIos = platformInfo.startsWith('ios')
+  const isIOS = platformInfo.startsWith('ios')
+  const isMP = platformInfo.startsWith('mp')
+  let page
 
   const test = async (pagePath) => {
     page = await program.reLaunch(pagePath)
@@ -17,13 +18,15 @@ describe('v-on', () => {
     for (let i = 0; i < btnList.length; i++) {
       await btnList[i].tap()
     }
-
-    expect(await count.text()).toBe(isIos ? '7' : '8')
+    
+    const supportedCount = isIOS ? '7' : isMP ? '6' : '8'
+    
+    expect(await count.text()).toBe(supportedCount)
 
     if (!isIos) {
       const onceBtn = await page.$('#btn-once')
       await onceBtn.tap()
-      expect(await count.text()).toBe('8')
+      expect(await count.text()).toBe(supportedCount)
     }
   }
 

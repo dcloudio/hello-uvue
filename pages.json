@@ -184,6 +184,7 @@
         "navigationBarTitleText": "v-on 组合式 API"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/directive/v-pre/v-pre",
       "style": {
@@ -214,6 +215,7 @@
         "navigationBarTitleText": "v-memo 组合式 API"
       }
     },
+    // #endif
     // #ifdef WEB
     {
       "path": "pages/directive/v-text/v-text-options",
@@ -648,6 +650,7 @@
         "navigationBarTitleText": "onBackPress 组合式 API"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/lifecycle/component/component-options",
       "style": {
@@ -688,6 +691,7 @@
         "enablePullDownRefresh": false
       }
     },
+    // #endif
     {
       "path": "pages/built-in/special-elements/slots/slots-composition",
       "style": {
@@ -724,6 +728,7 @@
         "navigationBarTitleText": "template-map-style 组合式 API"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/built-in/special-elements/component/component-options",
       "style": {
@@ -736,6 +741,7 @@
         "navigationBarTitleText": "component 组合式 API"
       }
     },
+    // #endif
     {
       "path": "pages/render-function/render/render-options",
       "style": {
@@ -760,6 +766,7 @@
         "navigationBarTitleText": "mergeProps 组合式 API"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/render-function/cloneVNode/cloneVNode-options",
       "style": {
@@ -784,6 +791,7 @@
         "navigationBarTitleText": "isVNode 组合式 API"
       }
     },
+    // #endif
     {
       "path": "pages/render-function/resolveComponent/resolveComponent-options",
       "style": {

@@ -6,3 +6,9 @@
     }
   })
 </script>
+
+<template>
+  <!-- #ifdef MP -->
+  <view></view>
+  <!-- #endif -->
+</template>

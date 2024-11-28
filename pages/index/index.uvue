@@ -730,6 +730,7 @@ export default {
                 },
               ]
             },
+            // #ifndef MP
             {
               id: 'v-pre',
               name: 'v-pre',
@@ -767,6 +768,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'v-text',
               name: 'v-text',
@@ -882,6 +884,7 @@ export default {
           id: 'built-in',
           name: '内置',
           pages: [
+            // #ifndef MP
             {
               id: 'component',
               name: '组件',
@@ -922,10 +925,12 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'special-elements',
               name: '特殊元素',
               children: [
+                // #ifndef MP
                 {
                   id: 'component',
                   name: 'component',
@@ -943,6 +948,7 @@ export default {
                     }
                   ]
                 },
+                // #endif
                 {
                   id: 'slots',
                   name: 'slot',
@@ -1020,6 +1026,7 @@ export default {
                 },
               ]
             },
+            // #ifndef MP
             {
               id: 'cloneVNode',
               name: 'cloneVNode',
@@ -1055,6 +1062,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'resolveComponent',
               name: 'resolveComponent',

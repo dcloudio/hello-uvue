@@ -21,7 +21,7 @@
   const arr = inject<number[]>('arr', [99])
   const fn = inject<() => string>('fn')
   const fnRes = ref('')
-  if(fn !== null){
+  if(fn != null){
     fnRes.value = fn()
   }
 
