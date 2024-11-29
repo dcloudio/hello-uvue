@@ -108,7 +108,7 @@
         "navigationBarTitleText": "$parent 组合式 API"
       }
     },
-    // #ifdef APP
+    // #ifndef WEB
     {
       "path": "pages/component-instance/root/root-options",
       "style": {
@@ -122,7 +122,7 @@
       }
     },
     // #endif
-    // #ifndef APP-IOS
+    // #ifndef APP-IOS || MP
     {
       "path": "pages/directive/v-html/v-html-options",
       "style": {

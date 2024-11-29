@@ -2,10 +2,14 @@ const PAGE_PATH_OPTIONS = '/pages/built-in/component/teleport/teleport-options'
 const PAGE_PATH_COMPONSITION = '/pages/built-in/component/teleport/teleport-composition'
 
 describe('teleport', () => {
-  if (process.env.uniTestPlatformInfo.toLocaleLowerCase().startsWith('ios')) {
-    it("IOS platform not support", async () => {
-      expect(1).toBe(1);
-    });
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isAndroid = platformInfo.includes('android')
+  const isIOS = platformInfo.includes('ios')
+  const isMP = platformInfo.startsWith('mp')
+  if(isMP || isIOS) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
     return
   }
 

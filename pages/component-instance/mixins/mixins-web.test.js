@@ -2,9 +2,13 @@ const PAGE_PATH = '/pages/component-instance/mixins/mixins-web'
 let page
 
 describe('mixins', () => {
-  if (!process.env.uniTestPlatformInfo.startsWith('web')) {
-    // 该示例只针对 web 平台
-    it('not web platform not support', async () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isAndroid = platformInfo.includes('android')
+  const isIOS = platformInfo.includes('ios')
+  const isMP = platformInfo.startsWith('mp')
+  const isWeb = platformInfo.startsWith('web')
+  if (!isWeb) {
+    it('not support', async () => {
       expect(1).toBe(1)
     })
     return

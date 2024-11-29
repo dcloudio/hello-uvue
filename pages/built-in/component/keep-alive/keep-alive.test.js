@@ -2,6 +2,16 @@ const PAGE_PATH_OPTIONS = '/pages/built-in/component/keep-alive/keep-alive-optio
 const PAGE_PATH_COMPOSITION = '/pages/built-in/component/keep-alive/keep-alive-composition'
 
 describe('keep-alive', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isAndroid = platformInfo.includes('android')
+  const isIOS = platformInfo.includes('ios')
+  const isMP = platformInfo.startsWith('mp')
+  if(isMP) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page = null
   const testKeepAlive = async () => {
     await page.waitFor('view')
