@@ -4,6 +4,7 @@ describe(PAGE_PATH, () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
   const isAndroid = platformInfo.startsWith('android')
   const isWeb = platformInfo.startsWith('web')
+  const isMP = platformInfo.startsWith('mp')
   let page
   
 	beforeAll(async () => {
