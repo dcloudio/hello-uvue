@@ -410,6 +410,7 @@
         "navigationBarTitleText": "defineExpose"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/component-instance/circular-reference/circular-reference-options",
       "style": {
@@ -422,6 +423,7 @@
         "navigationBarTitleText": "循环引用 组合式 API"
       }
     },
+    // #endif
     // #ifdef APP
     {
       "path": "pages/component-instance/mixins/mixins-app",
@@ -741,7 +743,6 @@
         "navigationBarTitleText": "component 组合式 API"
       }
     },
-    // #endif
     {
       "path": "pages/render-function/render/render-options",
       "style": {
@@ -766,7 +767,6 @@
         "navigationBarTitleText": "mergeProps 组合式 API"
       }
     },
-    // #ifndef MP
     {
       "path": "pages/render-function/cloneVNode/cloneVNode-options",
       "style": {

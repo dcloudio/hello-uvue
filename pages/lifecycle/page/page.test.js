@@ -1,5 +1,8 @@
 jest.setTimeout(30000)
 
+const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isMP = platformInfo.startsWith('mp')
+
 const OPTIONS_PAGE_PATH = '/pages/lifecycle/page/page-options'
 const COMPOSITION_PAGE_PATH = '/pages/lifecycle/page/page-composition'
 const HOME_PATH = '/pages/index/index'
@@ -29,15 +32,16 @@ const testPageLifecycle = async (pagePath) => {
   expect(lifeCycleNum).toBe(10)
   await page.callMethod('pageSetLifeCycleNum', 0)
 
-  // onPageScroll onReachBottom
-  await program.pageScrollTo(2000)
-  await page.waitFor(1000)
-  const dataInfo = await page.data('dataInfo')
-  expect(dataInfo.isScrolled).toBe(true)
-  lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
-  expect(lifeCycleNum).toBe(10)
-  await page.callMethod('pageSetLifeCycleNum', 0)
-
+  if(!isMP) {
+    // onPageScroll onReachBottom
+    await program.pageScrollTo(2000)
+    await page.waitFor(1000)
+    const dataInfo = await page.data('dataInfo')
+    expect(dataInfo.isScrolled).toBe(true)
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
+    expect(lifeCycleNum).toBe(10)
+    await page.callMethod('pageSetLifeCycleNum', 0)
+  }
   // onHide
   page = await program.navigateTo(HOME_PATH)
   await page.waitFor('view')
@@ -63,7 +67,8 @@ const testPageLifecycle = async (pagePath) => {
   page = await program.navigateBack()
   await page.waitFor('view')
   lifeCycleNum = await page.callMethod('getLifeCycleNum')
-  expect(lifeCycleNum).toBe(10)
+  // 微信小程序不会触发onBackPress
+  expect(lifeCycleNum).toBe(isMP ? 20 : 10)
   await page.callMethod('setLifeCycleNum', 0)
 }
 

@@ -424,6 +424,7 @@ export default {
               name: 'defineExpose',
               url: 'define-expose/define-expose'
             },
+            // #ifndef MP
             {
               id: 'circular-reference',
               name: 'circular reference',
@@ -440,6 +441,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'mixins',
               name: 'mixins',

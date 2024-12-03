@@ -1,9 +1,20 @@
 const COMPOSITION_PAGE_PATH = '/pages/reactivity/core/watch/watch-composition'
 
+const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isAndroid = platformInfo.includes('android')
+const isWeb = platformInfo.includes('web')
+const isMP = platformInfo.startsWith('mp')
+
 describe('watch', () => {
-  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isAndroid = platformInfo.includes('android')
-  const isWeb = platformInfo.includes('web')
+  
+  if(isMP) {
+    // 微信小程序支持此特性，但是示例内部使用了较多的dom api无法兼容微信小程序
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
+  
   let page = null
 
   beforeAll(async () => {

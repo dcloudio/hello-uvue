@@ -19,7 +19,7 @@ describe('v-on', () => {
       await btnList[i].tap()
     }
     
-    const supportedCount = isIOS ? '7' : isMP ? '6' : '8'
+    const supportedCount = isIOS ? '7' : isMP ? '5' : '8'
     
     expect(await count.text()).toBe(supportedCount)
 

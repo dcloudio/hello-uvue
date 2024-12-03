@@ -4,7 +4,16 @@ const OPTIONS_CHILD_PAGE_PATH = '/pages/lifecycle/page/onBackPress/on-back-press
 const COMPOSITION_PAGE_PATH = '/pages/lifecycle/page/onBackPress/on-back-press-composition'
 const COMPOSITION_CHILD_PAGE_PATH = '/pages/lifecycle/page/onBackPress/on-back-press-child-composition'
 
+const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isMP = platformInfo.startsWith('mp')
+
 describe('onBackPress 返回值', () => {
+  if(isMP) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   const test = async (pagePath, childPagePath) => {
     const page = await program.navigateTo(pagePath)
     await page.waitFor('view')

@@ -30,6 +30,7 @@ describe('defineModel', () => {
     
     const updateValueBtn = await page.$('#update-value-btn')
     await updateValueBtn.tap()
+    await page.waitFor(100)
     
     expect(await modelNumText.text()).toBe('2')
 
