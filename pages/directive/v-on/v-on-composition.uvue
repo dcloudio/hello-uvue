@@ -27,7 +27,7 @@
     </button>
     <!-- #endif -->
     <!-- TODO: ios 不支持 -->
-    <!-- #ifndef APP-IOS -->
+    <!-- #ifndef APP-IOS || MP -->
     <button class="mb-10 btn" id="btn-once" @click.once="handleClick">@click once</button>
     <!-- #endif -->
     <view @click="handleClick">

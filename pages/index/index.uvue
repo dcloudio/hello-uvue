@@ -987,6 +987,7 @@ export default {
             },
           ] as Page[]
         },
+        // #ifndef MP
         {
           id: 'render-function',
           name: '渲染函数',
@@ -1026,7 +1027,6 @@ export default {
                 },
               ]
             },
-            // #ifndef MP
             {
               id: 'cloneVNode',
               name: 'cloneVNode',
@@ -1062,7 +1062,6 @@ export default {
                 },
               ]
             },
-            // #endif
             {
               id: 'resolveComponent',
               name: 'resolveComponent',
@@ -1122,6 +1121,7 @@ export default {
             }
           ] as Page[]
         },
+        // #endif
         {
           id: 'examples',
           name: '示例',

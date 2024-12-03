@@ -23,7 +23,7 @@ describe('v-on', () => {
     
     expect(await count.text()).toBe(supportedCount)
 
-    if (!isIOS) {
+    if (!isIOS && !isMP) {
       const onceBtn = await page.$('#btn-once')
       await onceBtn.tap()
       expect(await count.text()).toBe(supportedCount)

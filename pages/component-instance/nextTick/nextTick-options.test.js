@@ -1,6 +1,17 @@
 const PAGE_PATH = '/pages/component-instance/nextTick/nextTick-options'
 
 describe('$nextTick()', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isWeb = platformInfo.startsWith('web')
+  const isIOS = platformInfo.startsWith('ios')
+  const isMP = platformInfo.startsWith('mp')
+  if (isMP) {
+    it("not support", async () => {
+      expect(1).toBe(1);
+    });
+    return
+  }
+  
   let page
   it('$nextTick page', async () => {
     page = await program.reLaunch(PAGE_PATH)

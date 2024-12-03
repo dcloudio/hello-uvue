@@ -21,6 +21,9 @@
   }
 
   // 自动化测试
+  const setLifeCycleNum = (num: number) : number => {
+    state.lifeCycleNum = num
+  }
   const getLifeCycleNum = () : number => {
     return state.lifeCycleNum
   }

@@ -2,6 +2,14 @@ const OPTIONS_PAGE_PATH = '/pages/render-function/mergeProps/mergeProps-options'
 const COMPOSITION_PAGE_PATH = '/pages/render-function/mergeProps/mergeProps-composition'
 
 describe('mergeProps', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isMP = platformInfo.startsWith('mp')
+  if(isMP) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page = null
   const test = async (pagePath) => {
     page = await program.reLaunch(pagePath)

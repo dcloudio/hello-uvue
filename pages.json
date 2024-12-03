@@ -791,7 +791,6 @@
         "navigationBarTitleText": "isVNode 组合式 API"
       }
     },
-    // #endif
     {
       "path": "pages/render-function/resolveComponent/resolveComponent-options",
       "style": {
@@ -828,6 +827,7 @@
         "navigationBarTitleText": "withModifiers 组合式 API"
       }
     },
+    // #endif
     {
       "path": "pages/examples/unrecognized-component/unrecognized-component",
       "style": {

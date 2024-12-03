@@ -6,7 +6,7 @@ describe('render-function render', () => {
   const isWeb = platformInfo.startsWith('web')
   const isMP = platformInfo.startsWith('mp')
   const isAndroid = platformInfo.startsWith('android')
-  if (isWeb) {
+  if (isWeb || isMP) {
     it("not support", async () => {
       expect(1).toBe(1);
     });
