@@ -818,11 +818,13 @@ export default {
                   name: 'v-model',
                   url: 'v-model-options',
                 },
+                // #ifndef MP
                 {
                   id: 'v-model-composition',
                   name: 'defineModel',
                   url: 'v-model-composition',
                 },
+                // #endif
               ]
             },
             {

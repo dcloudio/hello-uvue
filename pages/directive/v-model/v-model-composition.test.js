@@ -1,6 +1,18 @@
 const PAGE_PATH = '/pages/directive/v-model/v-model-composition'
 
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
 describe('defineModel', () => {
+  if(isMP) {
+    // TODO 小程序暂不支持defineModel
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

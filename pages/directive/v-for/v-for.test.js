@@ -33,12 +33,14 @@ describe('v-for', () => {
     expect(await vIf1Count.text()).toBe('0')
     
     await vIf1Count.tap()
+    await page.waitFor(100)
     expect(await vIf1Count.text()).toBe('1')
     
     const vShow1Count = await page.$('#v-show-1-count')
     expect(await vShow1Count.text()).toBe('1')
     
     await vShow1Count.tap()
+    await page.waitFor(100)
     expect(await vShow1Count.text()).toBe('2')
     
     const mapValue1 = await page.$('#map-key-1')

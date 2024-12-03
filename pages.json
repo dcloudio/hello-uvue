@@ -248,12 +248,14 @@
         "navigationBarTitleText": "v-model"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/directive/v-model/v-model-composition",
       "style": {
         "navigationBarTitleText": "defineModel"
       }
     },
+    // #endif
     {
       "path": "pages/directive/v-slot/v-slot-options",
       "style": {
