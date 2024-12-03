@@ -448,6 +448,15 @@
       }
     },
     // #endif
+    // #ifdef MP
+    {
+      "path" : "pages/component-instance/mp-instance/mp-instance",
+      "style" : 
+      {
+        "navigationBarTitleText" : "mp-instance"
+      }
+    },
+    // #endif
     {
       "path": "pages/reactivity/core/ref/ref",
       "style": {
