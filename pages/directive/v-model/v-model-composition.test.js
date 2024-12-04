@@ -60,5 +60,8 @@ describe('defineModel', () => {
     
     const handleModelMsgUpdateRes = await page.$('#handle-model-msg-update-res')
     expect(await handleModelMsgUpdateRes.text()).toBe('msg2')
+    
+    const sonInput = await page.$('#son-input')
+    expect(await sonInput.text()).toBe('nested')
   })
 })

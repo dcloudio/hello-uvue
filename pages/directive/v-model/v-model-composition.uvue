@@ -18,17 +18,19 @@
       <text>handle model msg update res:</text>
       <text id="handle-model-msg-update-res">{{ handleModelMsgUpdateRes }}</text>
     </view>
+    <Parent v-model="value"></Parent>
   </view>
 </template>
 
 <script setup lang="uts">
 import Foo from './Foo-composition.uvue'
+import Parent from './Parent.uvue'
 
 const str = ref('str')
 const msg = ref('msg')
 const strArr = ref<string[]>(['0'])
 const numArr = ref<number[]>([0])
-
+const value = ref("nested");
 const handleModelValueUpdateRes = ref('')
 const handleModelValueUpdate = (val : string) => {
   handleModelValueUpdateRes.value = val

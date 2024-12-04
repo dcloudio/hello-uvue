@@ -16,18 +16,24 @@
       <text>str for trim length:</text>
       <text id="str-length">{{ strForTrim.length }}</text>
     </view>
+    <Parent v-model="value"></Parent>
   </view>
 </template>
 
 <script lang="uts">
+import Parent from './Parent.uvue'    
 export default {
   data(){
     return {
       str: 'str',
       num: 1,
       strForTrim: ' abc ',
+      value: 'nested'
     }
   },
+  components: {
+      Parent
+  }
 }
 </script>
 

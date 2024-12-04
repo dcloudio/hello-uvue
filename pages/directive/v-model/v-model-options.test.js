@@ -27,6 +27,9 @@ describe('v-model', () => {
       await modelStrTrimInput.input('  trim  ')
       const strLength = await page.$('#str-length')
       expect(await strLength.text()).toBe('4')
+      
+      const sonInput = await page.$('#son-input')
+      expect(await sonInput.text()).toBe('nested')
     }
     // TODO: lazy 修饰符仅 android 支持，补充测试
   })
