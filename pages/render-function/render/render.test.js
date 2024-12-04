@@ -4,9 +4,10 @@ const COMPOSITION_PAGE_PATH = '/pages/render-function/render/render-composition'
 describe('render-function render', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isWeb = platformInfo.startsWith('web')
+  const isMP = platformInfo.startsWith('mp')
   const isAndroid = platformInfo.startsWith('android')
-  if (isWeb) {
-    it("web platform test cannot get render dom", async () => {
+  if (isWeb || isMP) {
+    it("not support", async () => {
       expect(1).toBe(1);
     });
     return

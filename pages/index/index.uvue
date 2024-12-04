@@ -424,6 +424,7 @@ export default {
               name: 'defineExpose',
               url: 'define-expose/define-expose'
             },
+            // #ifndef MP
             {
               id: 'circular-reference',
               name: 'circular reference',
@@ -440,6 +441,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'mixins',
               name: 'mixins',
@@ -730,6 +732,7 @@ export default {
                 },
               ]
             },
+            // #ifndef MP
             {
               id: 'v-pre',
               name: 'v-pre',
@@ -767,6 +770,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'v-text',
               name: 'v-text',
@@ -814,11 +818,13 @@ export default {
                   name: 'v-model',
                   url: 'v-model-options',
                 },
+                // #ifndef MP
                 {
                   id: 'v-model-composition',
                   name: 'defineModel',
                   url: 'v-model-composition',
                 },
+                // #endif
               ]
             },
             {
@@ -882,6 +888,7 @@ export default {
           id: 'built-in',
           name: '内置',
           pages: [
+            // #ifndef MP
             {
               id: 'component',
               name: '组件',
@@ -922,10 +929,12 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'special-elements',
               name: '特殊元素',
               children: [
+                // #ifndef MP
                 {
                   id: 'component',
                   name: 'component',
@@ -943,6 +952,7 @@ export default {
                     }
                   ]
                 },
+                // #endif
                 {
                   id: 'slots',
                   name: 'slot',
@@ -981,6 +991,7 @@ export default {
             },
           ] as Page[]
         },
+        // #ifndef MP
         {
           id: 'render-function',
           name: '渲染函数',
@@ -1114,6 +1125,7 @@ export default {
             }
           ] as Page[]
         },
+        // #endif
         {
           id: 'examples',
           name: '示例',

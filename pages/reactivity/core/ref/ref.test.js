@@ -17,6 +17,8 @@ describe('ref', () => {
     expect(await arr.text()).toBe('[1,2,3]')
     const counterCount = await page.$('#counter-count')
     expect(await counterCount.text()).toBe('0')
+    const countersCount = await page.$('#counters-count')
+    expect(await countersCount.text()).toBe('0')
 
     const changeCountBtn = await page.$('#change-count-btn')
     await changeCountBtn.tap()
@@ -37,6 +39,10 @@ describe('ref', () => {
     const changeCounterBtn = await page.$('#change-counter-btn')
     await changeCounterBtn.tap()
     expect(await counterCount.text()).toBe('1')
+    
+    const changeCountersBtn = await page.$('#change-counters-btn')
+    await changeCountersBtn.tap()
+    expect(await countersCount.text()).toBe('1')
   })
 
 })

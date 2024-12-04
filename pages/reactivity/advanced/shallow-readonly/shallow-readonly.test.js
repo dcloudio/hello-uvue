@@ -1,3 +1,7 @@
+const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isMP = platformInfo.startsWith('mp')
+const isWeb = platformInfo.startsWith('web')
+
 const PAGE_PATH = '/pages/reactivity/advanced/shallow-readonly/shallow-readonly'
 
 describe('shallowReadonly', () => {
@@ -13,8 +17,8 @@ describe('shallowReadonly', () => {
     let stateNestedCount = await page.$('#state-nested-count')
     expect(await stateNestedCount.text()).toBe('0')
 
-    if (process.env.uniTestPlatformInfo.startsWith('web')) {
-      // web端操作readonly对象会直接编译失败，以下测试无法执行
+    if (isMP || isWeb) {
+      // web端操作readonly对象会直接失败，以下测试无法执行
       return
     }
 

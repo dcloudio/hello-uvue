@@ -1,6 +1,9 @@
 const PAGE_PATH = "/pages/component-instance/methods/call-method-easycom-uni-modules-composition"
 
-
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
 
 let page
 beforeAll(async () => {
@@ -10,7 +13,19 @@ beforeAll(async () => {
 
 it('callMethodTest', async () => {
   // a[[]] only issue 8582
-  if (process.env.uniTestPlatformInfo.toLowerCase().startsWith('web')) {
+  if (isWeb || isMP) {
+    expect(1).toBe(1)
+    return
+  }
+  
+  // ios_simulator ios 17.0
+  // xcodoe 15 以下的版本环境不满足
+  if (
+    isIOS &&
+    (platformInfo.indexOf('14.') != -1 ||
+      platformInfo.indexOf('13.') != -1 ||
+      platformInfo.indexOf('12.') != -1)
+  ) {
     expect(1).toBe(1)
     return
   }

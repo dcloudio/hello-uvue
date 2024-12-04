@@ -1,9 +1,18 @@
 const PAGE_OPTIONS = '/pages/built-in/special-elements/component/component-options'
 const PAGE_COMPOSITION = '/pages/built-in/special-elements/component/component-composition'
 const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isAndroid = platformInfo.includes('android')
+const isIOS = platformInfo.includes('ios')
+const isMP = platformInfo.startsWith('mp')
 const isWeb = platformInfo.startsWith('web')
 
 describe('built-in/component', () => {
+  if(isMP) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page
   const test = async (pagePath) => {
     page = await program.reLaunch(pagePath)

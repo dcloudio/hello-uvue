@@ -2,11 +2,18 @@ const PAGE_PATH = '/pages/lifecycle/component/component-composition'
 const HOME_PATH = '/pages/index/index'
 
 describe('component-lifecycle', () => {
-  let page
-  let lifeCycleNum
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isAndroid = platformInfo.includes('android')
-  const isIos = platformInfo.includes('ios')
+  const isIOS = platformInfo.includes('ios')
+  const isMP = platformInfo.startsWith('mp')
+  if(isMP) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
+  let page
+  let lifeCycleNum
   beforeAll(async () => {
     page = await program.reLaunch(HOME_PATH)
     await page.waitFor(700)
@@ -74,7 +81,7 @@ describe('component-lifecycle', () => {
     await page.waitFor('view')
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     // App 端页面离开返回不触发 keepAlive 组件 activated deactivated, 详见 https://issues.dcloud.net.cn/pages/issues/detail?id=7419
-    expect(lifeCycleNum).toBe(isIos || isAndroid ? -10 : -11)
+    expect(lifeCycleNum).toBe(isIOS || isAndroid ? -10 : -11)
     page = await program.navigateBack()
     await page.waitFor('view')
     lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')

@@ -13,6 +13,7 @@
           <text id="slot-default">{{ num }}</text>
         </view>
       </template>
+      <!-- #ifndef MP -->
       <template v-for="item in 2" #[`num${item}`]="{ num }">
         <view class="mb-10 flex justify-between flex-row">
           <text>num{{ item }} slot:</text>
@@ -31,6 +32,7 @@
           <text id="slot-msg-false">{{ msg }}</text>
         </view>
       </template>
+      <!-- #endif -->
       <template #footer="{ arr }">
         <view class="mb-10 flex justify-between flex-row">
           <text>footer slot arr:</text>

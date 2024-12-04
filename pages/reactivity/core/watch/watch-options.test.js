@@ -1,14 +1,25 @@
 // TODO: 确认各端差异
 
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isAndroid = platformInfo.startsWith('android')
+const isIOS = platformInfo.startsWith('ios')
+const isApp = isAndroid || isIOS
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
 const OPTIONS_PAGE_PATH = '/pages/reactivity/core/watch/watch-options'
 
 describe('watch', () => {
+  
+  if(isMP) {
+    // 微信小程序支持此特性，但是示例内部使用了较多的dom api无法兼容微信小程序
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
+  
   let page = null
-  const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
-  const isAndroid = platformInfo.startsWith('android')
-  const isIos = platformInfo.startsWith('ios')
-  const isApp = isAndroid || isIos
-  const isWeb = platformInfo.startsWith('web')
 
   beforeAll(async () => {
     page = await program.reLaunch(OPTIONS_PAGE_PATH)
@@ -41,7 +52,7 @@ describe('watch', () => {
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('1')
     }
-    if (isIos || isWeb) {
+    if (isIOS || isWeb) {
       expect(await watchCountTrackNum.text()).toBe('2')
     }
     expect(((await watchCountCleanupRes.text()) || '').trim()).toBe('')
@@ -56,7 +67,7 @@ describe('watch', () => {
       expect(await watchCountTrackNum.text()).toBe('1')
     }
 
-    if (isIos || isWeb) {
+    if (isIOS || isWeb) {
       expect(await watchCountTrackNum.text()).toBe('3')
     }
     expect(await watchCountCleanupRes.text()).toBe('watch count cleanup: 1')
@@ -86,7 +97,7 @@ describe('watch', () => {
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('1')
     }
-    if (isIos) {
+    if (isIOS) {
       expect(await watchCountTrackNum.text()).toBe('4')
     }
     if (isWeb) {
@@ -112,7 +123,7 @@ describe('watch', () => {
         'obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}, prevObj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}'
       )
     }
-    if (isIos || isWeb) {
+    if (isIOS || isWeb) {
       expect(await watchObjRes.text()).toBe(
         'obj: {"num":0,"str":"num: 0","bool":false,"arr":[0]}, prevObj: null'
       )

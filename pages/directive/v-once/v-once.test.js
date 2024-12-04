@@ -2,9 +2,11 @@ const OPTIONS_PAGE_PATH = '/pages/directive/v-once/v-once-options'
 const COMPOSITION_PAGE_PATH = '/pages/directive/v-once/v-once-composition'
 
 describe('v-once', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: web 端暂不支持
-    it('web', async () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+  const isWeb = platformInfo.startsWith('web')
+  const isMP = platformInfo.startsWith('mp')
+  if (isWeb || isMP) {
+    it('not support', async () => {
       expect(1).toBe(1)
     })
     return

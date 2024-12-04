@@ -1,6 +1,18 @@
 const PAGE_PATH = '/pages/directive/v-model/v-model-composition'
 
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
 describe('defineModel', () => {
+  if(isMP) {
+    // TODO 小程序暂不支持defineModel
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page = null
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -30,6 +42,7 @@ describe('defineModel', () => {
     
     const updateValueBtn = await page.$('#update-value-btn')
     await updateValueBtn.tap()
+    await page.waitFor(100)
     
     expect(await modelNumText.text()).toBe('2')
 
@@ -47,5 +60,8 @@ describe('defineModel', () => {
     
     const handleModelMsgUpdateRes = await page.$('#handle-model-msg-update-res')
     expect(await handleModelMsgUpdateRes.text()).toBe('msg2')
+    
+    const sonInput = await page.$('#son-input')
+    expect(await sonInput.text()).toBe('nested')
   })
 })

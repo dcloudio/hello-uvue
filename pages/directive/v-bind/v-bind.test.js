@@ -5,6 +5,7 @@ describe('v-bind', () => {
   let page
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isWeb = platformInfo.startsWith('web')
+  const isMP = platformInfo.startsWith('mp')
   const isFirefox = platformInfo.indexOf('firefox') > -1
 
   const test = async (pagePath) => {
@@ -24,7 +25,7 @@ describe('v-bind', () => {
     expect(await bindObjectStyle.style('fontSize')).toBe(dataInfo.fontSize)
 
     const bindArrayStyle = await page.$('#bind-array-style')
-    if (isWeb) {
+    if (isWeb || isMP) {
       expect(await bindArrayStyle.style('backgroundColor')).toBe('rgb(0, 128, 0)')
     } else {
       expect(await bindArrayStyle.style('backgroundColor')).toBe(dataInfo.backgroundColor.replace(
@@ -33,7 +34,7 @@ describe('v-bind', () => {
     const borderStyles = dataInfo.border.replace('border:', '').trim().split(' ')
     expect(await bindArrayStyle.style(isFirefox ? 'borderTopWidth' : 'borderWidth')).toBe(borderStyles[0])
     expect(await bindArrayStyle.style(isFirefox ? 'borderTopStyle' : 'borderStyle')).toBe(borderStyles[1])
-    if (isWeb) {
+    if (isWeb || isMP) {
       expect(await bindArrayStyle.style(isFirefox ? 'borderTopColor' : 'borderColor')).toBe('rgb(255, 0, 0)')
     } else {
       expect(await bindArrayStyle.style(isFirefox ? 'borderTopColor' : 'borderColor')).toBe(borderStyles[2])
@@ -46,16 +47,18 @@ describe('v-bind', () => {
     const fooPropsObjName = await page.$('#foo-props-obj-name')
     expect(await fooPropsObjName.text()).toBe(dataInfo.fooProps.obj.name)
     
-    const bindObj1 = await page.$('#bindObj1')
-    expect(await (await bindObj1.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title)
-    const bindObj2 = await page.$('#bindObj2')
-    expect(await (await bindObj2.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title+' override')
-    const bindObj3 = await page.$('#bindObj3')
-    expect(await (await bindObj3.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title)
-    const bindObj4 = await page.$('#bindObj4')
-    expect(await (await bindObj4.$('#foo-props-title')).text()).toBe(`foo title(json) override`)
-    const bindObj5 = await page.$('#bindObj5')
-    expect(await (await bindObj5.$('#foo-props-title')).text()).toBe(`foo title(json)`)
+    if(!isMP) {
+      const bindObj1 = await page.$('#bindObj1')
+      expect(await (await bindObj1.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title)
+      const bindObj2 = await page.$('#bindObj2')
+      expect(await (await bindObj2.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title+' override')
+      const bindObj3 = await page.$('#bindObj3')
+      expect(await (await bindObj3.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title)
+      const bindObj4 = await page.$('#bindObj4')
+      expect(await (await bindObj4.$('#foo-props-title')).text()).toBe(`foo title(json) override`)
+      const bindObj5 = await page.$('#bindObj5')
+      expect(await (await bindObj5.$('#foo-props-title')).text()).toBe(`foo title(json)`)
+    }
     
     if (isWeb) {
       const vBindCss = await page.$('.v-bind-css')

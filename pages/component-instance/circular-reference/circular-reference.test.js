@@ -1,7 +1,19 @@
 const OPTIONS_PAGE_PATH = '/pages/component-instance/circular-reference/circular-reference-options'
 const COMPOSITION_PAGE_PATH = '/pages/component-instance/circular-reference/circular-reference-composition'
 
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
 describe('', () => {
+  if(isMP) {
+    // TODO 小程序组件如果想递归自身需要注册为全局组件，后续再调研可行性
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page
 
   const test = async (page) => {

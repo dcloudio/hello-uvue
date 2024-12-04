@@ -1,3 +1,8 @@
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
 const PAGE_PATH = '/pages/component-instance/setup-function/setup-function'
 describe('options setup', () => {
   let page
@@ -23,7 +28,7 @@ describe('options setup', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('false')
 
-    if (!process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (!isMP && !isWeb) {
       const propsStr = await page.$('#props-str')
       expect(await propsStr.text()).toBe('props.str: default str')
       const propsCount = await page.$('#props-count')
@@ -42,7 +47,7 @@ describe('options setup', () => {
 
     const count = await page.$('#count')
     expect(await count.text()).toBe('1')
-    if (!process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (!isWeb && !isMP) {
       const propsCount = await page.$('#props-count')
       expect(await propsCount.text()).toBe('props.count: 1')
     }
@@ -57,7 +62,7 @@ describe('options setup', () => {
     const objBool = await page.$('#obj-bool')
     expect(await objBool.text()).toBe('true')
 
-    if (!process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (!isMP && !isWeb) {
       const propsObjStr = await page.$('#props-obj-str')
       expect(await propsObjStr.text()).toBe(`props.obj['str']: obj new str`)
       const propsObjNum = await page.$('#props-obj-num')
@@ -67,7 +72,7 @@ describe('options setup', () => {
     }
   })
   it('context', async () => {
-    if (!process.env.uniTestPlatformInfo.startsWith('web')) {
+    if (!isMP && !isWeb) {
       // attrs
       const contextAttrsIsShow = await page.$('#context-attrs-is-show')
       expect(await contextAttrsIsShow.text()).toBe('context.attrs.isShow: true')

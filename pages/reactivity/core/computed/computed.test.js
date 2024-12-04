@@ -14,6 +14,9 @@ describe('computed', () => {
     expect(await objArr.text()).toBe('[1,2,3]')
     const objArrLen = await page.$('#obj-arr-len')
     expect(await objArrLen.text()).toBe('3')
+    
+    const computedWithArgument = await page.$('#computed-with-argument')
+    expect(await computedWithArgument.text()).toBe('审核中')
 
     const updateBtn = await page.$('#update-btn')
     await updateBtn.tap()

@@ -16,24 +16,31 @@
       <text>str for trim length:</text>
       <text id="str-length">{{ strForTrim.length }}</text>
     </view>
+    <Parent v-model="value"></Parent>
   </view>
 </template>
 
 <script lang="uts">
+import Parent from './Parent.uvue'    
 export default {
   data(){
     return {
       str: 'str',
       num: 1,
       strForTrim: ' abc ',
+      value: 'nested'
     }
   },
+  components: {
+      Parent
+  }
 }
 </script>
 
 <style>
 .input {
-  padding: 8px 10px;
+  padding: 0px 10px;
+  height: 40px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }

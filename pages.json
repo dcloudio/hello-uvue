@@ -108,7 +108,7 @@
         "navigationBarTitleText": "$parent 组合式 API"
       }
     },
-    // #ifdef APP
+    // #ifndef WEB
     {
       "path": "pages/component-instance/root/root-options",
       "style": {
@@ -122,7 +122,7 @@
       }
     },
     // #endif
-    // #ifndef APP-IOS
+    // #ifndef APP-IOS || MP
     {
       "path": "pages/directive/v-html/v-html-options",
       "style": {
@@ -184,6 +184,7 @@
         "navigationBarTitleText": "v-on 组合式 API"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/directive/v-pre/v-pre",
       "style": {
@@ -214,6 +215,7 @@
         "navigationBarTitleText": "v-memo 组合式 API"
       }
     },
+    // #endif
     // #ifdef WEB
     {
       "path": "pages/directive/v-text/v-text-options",
@@ -246,12 +248,14 @@
         "navigationBarTitleText": "v-model"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/directive/v-model/v-model-composition",
       "style": {
         "navigationBarTitleText": "defineModel"
       }
     },
+    // #endif
     {
       "path": "pages/directive/v-slot/v-slot-options",
       "style": {
@@ -408,6 +412,7 @@
         "navigationBarTitleText": "defineExpose"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/component-instance/circular-reference/circular-reference-options",
       "style": {
@@ -420,6 +425,7 @@
         "navigationBarTitleText": "循环引用 组合式 API"
       }
     },
+    // #endif
     // #ifdef APP
     {
       "path": "pages/component-instance/mixins/mixins-app",
@@ -439,6 +445,15 @@
       "path": "pages/component-instance/mixins/mixins-web",
       "style": {
         "navigationBarTitleText": "mixins"
+      }
+    },
+    // #endif
+    // #ifdef MP
+    {
+      "path" : "pages/component-instance/mp-instance/mp-instance",
+      "style" : 
+      {
+        "navigationBarTitleText" : "mp-instance"
       }
     },
     // #endif
@@ -648,6 +663,7 @@
         "navigationBarTitleText": "onBackPress 组合式 API"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/lifecycle/component/component-options",
       "style": {
@@ -688,6 +704,7 @@
         "enablePullDownRefresh": false
       }
     },
+    // #endif
     {
       "path": "pages/built-in/special-elements/slots/slots-composition",
       "style": {
@@ -724,6 +741,7 @@
         "navigationBarTitleText": "template-map-style 组合式 API"
       }
     },
+    // #ifndef MP
     {
       "path": "pages/built-in/special-elements/component/component-options",
       "style": {
@@ -820,6 +838,7 @@
         "navigationBarTitleText": "withModifiers 组合式 API"
       }
     },
+    // #endif
     {
       "path": "pages/examples/unrecognized-component/unrecognized-component",
       "style": {

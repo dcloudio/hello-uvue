@@ -5,9 +5,65 @@ const {
 } = require('jest-image-snapshot');
 let saveImageSnapshotDir = process.env.saveImageSnapshotDir || path.join(__dirname, '__snapshot__');
 
+const oldProgramNavigation = {
+    navigateTo: program.navigateTo.bind(program),
+    navigateBack: program.navigateBack.bind(program),
+    reLaunch: program.reLaunch.bind(program),
+}
+
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
+const randomClass = `.automator-not-exist-class-${Math.random().toString(36).substring(7)}`
+
+function parseSelector(selector) {
+  if(selector.startsWith('#')) {
+    // 微信小程序子组件真实渲染的id为`xxxx--id`，页面内渲染出的id属性为`id`
+    return `page [id="${selector.slice(1)}"]:not(${randomClass}),page [id$="--${selector.slice(1)}"]:not(${randomClass})`
+  }
+  return `${selector}:not(${randomClass})`
+}
+
+function setupPage (page) {
+    const old$ = page.$.bind(page)
+    const old$$ = page.$$.bind(page)
+    page.$$ = async function (selector) {
+        const elements = await old$$.call(this, parseSelector(selector))
+        return elements
+    }
+    page.$ = async function (selector) {
+        const element = await old$.call(this, parseSelector(selector))
+        return element
+    }
+}
+
+function setupProgramNavigation (program, methodName, oldMethod) {
+    program[methodName] = async function (...args) {
+        const page = await oldMethod.apply(this, args)
+        setupPage(page)
+        return page
+    }
+}
+
+function setupProgram (program) {
+    ['navigateTo', 'navigateBack', 'reLaunch'].forEach(methodName => {
+        setupProgramNavigation(program, methodName, oldProgramNavigation[methodName])
+    })
+}
+
+if (isMP) {
+    /**
+     * hack微信小程序自动化测试方法，非标准用法。可能随小程序自动化测试工具升级失效，可能不适用于其他小程序
+     * 处理小程序page对象无法获取子组件内元素的问题
+     */
+    setupProgram(program)
+}
+
 expect.extend({
     toMatchImageSnapshot: configureToMatchImageSnapshot({
-        customSnapshotIdentifier(args) {
+        customSnapshotIdentifier (args) {
             return args.currentTestName.replace(/\//g, "-").replace(" ", "-");
         },
         customSnapshotsDir: process.env.saveImageSnapshotDir,
@@ -24,12 +80,12 @@ if (!fs.existsSync(testCaseToSnapshotFilePath)) {
     fs.writeFileSync(testCaseToSnapshotFilePath, "{}");
 }
 
-function writeTestCaseToSnapshotFile(testCaseName, snapshotFilePath) {
+function writeTestCaseToSnapshotFile (testCaseName, snapshotFilePath) {
     const data = JSON.parse(fs.readFileSync(testCaseToSnapshotFilePath));
 
     if (testCaseName.includes(__dirname)) {
         testCaseName = testCaseName.substring(`${__dirname}`.length);
-        if (testCaseName[0] == '/'  || testCaseName[0] == '\\') {
+        if (testCaseName[0] == '/' || testCaseName[0] == '\\') {
             testCaseName = testCaseName.substring(1);
         };
     };
@@ -42,7 +98,7 @@ function writeTestCaseToSnapshotFile(testCaseName, snapshotFilePath) {
     fs.writeFileSync(testCaseToSnapshotFilePath, JSON.stringify(data, null, 2));
 }
 
-function toSaveSnapshot(received, {
+function toSaveSnapshot (received, {
     customSnapshotsDir,
     fileName
 } = {}) {
@@ -86,7 +142,7 @@ function toSaveSnapshot(received, {
     };
 }
 
-function toSaveImageSnapshot(
+function toSaveImageSnapshot (
     received, {
         customSnapshotsDir,
         customSnapshotIdentifier
@@ -133,7 +189,7 @@ function toSaveImageSnapshot(
     };
 }
 
-function createSnapshotDir({
+function createSnapshotDir ({
     customSnapshotsDir,
     testPath,
     SNAPSHOTS_DIR
@@ -141,7 +197,7 @@ function createSnapshotDir({
     return customSnapshotsDir || path.join(path.dirname(testPath), SNAPSHOTS_DIR);
 }
 
-function createFileName({
+function createFileName ({
     fileName,
     testPath,
     currentTestName,
@@ -157,7 +213,7 @@ function createFileName({
     );
 }
 
-function createSnapshotIdentifier({
+function createSnapshotIdentifier ({
     testPath,
     currentTestName,
     fileType = "txt",
@@ -170,7 +226,7 @@ function createSnapshotIdentifier({
     return `${snapshotIdentifier}-${counter}.${fileType}`;
 }
 
-function kebabCase(str) {
+function kebabCase (str) {
     return str
         .replaceAll(/([a-z])([A-Z])/g, "$1-$2")
         .replaceAll(/\s+/g, "-")
@@ -180,7 +236,7 @@ function kebabCase(str) {
         .toLowerCase();
 }
 
-function checkSnapshotDir(snapshotDir) {
+function checkSnapshotDir (snapshotDir) {
     if (!fs.existsSync(snapshotDir)) {
         fs.mkdirSync(snapshotDir, {
             recursive: true,
@@ -189,3 +245,4 @@ function checkSnapshotDir(snapshotDir) {
 }
 
 const timesCalled = new Map();
+

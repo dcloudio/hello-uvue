@@ -5,9 +5,10 @@ const COMPOSITION_PAGE_PATH = '/pages/directive/v-html/v-html-composition'
 
 describe('v-html', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isIos = platformInfo.includes('ios')
-  if (isIos) {
-    it("ios platform not support", async () => {
+  const isIOS = platformInfo.includes('ios')
+  const isMP = platformInfo.startsWith('mp')
+  if (isIOS || isMP) {
+    it("not support", async () => {
       expect(1).toBe(1);
     });
     return

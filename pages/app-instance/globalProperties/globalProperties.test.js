@@ -58,7 +58,7 @@ describe('globalProperties', () => {
 	}
 	
 	it('globalProperties options API', async () => {
-		page = await program.navigateTo(OPTIONS_PAGE_PATH)
+		page = await program.reLaunch(OPTIONS_PAGE_PATH)
 		await page.waitFor('view')
 		
 		await testGlobalProperties(page)
