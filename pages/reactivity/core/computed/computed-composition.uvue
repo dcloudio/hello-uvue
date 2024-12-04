@@ -16,6 +16,10 @@
       <text>computed obj.arr.length:</text>
       <text id="obj-arr-len">{{ objArrLen }}</text>
     </view>
+    <view class="flex justify-between flex-row mb-10">
+        <text>computed stateText(1):</text>
+        <text id="computed-with-argument">{{ stateText(1) }}</text>
+    </view>
     <button id="update-btn" @click="update">update</button>
   </view>
 </template>
@@ -44,4 +48,11 @@ const update = () => {
   count.value++
   obj.arr.push(obj.arr.length + 1)
 }
+
+const stateText = computed(() => {
+  return (state: number) => {
+    const stateArr = ['未审核', '审核中', '审核通过']
+    return stateArr[state]
+  }
+})
 </script>
