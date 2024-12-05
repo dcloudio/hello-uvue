@@ -33,22 +33,6 @@ it('callMethodTest', async () => {
     return
   }
 
-  // ios_simulator ios 17.0
-  // xcodoe 15 以下的版本环境不满足
-
-  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isIOS = process.env.uniTestPlatformInfo.toLowerCase().startsWith('ios')
-
-  if (
-    isIOS &&
-    (platformInfo.indexOf('14.') != -1 ||
-      platformInfo.indexOf('13.') != -1 ||
-      platformInfo.indexOf('12.') != -1)
-  ) {
-    expect(1).toBe(1)
-    return
-  }
-
   const delay = () =>
     new Promise((resolve, _) => {
       setTimeout(() => {
