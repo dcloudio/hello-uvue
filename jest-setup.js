@@ -12,8 +12,6 @@ const oldProgramNavigation = {
 }
 
 const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
-const isIOS = platformInfo.startsWith('ios')
-const isWeb = platformInfo.startsWith('web')
 const isMP = platformInfo.startsWith('mp')
 
 const randomClass = `.automator-not-exist-class-${Math.random().toString(36).substring(7)}`
