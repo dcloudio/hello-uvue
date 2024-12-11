@@ -650,7 +650,7 @@ export default {
           id: 'directive',
           name: '指令',
           pages: [
-            // #ifndef APP-IOS
+            // #ifndef APP-IOS || MP
             {
               id: 'v-html',
               name: 'v-html',
@@ -779,7 +779,7 @@ export default {
                   id: 'v-text-options',
                   name: 'v-text 选项式 API',
                   url: 'v-text-options',
-                  // #ifdef APP
+                  // #ifdef APP || MP
                   enable: false
                   // #endif
                 },
@@ -787,7 +787,7 @@ export default {
                   id: 'v-text-composition',
                   name: 'v-text 组合式 API',
                   url: 'v-text-composition',
-                  // #ifdef APP
+                  // #ifdef APP|| MP
                   enable: false
                   // #endif
                 },
@@ -865,7 +865,9 @@ export default {
                   url: 'page-composition'
                 }
               ]
-            }, {
+            },
+            // #ifndef MP
+            {
               id: 'component',
               name: '组件生命周期',
               children: [
@@ -882,6 +884,7 @@ export default {
                 }
               ]
             }
+            // #endif
           ] as Page[]
         },
         {
