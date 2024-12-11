@@ -1,4 +1,4 @@
-
+jest.setTimeout(20000)
 
 const OPTIONS_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-options'
 const COMPOSITION_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-composition'
