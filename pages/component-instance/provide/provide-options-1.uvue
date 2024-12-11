@@ -45,7 +45,7 @@ export default {
   methods: {
     goProvidePage2(){
       uni.navigateTo({
-        url: '/pages/composition/provide/provide-page2'
+        url: '/pages/component-instance/provide/provide-options-2'
       })
     }
   },
