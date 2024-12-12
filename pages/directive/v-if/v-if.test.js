@@ -2,17 +2,20 @@ const OPTIONS_PAGE_PATH = '/pages/directive/v-if/v-if-options'
 const COMPOSITION_PAGE_PATH = '/pages/directive/v-if/v-if-composition'
 
 describe('v-if', () => {
-  let page
-  const test = async (page) => {
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
+    await page.waitFor('view')
     let vIfShow = await page.$('#v-if-show')
     expect(await vIfShow.text()).toBe('show')
     
     const switchVIfBtn = await page.$('#switch-v-if-btn')
     await switchVIfBtn.tap()
+    await page.waitFor(500)
     vIfShow = await page.$('#v-if-show')
     expect(vIfShow).toBeNull()
     
     await switchVIfBtn.tap()
+    await page.waitFor(500)
     vIfShow = await page.$('#v-if-show')
     expect(await vIfShow.text()).toBe('show')
     
@@ -61,16 +64,10 @@ describe('v-if', () => {
   }
   
   it('v-if options API', async () => {
-    page = await program.reLaunch(OPTIONS_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(OPTIONS_PAGE_PATH)
   })
   
   it('v-if composition API', async () => {
-    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(COMPOSITION_PAGE_PATH)
   })
 })
