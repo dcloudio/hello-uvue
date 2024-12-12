@@ -5,3 +5,4 @@ unpackage/
 .DS_Store
 .hbuilderx/
 __image_snapshots__/
+testCaseToSnapshotFilePath.json
