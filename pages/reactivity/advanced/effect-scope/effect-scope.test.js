@@ -28,6 +28,7 @@ describe('effectScope', () => {
 
     const incrementCounterBtn = await page.$('#increment-counter-btn')
     await incrementCounterBtn.tap()
+    await page.waitFor(500)
 
     expect(await counter.text()).toBe('1')
     expect(await watchCounterRes.text()).toBe('newVal: 1, oldVal: 0')
@@ -35,8 +36,8 @@ describe('effectScope', () => {
 
     const stopEffectScopeBtn = await page.$('#stop-effect-scope-btn')
     await stopEffectScopeBtn.tap()
-
     await incrementCounterBtn.tap()
+    await page.waitFor(500)
 
     expect(await counter.text()).toBe('2')
     expect(await watchCounterRes.text()).toBe('newVal: 1, oldVal: 0')

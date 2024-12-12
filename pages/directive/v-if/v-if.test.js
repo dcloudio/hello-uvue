@@ -38,6 +38,7 @@ describe('v-if', () => {
     expect(numVElse).toBeNull()
     
     await changeNumBtn.tap()
+    await page.waitFor(500)
     
     expect(await num.text()).toBe('3')
     numVIf = await page.$('#num-v-if')
@@ -48,6 +49,7 @@ describe('v-if', () => {
     expect(await numVElse.text()).toBe('v-else')
     
     await changeNumBtn.tap()
+    await page.waitFor(500)
     
     expect(await num.text()).toBe('1')
     numVIf = await page.$('#num-v-if')
