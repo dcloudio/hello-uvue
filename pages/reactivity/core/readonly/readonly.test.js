@@ -23,6 +23,7 @@ describe('ref', () => {
 
     const updateDataBtn = await page.$('#update-data-btn')
     await updateDataBtn.tap()
+    await page.waitFor(500)
 
     expect(await dataStr.text()).toBe('new str')
     expect(await dataNum.text()).toBe('1')

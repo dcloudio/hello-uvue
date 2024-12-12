@@ -26,6 +26,7 @@ describe('throw error', () => {
 
     const triggerErrorBtn = await page.$('#trigger-error')
     await triggerErrorBtn.tap()
+    await page.waitFor(500)
 
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(200)

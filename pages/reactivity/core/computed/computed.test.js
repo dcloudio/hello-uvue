@@ -20,6 +20,7 @@ describe('computed', () => {
 
     const updateBtn = await page.$('#update-btn')
     await updateBtn.tap()
+    await page.waitFor(500)
 
     expect(await count.text()).toBe('1')
     expect(await doubleCount.text()).toBe('2')

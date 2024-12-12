@@ -8,6 +8,7 @@ describe('built-in/special-elements/component', () => {
     const showBtn = await page.$('#show-botton')
     expect(await showBtn.text()).toBe("点击显示")
     await showBtn.tap()
+    await page.waitFor(500)
     
     const dataInfo = await page.data('dataInfo')
     expect(dataInfo.isShow).toBeTruthy()

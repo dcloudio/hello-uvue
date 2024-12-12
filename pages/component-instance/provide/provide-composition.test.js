@@ -32,6 +32,7 @@ describe('组合式 API provide', () => {
 
     const checkHasInjectionContextBtn = await page.$('.check-has-injection-context-btn')
     await checkHasInjectionContextBtn.tap()
+    await page.waitFor(500)
 
     expect(await hasInjectionContext.text()).toBe('hasInjectionContext: false')
   })

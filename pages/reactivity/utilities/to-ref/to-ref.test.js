@@ -25,6 +25,7 @@ describe('toRef', () => {
 
     const incrementBtn = await page.$('#increment-btn')
     await incrementBtn.tap()
+    await page.waitFor(500)
 
     expect(await objNum.text()).toBe('2')
     expect(await toRefObjNum.text()).toBe('2')

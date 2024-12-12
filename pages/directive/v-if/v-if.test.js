@@ -27,6 +27,7 @@ describe('v-if', () => {
     
     const changeNumBtn = await page.$('#change-num-btn')
     await changeNumBtn.tap()
+    await page.waitFor(500)
     
     expect(await num.text()).toBe('2')
     numVIf = await page.$('#num-v-if')

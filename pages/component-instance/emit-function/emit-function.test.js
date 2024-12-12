@@ -10,6 +10,7 @@ describe('$emit()', () => {
 
     const btn = await page.$('.call-parent-btn')
     await btn.tap()
+    await page.waitFor(500)
 
     const afterValue = await valueText.text()
     expect(beforeValue).not.toBe(afterValue)
