@@ -17,6 +17,7 @@ describe('shallowRef', () => {
 
     const updateStateBtn = await page.$('#update-state-btn')
     await updateStateBtn.tap()
+    await page.waitFor(500)
 
     expect(await stateCount.text()).toBe('1')
   })
