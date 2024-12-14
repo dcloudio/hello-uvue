@@ -25,12 +25,14 @@ describe('built-in/component', () => {
     expect(await grandChildElement.text()).toEqual('1')
 
     await parentBtn.tap()
+    await page.waitFor(500)
 
     expect(await parentMsgElement.text()).toEqual('2')
     expect(await childMsgElement.text()).toEqual('2')
     expect(await grandChildElement.text()).toEqual('2')
 
     await grandChildBtn.tap()
+    await page.waitFor(500)
 
     expect(await parentMsgElement.text()).toEqual('0')
     expect(await childMsgElement.text()).toEqual('0')

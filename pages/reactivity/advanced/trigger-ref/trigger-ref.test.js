@@ -12,11 +12,13 @@ describe('triggerRef', () => {
 
     const incrementStateCountBtn = await page.$('#increment-state-count-btn')
     await incrementStateCountBtn.tap()
+    await page.waitFor(500)
 
     expect(await stateCount.text()).toBe('0')
 
     const triggerRefStateBtn = await page.$('#trigger-ref-state-btn')
     await triggerRefStateBtn.tap()
+    await page.waitFor(500)
 
     expect(await stateCount.text()).toBe('1')
   })

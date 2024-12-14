@@ -5,7 +5,7 @@ describe('$parent', () => {
   const test = async (pagePath) => {
     page = await program.reLaunch(pagePath)
     await page.waitFor('view')
-    await page.waitFor(1000)
+    await page.waitFor(500)
     const parentStr = await page.$('#parent-str')
     expect(await parentStr.text()).toBe('parent str')
     
@@ -14,6 +14,7 @@ describe('$parent', () => {
     
     const triggerParentFnBtn = await page.$('#trigger-parent-fn')
     await triggerParentFnBtn.tap()
+    await page.waitFor(500)
     expect(await parentNum.text()).toBe('1')
   }
   
