@@ -25,6 +25,7 @@ describe('toValue', () => {
 
     const incrementBtn = await page.$('#increment-btn')
     await incrementBtn.tap()
+    await page.waitFor(500)
 
     expect(await objNum.text()).toBe('1')
     if(!isWeb){

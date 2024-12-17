@@ -7,7 +7,8 @@ describe('v-model', () => {
 
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
-    await page.waitFor(500)
+    await page.waitFor('view')
+    await page.waitFor(1000)
   })
 
   it('input', async () => {

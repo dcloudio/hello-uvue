@@ -17,6 +17,7 @@ describe('v-on', () => {
     const btnList = await page.$$('.btn')
     for (let i = 0; i < btnList.length; i++) {
       await btnList[i].tap()
+      await page.waitFor(500)
     }
     
     const supportedCount = isIOS ? '7' : isMP ? '5' : '8'

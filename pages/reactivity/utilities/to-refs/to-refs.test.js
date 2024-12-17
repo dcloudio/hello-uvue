@@ -25,6 +25,7 @@ describe('toRefs', () => {
 
     const updateStateBtn = await page.$('#update-state-btn')
     await updateStateBtn.tap()
+    await page.waitFor(500)
 
     expect(await stateNum.text()).toBe('1')
     expect(await stateStr.text()).toBe('str-1')

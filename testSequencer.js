@@ -8,7 +8,6 @@ const endTestFilePaths = [
 ]
 class CustomSequencer extends Sequencer {
   sort(tests) {
-    // 测试例排序
     const startTests = startTestFilePaths
       .map((filePath) => {
         return tests.find((test) => test.path.endsWith(filePath))
@@ -19,7 +18,12 @@ class CustomSequencer extends Sequencer {
         return tests.find((test) => test.path.endsWith(filePath))
       })
       .filter(Boolean)
-    return [...new Set([...startTests, ...tests, ...endTests])]
+
+    const middleTests = tests.filter((test) => 
+      !startTests.includes(test) && !endTests.includes(test)
+    );
+
+    return [...startTests, ...middleTests, ...endTests]
   }
 }
 

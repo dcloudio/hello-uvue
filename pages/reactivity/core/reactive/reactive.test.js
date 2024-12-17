@@ -24,19 +24,23 @@ describe('reactive', () => {
 
         const updateCountBtn = await page.$('#update-count-btn')
         await updateCountBtn.tap()
+        await page.waitFor(500)
         expect(await count.text()).toBe('1')
 
         const updateObjStrBtn = await page.$('#update-obj-str-btn')
         await updateObjStrBtn.tap()
+        await page.waitFor(500)
         expect(await objStr.text()).toBe('new str')
 
         const updateObjNumBtn = await page.$('#update-obj-num-btn')
         await updateObjNumBtn.tap()
+        await page.waitFor(500)
         expect(await count.text()).toBe('2')
         expect(await objNum.text()).toBe('2')
 
         const updateObjArrBtn = await page.$('#update-obj-arr-btn')
         await updateObjArrBtn.tap()
+        await page.waitFor(500)
         expect(await objArr.text()).toBe('["a","b","c","d"]')
 
         const count1 = await page.$('#count1')
@@ -48,6 +52,7 @@ describe('reactive', () => {
 
         const updateArr1Btn = await page.$('#update-arr1-btn')
         await updateArr1Btn.tap()
+        await page.waitFor(500)
         expect(await arr1.text()).toBe(JSON.stringify([1, 2, 3]))
 
         const updateArr1ReactiveBtn = await page.$('#update-arr1-reactive-btn')

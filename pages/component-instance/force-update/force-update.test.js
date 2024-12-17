@@ -12,6 +12,7 @@ describe('$forceUpdate', () => {
 
     const triggerForceUpdateBtn = await page.$('.trigger-force-update-btn')
     await triggerForceUpdateBtn.tap()
+    await page.waitFor(500)
 
     const timeText2 = (await timeEl.text()).replace('Date.now(): ', '')
     expect(parseInt(timeText2)).toBeGreaterThan(parseInt(timeText1))
@@ -25,6 +26,7 @@ describe('$forceUpdate', () => {
 
     const triggerForceUpdateBtn = await page.$('.trigger-force-update-btn')
     await triggerForceUpdateBtn.tap()
+    await page.waitFor(500)
 
     const timeText2 = (await timeEl.text()).replace('Date.now(): ', '')
     expect(parseInt(timeText2)).toBeGreaterThan(parseInt(timeText1))

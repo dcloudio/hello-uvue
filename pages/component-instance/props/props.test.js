@@ -5,8 +5,10 @@ const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
 const isAndroid = platformInfo.includes('android')
 
 describe('props', () => {
-  let page
-  const test = async (page) => {
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
+    await page.waitFor('view')
+    await page.waitFor(1000)
     const arrayLiteralStr = await page.$('#array-literal-str')
     expect(await arrayLiteralStr.text()).toBe('str')
 
@@ -50,16 +52,10 @@ describe('props', () => {
   }
 
   it('props 选项式 API', async () => {
-    page = await program.reLaunch(OPTIONS_PAGE_PATH)
-    await page.waitFor('view')
-
-    await test(page)
+    await test(OPTIONS_PAGE_PATH)
   });
 
   it('props 组合式 API', async () => {
-    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
-    await page.waitFor('view')
-
-    await test(page)
+    await test(COMPOSITION_PAGE_PATH)
   })
 })
