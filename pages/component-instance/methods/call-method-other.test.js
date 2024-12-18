@@ -10,6 +10,15 @@ describe('call-method-other', () => {
     const title = Date.now() + ''
     const result = await page.callMethod('callMethodTest', title)
     expect(result).toBe(title)
+    
+    let res = await page.callMethod('callMethodFooWithDefaultParameter')
+    expect(res).toBe(10)
+    
+    res = await page.callMethod('callMethodFooWithGenericParameter')
+    expect(res).toBe(10)
+    
+    res = await page.callMethod('callMethodFooWithRestParameter')
+    expect(res).toBe(JSON.stringify(["test", 10, 11]))
   })
 
   it('callMethodTest Composition API', async () => {
@@ -18,5 +27,11 @@ describe('call-method-other', () => {
     const title = Date.now() + ''
     const result = await page.callMethod('callMethodTest', title)
     expect(result).toBe(title)
+    
+    let res = await page.callMethod('callMethodFooWithDefaultParameter')
+    expect(res).toBe(10)
+
+    res = await page.callMethod('callMethodFooWithRestParameter')
+    expect(res).toBe(JSON.stringify(["test", 10, 11]))
   })
 })

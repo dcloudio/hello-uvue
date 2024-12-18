@@ -25,6 +25,19 @@
       foo5(text1 : string) : string | null {
         this.result = text1
         return text1
+      },
+      fooWithDefaultParameter(n = 1): number {
+        this.result = "fooWithDefaultParameter=" + n
+        return n
+      },
+      fooWithGenericParameter<T>(n: T): T{
+        this.result = "fooWithGeneric=" + n
+        return n
+      },
+      fooWithRestParameter(name: string, ...n: number[]): string {
+        const res = JSON.stringify([name, ...n])
+        this.result = "fooWithRestParameter=" + res
+        return res
       }
     }
   }

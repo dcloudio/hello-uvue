@@ -40,6 +40,13 @@ export default {
       this.callMethod4()
       await delay()
       this.callMethod5()
+      await delay()
+      // callMethod时，不支持默认参数，必须主动传入
+      this.callMethodFooWithDefaultParameter()
+      await delay()
+      this.callMethodFooWithGenericParameter()
+      await delay()
+      this.callMethodFooWithRestParameter()
     },
     callMethod1() {
       // 通过 $callMethod 调用组件的 foo1 方法
@@ -69,6 +76,15 @@ export default {
       const result = this.component1?.$callMethod('foo5', text) as string;
       return result;
     },
+    callMethodFooWithDefaultParameter(): any | null{
+      return this.component1?.$callMethod('fooWithDefaultParameter', 10)
+    },
+    callMethodFooWithGenericParameter(): any | null{
+      return this.component1?.$callMethod('fooWithGenericParameter', 10)
+    },
+    callMethodFooWithRestParameter(): any | null{
+      return this.component1?.$callMethod('fooWithRestParameter', "test", 10, 11)
+    }
   }
 }
 </script>
