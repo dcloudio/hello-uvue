@@ -26,6 +26,9 @@
 
 <script setup lang="uts">
 defineProps({
+    nullableStr: {
+        type: [String, null],
+    },
 	str: {
 		type: String,
 		default: 'default str'
