@@ -12,11 +12,13 @@ describe('onScopeDispose', () => {
 
     const createScopeBtn = await page.$('#create-scope-btn')
     await createScopeBtn.tap()
+    await page.waitFor(500)
 
     expect(await hasCurrentScope.text()).toBe('true')
 
     const stopScopeBtn = await page.$('#stop-scope-btn')
     await stopScopeBtn.tap()
+    await page.waitFor(500)
 
     expect(await hasCurrentScope.text()).toBe('false')
   })

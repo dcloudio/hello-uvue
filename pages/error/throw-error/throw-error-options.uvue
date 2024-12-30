@@ -6,7 +6,7 @@
 </template>
 
 <script lang="uts">
-  import { state } from '@/store/index.uts'
+  import { setLifeCycleNum, state } from '@/store/index.uts'
 
   export default {
     onReady() {
@@ -24,6 +24,10 @@
       // 自动化测试
       getLifeCycleNum() : number {
         return state.lifeCycleNum
+      },
+      // 自动化测试
+      setLifeCycleNum(num : number) {
+        setLifeCycleNum(num)
       }
     },
   }

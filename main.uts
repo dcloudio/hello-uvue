@@ -14,6 +14,7 @@ import plugin2 from '@/plugins/plugin2.uts'
 import plugin3 from '@/plugins/plugin3.uts'
 import plugin4 from '@/plugins/plugin4.uts'
 import CompForPlugin from '@/components/CompForPlugin.uvue'
+import CompForPluginCopy from '@/components/CompForPluginCopy.uvue'
 // 仅引用类型，模板中不使用，也要保证不报错
 let testType1 : TestType1ComponentPublicInstance | null = null
 export function createApp() {
@@ -268,7 +269,17 @@ export function createApp() {
   app.use(plugin3)
   app.use(plugin4)
   app.use(function (app: VueApp, componentName: string) {
+    // #ifdef MP
+    /**
+     * 此处调整为处理两个问题
+     * - 小程序不支持动态组件名
+     * - 小程序两个组件名指向同一个文件时只有一个会生效（TODO 这是Bug后续修复）
+     */
+    app.component('CompForPlugin1', CompForPluginCopy)
+    // #endif
+    // #ifndef MP
     app.component(componentName, CompForPlugin)
+    // #endif
   }, 'CompForPlugin1')
 
   app.use({

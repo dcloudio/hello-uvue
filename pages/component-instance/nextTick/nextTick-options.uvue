@@ -75,7 +75,7 @@
         // #ifdef APP
         this.dataInfo.beforeNextTickCallbackTitle = pageText.getAttribute('value')!
         // #endif
-        // #ifndef APP
+        // #ifdef WEB
         // @ts-ignore
         this.dataInfo.beforeNextTickCallbackTitle = pageText.textContent
         // #endif
@@ -84,7 +84,7 @@
           // #ifdef APP
           this.dataInfo.afterNextTickCallbackTitle = pageText.getAttribute('value')!
           // #endif
-          // #ifndef APP
+          // #ifdef WEB
           // @ts-ignore
           this.dataInfo.afterNextTickCallbackTitle = pageText.textContent
           // #endif
@@ -97,7 +97,7 @@
         // #ifdef APP
         this.dataInfo.beforeNextTickPromiseTitle = pageText.getAttribute('value')!
         // #endif
-        // #ifndef APP
+        // #ifdef WEB
         // @ts-ignore
         this.dataInfo.beforeNextTickPromiseTitle = pageText.textContent
         // #endif
@@ -106,7 +106,7 @@
           // #ifdef APP
           this.dataInfo.afterNextTickPromiseTitle = pageText.getAttribute('value')!
           // #endif
-          // #ifndef APP
+          // #ifdef WEB
           // @ts-ignore
           this.dataInfo.afterNextTickPromiseTitle = pageText.textContent
           // #endif

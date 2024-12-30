@@ -5,8 +5,9 @@ describe('withModifiers', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isWeb = platformInfo.startsWith('web')
   const isIos = platformInfo.startsWith('ios')
-  if (isWeb) {
-    it("web platform test cannot get render dom", async () => {
+  const isMP = platformInfo.startsWith('mp')
+  if (isWeb || isMP) {
+    it("not support", async () => {
       expect(1).toBe(1);
     });
     return

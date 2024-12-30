@@ -29,7 +29,7 @@
 
     <!-- v-bind props -->
     <Foo checked />
-    
+    <!-- #ifndef MP -->
     <!-- 绑定对象 -->
     <Foo id="bindObj1" v-bind="{ title: dataInfo.fooProps.title,num: dataInfo.fooProps.num,obj: dataInfo.fooProps.obj }" />
     <!-- 绑定对象合并-->
@@ -40,7 +40,7 @@
     <Foo id="bindObj4" v-bind="fooProps" title="foo title(json) override" />
     <!-- 绑定对象合并（UTSJSONObject）-->
     <Foo id="bindObj5" title="foo" v-bind="fooProps" />
-    
+    <!-- #endif -->
     <!-- v-bind in style -->
     <!-- #ifdef WEB -->
     <view class="mb-10 v-bind-css"></view>

@@ -1,11 +1,22 @@
 const PAGE_PATH = '/pages/reactivity/core/watch-post-effect/watch-post-effect'
 
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isAndroid = platformInfo.startsWith('android')
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
 describe('watchPostEffect', () => {
+  
+  if(isMP) {
+    // 微信小程序支持此特性，但是示例内部使用了较多的dom api无法兼容微信小程序
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
+  
   let page = null
-  const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
-  const isAndroid = platformInfo.startsWith('android')
-  const isIos = platformInfo.startsWith('ios')
-  const isWeb = platformInfo.startsWith('web')
 
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
@@ -17,8 +28,7 @@ describe('watchPostEffect', () => {
 
     // watch
     const watchCountRes = await page.$('#watch-count-res')
-    expect(await watchCountRes.text()).toBe(
-      'count: 0, count ref text: 0')
+    expect(await watchCountRes.text()).toBe('count: 0, count ref text: 0')
 
     // track
     const watchCountTrackNum = await page.$('#watch-count-track-num')
@@ -32,7 +42,7 @@ describe('watchPostEffect', () => {
     if (isAndroid || isWeb) {
       expect(await watchCountCleanupRes.text()).toBe('')
     }
-    if (isIos) {
+    if (isIOS) {
       expect(await watchCountCleanupRes.text()).toBe(null)
     }
 
@@ -44,8 +54,7 @@ describe('watchPostEffect', () => {
     await incrementBtn.tap()
 
     expect(await count.text()).toBe('1')
-    expect(await watchCountRes.text()).toBe(
-      'count: 1, count ref text: 1')
+    expect(await watchCountRes.text()).toBe('count: 1, count ref text: 1')
 
     if (isAndroid) {
       expect(await watchCountTrackNum.text()).toBe('3')

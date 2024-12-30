@@ -1,11 +1,21 @@
 const PAGE_PATH = '/pages/reactivity/core/watch-sync-effect/watch-sync-effect'
 
+const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+const isAndroid = platformInfo.startsWith('android')
+const isIOS = platformInfo.startsWith('ios')
+const isWeb = platformInfo.startsWith('web')
+const isMP = platformInfo.startsWith('mp')
+
 describe('watchSyncEffect', () => {
   let page = null
-  const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
-  const isAndroid = platformInfo.startsWith('android')
-  const isIos = platformInfo.startsWith('ios')
-  const isWeb = platformInfo.startsWith('web')
+  
+  if(isMP) {
+    // 微信小程序支持此特性，但是示例内部使用了较多的dom api无法兼容微信小程序
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
 
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)

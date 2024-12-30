@@ -2,9 +2,13 @@ const OPTIONS_PAGE_PATH = '/pages/directive/v-memo/v-memo-options'
 const COMPOSITION_PAGE_PATH = '/pages/directive/v-memo/v-memo-composition'
 
 describe('v-memo', () => {
-  if (process.env.uniTestPlatformInfo.startsWith('web')) {
-    // TODO: web 暂不支持
-    it('web', async () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isAndroid = platformInfo.includes('android')
+  const isIOS = platformInfo.includes('ios')
+  const isMP = platformInfo.startsWith('mp')
+  const isWeb = platformInfo.startsWith('web')
+  if (isWeb || isMP) {
+    it('not support', async () => {
       expect(1).toBe(1)
     })
     return

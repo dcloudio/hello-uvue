@@ -1,6 +1,6 @@
 const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
 const isAndroid = platformInfo.includes('android')
-const isIos = platformInfo.includes('ios')
+const isIOS = platformInfo.includes('ios')
 const OPTIONS_PAGE_PATH = '/pages/error/throw-error/throw-error-options'
 const COMPOSITION_PAGE_PATH = '/pages/error/throw-error/throw-error-composition'
 const HOME_PAGE_PATH = '/pages/index/index'
@@ -26,11 +26,12 @@ describe('throw error', () => {
 
     const triggerErrorBtn = await page.$('#trigger-error')
     await triggerErrorBtn.tap()
+    await page.waitFor(500)
 
     lifeCycleNum = await page.callMethod('getLifeCycleNum')
     expect(lifeCycleNum).toBe(200)
 
-    if (isAndroid || isIos) {
+    if (isAndroid || isIOS) {
       const triggerTimeoutErrorBtn = await page.$('#trigger-timeout-error')
       await triggerTimeoutErrorBtn.tap()
       await page.waitFor(500)

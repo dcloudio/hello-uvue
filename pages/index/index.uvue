@@ -424,6 +424,7 @@ export default {
               name: 'defineExpose',
               url: 'define-expose/define-expose'
             },
+            // #ifndef MP
             {
               id: 'circular-reference',
               name: 'circular reference',
@@ -440,6 +441,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'mixins',
               name: 'mixins',
@@ -648,7 +650,7 @@ export default {
           id: 'directive',
           name: '指令',
           pages: [
-            // #ifndef APP-IOS
+            // #ifndef APP-IOS || MP
             {
               id: 'v-html',
               name: 'v-html',
@@ -730,6 +732,7 @@ export default {
                 },
               ]
             },
+            // #ifndef MP
             {
               id: 'v-pre',
               name: 'v-pre',
@@ -767,6 +770,7 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'v-text',
               name: 'v-text',
@@ -775,7 +779,7 @@ export default {
                   id: 'v-text-options',
                   name: 'v-text 选项式 API',
                   url: 'v-text-options',
-                  // #ifdef APP
+                  // #ifdef APP || MP
                   enable: false
                   // #endif
                 },
@@ -783,7 +787,7 @@ export default {
                   id: 'v-text-composition',
                   name: 'v-text 组合式 API',
                   url: 'v-text-composition',
-                  // #ifdef APP
+                  // #ifdef APP|| MP
                   enable: false
                   // #endif
                 },
@@ -814,11 +818,13 @@ export default {
                   name: 'v-model',
                   url: 'v-model-options',
                 },
+                // #ifndef MP
                 {
                   id: 'v-model-composition',
                   name: 'defineModel',
                   url: 'v-model-composition',
                 },
+                // #endif
               ]
             },
             {
@@ -859,7 +865,9 @@ export default {
                   url: 'page-composition'
                 }
               ]
-            }, {
+            },
+            // #ifndef MP
+            {
               id: 'component',
               name: '组件生命周期',
               children: [
@@ -876,12 +884,14 @@ export default {
                 }
               ]
             }
+            // #endif
           ] as Page[]
         },
         {
           id: 'built-in',
           name: '内置',
           pages: [
+            // #ifndef MP
             {
               id: 'component',
               name: '组件',
@@ -922,10 +932,12 @@ export default {
                 },
               ]
             },
+            // #endif
             {
               id: 'special-elements',
               name: '特殊元素',
               children: [
+                // #ifndef MP
                 {
                   id: 'component',
                   name: 'component',
@@ -943,6 +955,7 @@ export default {
                     }
                   ]
                 },
+                // #endif
                 {
                   id: 'slots',
                   name: 'slot',
@@ -981,6 +994,7 @@ export default {
             },
           ] as Page[]
         },
+        // #ifndef MP
         {
           id: 'render-function',
           name: '渲染函数',
@@ -1114,6 +1128,7 @@ export default {
             }
           ] as Page[]
         },
+        // #endif
         {
           id: 'examples',
           name: '示例',

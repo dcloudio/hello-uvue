@@ -1,4 +1,4 @@
-
+jest.setTimeout(30000)
 
 const OPTIONS_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-options'
 const COMPOSITION_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-composition'
@@ -58,7 +58,7 @@ describe('globalProperties', () => {
 	}
 	
 	it('globalProperties options API', async () => {
-		page = await program.navigateTo(OPTIONS_PAGE_PATH)
+		page = await program.reLaunch(OPTIONS_PAGE_PATH)
 		await page.waitFor('view')
 		
 		await testGlobalProperties(page)

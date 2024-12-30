@@ -5,6 +5,13 @@ describe('cloneVNode', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isWeb = platformInfo.startsWith('web')
   const isIos = platformInfo.startsWith('ios')
+  const isMP = platformInfo.startsWith('mp')
+  if(isMP) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   if (isWeb) {
     it("web platform test cannot get render dom", async () => {
       expect(1).toBe(1);

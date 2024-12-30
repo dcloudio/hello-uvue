@@ -16,7 +16,7 @@ describe('defineExpose', () => {
 
     const incrementBtn = await page.$('.increment-btn')
     await incrementBtn.tap()
-
+    await page.waitFor(100)
     expect(await fooNum.text()).toBe('1')
   })
 })

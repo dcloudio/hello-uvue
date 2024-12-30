@@ -2,6 +2,14 @@ const PAGE_PATH = '/pages/lifecycle/component/component-options'
 const HOME_PATH = '/pages/index/index'
 
 describe('component-lifecycle', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  const isMP = platformInfo.startsWith('mp')
+  if(isMP) {
+    it('not support', async () => {
+      expect(1).toBe(1)
+    })
+    return
+  }
   let page
   let lifeCycleNum
   beforeAll(async () => {

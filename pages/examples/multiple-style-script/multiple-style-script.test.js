@@ -4,6 +4,7 @@ describe(PAGE_PATH, () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
   const isAndroid = platformInfo.startsWith('android')
   const isWeb = platformInfo.startsWith('web')
+  const isMP = platformInfo.startsWith('mp')
   let page
   
 	beforeAll(async () => {
@@ -18,10 +19,10 @@ describe(PAGE_PATH, () => {
       expect(await num.text()).toBe('0')
     }
     const textRed = await page.$('.text-red')
-    expect(await textRed.style('color')).toBe(isWeb ? 'rgb(255, 0, 0)': '#FF0000')
+    expect(await textRed.style('color')).toBe(isWeb || isMP ? 'rgb(255, 0, 0)': '#FF0000')
     const textGreen = await page.$('.text-green')
-    expect(await textGreen.style('color')).toBe(isWeb ? 'rgb(0, 128, 0)': '#008000')
+    expect(await textGreen.style('color')).toBe(isWeb || isMP ? 'rgb(0, 128, 0)': '#008000')
     const fontBold = await page.$('.font-bold')
-    expect(await fontBold.style('fontWeight')).toBe(isWeb ? '700' : 'bold')
+    expect(await fontBold.style('fontWeight')).toBe(isWeb || isMP ? '700' : 'bold')
 	})
 })
