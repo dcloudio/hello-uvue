@@ -29,6 +29,9 @@ describe('render-function render', () => {
     compForHFunctionMsg = await page.$('#comp-for-h-function-msg')
     expect(await compForHFunctionMsg.text()).toEqual('default msg')
     
+    let textList = await page.$$('.text-item')
+    expect(textList.length).toBe(2)
+    
     const btnEl = await page.$('.btn')
     expect(await btnEl.property('type')).toBe('primary')
     await btnEl.tap()
@@ -39,6 +42,12 @@ describe('render-function render', () => {
     
     expect(await (await page.$('#header')).text()).toEqual('header')
     expect(await (await page.$('#footer')).text()).toEqual('footer')
+    
+    textList = await page.$$('.text-item')
+    expect(textList.length).toBe(3)
+    await btnEl.tap()
+    textList = await page.$$('.text-item')
+    expect(textList.length).toBe(4)
   }
   
   it('render options API', async () => {

@@ -328,7 +328,7 @@ export default {
             },
             {
               id: 'methods',
-              name: '$methods',
+              name: 'methods',
               children: [
                 {
                   id: 'call-method-easycom-uni-modules-options',

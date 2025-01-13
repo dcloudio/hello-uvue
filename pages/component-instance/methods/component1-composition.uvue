@@ -26,11 +26,31 @@ const foo5 = (text: string): string => {
   return text
 }
 
+function fooWithDefaultParameter(n = 1): number {
+  result.value = "fooWithDefaultParameter=" + n
+  return n
+}
+
+function fooWithGenericParameter<T>(n: T): T{
+  result.value = "fooWithGeneric=" + n
+  return n
+}
+
+function fooWithRestParameter(name: string, ...n: number[]): string {
+  const res = JSON.stringify([name, ...n])
+  result.value = "fooWithRestParameter=" + res
+  return res
+}
+
 defineExpose({
   foo1,
   foo2,
   foo3,
   foo4,
-  foo5
+  foo5,
+  fooWithDefaultParameter: fooWithDefaultParameter,
+  // 不支持导出泛型函数
+  // fooWithGenericParameter: fooWithGenericParameter,
+  fooWithRestParameter: fooWithRestParameter
 })
 </script>
