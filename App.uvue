@@ -67,8 +67,8 @@
       console.log('App Exit')
     },
     // #endif
-    onError: function(error: any) {
-      console.log('App Error', error)
+    onError: function(err: any) {
+      console.log('App Error', err)
       setLifeCycleNum(state.lifeCycleNum + 100)
     },
     methods: {
