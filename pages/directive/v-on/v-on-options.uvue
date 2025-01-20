@@ -31,18 +31,34 @@
     <view @click="handleClick">
       <button class="mb-10 btn" id="btn-stop" @click.stop="handleClick">@click stop</button>
     </view>
+    <button class="mb-10" id="btn-prevent" @touchstart.prevent="handleTouchstart" @click="handleClick">@touch prevent</button>
   </view>
 </template>
 
 <script lang="uts">
+type BtnPreventRect = {
+  value: DOMRect | null
+}
+  
 export default {
   data() {
     return {
       count: 0,
-      event: 'click'
+      event: 'click',
+      btnPreventRect: {
+        value: null as DOMRect | null
+      } as BtnPreventRect
     }
   },
+  onReady(){
+    const btnPrevent = uni.getElementById("btn-prevent")
+    this.btnPreventRect.value = btnPrevent?.getBoundingClientRect()
+    this.btnPreventRect.value!.y += uni.getSystemInfoSync().safeArea.top + 44
+  },
   methods: {
+    handleTouchstart(){
+      console.log('handleTouchstart')
+    },
     handleClick(e : MouseEvent) {
       this.count++
       console.log('handleClick', e)
