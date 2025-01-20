@@ -3,6 +3,7 @@ const COMPOSITION_PAGE_PATH = '/pages/directive/v-on/v-on-composition'
 
 describe('v-on', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
+  const isAndroid = platformInfo.startsWith('android')
   const isIOS = platformInfo.startsWith('ios')
   const isMP = platformInfo.startsWith('mp')
   let page
@@ -27,6 +28,17 @@ describe('v-on', () => {
     if (!isIOS && !isMP) {
       const onceBtn = await page.$('#btn-once')
       await onceBtn.tap()
+      expect(await count.text()).toBe(supportedCount)
+    }
+    if (isAndroid || isIOS) {
+      const btnPreventRect = (await page.data('btnPreventRect')).value
+      const x = Math.ceil(btnPreventRect.x + btnPreventRect.width / 2)
+      const y = Math.ceil(btnPreventRect.y + btnPreventRect.height / 2.0)
+      await program.tap({
+        x: x,
+        y: y,
+        duration: 100
+      })
       expect(await count.text()).toBe(supportedCount)
     }
   }
