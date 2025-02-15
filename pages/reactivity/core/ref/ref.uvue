@@ -79,5 +79,5 @@
   issue15557.value = {
     a: 1
   }
-  issue15557.value.set('a', 2)
+  issue15557.value!.set('a', 2)
 </script>
