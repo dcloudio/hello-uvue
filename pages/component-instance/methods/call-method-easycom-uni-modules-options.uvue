@@ -2,7 +2,9 @@
   <view>
     <call-easy-method-uni-modules ref="callEasyMethod1"></call-easy-method-uni-modules>
 
-    <!-- #ifdef APP -->
+    <!-- #ifdef APP-IOS || APP-ANDROID -->
+    <!-- 在兼容组件中 ios 返回非普通对象数据，比如 Map 数据时候会被 jscore 统一处理为 object，和安卓产生了差异 -->
+    <!-- 测试用例用来验证返回数据特殊，安卓和其他平台无此限制 -->
     <view>---</view>
     <test-props id="btn1" :numList="numList" :objList='objList' @buttonclick='onButtonClick'
       @numListChange='numListChange' @objListChange='objListChange'
@@ -93,43 +95,43 @@
 
       // #ifdef APP-ANDROID
       numListChange(res : Map<string, Map<string, any>>) {
-    const value = res['detail']!['value'] as number[]
-    const isArray = Array.isArray(value)
-    const isLengthGt0 = value.length > 0
-    this.isNumListValid = isArray && isLengthGt0
-  },
-  // #endif
-  // #ifdef APP-IOS
-  numListChange(res : any) {
-    const value = res['detail']!['value'] as number[]
-    const isArray = Array.isArray(value)
-    const isLengthGt0 = value.length > 0
-    this.isNumListValid = isArray && isLengthGt0
-  },
-  // #endif
+        const value = res['detail']!['value'] as number[]
+        const isArray = Array.isArray(value)
+        const isLengthGt0 = value.length > 0
+        this.isNumListValid = isArray && isLengthGt0
+      },
+      // #endif
+      // #ifdef APP-IOS
+      numListChange(res : any) {
+        const value = res['detail']!['value'] as number[]
+        const isArray = Array.isArray(value)
+        const isLengthGt0 = value.length > 0
+        this.isNumListValid = isArray && isLengthGt0
+      },
+      // #endif
 
-  // #ifdef APP-ANDROID
-  objListChange(res : Map<string, Map<string, any>>) {
-    const value = res['detail']!['value'] as number[]
-    const isArray = Array.isArray(value)
-    const isLengthGt0 = value.length > 0
-    this.isObjListValid = isArray && isLengthGt0
-  },
-  // #endif
-  // #ifdef APP-IOS
-  objListChange(res : any) {
-    const value = res['detail']!['value'] as number[]
-    const isArray = Array.isArray(value)
-    const isLengthGt0 = value.length > 0
-    this.isObjListValid = isArray && isLengthGt0
-  },
-  // #endif
-  onButtonClick() {
-    // 改变 props: 观察 props 返回值为非响应式值
-    console.log('button click');
-    this.numList = [3, 2, 1]
-    this.objList = [{ id: '3' }, { id: '4' }]
-  }
+      // #ifdef APP-ANDROID
+      objListChange(res : Map<string, Map<string, any>>) {
+        const value = res['detail']!['value'] as number[]
+        const isArray = Array.isArray(value)
+        const isLengthGt0 = value.length > 0
+        this.isObjListValid = isArray && isLengthGt0
+      },
+      // #endif
+      // #ifdef APP-IOS
+      objListChange(res : any) {
+        const value = res['detail']!['value'] as number[]
+        const isArray = Array.isArray(value)
+        const isLengthGt0 = value.length > 0
+        this.isObjListValid = isArray && isLengthGt0
+      },
+      // #endif
+      onButtonClick() {
+        // 改变 props: 观察 props 返回值为非响应式值
+        console.log('button click');
+        this.numList = [3, 2, 1]
+        this.objList = [{ id: '3' }, { id: '4' }]
+      }
     }
   }
 </script>

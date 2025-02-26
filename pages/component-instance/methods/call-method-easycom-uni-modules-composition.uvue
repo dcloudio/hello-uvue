@@ -1,7 +1,9 @@
 <template>
   <view>
     <call-easy-method-uni-modules ref="callEasyMethod1"></call-easy-method-uni-modules>
-    <!-- #ifdef APP -->
+    <!-- #ifdef APP-ANDROID || APP-IOS -->
+    <!-- 在兼容组件中 ios 返回非普通对象数据，比如 Map 数据时候会被 jscore 统一处理为 object，和安卓产生了差异 -->
+    <!-- 测试用例用来验证返回数据特殊，安卓和其他平台无此限制 -->
     <view>---</view>
     <test-props id="btn1" :numList="numList" :objList='objList' @buttonclick='onButtonClick'
       @numListChange='numListChange' @objListChange='objListChange'
@@ -22,7 +24,7 @@
   import { testInOtherFile } from './call-method-easycom-uni-modules'
   import { ref, isProxy, isRef } from 'vue'
 
-  // #ifdef APP
+  // #ifdef APP-ANDROID || APP-IOS
   import { PropsChangeEvent } from '@/uni_modules/test-props'
   // #endif
 
@@ -86,7 +88,6 @@
     const value = res['detail']!['value'] as number[]
     const isArray = Array.isArray(value)
     const isLengthGt0 = value.length > 0
-    console.log('is array',isArray,'is length>0',isLengthGt0,'res',isArray && isLengthGt0);
     isNumListValid.value = isArray && isLengthGt0
   }
   // #endif
@@ -106,7 +107,6 @@
     const value = res['detail']!['value'] as any[]
     const isArray = Array.isArray(value)
     const isLengthGt0 = value.length > 0
-    console.log('is array',isArray,'is length>0',isLengthGt0,'res',isArray && isLengthGt0);
     isObjListValid.value = isArray && isLengthGt0
   }
   // #endif
