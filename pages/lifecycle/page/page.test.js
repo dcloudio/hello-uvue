@@ -2,6 +2,7 @@ jest.setTimeout(30000)
 
 const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
 const isMP = platformInfo.startsWith('mp')
+const isHarmony = platformInfo.includes('harmony')
 
 const OPTIONS_PAGE_PATH = '/pages/lifecycle/page/page-options'
 const COMPOSITION_PAGE_PATH = '/pages/lifecycle/page/page-composition'
@@ -26,13 +27,17 @@ const testPageLifecycle = async (pagePath) => {
 
 
   // onPullDownRefresh
-  await page.callMethod('pullDownRefresh')
-  await page.waitFor(1500)
-  lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
-  expect(lifeCycleNum).toBe(10)
-  await page.callMethod('pageSetLifeCycleNum', 0)
+  if (!isHarmony) {
+    // TODO: harmony 不支持 pullDownRefresh
+    await page.callMethod('pullDownRefresh')
+    await page.waitFor(1500)
+    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
+    expect(lifeCycleNum).toBe(10)
+    await page.callMethod('pageSetLifeCycleNum', 0)
+  }
 
-  if(!isMP) {
+  if (!isMP && !isHarmony) {
+    // TODO: harmony 不支持 pageScrollTo
     // onPageScroll onReachBottom
     await program.pageScrollTo(2000)
     await page.waitFor(1000)
