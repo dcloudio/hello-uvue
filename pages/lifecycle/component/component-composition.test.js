@@ -5,6 +5,7 @@ describe('component-lifecycle', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isAndroid = platformInfo.includes('android')
   const isIOS = platformInfo.includes('ios')
+  const isHarmony = platformInfo.startsWith('harmony')
   const isMP = platformInfo.startsWith('mp')
   if(isMP) {
     it('not support', async () => {
@@ -58,24 +59,27 @@ describe('component-lifecycle', () => {
     expect(lifeCycleNum).toBe(2)
     await page.callMethod('pageSetLifeCycleNum', 0)
   })
-  it('onPullDownRefresh', async () => {
-    await page.callMethod('pullDownRefresh')
-    await page.waitFor(2000)
-    lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
-    expect(lifeCycleNum).toBe(10)
-    await page.callMethod('pageSetLifeCycleNum', 0)
-  })
-  it('onPageScroll onReachBottom', async () => {
-    await program.pageScrollTo(2000)
-    // TODO: web 端组件内监听 onPageScroll onReachBottom 不触发
-    if (process.env.uniTestPlatformInfo.startsWith('android')) {
-      const isScrolled = await page.callMethod('getIsScrolled')
-      expect(isScrolled).toBe(true)
+  if (!isHarmony) {
+    // TODO: harmony 不支持 pullDownRefresh & pageScrollTo
+    it('onPullDownRefresh', async () => {
+      await page.callMethod('pullDownRefresh')
+      await page.waitFor(2000)
       lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
       expect(lifeCycleNum).toBe(10)
-    }
-    await page.callMethod('pageSetLifeCycleNum', 0)
-  })
+      await page.callMethod('pageSetLifeCycleNum', 0)
+    })
+    it('onPageScroll onReachBottom', async () => {
+      await program.pageScrollTo(2000)
+      // TODO: web 端组件内监听 onPageScroll onReachBottom 不触发
+      if (process.env.uniTestPlatformInfo.startsWith('android')) {
+        const isScrolled = await page.callMethod('getIsScrolled')
+        expect(isScrolled).toBe(true)
+        lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
+        expect(lifeCycleNum).toBe(10)
+      }
+      await page.callMethod('pageSetLifeCycleNum', 0)
+    })
+  }
   it('onHide', async () => {
     page = await program.navigateTo(HOME_PATH)
     await page.waitFor('view')
