@@ -6,7 +6,12 @@ describe('v-bind', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isWeb = platformInfo.startsWith('web')
   const isMP = platformInfo.startsWith('mp')
+  const isWebOrMP = isWeb || isMP
+  const isIOS = platformInfo.includes('ios')
+  const isAndroid = platformInfo.includes('android')
+  const isApp = isIOS || isAndroid
   const isFirefox = platformInfo.indexOf('firefox') > -1
+  const isFirefoxOrApp = isFirefox || isApp
 
   const test = async (pagePath) => {
     page = await program.reLaunch(pagePath)
@@ -32,13 +37,10 @@ describe('v-bind', () => {
         'background-color:', '').trim())
     }
     const borderStyles = dataInfo.border.replace('border:', '').trim().split(' ')
-    expect(await bindArrayStyle.style(isFirefox ? 'borderTopWidth' : 'borderWidth')).toBe(borderStyles[0])
-    expect(await bindArrayStyle.style(isFirefox ? 'borderTopStyle' : 'borderStyle')).toBe(borderStyles[1])
-    if (isWeb || isMP) {
-      expect(await bindArrayStyle.style(isFirefox ? 'borderTopColor' : 'borderColor')).toBe('rgb(255, 0, 0)')
-    } else {
-      expect(await bindArrayStyle.style(isFirefox ? 'borderTopColor' : 'borderColor')).toBe(borderStyles[2])
-    }
+
+    expect(await bindArrayStyle.style(isFirefoxOrApp ? 'borderTopWidth' : 'borderWidth')).toBe(borderStyles[0])
+    expect(await bindArrayStyle.style(isFirefoxOrApp ? 'borderTopStyle' : 'borderStyle')).toBe(borderStyles[1])
+    expect(await bindArrayStyle.style(isFirefoxOrApp ? 'borderTopColor' : 'borderColor')).toBe(isWebOrMP ? 'rgb(255, 0, 0)' : borderStyles[2])
 
     const fooPropsTitle = await page.$('#foo-props-title')
     expect(await fooPropsTitle.text()).toBe(dataInfo.fooProps.title)
@@ -46,7 +48,7 @@ describe('v-bind', () => {
     expect(await fooPropsNum.text()).toBe(dataInfo.fooProps.num.toString())
     const fooPropsObjName = await page.$('#foo-props-obj-name')
     expect(await fooPropsObjName.text()).toBe(dataInfo.fooProps.obj.name)
-    
+
     if(!isMP) {
       const bindObj1 = await page.$('#bindObj1')
       expect(await (await bindObj1.$('#foo-props-title')).text()).toBe(dataInfo.fooProps.title)
@@ -59,7 +61,7 @@ describe('v-bind', () => {
       const bindObj5 = await page.$('#bindObj5')
       expect(await (await bindObj5.$('#foo-props-title')).text()).toBe(`foo title(json)`)
     }
-    
+
     if (isWeb) {
       const vBindCss = await page.$('.v-bind-css')
       expect(await vBindCss.style('backgroundColor')).toBe('rgb(255, 0, 0)')

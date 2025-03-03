@@ -33,6 +33,7 @@
     <view @click="handleClick">
       <button class="mb-10 btn" id="btn-stop" @click.stop="handleClick">@click stop</button>
     </view>
+    <button class="mb-10" id="btn-prevent" @touchstart.prevent="handleTouchstart" @click="handleClick">@touch prevent</button>
   </view>
 </template>
 
@@ -41,8 +42,29 @@ const count = ref(0)
 
 const event = ref('click')
 
+type BtnPreventRect = {
+  value: DOMRect | null
+}
+
+let btnPreventRect = reactive({
+  value: null
+} as BtnPreventRect)
+onReady(() => {
+  const btnPrevent = uni.getElementById("btn-prevent")
+  btnPreventRect.value = btnPrevent!.getBoundingClientRect()
+  btnPreventRect.value!.y += uni.getSystemInfoSync().safeArea.top + 44
+})
+
+const handleTouchstart = () => {
+  console.log('handleTouchstart')
+}
+
 const handleClick = (e : MouseEvent) => {
   count.value++
   console.log('handleClick', e)
 }
+
+defineExpose({
+  btnPreventRect
+})
 </script>

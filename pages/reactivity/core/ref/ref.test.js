@@ -49,6 +49,9 @@ describe('ref', () => {
     await changeCountersBtn.tap()
     await page.waitFor(500)
     expect(await countersCount.text()).toBe('1')
+    
+    const issue15557Text = await page.$('#issue-15557')
+    expect(await issue15557Text.text()).toBe('2')
   })
 
 })

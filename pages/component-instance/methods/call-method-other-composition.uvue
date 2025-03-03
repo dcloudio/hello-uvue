@@ -44,6 +44,14 @@ const callMethodTest = (text: string): string | null => {
   return result
 }
 
+function callMethodFooWithDefaultParameter(): any | null{
+  return componentRef.value?.$callMethod('fooWithDefaultParameter', 10)
+}
+
+function callMethodFooWithRestParameter(): any | null{
+  return componentRef.value?.$callMethod('fooWithRestParameter', "test", 10, 11)
+}
+
 const delay = (): Promise<string> =>
   new Promise((resolve, _) => {
     setTimeout(() => {
@@ -61,6 +69,10 @@ const call = async (): Promise<void> => {
   callMethod4()
   await delay()
   callMethod5()
+  await delay()
+  callMethodFooWithDefaultParameter()
+  await delay()
+  callMethodFooWithRestParameter()  
 }
 
 onReady(() => {
@@ -68,6 +80,8 @@ onReady(() => {
 })
 
 defineExpose({
-  callMethodTest
+  callMethodTest,
+  callMethodFooWithDefaultParameter,
+  callMethodFooWithRestParameter
 })
 </script>
