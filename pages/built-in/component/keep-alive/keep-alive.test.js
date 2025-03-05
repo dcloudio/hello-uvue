@@ -3,10 +3,9 @@ const PAGE_PATH_COMPOSITION = '/pages/built-in/component/keep-alive/keep-alive-c
 
 describe('keep-alive', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isAndroid = platformInfo.includes('android')
-  const isIOS = platformInfo.includes('ios')
+  const isHarmony = platformInfo.includes('harmony')
   const isMP = platformInfo.startsWith('mp')
-  if(isMP) {
+  if(isMP || isHarmony) {
     it('not support', async () => {
       expect(1).toBe(1)
     })

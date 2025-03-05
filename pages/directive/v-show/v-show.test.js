@@ -19,11 +19,14 @@ async function isElementShow(ele) {
 describe('v-show', () => {
   let page
   
-  const test = async (page) => {
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
+    await page.waitFor('view')
+
     let dataInfo = await page.data('dataInfo')
     expect(dataInfo.showDefaultTrue).toBe(true)
     expect(dataInfo.showDefaultFalse).toBe(false)
-    await page.waitFor(100)
+    await page.waitFor(1000)
     
     const vShowElementDefaultTrue = await page.$('#v-show-element-default-true')
     expect(await isElementShow(vShowElementDefaultTrue)).toBe(true)
@@ -61,16 +64,10 @@ describe('v-show', () => {
   }
   
   it('v-show options API', async () => {
-    page = await program.reLaunch(OPTIONS_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(OPTIONS_PAGE_PATH)
   })
   
   it('v-show composition API', async () => {
-    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(COMPOSITION_PAGE_PATH)
   })
 })

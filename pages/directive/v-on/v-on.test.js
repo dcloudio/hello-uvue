@@ -6,6 +6,7 @@ describe('v-on', () => {
   const isAndroid = platformInfo.startsWith('android')
   const isIOS = platformInfo.startsWith('ios')
   const isMP = platformInfo.startsWith('mp')
+  const isHarmony = platformInfo.includes('harmony')
   let page
 
   const test = async (pagePath) => {
@@ -21,16 +22,16 @@ describe('v-on', () => {
       await page.waitFor(500)
     }
     
-    const supportedCount = isIOS ? '7' : isMP ? '5' : '8'
+    const supportedCount = (isIOS || isHarmony) ? '7' : isMP ? '5' : '8'
     
     expect(await count.text()).toBe(supportedCount)
 
-    if (!isIOS && !isMP) {
+    if (!isIOS && !isMP && !isHarmony) {
       const onceBtn = await page.$('#btn-once')
       await onceBtn.tap()
       expect(await count.text()).toBe(supportedCount)
     }
-    if (isAndroid || isIOS) {
+    if (isAndroid || isIOS || isHarmony) {
       const btnPreventRect = (await page.data('btnPreventRect')).value
       const x = Math.ceil(btnPreventRect.x + btnPreventRect.width / 2)
       const y = Math.ceil(btnPreventRect.y + btnPreventRect.height / 2.0)

@@ -25,7 +25,6 @@ const testPageLifecycle = async (pagePath) => {
   expect(lifeCycleNum).toBe(120)
   await page.callMethod('pageSetLifeCycleNum', 0)
 
-
   // onPullDownRefresh
   if (!isHarmony) {
     // TODO: harmony 不支持 pullDownRefresh
