@@ -2,6 +2,16 @@ const PAGE_PATH = '/pages/examples/set-custom-child-component-root-node-class/se
 const PAGE_PATH_COMPOSITION = '/pages/examples/set-custom-child-component-root-node-class/set-custom-child-component-root-node-class-composition'
 
 describe('自定义组件中使用 class 定制另一个自定义组件根节点样式', () => {
+  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+  // TODO: harmony 暂不支持截图
+  const isHarmony = platformInfo.includes('harmony')
+  if (isHarmony) {
+    it("not support", async () => {
+      expect(1).toBe(1);
+    });
+    return
+  }
+
   let page
 
   it('set-custom-child-component-root-node-class-options Screenshot', async () => {

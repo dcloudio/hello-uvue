@@ -5,6 +5,7 @@ describe('component-lifecycle', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isAndroid = platformInfo.includes('android')
   const isIOS = platformInfo.includes('ios')
+  // TODO: harmony 暂不支持部分 API
   const isHarmony = platformInfo.startsWith('harmony')
   const isMP = platformInfo.startsWith('mp')
   if(isMP) {

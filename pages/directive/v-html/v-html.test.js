@@ -7,7 +7,9 @@ describe('v-html', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isIOS = platformInfo.includes('ios')
   const isMP = platformInfo.startsWith('mp')
-  if (isIOS || isMP) {
+  // TODO: harmony 暂不支持截图
+  const isHarmony = platformInfo.includes('harmony')
+  if (isIOS || isMP || isHarmony) {
     it("not support", async () => {
       expect(1).toBe(1);
     });
@@ -15,22 +17,19 @@ describe('v-html', () => {
   }
   let page
   
-  const test = async () => {
+  const test = async (pagePath) => {
+    page = await program.reLaunch(pagePath)
+    await page.waitFor(700)
+
     const image = await program.screenshot()
     expect(image).toSaveImageSnapshot()
   }
   
   it('v-html options API', async () => {
-    page = await program.reLaunch(OPTIONS_PAGE_PATH)
-    await page.waitFor(700)
-    
-    await test(page)
+    await test(OPTIONS_PAGE_PATH)
   })
   
   it('v-html composition API', async () => {
-    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
-    await page.waitFor(700)
-    
-    await test(page)
+    await test(COMPOSITION_PAGE_PATH)
   })
 })

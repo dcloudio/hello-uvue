@@ -2,6 +2,7 @@ jest.setTimeout(30000)
 
 const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
 const isMP = platformInfo.startsWith('mp')
+// TODO: harmony 暂不支持部分 API
 const isHarmony = platformInfo.includes('harmony')
 
 const OPTIONS_PAGE_PATH = '/pages/lifecycle/page/page-options'
