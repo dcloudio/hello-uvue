@@ -1,10 +1,6 @@
 const OPTIONS_PAGE_PATH = '/pages/directive/v-for/v-for-options'
 const COMPOSITION_PAGE_PATH = '/pages/directive/v-for/v-for-composition'
 
-const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-// TODO: harmony 暂不支持截图
-const isHarmony = platformInfo.includes('harmony')
-
 describe('v-for', () => {
   let page
   
@@ -73,12 +69,10 @@ describe('v-for', () => {
 
     await page.waitFor(500)
 
-    if (!isHarmony) {
-      const image = await program.screenshot({
-        fullPage: true
-      });
-      expect(image).toSaveImageSnapshot();
-    }
+    const image = await program.screenshot({
+      fullPage: true
+    });
+    expect(image).toSaveImageSnapshot();
   }
   it('v-for options API', async () => {
     page = await program.reLaunch(OPTIONS_PAGE_PATH)

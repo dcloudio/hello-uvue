@@ -3,10 +3,6 @@ jest.setTimeout(30000)
 const OPTIONS_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-options'
 const COMPOSITION_PAGE_PATH = '/pages/app-instance/globalProperties/globalProperties-composition'
 
-const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-// TODO: harmony 暂不支持截图
-const isHarmony = platformInfo.includes('harmony')
-
 describe('globalProperties', () => {
 	let page = null
 	const testGlobalProperties = async (page) => {
@@ -67,12 +63,9 @@ describe('globalProperties', () => {
 		
 		await testGlobalProperties(page)
 	})
-
-	if(!isHarmony) {
-		it('screenshot options API', async () => {
-			await testScreenShot(page)
-		})
-	}
+	it('screenshot options API', async () => {
+		await testScreenShot(page)
+	})
 	
 	it('globalProperties composition API', async () => {
 		page = await program.reLaunch(COMPOSITION_PAGE_PATH)
@@ -81,9 +74,7 @@ describe('globalProperties', () => {
 		
 		await testGlobalProperties(page)
 	})
-	if (!isHarmony) {
-		it('screenshot composition API', async () => {
-			await testScreenShot(page)
-		})
-	}
+	it('screenshot composition API', async () => {
+		await testScreenShot(page)
+	})
 })

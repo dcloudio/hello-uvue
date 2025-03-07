@@ -2,16 +2,6 @@ const OPTIONS_PAGE_PATH = '/pages/built-in/special-elements/template/template-ma
 const COMPOSITION_PAGE_PATH = '/pages/built-in/special-elements/template/template-map-style-composition'
 
 describe('/pages/built-in/special-elements/template-map-style', () => {
-  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  // TODO: harmony 暂不支持截图
-  const isHarmony = platformInfo.includes('harmony')
-  if (isHarmony) {
-    it("not support", async () => {
-      expect(1).toBe(1);
-    });
-    return
-  }
-
   let page
   const test = async (pagePath) => {
     page = await program.reLaunch(pagePath)

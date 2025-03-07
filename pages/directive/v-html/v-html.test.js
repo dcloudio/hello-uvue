@@ -7,7 +7,6 @@ describe('v-html', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isIOS = platformInfo.includes('ios')
   const isMP = platformInfo.startsWith('mp')
-  // TODO: harmony 暂不支持截图
   const isHarmony = platformInfo.includes('harmony')
   if (isIOS || isMP || isHarmony) {
     it("not support", async () => {
