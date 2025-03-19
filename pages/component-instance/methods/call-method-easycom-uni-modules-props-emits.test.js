@@ -5,14 +5,11 @@ const platformInfo = process.env.uniTestPlatformInfo.toLowerCase()
 const isIOS = platformInfo.startsWith('ios')
 const isWeb = platformInfo.startsWith('web')
 const isMP = platformInfo.startsWith('mp')
-// TODO: harmony 进入页面再退出崩溃
-const isHarmony = platformInfo.includes('harmony')
 
 describe('call method easycom uni modules', () => {
   if (
     isMP ||
     isWeb ||
-    isHarmony ||
     (
     isIOS &&
       (

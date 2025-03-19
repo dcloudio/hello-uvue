@@ -2,7 +2,7 @@
   <view>
     <call-easy-method-uni-modules ref="callEasyMethod1"></call-easy-method-uni-modules>
 
-    <!-- #ifdef APP-IOS || APP-ANDROID -->
+    <!-- #ifdef APP-IOS || APP-ANDROID || APP-HARMONY -->
     <!-- 在兼容组件中 ios 返回非普通对象数据，比如 Map 数据时候会被 jscore 统一处理为 object，和安卓产生了差异 -->
     <!-- 测试用例用来验证返回数据特殊，安卓和其他平台无此限制 -->
     <view>---</view>
@@ -101,7 +101,7 @@
         this.isNumListValid = isArray && isLengthGt0
       },
       // #endif
-      // #ifdef APP-IOS
+      // #ifdef APP-IOS || APP-HARMONY
       numListChange(res : any) {
         const value = res['detail']!['value'] as number[]
         const isArray = Array.isArray(value)
@@ -118,7 +118,7 @@
         this.isObjListValid = isArray && isLengthGt0
       },
       // #endif
-      // #ifdef APP-IOS
+      // #ifdef APP-IOS || APP-HARMONY
       objListChange(res : any) {
         const value = res['detail']!['value'] as number[]
         const isArray = Array.isArray(value)

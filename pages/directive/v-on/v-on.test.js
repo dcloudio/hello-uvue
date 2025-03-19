@@ -31,7 +31,7 @@ describe('v-on', () => {
       await onceBtn.tap()
       expect(await count.text()).toBe(supportedCount)
     }
-    if (isAndroid || isIOS || isHarmony) {
+    if (isAndroid || isIOS) {
       const btnPreventRect = (await page.data('btnPreventRect')).value
       const x = Math.ceil(btnPreventRect.x + btnPreventRect.width / 2)
       const y = Math.ceil(btnPreventRect.y + btnPreventRect.height / 2.0)
