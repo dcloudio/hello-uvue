@@ -3,10 +3,8 @@ const PAGE_PATH_COMPOSITION = '/pages/built-in/component/keep-alive/keep-alive-c
 
 describe('keep-alive', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  // TODO: harmony 进入页面崩溃
-  const isHarmony = platformInfo.includes('harmony')
   const isMP = platformInfo.startsWith('mp')
-  if(isMP || isHarmony) {
+  if(isMP) {
     it('not support', async () => {
       expect(1).toBe(1)
     })

@@ -3,10 +3,9 @@ const PAGE_PATH_COMPONSITION = '/pages/built-in/component/teleport/teleport-comp
 
 describe('teleport', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isHarmony = platformInfo.includes('harmony')
   const isIOS = platformInfo.includes('ios')
   const isMP = platformInfo.startsWith('mp')
-  if(isMP || isIOS || isHarmony) {
+  if(isMP || isIOS) {
     it('not support', async () => {
       expect(1).toBe(1)
     })
