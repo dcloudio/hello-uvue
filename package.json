@@ -1,8 +1,8 @@
 {
-    "id": "hello-uvue",
-    "name": "hello-uvue",
-    "displayName": "hello-uvue",
-    "version": "1.0.14",
+    "id": "hello-uvue-alpha",
+    "name": "hello-uvue-alpha",
+    "displayName": "hello-uvue-alpha",
+    "version": "1.0.37",
     "description": "uvue的vue语法示例工程",
     "main": "env.js",
     "scripts": {
