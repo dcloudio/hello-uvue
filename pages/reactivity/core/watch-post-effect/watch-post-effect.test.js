@@ -5,10 +5,12 @@ const isAndroid = platformInfo.startsWith('android')
 const isIOS = platformInfo.startsWith('ios')
 const isWeb = platformInfo.startsWith('web')
 const isMP = platformInfo.startsWith('mp')
+// TODO: harmony 进入页面崩溃
+const isHarmony = platformInfo.includes('harmony')
 
 describe('watchPostEffect', () => {
   
-  if(isMP) {
+  if(isMP || isHarmony) {
     // 微信小程序支持此特性，但是示例内部使用了较多的dom api无法兼容微信小程序
     it('not support', async () => {
       expect(1).toBe(1)

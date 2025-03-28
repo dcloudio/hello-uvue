@@ -3,7 +3,6 @@ const PAGE_PATH_COMPONSITION = '/pages/built-in/component/teleport/teleport-comp
 
 describe('teleport', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isAndroid = platformInfo.includes('android')
   const isIOS = platformInfo.includes('ios')
   const isMP = platformInfo.startsWith('mp')
   if(isMP || isIOS) {

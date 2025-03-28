@@ -33,6 +33,10 @@
             <text id="arr2">{{ arr2ForEachEffectCount }}</text>
         </view>
         <view class="flex justify-between flex-row mb-10">
+            <text>arr3(reverse):</text>
+            <text id="arr3">{{ JSON.stringify(arr3) }}</text>
+        </view>
+        <view class="flex justify-between flex-row mb-10">
             <text>map2ForEachEffectCount:</text>
             <text id="map2">{{ map2ForEachEffectCount }}</text>
         </view>
@@ -125,6 +129,8 @@
     function updateArr2() {
         arr2.push(Date.now())
     }
+    
+    var arr3 = reactive([1, 2, 3, 4, 5]).reverse()
 
     const map2 = reactive(new Map<string, number>([["a", 1]]))
     const map2ForEachEffectCount = ref(0)

@@ -2,6 +2,11 @@
   <view>
     <call-easy-method ref="callEasyMethod1"></call-easy-method>
     <custom-call-easy-method ref="customCallEasyMethod1"></custom-call-easy-method>
+    <test-getter-setter-composition ref="getterAndSetterComposition"></test-getter-setter-composition>
+    <test-getter-setter-options ref="getterAndSetterOptions"></test-getter-setter-options>
+    <view>
+        <text>getter-setter: <text id="getterAndSetter">{{JSON.stringify(getterAndSetterResult)}}</text></text>
+    </view>
   </view>
 </template>
 
@@ -18,16 +23,23 @@ export default {
     return {
       callEasyMethod1: null as CallEasyMethodComponentPublicInstance | null,
       customCallEasyMethod1: null as CustomCallEasyMethodComponentPublicInstance | null,
+      getterAndSetterComposition: null as TestGetterSetterCompositionComponentPublicInstance | null,
+      getterAndSetterOptions: null as TestGetterSetterOptionsComponentPublicInstance | null,
+      getterAndSetterResult: [] as number[]
     }
   },
   onReady() {
     // 通过组件 ref 属性获取组件实例, 组件标签名首字母大写，驼峰+ComponentPublicInstance
     this.callEasyMethod1 = this.$refs['callEasyMethod1'] as CallEasyMethodComponentPublicInstance
     this.customCallEasyMethod1 = this.$refs['customCallEasyMethod1'] as CustomCallEasyMethodComponentPublicInstance
+    
+    this.getterAndSetterComposition = this.$refs['getterAndSetterComposition'] as TestGetterSetterCompositionComponentPublicInstance
+    this.getterAndSetterOptions = this.$refs['getterAndSetterOptions'] as TestGetterSetterOptionsComponentPublicInstance
     this.call()
   },
   methods: {
     async call(): Promise<void> {
+      this.callGetterAndSetter()
       this.callCustomMethod()
       this.callMethod1()
       await delay()
@@ -74,6 +86,43 @@ export default {
       const result = this.customCallEasyMethod1?.foo?.() as string
       return result
     },
+    callGetterAndSetter(): number[] {
+        const result:number[] = []
+        this.callGetterAndSetterCompositionSetCount(1)
+        result.push(this.callGetterAndSetterCompositionGetCount())
+        this.callGetterAndSetterCompositionSetCountWithCallMethod(2)
+        result.push(this.callGetterAndSetterCompositionGetCountWithCallMethod())
+        this.callGetterAndSetterOptionsSetCount(3)
+        result.push(this.callGetterAndSetterOptionsGetCount())
+        this.callGetterAndSetterOptionsSetCountWithCallMethod(4)
+        result.push(this.callGetterAndSetterOptionsGetCountWithCallMethod())
+        this.getterAndSetterResult = result
+        return result
+    },
+    callGetterAndSetterCompositionGetCount(): number {
+        return this.getterAndSetterComposition!.getCount()
+    },
+    callGetterAndSetterCompositionGetCountWithCallMethod(): number {
+        return this.getterAndSetterComposition!.$callMethod('getCount') as number
+    },
+    callGetterAndSetterOptionsGetCount(): number {
+        return this.getterAndSetterOptions!.getCount()
+    },
+    callGetterAndSetterOptionsGetCountWithCallMethod(): number {
+        return this.getterAndSetterOptions!.$callMethod('getCount') as number
+    },
+    callGetterAndSetterCompositionSetCount(count: number) {
+        this.getterAndSetterComposition!.setCount(count)
+    },
+    callGetterAndSetterCompositionSetCountWithCallMethod(count: number) {
+        this.getterAndSetterComposition!.$callMethod('setCount', count)
+    },
+    callGetterAndSetterOptionsSetCount(count: number) {
+        this.getterAndSetterOptions!.setCount(count)
+    },
+    callGetterAndSetterOptionsSetCountWithCallMethod(count: number) {
+        this.getterAndSetterOptions!.$callMethod('setCount', count)
+    }
   }
 }
 </script>
