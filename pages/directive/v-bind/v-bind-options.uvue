@@ -19,6 +19,12 @@
       <view class="my-10">{{ dataInfo.backgroundColor }}</view>
       <view>{{ dataInfo.border }}</view>
     </view>
+    <view class="mb-10 p-10">
+        <text id="bind-raw-object-style" :style="rawObjectStyle">rawObjectStyle</text>
+    </view>
+    <view class="mb-10 p-10">
+        <text id="bind-raw-array-style" :style="rawArrayStyle">rawArrayStyle</text>
+    </view>
 
     <!-- v-bind props -->
     <Foo :title="dataInfo.fooProps.title" :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
@@ -85,7 +91,21 @@
         fooProps:{
             title: 'foo title(json)',
             num: 2,
-        }
+        },
+        rawObjectStyle: {
+            width: '100%',
+            height: '30px',
+            'background-color': 'red'
+        },
+        rawArrayStyle: [
+            {
+              width: '100%',
+              height: '30px'
+            },
+            {
+              'background-color': 'red'
+            }
+        ]
       }
     }
   }
