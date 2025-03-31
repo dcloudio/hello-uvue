@@ -67,6 +67,10 @@ describe('v-bind', () => {
       expect(await vBindCss.style('backgroundColor')).toBe('rgb(255, 0, 0)')
       expect(await vBindCss.style('height')).toBe('150px')
     }
+    const bindRawObjectStyle = await page.$('#bind-raw-object-style')
+    expect(await bindRawObjectStyle.text()).toBe("rawObjectStyle")
+    const bindRawArrayStyle = await page.$('#bind-raw-array-style')
+    expect(await bindRawArrayStyle.text()).toBe("rawArrayStyle")
   }
 
   it('v-bind options API', async () => {

@@ -23,6 +23,13 @@
       <view class="my-10">{{ dataInfo.backgroundColor }}</view>
       <view>{{ dataInfo.border }}</view>
     </view>
+    <view class="mb-10 p-10">
+        <text id="bind-raw-object-style" :style="rawObjectStyle">rawObjectStyle</text>
+    </view>
+    <!-- 目前仅android平台在内部重新调用了normalizeStyle，其他端暂时没有，这应该是vue的bug -->
+    <view class="mb-10 p-10">
+        <text id="bind-raw-array-style" :style="rawArrayStyle">rawArrayStyle</text>
+    </view>
 
     <!-- v-bind props -->
     <Foo :title="dataInfo.fooProps.title" :num="dataInfo.fooProps.num" :obj="dataInfo.fooProps.obj" />
@@ -83,6 +90,22 @@
       title: 'foo title(json)',
       num: 2,
   })
+  
+  const rawObjectStyle = {
+      width: '100%',
+      height: '30px',
+      'background-color': 'red'
+  }
+  
+  const rawArrayStyle = [
+      {
+        width: '100%',
+        height: '30px'
+      },
+      {
+        'background-color': 'red'
+      }
+  ]
 
   defineExpose({
     dataInfo
