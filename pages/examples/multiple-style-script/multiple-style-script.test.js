@@ -5,6 +5,7 @@ describe(PAGE_PATH, () => {
   const isAndroid = platformInfo.startsWith('android')
   const isWeb = platformInfo.startsWith('web')
   const isMP = platformInfo.startsWith('mp')
+  const isSafari = platformInfo.includes('safari')
   let page
   
 	beforeAll(async () => {
@@ -23,6 +24,6 @@ describe(PAGE_PATH, () => {
     const textGreen = await page.$('.text-green')
     expect(await textGreen.style('color')).toBe(isWeb || isMP ? 'rgb(0, 128, 0)': '#008000')
     const fontBold = await page.$('.font-bold')
-    expect(await fontBold.style('fontWeight')).toBe(isWeb || isMP ? '700' : 'bold')
+    expect(await fontBold.style('fontWeight')).toBe((isWeb && !isSafari) || isMP ? '700' : 'bold')
 	})
 })
