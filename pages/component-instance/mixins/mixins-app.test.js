@@ -5,8 +5,6 @@ describe('mixins', () => {
   const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
   const isAndroid = platformInfo.includes('android')
   const isIOS = platformInfo.includes('ios')
-  const isMP = platformInfo.startsWith('mp')
-  const isWeb = platformInfo.startsWith('web')
   if (!isIOS && !isAndroid) {
     it('not support', async () => {
       expect(1).toBe(1)
