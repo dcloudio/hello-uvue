@@ -1,6 +1,6 @@
 <template>
   <!-- #ifdef APP -->
-  <scroll-view style="flex: 1; padding-bottom: 20px">
+  <scroll-view style="flex: 1;">
     <!-- #endif -->
     <view class="uni-padding-wrap">
       <text class="mt-10"
@@ -134,6 +134,6 @@ defineExpose({
 
 <style>
 .uni-padding-wrap {
-  padding: 10px;
+  padding: 10px 10px 40px 10px;
 }
 </style>
