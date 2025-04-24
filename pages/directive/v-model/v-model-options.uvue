@@ -19,6 +19,7 @@
     <Parent v-model="value"></Parent>
     <Parent v-model="utsObj['modelValue']"></Parent>
     <Parent v-model="typeObj.modelValue"></Parent>
+    <Parent v-model="typeObj.modelValue as string"></Parent>
   </view>
 </template>
 
