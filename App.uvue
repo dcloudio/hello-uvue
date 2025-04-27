@@ -19,16 +19,6 @@
       setLifeCycleNum(state.lifeCycleNum + 1000)
       setAppLaunchPath(options.path)
       console.log('App Launch')
-      // #ifdef UNI-APP-X && APP-ANDROID
-      const performance = uni.getPerformance()
-      const observer : PerformanceObserver = performance.createObserver((entryList : PerformanceObserverEntryList) => {
-        console.log('observer:entryList.getEntries()')
-        console.log(entryList.getEntries())
-      })
-      observer.observe({
-        entryTypes: ['render', 'navigation'],
-      } as PerformanceObserverOptions)
-      // #endif
     },
     onShow: function (options) {
       // 自动化测试

@@ -12,7 +12,7 @@ describe('getCurrentScope', () => {
 
     const createScopeBtn = await page.$('#create-scope-btn')
     await createScopeBtn.tap()
-
+    await page.waitFor(500)
     expect(await hasCurrentScope.text()).toBe('true')
   })
 })

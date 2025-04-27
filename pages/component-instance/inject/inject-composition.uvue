@@ -7,6 +7,8 @@
     <text class="mt-10 arr">arr: {{JSON.stringify(arr)}}</text>
     <text class="mt-10 arr-0">arr[0]: {{ arr[0]}}</text>
     <text class="mt-10 fn">fn: {{fnRes}}</text>
+    <text class="mt-10 fn">notFoundWithWarning: {{notFoundWithWarning}}</text>
+    <text class="mt-10 fn">notFoundWithDefaultValue: {{notFoundWithDefaultValue}}</text>
     <text class="mt-10 has-injection-context">hasInjectionContext:
       {{checkHasInjectionContextRes}}</text>
     <button class="mt-10 check-has-injection-context-btn" @click="checkHasInjectionContext">check
@@ -24,6 +26,10 @@
   if(fn != null){
     fnRes.value = fn()
   }
+  
+  const notFoundWithWarning = inject("notFoundWithWarning")
+  const notFoundWithDefaultValue = inject("notFoundWithDefaultValue", null)
+  
 
   const checkHasInjectionContextRes = ref('')
 

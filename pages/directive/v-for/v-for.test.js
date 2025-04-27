@@ -70,9 +70,9 @@ describe('v-for', () => {
     await page.waitFor(500)
 
     const image = await program.screenshot({
-			fullPage: true
-		});
-		expect(image).toSaveImageSnapshot();
+      fullPage: true
+    });
+    expect(image).toSaveImageSnapshot();
   }
   it('v-for options API', async () => {
     page = await program.reLaunch(OPTIONS_PAGE_PATH)

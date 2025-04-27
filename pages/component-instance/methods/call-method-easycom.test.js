@@ -12,6 +12,10 @@ describe('call-method-easycom', () => {
     expect(result).toBe(title)
     const customResult = await page.callMethod('callCustomMethodTest')
     expect(customResult).toBe('custom foo')
+    
+    const getterAndSetter = await page.$('#getterAndSetter')
+    const getterAndSetterText = await getterAndSetter.text()
+    expect(getterAndSetterText).toBe(JSON.stringify([2, 4, 6, 8]))
   })
 
   it('callMethodTest Composition API', async () => {
@@ -22,5 +26,9 @@ describe('call-method-easycom', () => {
     expect(result).toBe(title)
     const customResult = await page.callMethod('callCustomMethodTest')
     expect(customResult).toBe('custom foo')
+    
+    const getterAndSetter = await page.$('#getterAndSetter')
+    const getterAndSetterText = await getterAndSetter.text()
+    expect(getterAndSetterText).toBe(JSON.stringify([2, 4, 6, 8]))
   })
 })
