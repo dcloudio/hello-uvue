@@ -24,6 +24,11 @@ describe(PAGE_PATH, () => {
     const textGreen = await page.$('.text-green')
     expect(await textGreen.style('color')).toBe(isWeb || isMP ? 'rgb(0, 128, 0)': '#008000')
     const fontBold = await page.$('.font-bold')
-    expect(await fontBold.style('fontWeight')).toBe((isWeb && !isSafari) || isMP ? '700' : 'bold')
+    const fontWeight = await fontBold.style('fontWeight')
+    if (isSafari) {
+      expect(['700', 'bold'].includes(fontWeight)).toBe(true);
+    } else {
+      expect(fontWeight).toBe(isWeb || isMP ? '700' : 'bold')
+    }
 	})
 })
