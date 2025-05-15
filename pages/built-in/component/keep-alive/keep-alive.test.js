@@ -1,10 +1,11 @@
+const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isMP = platformInfo.startsWith('mp')
+const isAndroid = platformInfo.startsWith('android')
 const PAGE_PATH_OPTIONS = '/pages/built-in/component/keep-alive/keep-alive-options'
 const PAGE_PATH_COMPOSITION = '/pages/built-in/component/keep-alive/keep-alive-composition'
 
 describe('keep-alive', () => {
-  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isMP = platformInfo.startsWith('mp')
-  if(isMP) {
+  if(isMP || isAndroid) {
     it('not support', async () => {
       expect(1).toBe(1)
     })

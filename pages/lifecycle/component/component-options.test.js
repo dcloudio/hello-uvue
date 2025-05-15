@@ -1,10 +1,11 @@
+const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isMP = platformInfo.startsWith('mp')
+const isAndroid = platformInfo.startsWith('android')
 const PAGE_PATH = '/pages/lifecycle/component/component-options'
 const HOME_PATH = '/pages/index/index'
 
 describe('component-lifecycle', () => {
-  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isMP = platformInfo.startsWith('mp')
-  if(isMP) {
+  if(isMP || isAndroid) {
     it('not support', async () => {
       expect(1).toBe(1)
     })

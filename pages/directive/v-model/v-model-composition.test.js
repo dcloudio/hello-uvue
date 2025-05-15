@@ -40,6 +40,18 @@ describe('defineModel', () => {
     const modelNumArrText = await page.$('#model-num-arr-text')
     expect(await modelNumArrText.text()).toBe('[0]')
     
+    const modelUtsObjValueText = await page.$('#model-uts-obj-value-text')
+    expect(await modelUtsObjValueText.text()).toBe('utsObj.value')
+    
+    const modelUtsObjValueInput = await page.$('#model-uts-obj-value-input')
+    expect(await modelUtsObjValueInput.value()).toBe('utsObj.value')
+    
+    const modelTypeObjValueText = await page.$('#model-type-obj-value-text')
+    expect(await modelTypeObjValueText.text()).toBe('typeObj.value')
+    
+    const modelTypeObjValueInput = await page.$('#model-type-obj-value-input')
+    expect(await modelTypeObjValueInput.value()).toBe('typeObj.value')
+    
     const updateValueBtn = await page.$('#update-value-btn')
     await updateValueBtn.tap()
     await page.waitFor(100)
@@ -51,7 +63,13 @@ describe('defineModel', () => {
 
     expect(await modelMsgText.text()).toBe('msg2')
     expect(await modelMsgInput.value()).toBe('msg2')
+
+    expect(await modelUtsObjValueText.text()).toBe('utsObj.value1')
+    expect(await modelUtsObjValueInput.value()).toBe('utsObj.value1')
     
+    expect(await modelTypeObjValueText.text()).toBe('typeObj.value1')
+    expect(await modelTypeObjValueInput.value()).toBe('typeObj.value1')
+        
     expect(await modelStrArrText.text()).toBe('["0","1"]')
     expect(await modelNumArrText.text()).toBe('[0,1]')
     
