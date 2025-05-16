@@ -35,7 +35,10 @@ describe('props', () => {
 
     const objectTypeObj = await page.$('#object-type-obj')
     expect(await objectTypeObj.text()).toBe('{"age":18}')
-
+    
+    const objectTypeObjAge = await page.$('#object-type-obj-age')
+    expect(await objectTypeObjAge.text()).toBe('18')
+    
     const objectTypeArr = await page.$('#object-type-arr')
     expect(await objectTypeArr.text()).toBe('["a","b","c"]')
 
