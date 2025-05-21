@@ -60,19 +60,14 @@ describe('page props', () => {
 			// options created 1
 			// options before mount 1
 			// options mounted 1
-			// options before update 1
-			// options updated 1
 			// composition before mount 1
 			// composition mounted 1
-			// composition before update 1
-			// composition updated 1
 			// composition onLoad 15
 			// composition onPageShow 10
 			// composition onPageReady 未触发
 			// android options 非预期触发了页面生命周期
-			// options onLoad 10
 			// options onShow 10
-			expect(lifeCycleNum).toBe(55)
+			expect(lifeCycleNum).toBe(41)
 		} else if (isMP) {
 			// options before create 1
 			// options created 1
