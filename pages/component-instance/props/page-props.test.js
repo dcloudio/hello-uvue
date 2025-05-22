@@ -1,5 +1,4 @@
 const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-const isAndroid = platformInfo.startsWith('android')
 const isMP = platformInfo.startsWith('mp')
 
 const HOME_PAGE_PATH = '/pages/index/index'
@@ -55,20 +54,7 @@ describe('page props', () => {
 		expect(await compositionArray.text()).toBe('[4,5,6]')
 		
 		const lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		if (isAndroid) {
-			// options before create 1
-			// options created 1
-			// options before mount 1
-			// options mounted 1
-			// composition before mount 1
-			// composition mounted 1
-			// composition onLoad 15
-			// composition onPageShow 10
-			// composition onPageReady 未触发
-			// android options 非预期触发了页面生命周期
-			// options onShow 10
-			expect(lifeCycleNum).toBe(41)
-		} else if (isMP) {
+		if (isMP) {
 			// options before create 1
 			// options created 1
 			// options before mount 1
@@ -121,29 +107,15 @@ describe('page props', () => {
 
 		let lifeCycleNum = await page.callMethod('getLifeCycleNum')
 
-		if (isAndroid) {
-			// android options 非预期触发了页面生命周期
-			// options onHide 10
-			// composition onHide 10
-			// options before create 1
-			// options created 1
-			// options before mount 1
-			// options mounted 1
-			// options onLoad 10
-			// options onShow 10
-			// options onReady 10
-			expect(lifeCycleNum).toBe(54)
-		} else {
-			// composition onHide 10
-			// options before create 1
-			// options created 1
-			// options before mount 1
-			// options mounted 1
-			// options onLoad 10
-			// options onShow 10
-			// options onReady 10
-			expect(lifeCycleNum).toBe(44)
-		}
+		// composition onHide 10
+		// options before create 1
+		// options created 1
+		// options before mount 1
+		// options mounted 1
+		// options onLoad 10
+		// options onShow 10
+		// options onReady 10
+		expect(lifeCycleNum).toBe(44)
 
 		await page.callMethod('setLifeCycleNum', 0)
 
@@ -151,21 +123,11 @@ describe('page props', () => {
 		await page.waitFor('view')
 
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		if (isAndroid) {
-			// options before unmount 1
-			// options unmounted 1
-			// options onUnload 10
-			// composition onShow 10
-			// android options 非预期触发了页面生命周期
-			// options onShow 10
-			expect(lifeCycleNum).toBe(32)
-		} else {
-			// options before unmount 1
-			// options unmounted 1
-			// options onUnload 10
-			// composition onShow 10
-			expect(lifeCycleNum).toBe(22)
-		}
+		// options before unmount 1
+		// options unmounted 1
+		// options onUnload 10
+		// composition onShow 10
+		expect(lifeCycleNum).toBe(22)
 		await page.callMethod('setLifeCycleNum', 0)
   });
   it('page props 组合式 API', async () => {
@@ -195,24 +157,13 @@ describe('page props', () => {
 
 		let lifeCycleNum = await page.callMethod('pageGetLifeCycleNum')
 
-		if (isAndroid) {
-			// android options 非预期触发了页面生命周期
-			// options onHide 10
-			// composition before mount 1
-			// composition mounted 1
-			// composition onLoad 10
-			// composition onPageShow 10
-			// composition onReady 10
-			expect(lifeCycleNum).toBe(52)
-		} else {
-			// composition onHide 10
-			// composition before mount 1
-			// composition mounted 1
-			// composition onLoad 10
-			// composition onPageShow 10
-			// composition onReady 10
-			expect(lifeCycleNum).toBe(42)
-		}
+		// composition onHide 10
+		// composition before mount 1
+		// composition mounted 1
+		// composition onLoad 10
+		// composition onPageShow 10
+		// composition onReady 10
+		expect(lifeCycleNum).toBe(42)
 
 		await page.callMethod('pageSetLifeCycleNum', 0)
 
@@ -220,21 +171,11 @@ describe('page props', () => {
 		await page.waitFor('view')
 
 		lifeCycleNum = await page.callMethod('getLifeCycleNum')
-		if (isAndroid) {
-			// composition before unmount 1
-			// composition unmounted 1
-			// composition onUnload 10
-			// composition onShow 10
-			// android options 非预期触发了页面生命周期
-			// options onShow 10
-			expect(lifeCycleNum).toBe(32)
-		} else {
-			// composition before unmount 1
-			// composition unmounted 1
-			// composition onUnload 10
-			// composition onShow 10
-			expect(lifeCycleNum).toBe(22)
-		}
+		// composition before unmount 1
+		// composition unmounted 1
+		// composition onUnload 10
+		// composition onShow 10
+		expect(lifeCycleNum).toBe(22)
 		await page.callMethod('setLifeCycleNum', 0)
 	})
 	
