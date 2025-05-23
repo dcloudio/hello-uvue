@@ -6,6 +6,7 @@ describe('app-instance', () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor(1000)
     await page.waitFor(1000)
+    await page.waitFor(1000)
   })
   it('app.component', async () => {
     const CompForAppComponent = await page.$('.component-for-app-component')
