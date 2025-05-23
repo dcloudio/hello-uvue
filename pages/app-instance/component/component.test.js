@@ -7,6 +7,7 @@ describe('app-instance', () => {
     await page.waitFor('view')
     await page.waitFor(1000)
     await page.waitFor(1000)
+    await page.waitFor(1000)
   })
   it('app.component', async () => {
     const CompForAppComponent = await page.$('.component-for-app-component')
