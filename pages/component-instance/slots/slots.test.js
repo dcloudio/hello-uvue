@@ -16,7 +16,7 @@ describe('$slots', () => {
     const page = await program.reLaunch(pagePath)
     await page.waitFor('view')
     // mp 无法获取组件实例
-    const slotComp = await page.$('.slot-comp')
+    const slotComp = await page.$('#slot-comp')
     const hasSlots = await slotComp.callMethod('hasSlots')
     expect(hasSlots).toBe(true)
   }
