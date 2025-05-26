@@ -10,9 +10,10 @@ describe('keep-alive', () => {
     })
     return
   }
-  let page = null
-  const testKeepAlive = async () => {
+  const testKeepAlive = async (pagePath) => {
+    const page = await program.reLaunch(pagePath)
     await page.waitFor('view')
+    
     let shouldExcludeBtnList = await page.$$('.should-exclude-btn')
     for (let i = 0; i < shouldExcludeBtnList.length; i++) {
       await shouldExcludeBtnList[i].tap()
@@ -99,11 +100,9 @@ describe('keep-alive', () => {
     }
   }
   it('keep-alive Options API', async () => {
-    page = await program.reLaunch(PAGE_PATH_OPTIONS)
-    await testKeepAlive()
+    await testKeepAlive(PAGE_PATH_OPTIONS)
   })
   it('keep-alive Composition API', async () => {
-    page = await program.reLaunch(PAGE_PATH_COMPOSITION)
-    await testKeepAlive()
+    await testKeepAlive(PAGE_PATH_COMPOSITION)
   })
 })
