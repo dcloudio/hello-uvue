@@ -2,8 +2,10 @@ const OPTIONS_PAGE_PATH = '/pages/app-instance/use/use-options'
 const COMPOSITION_PAGE_PATH = '/pages/app-instance/use/use-composition'
 
 describe('app-instance', () => {
-  let page = null
-  const test = async (page) => {
+  const test = async (pagePath) => {
+    const page = await program.reLaunch(pagePath)
+    await page.waitFor('view')
+    
     const plugin1El = await page.$('.plugin1')
     const plugin1Text = await plugin1El.text()
     expect(plugin1Text).toBe('plugin1: 通过字面量方式创建的 plugin')
@@ -32,17 +34,11 @@ describe('app-instance', () => {
   }
   
   it('app.use options API', async () => {
-    page = await program.reLaunch(OPTIONS_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(OPTIONS_PAGE_PATH)
   })
   
   it('app.use composition API', async () => {
-    page = await program.reLaunch(COMPOSITION_PAGE_PATH)
-    await page.waitFor('view')
-    
-    await test(page)
+    await test(COMPOSITION_PAGE_PATH)
   })
 })
 
