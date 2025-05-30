@@ -71,6 +71,13 @@ describe('reactive', () => {
         const arr3 = await page.$('#arr3')
         expect(await arr3.text()).toBe(JSON.stringify([1, 2, 3, 4, 5].reverse()))
         
+		const arr4 = await page.$('#arr4')
+		expect(await arr4.text()).toBe(JSON.stringify([5, 3, 4, 1, 2]))
+		const updateArr4Btn = await page.$('#update-arr4-btn')
+		await updateArr4Btn.tap()
+		await page.waitFor(100)
+		expect(await arr4.text()).toBe(JSON.stringify([5, 3, 4, 1, 2].sort()))
+		
         const map2 = await page.$('#map2')
         expect(await map2.text()).toBe('1')
         const updateMap2ForEachEffectBtn = await page.$('#update-map2-forEach-effect-btn')
