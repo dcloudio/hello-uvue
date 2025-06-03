@@ -38,7 +38,7 @@
 		</view>
 		<view class="flex justify-between flex-row mb-10">
 			<text>arr4(sort):</text>
-			<text id="arr4">{{ JSON.stringify(arr4) }}</text>
+			<text id="arr4">{{ JSON.stringify(computedArr4) }}</text>
 		</view>
 		<view class="flex justify-between flex-row mb-10">
 			<text>map2ForEachEffectCount:</text>
@@ -137,10 +137,11 @@
 
 	const arr3 = reactive([1, 2, 3, 4, 5]).reverse()
 
-	const arr4 = reactive([5, 3, 4, 1, 2])
-	
-	function updateArr4(){
-		arr4.sort()
+	const arr4 = reactive<number[]>([5, 3, 4, 1, 2])
+	const computedArr4 = computed(() => arr4.sort())
+	function updateArr4() {
+		arr4.push(arr4.length + 1)
+		console.log(arr4)
 	}
 
 	const map2 = reactive(new Map<string, number>([["a", 1]]))
