@@ -41,6 +41,10 @@
 			<text id="arr4">{{ JSON.stringify(computedArr4) }}</text>
 		</view>
 		<view class="flex justify-between flex-row mb-10">
+			<text>arr5:</text>
+			<text id="arr5">{{ JSON.stringify(arr5Result) }}</text>
+		</view>
+		<view class="flex justify-between flex-row mb-10">
 			<text>map2ForEachEffectCount:</text>
 			<text id="map2">{{ map2ForEachEffectCount }}</text>
 		</view>
@@ -142,6 +146,15 @@
 	function updateArr4() {
 		arr4.push(arr4.length + 1)
 		console.log(arr4)
+	}
+
+	const arr5 = reactive<UTSJSONObject[]>([{ id: 1 }, { id: 2 }])
+	const arr5FirstObj = arr5[0]
+	const arr5FirstRawObj = toRaw<UTSJSONObject>(arr5[0])
+	const arr5Result = {
+		includes: [arr5.includes(arr5FirstObj), arr5.includes(arr5FirstRawObj)],
+		indexOf: [arr5.indexOf(arr5FirstObj), arr5.indexOf(arr5FirstRawObj)],
+		lastIndexOf: [arr5.lastIndexOf(arr5FirstObj), arr5.lastIndexOf(arr5FirstRawObj)],
 	}
 
 	const map2 = reactive(new Map<string, number>([["a", 1]]))
