@@ -78,6 +78,9 @@ describe('reactive', () => {
 		await page.waitFor(100)
 		expect(await arr4.text()).toBe(JSON.stringify([5, 3, 4, 1, 2, 6].sort()))
 		
+		const arr5 = await page.$('#arr5')
+		expect(await arr5.text()).toBe(JSON.stringify({"includes":[true,true],"indexOf":[0,0],"lastIndexOf":[0,0],}))
+		
         const map2 = await page.$('#map2')
         expect(await map2.text()).toBe('1')
         const updateMap2ForEachEffectBtn = await page.$('#update-map2-forEach-effect-btn')
