@@ -1,7 +1,9 @@
 <script lang="uts">
   import { state, setLifeCycleNum, setAppLaunchPath, setAppShowPath } from './store/index.uts'
 
+  // #ifdef APP-ANDROID || APP-HARMONY
   let firstBackTime = 0
+  // #endif
   export default {
     // #ifndef APP-ANDROID
     mixins: [
@@ -34,7 +36,7 @@
       setLifeCycleNum(state.lifeCycleNum - 100)
       console.log('App Hide')
     },
-    // #ifdef APP-ANDROID
+    // #ifdef APP-ANDROID || APP-HARMONY
     onLastPageBackPress: function () {
       // 自动化测试
       setLifeCycleNum(state.lifeCycleNum - 1000)
