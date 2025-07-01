@@ -16,6 +16,7 @@ describe('mixins-page-namesake', () => {
   beforeAll(async () => {
     page = await program.reLaunch(PAGE_PATH)
     await page.waitFor('view')
+    await page.waitFor(1000)
   })
 
   it('components', async () => {
