@@ -14,7 +14,9 @@ import plugin2 from '@/plugins/plugin2.uts'
 import plugin3 from '@/plugins/plugin3.uts'
 import plugin4 from '@/plugins/plugin4.uts'
 import CompForPlugin from '@/components/CompForPlugin.uvue'
+// #ifdef MP
 import CompForPluginCopy from '@/components/CompForPluginCopy.uvue'
+// #endif
 // 仅引用类型，模板中不使用，也要保证不报错
 let testType1 : TestType1ComponentPublicInstance | null = null
 export function createApp() {
