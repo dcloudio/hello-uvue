@@ -1,6 +1,6 @@
 <template>
   <view>
-    <text class="uni-common-mt bold component-for-h-function">component for h()</text>
+    <text class="mt-10 bold component-for-h-function">component for h()</text>
     <text id="comp-for-h-function-msg">{{msg}}</text>
   </view>
 </template>
