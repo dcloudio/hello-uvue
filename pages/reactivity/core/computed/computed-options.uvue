@@ -9,6 +9,10 @@
       <text id="double-count">{{ doubleCount }}</text>
     </view>
     <view class="flex justify-between flex-row mb-10">
+      <text>computed triple count:</text>
+      <text id="triple-count">{{ tripleCount }}</text>
+    </view>
+    <view class="flex justify-between flex-row mb-10">
       <text>obj.arr:</text>
       <text id="obj-arr">{{ JSON.stringify(obj.arr) }}</text>
     </view>
@@ -41,6 +45,9 @@ export default {
   computed: {
     doubleCount(): number {
       return this.count * 2
+    },
+    tripleCount(): number {
+      return this.count * 3
     },
     objArrLen(): number {
       return this.obj.arr.length

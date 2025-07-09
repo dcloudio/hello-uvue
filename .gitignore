@@ -7,3 +7,4 @@ unpackage/
 __image_snapshots__/
 testCaseToSnapshotFilePath.json
 harmony-configs
+/code-review/node_modules

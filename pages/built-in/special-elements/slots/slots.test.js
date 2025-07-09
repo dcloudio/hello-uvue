@@ -5,10 +5,11 @@ const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
 const isMP = platformInfo.startsWith('mp')
 
 describe('built-in/special-elements/slots', () => {
-  let page;
 
-  const test = async () => {
+  const test = async (pagePath) => {
+    const page = await program.reLaunch(pagePath)
     await page.waitFor('view')
+
     expect.assertions(3);
     const childEl = await page.$('.container');
     const container = isMP ? page : childEl
@@ -21,12 +22,10 @@ describe('built-in/special-elements/slots', () => {
   }
 
   it('slots Options API', async () => {
-    page = await program.reLaunch(PAGE_OPTIONS)
-    await test()
+    await test(PAGE_OPTIONS)
   });
 
   it('slots Composition API', async () => {
-    page = await program.reLaunch(PAGE_COMPOSITION)
-    await test()
+    await test(PAGE_COMPOSITION)
   });
 });

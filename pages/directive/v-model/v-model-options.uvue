@@ -17,18 +17,28 @@
       <text id="str-length">{{ strForTrim.length }}</text>
     </view>
     <Parent v-model="value"></Parent>
+    <Parent v-model="utsObj['modelValue']"></Parent>
+    <Parent v-model="typeObj.modelValue"></Parent>
+    <Parent v-model="typeObj.modelValue as string"></Parent>
   </view>
 </template>
 
 <script lang="uts">
-import Parent from './Parent.uvue'    
+import Parent from './Parent.uvue'
+import { VModelObj } from './types.uts'
 export default {
   data(){
     return {
       str: 'str',
       num: 1,
       strForTrim: ' abc ',
-      value: 'nested'
+      value: 'nested',
+      utsObj: {
+        modelValue: 'utsObj.value'
+      },
+      typeObj: {
+        modelValue: 'typeObj.value'
+      } as VModelObj
     }
   },
   components: {

@@ -193,6 +193,11 @@ export default {
                   id: 'props-composition',
                   name: 'props 组合式 API',
                   url: 'props-composition'
+                },
+                {
+                  id: 'page-props',
+                  name: '页面作为组件引入',
+                  url: 'page-props?name=page-props'
                 }
               ]
             },

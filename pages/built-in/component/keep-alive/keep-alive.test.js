@@ -1,18 +1,19 @@
+const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
+const isMP = platformInfo.startsWith('mp')
 const PAGE_PATH_OPTIONS = '/pages/built-in/component/keep-alive/keep-alive-options'
 const PAGE_PATH_COMPOSITION = '/pages/built-in/component/keep-alive/keep-alive-composition'
 
 describe('keep-alive', () => {
-  const platformInfo = process.env.uniTestPlatformInfo.toLocaleLowerCase()
-  const isMP = platformInfo.startsWith('mp')
   if(isMP) {
     it('not support', async () => {
       expect(1).toBe(1)
     })
     return
   }
-  let page = null
-  const testKeepAlive = async () => {
+  const testKeepAlive = async (pagePath) => {
+    const page = await program.reLaunch(pagePath)
     await page.waitFor('view')
+    
     let shouldExcludeBtnList = await page.$$('.should-exclude-btn')
     for (let i = 0; i < shouldExcludeBtnList.length; i++) {
       await shouldExcludeBtnList[i].tap()
@@ -99,11 +100,9 @@ describe('keep-alive', () => {
     }
   }
   it('keep-alive Options API', async () => {
-    page = await program.reLaunch(PAGE_PATH_OPTIONS)
-    await testKeepAlive()
+    await testKeepAlive(PAGE_PATH_OPTIONS)
   })
   it('keep-alive Composition API', async () => {
-    page = await program.reLaunch(PAGE_PATH_COMPOSITION)
-    await testKeepAlive()
+    await testKeepAlive(PAGE_PATH_COMPOSITION)
   })
 })

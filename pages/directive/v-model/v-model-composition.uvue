@@ -5,11 +5,15 @@
       v-model:msg="msg"
       v-model:strArr="strArr"
       v-model:numArr="numArr"
+      v-model:utsObjModelValue="utsObj['modelValue']"
+      v-model:typeObjModelValue="typeObj.modelValue"
       @update:modelValue="handleModelValueUpdate"
       @update:msg="handleModelMsgUpdate"
        />
     <input class="mb-10 input" id="model-value-input" v-model="str" />
     <input class="mb-10 input" id="model-msg-input" v-model="msg" />
+    <input class="mb-10 input" id="model-uts-obj-value-input" v-model="utsObj['modelValue']" />
+    <input class="mb-10 input" id="model-type-obj-value-input" v-model="typeObj.modelValue" />
     <view class="mb-10 flex justify-between flex-row">
       <text>handle modelValue update res:</text>
       <text id="handle-model-value-update-res">{{ handleModelValueUpdateRes }}</text>
@@ -25,6 +29,7 @@
 <script setup lang="uts">
 import Foo from './Foo-composition.uvue'
 import Parent from './Parent.uvue'
+import { VModelObj } from './types.uts'
 
 const str = ref('str')
 const msg = ref('msg')
@@ -39,6 +44,10 @@ const handleModelMsgUpdateRes = ref('')
 const handleModelMsgUpdate = (val : string) => {
   handleModelMsgUpdateRes.value = val
 }
+
+const utsObj = reactive({ modelValue: 'utsObj.value' })
+const typeObj = reactive({ modelValue: 'typeObj.value' } as VModelObj)
+
 </script>
 
 <style>

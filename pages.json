@@ -905,6 +905,24 @@
       "style": {
         "navigationBarTitleText": "throw error 组合式 API"
       }
+    },
+    {
+      "path": "pages/component-instance/props/page-props",
+      "style": {
+        "navigationBarTitleText": "页面作为组件引入"
+      }
+    },
+    {
+      "path": "pages/component-instance/props/page-props-options",
+      "style": {
+        "navigationBarTitleText": "页面通过 url props 传参-选项式"
+      }
+    },
+    {
+      "path": "pages/component-instance/props/page-props-composition",
+      "style": {
+        "navigationBarTitleText": "页面通过 url props 传参-组合式"
+      }
     }
   ],
   "globalStyle": {
