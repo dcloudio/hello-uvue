@@ -16,7 +16,6 @@
       }],
     // #endif
     onLaunch: function (options) {
-      console.log(options)
       // 自动化测试
       setLifeCycleNum(state.lifeCycleNum + 1000)
       setAppLaunchPath(options.path)
