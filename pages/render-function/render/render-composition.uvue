@@ -5,7 +5,7 @@ import Foo from './Foo.uvue'
 const msg = ref('default msg')
 const list = ref(['a','b'])
 // 故意外部声明为UTSJSONObject
-const msgProps = { class: 'uni-common-mt msg', style: { color: 'blue' } }
+const msgProps = { class: 'mt-10 msg', style: { color: 'blue' } }
 const render = ():VNode => {
   const textList: VNode[] = []
   list.value.forEach((item) => {
@@ -23,7 +23,7 @@ const render = ():VNode => {
     h(
       'button',
       {
-        class: 'uni-common-mt btn',
+        class: 'mt-10 btn',
         type: 'primary',
         onClick: () => {
           msg.value = 'new msg'

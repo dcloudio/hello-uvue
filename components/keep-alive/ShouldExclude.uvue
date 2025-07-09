@@ -1,8 +1,8 @@
 <template>
 	<view>
 		<text>should not be keep-alive</text>
-		<text class="uni-common-mt should-exclude-text">count: {{ count }}</text>
-		<button class="uni-common-mt should-exclude-btn" @click="increment">+</button>
+		<text class="mt-10 should-exclude-text">count: {{ count }}</text>
+		<button class="mt-10 should-exclude-btn" @click="increment">+</button>
 	</view>
 </template>
 
