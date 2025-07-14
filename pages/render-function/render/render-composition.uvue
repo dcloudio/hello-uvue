@@ -6,7 +6,12 @@ const msg = ref('default msg')
 const list = ref(['a','b'])
 // 故意外部声明为UTSJSONObject
 const msgProps = { class: 'mt-10 msg', style: { color: 'blue' } }
+// #ifdef APP-ANDROID
+const render = computed(():VNode => {
+// #endif
+// #ifndef APP-ANDROID
 const render = ():VNode => {
+// #endif
   const textList: VNode[] = []
   list.value.forEach((item) => {
     textList.push(h('text', { class: 'text-item' }, item))
@@ -34,6 +39,9 @@ const render = ():VNode => {
     )
   ])
 }
+// #ifdef APP-ANDROID
+)
+// #endif
 </script>
 
 <template><render /></template>

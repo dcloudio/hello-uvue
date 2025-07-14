@@ -1016,9 +1016,6 @@ export default {
                 {
                   id: 'render-composition',
                   name: 'render 组合式 API',
-                  // #ifdef APP-ANDROID
-                  enable: false,
-                  // #endif
                   url: 'render-composition'
                 },
               ]
