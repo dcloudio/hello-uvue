@@ -10,7 +10,7 @@
       @update:modelValue="handleModelValueUpdate"
       @update:msg="handleModelMsgUpdate"
        />
-    <input class="mb-10 input" id="model-value-input" v-model="str" />
+    <input class="mb-10 input" id="model-value-input" v-model="str" @input="onInput" />
     <input class="mb-10 input" id="model-msg-input" v-model="msg" />
     <input class="mb-10 input" id="model-uts-obj-value-input" v-model="utsObj['modelValue']" />
     <input class="mb-10 input" id="model-type-obj-value-input" v-model="typeObj.modelValue" />
@@ -48,6 +48,9 @@ const handleModelMsgUpdate = (val : string) => {
 const utsObj = reactive({ modelValue: 'utsObj.value' })
 const typeObj = reactive({ modelValue: 'typeObj.value' } as VModelObj)
 
+function onInput(){
+  // noop
+}
 </script>
 
 <style>
