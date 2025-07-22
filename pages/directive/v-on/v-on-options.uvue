@@ -50,11 +50,13 @@ export default {
       } as BtnPreventRect
     }
   },
+	// #ifndef APP-ANDROID || APP-IOS
   onReady(){
     const btnPrevent = uni.getElementById("btn-prevent")
     this.btnPreventRect.value = btnPrevent?.getBoundingClientRect()
     this.btnPreventRect.value!.y += uni.getSystemInfoSync().safeArea.top + 44
   },
+	// #endif
   methods: {
     handleTouchstart(){
       console.log('handleTouchstart')
