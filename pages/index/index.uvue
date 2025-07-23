@@ -655,7 +655,7 @@ export default {
           id: 'directive',
           name: '指令',
           pages: [
-            // #ifndef APP-IOS || MP
+            // #ifndef APP-IOS || MP || APP-HARMONY
             {
               id: 'v-html',
               name: 'v-html',
