@@ -60,6 +60,10 @@
 			<text>set3ForOfEffectCount:</text>
 			<text id="set3">{{ set3ForOfEffectCount }}</text>
 		</view>
+    <view class="flex justify-between flex-row mb-10">
+    	<text>response.data.success:</text>
+    	<text id="generic">{{ response.data.success }}</text>
+    </view>
 		<button class='mb-10' id="update-count-btn" @click="updateCount">update count</button>
 		<button class='mb-10' id="update-obj-str-btn" @click="updateObjStr">update obj.str</button>
 		<button class='mb-10' id="update-obj-num-btn" @click="updateObjNum">update obj.num</button>
@@ -73,6 +77,7 @@
 		<button class='mb-10' id="update-map3-forOf-effect-btn" @click="updateMap3()">update map3 for of</button>
 		<button class='mb-10' id="update-set2-forEach-effect-btn" @click="updateSet2()">update set2 for each</button>
 		<button class='mb-10' id="update-set3-forOf-effect-btn" @click="updateSet3()">update set3 for of</button>
+    <button class='mb-10' id="update-generic" @click="updateResponse()">response.data.success</button>
 	</scroll-view>
 </template>
 
@@ -204,4 +209,18 @@
 	function updateSet3() {
 		set3.add(Date.now())
 	}
+  
+  type BaseResponse<T> = {
+  	code : number
+  	data : T
+  }
+  const response = reactive<BaseResponse<UTSJSONObject>>({
+  	code: 1,
+  	data: {
+      success: true
+    } as UTSJSONObject
+  })
+  function updateResponse() {
+  	response.data.success = response.data.success != true
+  }
 </script>

@@ -108,5 +108,12 @@ describe('reactive', () => {
         await updateSet3ForOfEffectBtn.tap()
         await page.waitFor(100)
         expect(await set3.text()).toBe('2')
+        
+        const generic = await page.$('#generic')
+        expect(await generic.text()).toBe('true')
+        const updateGeneric = await page.$('#update-generic')
+        await updateGeneric.tap()
+        await page.waitFor(100)
+        expect(await generic.text()).toBe('false')
     })
 })
