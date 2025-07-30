@@ -823,7 +823,7 @@
     {
       "path": "pages/render-function/withDirectives/withDirectives-composition",
       "style": {
-        "navigationBarTitleText": "resolveComponent 组合式 API"
+        "navigationBarTitleText": "withDirectives 组合式 API"
       }
     },
     {
