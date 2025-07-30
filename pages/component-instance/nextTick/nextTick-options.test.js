@@ -30,6 +30,13 @@ describe('$nextTick()', () => {
     expect(pageDataInfo.afterNextTickCallbackTitle).toBe('new title for callback')
     expect(pageDataInfo.beforeNextTickPromiseTitle).toBe('default title for promise')
     expect(pageDataInfo.afterNextTickPromiseTitle).toBe('new title for promise')
+
+    let vIfNextTickTestTextGetAble = await page.data('vIfNextTickTestTextGetAble')
+    expect(vIfNextTickTestTextGetAble).toBe(false)
+    await page.callMethod('afterNextTickGetText')
+    await page.waitFor(1000)
+    vIfNextTickTestTextGetAble = await page.data('vIfNextTickTestTextGetAble')
+    expect(vIfNextTickTestTextGetAble).toBe(true)
   });
 
   it('$nextTick component', async () => {

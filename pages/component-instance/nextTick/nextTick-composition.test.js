@@ -27,6 +27,12 @@ describe('$nextTick()', () => {
     pageDataInfo = await page.data('dataInfo')
     expect(pageDataInfo.beforeNextTickTitle).toBe('default title')
     expect(pageDataInfo.afterNextTickTitle).toBe('new title')
+    pageDataInfo = await page.data('dataInfo')
+    expect(pageDataInfo.vIfNextTickTestTextGetAble).toBe(false)
+    await page.callMethod('afterNextTickGetText')
+    await page.waitFor(1000)
+    pageDataInfo = await page.data('dataInfo')
+    expect(pageDataInfo.vIfNextTickTestTextGetAble).toBe(true)
   });
   
   it('nextTick component', async () => {
